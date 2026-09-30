@@ -13,20 +13,41 @@ export const BBoxSchema = z.object({
   height: z.number().min(0.01).max(1),
 });
 
+/**
+ * Gemini vision models are trained on box_2d = [ymin, xmin, ymax, xmax] on a
+ * 0..1000 scale and drift to it even when asked for 0..1 x/y/width/height, so
+ * that is the format we request. A plain 0..1 `bbox` is still accepted.
+ */
+const Box2d = z.array(z.number().min(0).max(1000)).length(4);
+export function box2dToBBox([ymin, xmin, ymax, xmax]: number[]): z.infer<typeof BBoxSchema> {
+  const x = Math.min(xmin, xmax) / 1000, y = Math.min(ymin, ymax) / 1000;
+  return { x, y, width: Math.max(0.01, Math.abs(xmax - xmin) / 1000), height: Math.max(0.01, Math.abs(ymax - ymin) / 1000) };
+}
+const ModelBox = { box_2d: Box2d.optional(), bbox: BBoxSchema.optional() };
+function withBBox<T extends { box_2d?: number[]; bbox?: z.infer<typeof BBoxSchema> }>(m: T) {
+  const { box_2d, bbox, ...rest } = m;
+  return { ...rest, bbox: box_2d ? box2dToBBox(box_2d) : bbox };
+}
+
 const Match = z.object({
   question_label: z.string(),
   exercise_label: z.string().nullable().optional().default(null),
-  bbox: BBoxSchema,
+  ...ModelBox,
   continues_to_next_page: z.boolean().default(false),
   question_text: z.string().default(""),
-  confidence: z.number().min(0).max(1),
-});
+  // Models sometimes overshoot 0..1 (e.g. 1.98 or 95); clamp rather than drop a good match.
+  confidence: z.preprocess((v) => (typeof v === "number" ? Math.max(0, Math.min(1, v)) : v), z.number().min(0).max(1)),
+})
+  .refine((m) => m.box_2d || m.bbox, { message: "box_2d is required" })
+  .transform((m) => withBBox(m) as Omit<typeof m, "box_2d" | "bbox"> & { bbox: z.infer<typeof BBoxSchema> });
 export const QuestionDetection = z.object({ matches: z.array(Match).max(6) });
 export type QuestionMatch = z.infer<typeof Match>;
 
-const Continuation = z.object({ found: z.boolean(), bbox: BBoxSchema.nullable().optional().default(null), text: z.string().default("") });
+const Continuation = z
+  .object({ found: z.boolean(), box_2d: Box2d.nullable().optional(), bbox: BBoxSchema.nullable().optional(), text: z.string().default("") })
+  .transform(({ box_2d, bbox, ...rest }) => ({ ...rest, bbox: box_2d ? box2dToBBox(box_2d) : (bbox ?? null) }));
 
-const BBOX_JSON = { type: "object", properties: { x: { type: "number" }, y: { type: "number" }, width: { type: "number" }, height: { type: "number" } }, required: ["x", "y", "width", "height"] };
+const BOX_2D_JSON = { type: "array", items: { type: "number" }, minItems: 4, maxItems: 4 };
 const DETECTION_JSON = {
   type: "object",
   properties: {
@@ -35,10 +56,10 @@ const DETECTION_JSON = {
       items: {
         type: "object",
         properties: {
-          question_label: { type: "string" }, exercise_label: { type: ["string", "null"] }, bbox: BBOX_JSON,
+          question_label: { type: "string" }, exercise_label: { type: ["string", "null"] }, box_2d: BOX_2D_JSON,
           continues_to_next_page: { type: "boolean" }, question_text: { type: "string" }, confidence: { type: "number" },
         },
-        required: ["question_label", "bbox", "continues_to_next_page", "question_text", "confidence"],
+        required: ["question_label", "box_2d", "continues_to_next_page", "question_text", "confidence"],
       },
     },
   },

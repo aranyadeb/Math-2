@@ -18,13 +18,14 @@ export async function transcribeAudio(
 ): Promise<{ transcript: string; model: string }> {
   const model = modelFor("transcribe");
   const hints = ctx.bookTitle ? `Active book: ${ctx.bookTitle}.` : "";
+  // Transcription models reject systemInstruction ("Developer instruction is
+  // not enabled for this model"), so the instructions travel in the user turn.
   const r = await generateText(
     { task: "transcribe", model, supabase: ctx.supabase, userId: ctx.userId },
     {
-      system: TRANSCRIBE_SYSTEM,
       parts: [
         { inlineData: { data: audio.toString("base64"), mimeType: mime } },
-        textPart(`Transcribe this command. ${hints} Vocabulary hints: ${TRANSCRIBE_VOCABULARY.join(", ")}.`),
+        textPart(`${TRANSCRIBE_SYSTEM}\n\nTranscribe this command. ${hints} Vocabulary hints: ${TRANSCRIBE_VOCABULARY.join(", ")}.`),
       ],
     },
   );

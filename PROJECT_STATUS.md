@@ -52,19 +52,23 @@
   - `/login` loads, app pages redirect to sign-in and `/api/*` returns 401.
   - Anonymous REST reads of every table return `[]` (RLS).
   - The `book-pages`, `question-crops` and `graph-previews` buckets exist and are private. Anonymous uploads are refused by RLS, while an unknown bucket returns `NoSuchBucket`.
-- **Not yet exercised live.** These need a signed-in session:
-  - sign-in by magic link or code
-  - PDF import and page mapping
-  - the graph workspace
-  - voice transcription with real audio
-
-  The same flows pass end to end against the local test backend (`npm run test:e2e`).
+- **Live voice → graph chain.** This ran through the app code with real Gemini, a spoken command (8 s WAV) and the rendered test PDF:
+  - **Voice:** transcribed as "Page 4.33, question 22. Show me every useful graph."
+  - **Command:** parsed as `GRAPH_ALL_USEFUL`, page "4.33", Q22.
+  - **Page labels:** PDF pages 1, 5 and 8 were read as 4.29, 4.33 and 4.36 (chapter 4).
+  - **Question box:** Q22 was located and cropped exactly.
+  - **Graph:** f, f′, the maximum (−1, 2) and minimum (1, −2) and the critical points. It validates with no issues.
+- **Bugs found and fixed by the live run:**
+  - **Transcription.** `gemini-3.5-transcribe` rejects `systemInstruction`, so the instructions are now sent in the user turn. It also returns the transcript as an `audioTranscription` part, not text; `generateText` now reads it.
+  - **Question boxes.** Detection now asks for Gemini's native `box_2d` [ymin, xmin, ymax, xmax] on a 0..1000 scale and converts it. Asked for 0..1 x/y/width/height, the model returned 0..1000 corner coordinates, so crops were too tall. A plain 0..1 `bbox` is still accepted.
+  - **Detection confidence.** Out-of-range values (e.g. 1.98) are now clamped rather than rejecting a good match.
+- **Not yet exercised live.** Sign-in and the in-browser flows need your own inbox. These are sign-in, PDF upload to Storage, the mapping screen, the graph workspace UI and the mic in the browser. All of them pass end to end against the local test backend (`npm run test:e2e`).
 
 ## Externally blocked
 - Nothing is blocked.
 
 ## Tests
-- `npm test`: 89 unit and integration tests. They cover:
+- `npm test`: 92 unit and integration tests. They cover:
   - page labels and the resolver, including every case in the spec
   - sequence inference
   - command parsing, and the command → resolution acceptance cases

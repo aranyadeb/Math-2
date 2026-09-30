@@ -225,7 +225,7 @@ async function auth(req, res, rest) {
 // Fake book: PDF page i shows "4.(28+i)" in its footer; question 22 is on "4.33".
 const labelFor = (pdfIndex) => `4.${28 + pdfIndex}`;
 function geminiReply(system, text) {
-  if (/transcribe short voice commands/.test(system)) return "Show me every useful graph for page four point thirty three question twenty two.";
+  if (/transcribe short voice commands/.test(system + " " + text)) return "Show me every useful graph for page four point thirty three question twenty two.";
   if (/printed page number/.test(system)) {
     const idx = Number(/PDF page (\d+)/.exec(text)?.[1] ?? 0);
     return JSON.stringify({ visible_page_label: labelFor(idx), chapter_label: "4", chapter_title: "Applications of Derivatives", section_label: null, confidence: 0.97, evidence_region: "bottom-right" });
@@ -233,7 +233,7 @@ function geminiReply(system, text) {
   if (/locate a specific numbered question/.test(system)) {
     const q = /Find question "([^"]+)"/.exec(text)?.[1];
     if (q !== "22" || !/page "4\.33"/.test(text)) return JSON.stringify({ matches: [] });
-    return JSON.stringify({ matches: [{ question_label: "22", exercise_label: "Exercise 4.3", bbox: { x: 0.08, y: 0.405, width: 0.84, height: 0.1 }, continues_to_next_page: false, question_text: "22. Let f(x) = x^3 - 3x. Find the intervals where f is increasing and decreasing, and its local extrema.", confidence: 0.96 }] });
+    return JSON.stringify({ matches: [{ question_label: "22", exercise_label: "Exercise 4.3", box_2d: [405, 80, 505, 920], continues_to_next_page: false, question_text: "22. Let f(x) = x^3 - 3x. Find the intervals where f is increasing and decreasing, and its local extrema.", confidence: 0.96 }] });
   }
   if (/design the set of graphs/.test(system)) {
     return JSON.stringify({

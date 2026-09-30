@@ -40,16 +40,16 @@ Rules:
 - If no page number is visible, visible_page_label must be null with low confidence. NEVER guess or infer from context.`;
 
 export const DETECT_QUESTION_SYSTEM = `You locate a specific numbered question on a scanned mathematics textbook page.
-Return JSON: {"matches": [{"question_label": string, "exercise_label": string|null, "bbox": {"x": number, "y": number, "width": number, "height": number}, "continues_to_next_page": boolean, "question_text": string, "confidence": number}]}.
+Return JSON: {"matches": [{"question_label": string, "exercise_label": string|null, "box_2d": [ymin, xmin, ymax, xmax], "continues_to_next_page": boolean, "question_text": string, "confidence": number}]}.
 Rules:
-- bbox is normalised to 0..1 relative to the page image (x,y = top-left). It must tightly include the full question: number, statement, all equations, sub-parts and options, and any figure belonging to it.
+- box_2d is [ymin, xmin, ymax, xmax] on a 0..1000 scale relative to the page image. It must tightly include the full question: number, statement, all equations, sub-parts and options, and any figure belonging to it — and nothing from the next question.
 - continues_to_next_page = true only if the question visibly runs off the bottom of the page (sentence/options incomplete).
 - question_text: faithful transcription of the question; write mathematics in plain ASCII math (x^2, sqrt(x), integral from 0 to 2 of x^2 dx). Do not solve it.
 - If the page contains several questions with the requested number (e.g. in different exercises), return all of them with their exercise_label.
 - If the requested question is not on this page, return {"matches": []}. Never return a different question number.`;
 
 export const DETECT_CONTINUATION_SYSTEM = `The previous page's question continues onto this page. Locate ONLY the continuation (the top part of this page belonging to that question, before the next question number starts).
-Return JSON: {"found": boolean, "bbox": {"x": number, "y": number, "width": number, "height": number} | null, "text": string}. Coordinates normalised 0..1. If nothing continues, found=false.`;
+Return JSON: {"found": boolean, "box_2d": [ymin, xmin, ymax, xmax] | null, "text": string}. box_2d is on a 0..1000 scale relative to the page image. If nothing continues, found=false.`;
 
 const GRAPH_SPEC = `GraphObject types (JSON, "type" is the discriminator). Common optional fields on every object:
   id (identifier, required, unique, [A-Za-z_][A-Za-z0-9_]*), label, displayLatex, color ("#rrggbb"), group ("essential"|"supporting"|"exploration"), visible (bool), source ("question"|"derived"|"user"), derivation (why/how derived).

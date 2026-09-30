@@ -83,7 +83,10 @@ export async function generateText(meta: CallMeta, opts: { system?: string; part
     const inputTokens = res.usageMetadata?.promptTokenCount ?? 0;
     const outputTokens = res.usageMetadata?.candidatesTokenCount ?? 0;
     await logUsage(meta, { inputTokens, outputTokens, latencyMs, success: true });
-    return { data: (res.text ?? "").trim(), model: meta.model, inputTokens, outputTokens, latencyMs };
+    // Transcription models return the transcript as an audioTranscription part, not text.
+    const parts = (res.candidates?.[0]?.content?.parts ?? []) as Array<{ audioTranscription?: { text?: string } }>;
+    const text = res.text || parts.map((p) => p.audioTranscription?.text ?? "").join(" ");
+    return { data: text.trim(), model: meta.model, inputTokens, outputTokens, latencyMs };
   } catch (e) {
     await logUsage(meta, { inputTokens: 0, outputTokens: 0, latencyMs: Date.now() - started, success: false, error: (e as Error).message });
     throw e instanceof AIError ? e : new AIError(`Gemini request failed: ${(e as Error).message}`);
