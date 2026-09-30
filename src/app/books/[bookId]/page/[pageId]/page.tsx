@@ -96,7 +96,7 @@ function PageViewer({ bookId, pageId }: { bookId: string; pageId: string }) {
 
       <Card className="space-y-3 p-3">
         <p className="text-sm text-muted">
-          {editing ? `Adjust the box for Q${editing.question_label}${editing.exercise_label ? ` (${editing.exercise_label})` : ""}.` : "Drag on the page to draw a box around a question. Tap a blue box to edit it."}
+          {editing ? `Adjust the box for Q${editing.question_label}${editing.exercise_label ? ` (${editing.exercise_label})` : ""}.` : "Drag on the page to draw a box around a question. Tap a blue label to edit an existing box."}
         </p>
         <div className="grid gap-2 sm:grid-cols-[1fr_1fr_auto_auto]">
           <div><Label htmlFor="ql">Question</Label><Input id="ql" value={qLabel} disabled={!!editing} onChange={(e) => setQLabel(e.target.value)} placeholder="22" /></div>

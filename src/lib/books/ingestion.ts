@@ -4,13 +4,18 @@ import type { SupabaseClient } from "@supabase/supabase-js";
 import { BUCKETS, pageImagePath, pageThumbPath } from "../supabase/storage";
 import { QUALITY_PRESETS, canvasToImageBlob, scaledCanvas, type QualityPreset } from "./image-compression";
 
-let pdfjsPromise: Promise<typeof import("pdfjs-dist")> | null = null;
+type PdfjsModule = typeof import("pdfjs-dist");
+let pdfjsPromise: Promise<PdfjsModule> | null = null;
 
-/** Lazy-load PDF.js (heavy) only on the import screen. */
-export function loadPdfjs() {
+/**
+ * Lazy-load PDF.js (heavy) only on the import screen. The "legacy" build is
+ * used deliberately: it bundles polyfills (e.g. Map.getOrInsertComputed)
+ * that current mobile Safari / Android Chrome do not ship yet.
+ */
+export function loadPdfjs(): Promise<PdfjsModule> {
   if (!pdfjsPromise) {
-    pdfjsPromise = import("pdfjs-dist").then((m) => {
-      m.GlobalWorkerOptions.workerSrc = new URL("pdfjs-dist/build/pdf.worker.min.mjs", import.meta.url).toString();
+    pdfjsPromise = (import("pdfjs-dist/legacy/build/pdf.mjs") as Promise<PdfjsModule>).then((m) => {
+      m.GlobalWorkerOptions.workerSrc = new URL("pdfjs-dist/legacy/build/pdf.worker.min.mjs", import.meta.url).toString();
       return m;
     });
   }

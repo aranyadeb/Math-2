@@ -166,7 +166,7 @@ export const renderIntersections: Renderer<ObjOf<"intersection_marker">> = (ctx,
   return pts.slice(0, 30).map((p) =>
     create(ctx.board, "point", [p.x, p.y], {
       fixed: true, size: 3, strokeColor: color, fillColor: "#ffffff", name: `(${fmtNum(p.x, 3)}, ${fmtNum(p.y, 3)})`,
-      withLabel: true, label: { offset: [6, 10], fontSize: 11, display: "internal", parse: false }, highlight: false,
+      withLabel: true, label: { offset: [6, 10], fontSize: 11, display: "internal", parse: false, useMathJax: false, useKatex: false }, highlight: false,
     }),
   );
 };

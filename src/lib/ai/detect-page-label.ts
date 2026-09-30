@@ -43,11 +43,12 @@ export async function headerFooterStrip(image: Buffer, mode: "strips" | "full" =
   const top = await sharp(image).extract({ left: 0, top: 0, width: W, height: band }).toBuffer();
   const bottom = await sharp(image).extract({ left: 0, top: H - band, width: W, height: band }).toBuffer();
   const gap = 12;
-  return sharp({ create: { width: W, height: band * 2 + gap, channels: 3, background: "#808080" } })
+  // sharp applies resize before composite within one pipeline, so compose first, then scale.
+  const stacked = await sharp({ create: { width: W, height: band * 2 + gap, channels: 3, background: "#808080" } })
     .composite([{ input: top, top: 0, left: 0 }, { input: bottom, top: band + gap, left: 0 }])
-    .resize({ width: Math.min(W, 1000) })
-    .webp({ quality: 75 })
+    .png()
     .toBuffer();
+  return sharp(stacked).resize({ width: Math.min(W, 1000) }).webp({ quality: 75 }).toBuffer();
 }
 
 export async function detectPageLabel(

@@ -1,7 +1,7 @@
 -- Initial schema for the math textbook graph application.
 -- All user-owned tables have RLS enabled; every policy is scoped to auth.uid().
 
-create extension if not exists "pgcrypto";
+-- gen_random_uuid() is built into PostgreSQL 13+ (no extension needed).
 
 -- ---------------------------------------------------------------------------
 -- updated_at helper
@@ -325,3 +325,17 @@ create policy "own_objects_update" on storage.objects for update to authenticate
 create policy "own_objects_delete" on storage.objects for delete to authenticated
   using (bucket_id in ('book-pages','question-crops','graph-previews')
          and (storage.foldername(name))[1] = auth.uid()::text);
+
+-- The active book in preferences must also belong to the user.
+create or replace function public.assert_active_book_owner()
+returns trigger language plpgsql security definer set search_path = public as $$
+begin
+  if new.active_book_id is not null and not exists (
+    select 1 from public.books b where b.id = new.active_book_id and b.user_id = new.user_id
+  ) then
+    raise exception 'book % not owned by user', new.active_book_id using errcode = '42501';
+  end if;
+  return new;
+end $$;
+create trigger user_preferences_active_book_owner before insert or update on public.user_preferences
+  for each row execute function public.assert_active_book_owner();

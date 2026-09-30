@@ -9,6 +9,8 @@ const PublicEnv = z.object({
 /** Server-only configuration. Never import this into client components. */
 const ServerEnv = z.object({
   GEMINI_API_KEY: z.string().min(10),
+  /** Optional API base URL override (proxies / the local end-to-end test backend). */
+  GEMINI_BASE_URL: z.string().url().optional(),
   GEMINI_FAST_MODEL: z.string().min(1).default("gemini-3.1-flash-lite"),
   GEMINI_REASONING_MODEL: z.string().min(1).default("gemini-3.8-flash"),
   GEMINI_TRANSCRIBE_MODEL: z.string().min(1).default("gemini-3.5-transcribe"),

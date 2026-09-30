@@ -15,7 +15,7 @@ export function Providers({ children }: { children: ReactNode }) {
   return (
     <AppStateProvider>
       <Header />
-      <main>{children}</main>
+      <main className="pb-16 sm:pb-0">{children}</main>
     </AppStateProvider>
   );
 }

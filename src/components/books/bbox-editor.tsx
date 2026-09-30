@@ -69,16 +69,22 @@ export function BBoxEditor({ src, value, onChange, others = [], alt }: {
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img src={src} alt={alt} draggable={false} className="pointer-events-none block w-full rounded bg-white" />
       {others.map((o, i) => (
-        <button
+        // Existing boxes never block drawing: only their label chip is interactive.
+        <div
           key={i}
-          type="button"
-          onPointerDown={(e) => e.stopPropagation()}
-          onClick={o.onClick}
-          className="absolute border-2 border-dashed border-sky-500/70 bg-sky-500/5 text-left"
+          className="pointer-events-none absolute border-2 border-dashed border-sky-500/70 bg-sky-500/5"
           style={{ left: pct(o.bbox.x), top: pct(o.bbox.y), width: pct(o.bbox.width), height: pct(o.bbox.height) }}
         >
-          <span className="absolute -top-5 left-0 rounded bg-sky-600 px-1 text-[10px] text-white">{o.label}</span>
-        </button>
+          <button
+            type="button"
+            onPointerDown={(e) => e.stopPropagation()}
+            onClick={o.onClick}
+            className="pointer-events-auto absolute -top-6 left-0 rounded bg-sky-600 px-1.5 py-0.5 text-xs text-white"
+            aria-label={`Edit ${o.label}`}
+          >
+            {o.label} ✎
+          </button>
+        </div>
       ))}
       {value ? (
         <div

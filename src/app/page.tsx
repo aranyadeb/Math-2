@@ -65,7 +65,10 @@ export default function Dashboard() {
             </ul>
           )}
         </Card>
-        <Link href="/history" className="mt-2 inline-block text-sm text-accent">All history →</Link>
+        <div className="mt-2 flex justify-between text-sm">
+          <Link href="/history" className="text-accent">All history →</Link>
+          <Link href="/lab" className="text-muted hover:text-fg">Graph lab (no book)</Link>
+        </div>
       </section>
     </div>
   );

@@ -11,6 +11,14 @@ export function primaryFunction(doc: GraphDocument): Fn | null {
   return fns.find((f) => f.source === "question" && f.group === "essential") ?? fns.find((f) => f.source !== "derived") ?? fns[0] ?? null;
 }
 
+/** Human-friendly display of a math.js expression ("6 * x" -> "6x", "x ^ 2" -> "x^2"). */
+export function prettyExpr(expr: string): string {
+  return expr
+    .replace(/(\d)\s*\*\s*([a-zA-Z(])/g, "$1$2")
+    .replace(/\s*\*\s*/g, "·")
+    .replace(/\s*\^\s*/g, "^");
+}
+
 function nameOf(f: Fn): string {
   const m = /^([A-Za-z]\w*)\s*\(/.exec(f.displayLatex ?? "");
   return m ? m[1] : f.id;
@@ -57,7 +65,7 @@ export function deterministicFollowUp(doc: GraphDocument, cmd: ParsedCommand): D
       if (already) return { patch: { operations: [{ op: "set_visibility", id: already.id, visible: true }] }, reply: `Showing ${n}${second ? "''" : "'"}(x) again.` };
       const obj: GraphObject = {
         type: "function", id: uniqueId(doc, second ? `d2${f.id}` : `d${f.id}`), expression: expr, variable: "x",
-        displayLatex: `${n}${second ? "''" : "'"}(x) = ${expr}`, group: "supporting", visible: true, source: "derived",
+        displayLatex: `${n}${second ? "''" : "'"}(x) = ${prettyExpr(expr)}`, group: "supporting", visible: true, source: "derived",
         derivation: second ? `Second derivative of ${n}` : `Derivative of ${n}`, dashed: true,
       };
       return { patch: { operations: [{ op: "add", object: obj }] }, reply: `Added ${obj.displayLatex} (computed symbolically).` };

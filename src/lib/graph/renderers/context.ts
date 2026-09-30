@@ -58,6 +58,8 @@ export function baseAttrs(ctx: RenderContext, obj: GraphObject, extra: Record<st
     highlight: false,
     name: obj.label ?? "",
     withLabel: false,
+    // Model/user-provided names are untrusted: never let JSXGraph render them as HTML.
+    label: { display: "internal", parse: false, useMathJax: false, useKatex: false },
     ...extra,
   };
 }

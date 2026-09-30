@@ -7,7 +7,10 @@ import { estimateCostUsd } from "./models";
 
 let ai: GoogleGenAI | null = null;
 function gemini(): GoogleGenAI {
-  if (!ai) ai = new GoogleGenAI({ apiKey: serverEnv().GEMINI_API_KEY });
+  if (!ai) {
+    const env = serverEnv();
+    ai = new GoogleGenAI({ apiKey: env.GEMINI_API_KEY, ...(env.GEMINI_BASE_URL ? { httpOptions: { baseUrl: env.GEMINI_BASE_URL } } : {}) });
+  }
   return ai;
 }
 

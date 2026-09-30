@@ -8,6 +8,7 @@ import { mergeLiveState, restoreGraphDocument } from "@/lib/graph/serializer";
 import { applyPatch, dependentsOf } from "@/lib/graph/validation";
 import type { BookPageRow, BookRow, GraphMessageRow, GraphSessionRow, QuestionCacheRow } from "@/lib/supabase/types";
 import { useSignedUrl } from "@/hooks/use-signed-url";
+import { usePrefersDark } from "@/hooks/use-prefers-dark";
 import { CommandBar } from "../command/command-bar";
 import { Button, Card, Notice, Spinner, cx } from "../ui/primitives";
 import { GraphBoard, type BoardApi } from "./graph-board";
@@ -23,21 +24,6 @@ const TABS: { id: Tab; label: string }[] = [
   { id: "explanation", label: "Explanation" },
 ];
 const SAVE_DELAY = 1000;
-
-function usePrefersDark(): boolean {
-  const [dark, setDark] = useState(false);
-  useEffect(() => {
-    const root = document.documentElement;
-    const mq = window.matchMedia("(prefers-color-scheme: dark)");
-    const compute = () => setDark(root.classList.contains("dark") || (!root.classList.contains("light") && mq.matches));
-    compute();
-    mq.addEventListener("change", compute);
-    const obs = new MutationObserver(compute);
-    obs.observe(root, { attributes: true, attributeFilter: ["class"] });
-    return () => { mq.removeEventListener("change", compute); obs.disconnect(); };
-  }, []);
-  return dark;
-}
 
 /** Structure key excludes live values (slider value, viewport) so dragging/sliding never rebuilds the board. */
 function structureKeyOf(doc: GraphDocument): string {
@@ -167,9 +153,9 @@ export function GraphWorkspace({ sessionId }: { sessionId: string }) {
       </div>
       <p className="-mt-2 text-sm italic text-muted">“{session.transcript ?? session.original_user_query}”</p>
 
-      <div className="grid min-h-0 flex-1 gap-3 lg:grid-cols-[minmax(280px,2fr)_3fr]">
+      <div className="grid min-h-0 flex-1 grid-cols-[minmax(0,1fr)] gap-3 lg:grid-cols-[minmax(280px,2fr)_minmax(0,3fr)]">
         {/* Question / page */}
-        <Card className="flex min-h-0 flex-col overflow-hidden">
+        <Card className="flex min-h-0 min-w-0 flex-col overflow-hidden">
           <div className="flex items-center justify-between border-b border-border px-3 py-2 text-sm">
             <span className="font-medium">{showPage ? "Textbook page" : "Question"}</span>
             <div className="flex gap-1">
@@ -189,7 +175,7 @@ export function GraphWorkspace({ sessionId }: { sessionId: string }) {
         </Card>
 
         {/* Graph + panels */}
-        <div className="flex min-h-0 flex-col gap-3">
+        <div className="flex min-h-0 min-w-0 flex-col gap-3">
           <Card className="relative h-[55vh] min-h-[320px] overflow-hidden lg:h-auto lg:flex-1">
             <GraphBoard
               doc={doc}
@@ -208,7 +194,7 @@ export function GraphWorkspace({ sessionId }: { sessionId: string }) {
             </div>
           </Card>
 
-          <Card className="flex min-h-0 flex-col lg:max-h-[42%]">
+          <Card className="flex min-h-0 min-w-0 flex-col lg:max-h-[42%]">
             <div role="tablist" aria-label="Graph groups" className="flex overflow-x-auto border-b border-border">
               {TABS.map((t) => (
                 <button
@@ -251,10 +237,11 @@ export function GraphWorkspace({ sessionId }: { sessionId: string }) {
         </div>
       </div>
 
-      <Card className="p-3">
-        <Conversation messages={messages.slice(2)} />
-        <CommandBar variant="inline" graphSessionId={session.id} onFollowUp={onFollowUp} placeholder="Show the derivative too · Add tangent at x = 2 · Explain this" />
-      </Card>
+      {messages.length > 2 ? <Card className="p-3"><Conversation messages={messages.slice(2)} /></Card> : null}
+      {/* On phones the command bar sticks above the tab bar so the mic is always reachable. */}
+      <div className="sticky bottom-16 z-20 rounded-xl border border-border bg-surface p-3 shadow-lg sm:static sm:bottom-auto sm:shadow-none">
+        <CommandBar variant="inline" graphSessionId={session.id} onFollowUp={onFollowUp} placeholder="Show the derivative too · Add tangent at x = 2" />
+      </div>
     </div>
   );
 }
@@ -262,7 +249,7 @@ export function GraphWorkspace({ sessionId }: { sessionId: string }) {
 function Conversation({ messages }: { messages: GraphMessageRow[] }) {
   if (!messages.length) return null;
   return (
-    <ul className="mb-3 max-h-48 space-y-2 overflow-auto text-sm">
+    <ul className="max-h-60 space-y-2 overflow-auto text-sm" aria-label="Conversation">
       {messages.map((m) => (
         <li key={m.id} className={cx("rounded-lg px-3 py-2", m.role === "user" ? "ml-8 bg-surface-2" : "mr-8 border border-border")}>
           <p className="whitespace-pre-wrap">{m.content}</p>

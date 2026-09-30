@@ -35,6 +35,7 @@ describe("quickParse", () => {
     expect(quickParse("Show the derivative too")!.intent).toBe("SHOW_DERIVATIVE");
     expect(quickParse("show the second derivative")!.intent).toBe("SHOW_SECOND_DERIVATIVE");
     expect(quickParse("Add tangent at x equals 2")).toMatchObject({ intent: "SHOW_TANGENT", x_value: "2" });
+    expect(quickParse("add tangent at x equals two")).toMatchObject({ intent: "SHOW_TANGENT", x_value: "2" });
     expect(quickParse("add normal at x = -1")).toMatchObject({ intent: "SHOW_NORMAL", x_value: "-1" });
     expect(quickParse("Remove the second derivative")).toMatchObject({ intent: "REMOVE_GRAPH", target: "second derivative" });
     expect(quickParse("Let a vary from minus five to five")).toMatchObject({ intent: "CHANGE_PARAMETER", parameter_name: "a", parameter_min: -5, parameter_max: 5 });

@@ -33,30 +33,43 @@ const NAV = [
   { href: "/settings", label: "Settings" },
 ];
 
+function NavLinks({ path, className, itemClass }: { path: string; className?: string; itemClass: (active: boolean) => string }) {
+  return (
+    <nav aria-label="Main" className={className}>
+      {NAV.map((n) => {
+        const active = n.href === "/" ? path === "/" : path.startsWith(n.href);
+        return (
+          <Link key={n.href} href={n.href} aria-current={active ? "page" : undefined} className={itemClass(active)}>
+            {n.label}
+          </Link>
+        );
+      })}
+    </nav>
+  );
+}
+
 export function Header() {
   const path = usePathname();
   const { user } = useApp();
   if (!user || path.startsWith("/login") || path.startsWith("/setup")) return null;
   return (
-    <header className="sticky top-0 z-30 border-b border-border bg-bg/90 backdrop-blur">
-      <div className="mx-auto flex h-14 max-w-7xl items-center gap-2 px-3 sm:px-4">
-        <BookSelector />
-        <nav aria-label="Main" className="ml-auto flex items-center gap-1">
-          {NAV.map((n) => {
-            const active = n.href === "/" ? path === "/" : path.startsWith(n.href);
-            return (
-              <Link
-                key={n.href}
-                href={n.href}
-                aria-current={active ? "page" : undefined}
-                className={cx("rounded-lg px-2.5 py-1.5 text-sm", active ? "bg-surface-2 font-medium text-fg" : "text-muted hover:text-fg")}
-              >
-                {n.label}
-              </Link>
-            );
-          })}
-        </nav>
-      </div>
-    </header>
+    <>
+      <header className="sticky top-0 z-30 border-b border-border bg-bg/90 backdrop-blur">
+        <div className="mx-auto flex h-14 max-w-7xl items-center gap-2 px-3 sm:px-4">
+          <BookSelector className="min-w-0" />
+          <NavLinks
+            path={path}
+            className="ml-auto hidden items-center gap-1 sm:flex"
+            itemClass={(a) => cx("rounded-lg px-2.5 py-1.5 text-sm", a ? "bg-surface-2 font-medium text-fg" : "text-muted hover:text-fg")}
+          />
+        </div>
+      </header>
+      {/* Phones: bottom tab bar (thumb reachable, no horizontal overflow) */}
+      <NavLinks
+        path={path}
+        className="fixed inset-x-0 bottom-0 z-40 grid grid-cols-4 border-t border-border bg-bg/95 pb-[env(safe-area-inset-bottom)] backdrop-blur sm:hidden"
+        itemClass={(a) => cx("flex h-14 items-center justify-center text-sm", a ? "font-semibold text-accent" : "text-muted")}
+      />
+    </>
   );
 }
