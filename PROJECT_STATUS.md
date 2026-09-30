@@ -41,8 +41,27 @@
 ## In progress
 - Nothing in progress.
 
+## Live-credential check (2026-09-30)
+- **Gemini models.** All three default model IDs exist for the project's API key, so the defaults are unchanged: `gemini-3.1-flash-lite` (fast), `gemini-3.8-flash` (reasoning) and `gemini-3.5-transcribe` (transcription).
+- **Live Gemini.** `parseCommand` and `generateGraphDocument` were called for real with `f(x)=x^3-3x`, on the fast model with no escalation and confidence 1.0.
+  - The returned GraphDocument contains the function, the maximum (−1, 2), the minimum (1, −2) and a roots marker. One object was fixed by a single targeted repair call.
+  - The document passes the Zod schema and semantic validation, and a serialise → re-parse round trip.
+  - A usage row was produced for every call.
+- **Live Supabase** (project `math-textbook-graphs`).
+  - `npm run build` and `npm start` work against it.
+  - `/login` loads, app pages redirect to sign-in and `/api/*` returns 401.
+  - Anonymous REST reads of every table return `[]` (RLS).
+  - The `book-pages`, `question-crops` and `graph-previews` buckets exist and are private. Anonymous uploads are refused by RLS, while an unknown bucket returns `NoSuchBucket`.
+- **Not yet exercised live.** These need a signed-in session:
+  - sign-in by magic link or code
+  - PDF import and page mapping
+  - the graph workspace
+  - voice transcription with real audio
+
+  The same flows pass end to end against the local test backend (`npm run test:e2e`).
+
 ## Externally blocked
-- **Real Supabase project and real Gemini API key.** No credentials were available in the build environment. The integrations are complete and the environment variables are validated. The whole flow was run end to end against the local test backend (`npm run test:e2e`) with scripted Gemini replies. It has not yet been run against live Gemini. The first real run should confirm the configured model IDs exist for your key, especially the transcription model name.
+- Nothing is blocked.
 
 ## Tests
 - `npm test`: 89 unit and integration tests. They cover:
