@@ -230,11 +230,11 @@ function plain(s){return String(s).replace(/[_^{}]/g,'')}
 
 /* ---------- data ---------- */
 async function loadChapter(k){
-  try{const j=await fetch('data/'+k+'.json');if(j.ok)return await j.json()}catch(e){}
-  const r=await fetch('data/'+k+'.bin'); if(!r.ok) throw new Error('missing '+k);
-  const ds=new DecompressionStream('gzip');
-  const txt=await new Response(r.body.pipeThrough(ds)).text();
-  return JSON.parse(txt);
+  const srcs=['data/'+k+'.json',
+    'https://cdn.jsdelivr.net/gh/aranyadeb/Math-2@5ec279369135a08d84c3a44d3a833b14222f0db0/data/'+k+'.json',
+    'https://raw.githubusercontent.com/aranyadeb/Math-2/flame-test/data/'+k+'.json'];
+  for(const u of srcs){try{const j=await fetch(u);if(j.ok)return await j.json()}catch(e){}}
+  throw new Error('missing '+k);
 }
 async function boot(){
     try{
