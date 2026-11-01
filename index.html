@@ -60,6 +60,13 @@ h2.sec{font-family:var(--display);font-weight:700;font-size:21px;margin:28px 0 1
 .chap .nm{font-size:14px;line-height:1.25}
 .chap .meter{height:5px;background:var(--bench);border-radius:3px;margin-top:8px;overflow:hidden}
 .chap .meter i{display:block;height:100%;background:var(--c)}
+.counts{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.cnt{min-width:56px;padding:10px 14px;border-radius:var(--r-btn);border:2px solid var(--line);background:var(--surface);font-family:var(--display);font-weight:700;font-size:16px}
+.cnt[aria-pressed="true"]{background:var(--solid);color:var(--on-solid);border-color:var(--solid)}
+.cnt-own{display:flex;align-items:center;gap:6px;font-size:15px;color:var(--muted)}
+.cnt-own input{width:84px;font:inherit;font-size:16px;padding:9px 10px;border:2px solid var(--line);border-radius:var(--r-btn);background:var(--surface);color:var(--ink)}
+.cnt-own input.on{border-color:var(--solid)}
+.hint{margin-top:10px;font-size:15px;color:var(--muted)}
 .secpick{margin-top:10px;display:flex;gap:10px;align-items:center;flex-wrap:wrap;font-size:15px}
 select{font:inherit;font-size:15px;padding:6px 10px;border:1px solid var(--line);border-radius:8px;background:var(--surface);max-width:100%}
 
@@ -189,7 +196,7 @@ canvas#fx{position:fixed;inset:0;pointer-events:none;z-index:7}
     <label class="toggle"><input type="checkbox" id="optSound"> Sound effects</label>
     <label class="toggle"><input type="checkbox" id="optShuffle"> Shuffle new questions (instead of NCERT order)</label>
     <label class="toggle">Questions per round
-      <select id="optRound"><option>10</option><option>15</option><option selected>20</option><option>30</option><option>50</option></select></label>
+      <select id="optRound"><option>10</option><option>15</option><option selected>20</option><option>30</option><option>50</option><option>100</option><option value="0">All</option></select></label>
     <h3 style="margin-top:18px">Move progress to another device</h3>
     <p style="font-size:14px;color:var(--muted);margin:0 0 8px">Progress is saved in this browser. Copy the code here and paste it into the game on your other device.</p>
     <textarea id="code" aria-label="Progress code"></textarea>
@@ -243,7 +250,7 @@ async function boot(){
       const h=typeof it[2]==='number'?{tip:d.tips[it[2]]}:{hook:it[2]};
       const card={id,ch:d.k,si,sec:sec[0],stitle:sec[1],q:it[0],a:it[1],ref:it[3],n,...h};DB.push(card);BYID[id]=card;})})});
   }catch(e){document.getElementById('app').innerHTML='<div class="empty">Could not load the questions ('+esc(e.message)+'). Check your connection and reload the page.</div>';return}
-  markDay(false); home();
+  S.chap=[];S.sec='';markDay(false); home();
 }
 
 /* ---------- progress helpers ---------- */
@@ -256,6 +263,7 @@ function xpFor(L){return Math.round(30*(L-1)*(L-1)+70*(L-1))}
 function today(){const d=new Date();return d.getFullYear()+'-'+(d.getMonth()+1)+'-'+d.getDate()}
 function markDay(played){if(played&&!S.days.includes(today())){S.days.push(today());S.days=S.days.slice(-400);save()}}
 function streak(){let n=0;const d=new Date();for(;;){const k=d.getFullYear()+'-'+(d.getMonth()+1)+'-'+d.getDate();if(S.days.includes(k)){n++;d.setDate(d.getDate()-1)}else{if(n===0&&k===today()){d.setDate(d.getDate()-1);const k2=d.getFullYear()+'-'+(d.getMonth()+1)+'-'+d.getDate();if(S.days.includes(k2)){continue}}break}}return n}
+function inSel(ch){return !S.chap.length||S.chap.includes(ch)}
 function pool(){return DB.filter(c=>S.chap.includes(c.ch)&&(!S.sec||(c.ch+'|'+c.si)===S.sec))}
 function toughIds(){return Object.keys(S.cards).filter(id=>S.cards[id].t&&BYID[id])}
 function shuffle(a){for(let i=a.length-1;i>0;i--){const j=Math.random()*(i+1)|0;[a[i],a[j]]=[a[j],a[i]]}return a}
@@ -279,7 +287,7 @@ function gainXP(n,anchor){const before=level();S.xp+=n;save();topbar();if(anchor
 /* ---------- home ---------- */
 function home(){
   cur=null;topbar();const L=level(),lo=xpFor(L),hi=xpFor(Math.min(118,L+1));
-  const p=pool(),tough=toughIds().filter(id=>S.chap.includes(BYID[id].ch)).length;
+  const p=pool(),tough=toughIds().filter(id=>inSel(BYID[id].ch)).length;
   const due=p.filter(c=>isDue(c.id)).length,fresh=p.filter(c=>isNew(c.id)).length,mast=DB.filter(c=>isMastered(c.id)).length;
   const chapHtml=CHAPTERS.map(c=>{const all=DB.filter(d=>d.ch===c.k),m=all.filter(d=>isMastered(d.id)).length,pc=Math.round(100*m/all.length);
     return `<button class="chap" style="--c:${c.color}" data-ch="${c.k}" aria-pressed="${S.chap.includes(c.k)}"><span class="z">${c.z}</span><span class="pct">${pc}%</span><div class="sym">${c.sym}</div><div class="nm">${c.name}</div><div class="meter"><i style="width:${pc}%"></i></div></button>`}).join('');
@@ -303,19 +311,29 @@ function home(){
   </div>
   <h2 class="sec">Pick your chapters</h2>
   <div class="chapters">${chapHtml}</div>
-  <div class="secpick">${S.chap.length===1?`<label for="secSel">Part:</label><select id="secSel">${secOpts}</select>`:`<span style="color:var(--muted)">Select a single chapter to drill one part of it.</span>`}</div>
+  ${S.chap.length?'':'<p class="hint">Tap one or more chapters to choose what to practise.</p>'}
+  <div class="secpick">${S.chap.length===1?`<label for="secSel">Part:</label><select id="secSel">${secOpts}</select>`:S.chap.length?`<span style="color:var(--muted)">Select a single chapter to drill one part of it.</span>`:''}</div>
+  <h2 class="sec">How many questions?</h2>
+  <div class="counts" role="group" aria-label="Questions per round">
+    ${[10,20,30,50,100].map(n=>`<button class="cnt" data-n="${n}" aria-pressed="${S.round===n}">${n}</button>`).join('')}
+    <button class="cnt" data-n="0" aria-pressed="${S.round===0}">All${S.chap.length?' '+p.length:''}</button>
+    <label class="cnt-own">or type <input id="cntOwn" type="number" min="1" max="2359" inputmode="numeric" placeholder="e.g. 25" value="${[0,10,20,30,50,100].includes(S.round)?'':S.round}" class="${[0,10,20,30,50,100].includes(S.round)?'':'on'}"></label>
+  </div>
   <h2 class="sec">Play</h2>
   <div class="modes">
-    <button class="mode" data-mode="play" ${p.length?'':'disabled'}><span class="t">Play a round</span><span class="d">See only the question. Know it? Move on. Forgot? Tap “Show answer”.</span><span class="n">${S.round} cards · ${due} due · ${fresh} new</span></button>
-    <button class="mode" data-mode="sprint" ${p.length?'':'disabled'}><span class="t">60-second sprint</span><span class="d">How many can you recall before the burner goes out?</span><span class="n">Best: ${S.best} known</span></button>
+    <button class="mode" data-mode="play" ${p.length?'':'disabled'}><span class="t">Play a round</span><span class="d">See only the question. Know it? Move on. Forgot? Tap “Show answer”.</span><span class="n">${S.chap.length?`${roundN()} cards · ${due} due · ${fresh} new`:'Choose chapters first'}</span></button>
+    <button class="mode" data-mode="sprint" ${p.length?'':'disabled'}><span class="t">60-second sprint</span><span class="d">How many can you recall before the burner goes out?</span><span class="n">${S.chap.length?`Best: ${S.best} known`:'Choose chapters first'}</span></button>
     <button class="mode tough" data-mode="tough"><span class="t">Tough pile</span><span class="d">Only the cards you set aside. Know one three times in a row to clear it.</span><span class="n">${tough} card${tough===1?'':'s'}</span></button>
   </div>`;
-  document.querySelectorAll('.chap').forEach(b=>b.onclick=()=>{const k=b.dataset.ch;S.chap=S.chap.includes(k)?S.chap.filter(x=>x!==k):[...S.chap,k];if(!S.chap.length)S.chap=[k];S.sec='';save();home()});
+  document.querySelectorAll('.chap').forEach(b=>b.onclick=()=>{const k=b.dataset.ch;S.chap=S.chap.includes(k)?S.chap.filter(x=>x!==k):[...S.chap,k];S.sec='';save();home()});
+  document.querySelectorAll('.cnt').forEach(b=>b.onclick=()=>{S.round=+b.dataset.n;save();home()});
+  const co=document.getElementById('cntOwn');co.onchange=()=>{const v=Math.round(+co.value);if(v>0){S.round=Math.min(v,DB.length);save();home()}};
   const ss=document.getElementById('secSel');if(ss)ss.onchange=()=>{S.sec=ss.value;save();home()};
   document.querySelectorAll('.mode').forEach(b=>b.onclick=()=>start(b.dataset.mode));
 }
 
 /* ---------- sessions ---------- */
+function roundN(){const n=pool().length;return S.round>0?Math.min(S.round,n):n}
 function pickRound(n){const p=pool();const due=shuffle(p.filter(c=>isDue(c.id)));let fresh=p.filter(c=>isNew(c.id));if(S.shuffle)fresh=shuffle(fresh);
   let out=due.slice(0,n);if(out.length<n)out=out.concat(fresh.slice(0,n-out.length));
   if(out.length<n){const rest=shuffle(p.filter(c=>!out.includes(c)&&!S.cards[c.id]?.t)).sort((a,b)=>st(a.id).b-st(b.id).b);out=out.concat(rest.slice(0,n-out.length))}
@@ -323,12 +341,12 @@ function pickRound(n){const p=pool();const due=shuffle(p.filter(c=>isDue(c.id)))
 function newSession(mode,cards,tough){cur={mode,tough:!!tough,cards,i:0,know:0,looked:0,combo:0,best:0,xp:0,mast:0,startLvl:level(),end:mode==='sprint'?Date.now()+60000:0,lookedIds:[],requeued:{},prev:null};markDay(true);next()}
 function start(mode){
   if(mode==='tough')return toughList();
-  let cards=mode==='sprint'?shuffle(pool().slice()).slice(0,400):pickRound(S.round);
+  let cards=mode==='sprint'?shuffle(pool().slice()).slice(0,400):pickRound(roundN());
   if(!cards.length){toast('Nothing to play in this selection');return}
   newSession(mode,cards,false);
 }
-function startTough(){const ids=shuffle(toughIds().filter(id=>S.chap.includes(BYID[id].ch)));if(!ids.length)return home();
-  newSession('play',ids.slice(0,S.round).map(id=>BYID[id]),true)}
+function startTough(){const ids=shuffle(toughIds().filter(id=>inSel(BYID[id].ch)));if(!ids.length)return home();
+  newSession('play',ids.slice(0,S.round>0?S.round:ids.length).map(id=>BYID[id]),true)}
 
 function next(){
   if(cur.mode==='sprint'&&Date.now()>=cur.end)return summary();
@@ -397,7 +415,7 @@ function summary(){
 
 /* tough pile */
 function toughList(){
-  cur=null;const ids=toughIds().filter(id=>S.chap.includes(BYID[id].ch));
+  cur=null;const ids=toughIds().filter(id=>inSel(BYID[id].ch));
   document.getElementById('app').innerHTML=`<div class="play"><div class="playbar"><button class="iconbtn" id="back2">Home</button></div>
   <h2 class="sec" style="margin-top:0">Your tough pile · ${ids.length} card${ids.length===1?'':'s'}</h2>
   ${ids.length?`<p style="color:var(--muted);margin-top:0">Say “I know it” three times in a row and a card leaves the pile on its own.</p>
@@ -421,7 +439,7 @@ addEventListener('touchend',e=>{if(sx==null||!cur)return;const dx=e.changedTouch
 
 /* settings */
 const dlg=document.getElementById('settings');
-document.getElementById('openSettings').onclick=()=>{document.getElementById('optSound').checked=S.sound;document.getElementById('optShuffle').checked=S.shuffle;document.getElementById('optRound').value=S.round;
+document.getElementById('openSettings').onclick=()=>{document.getElementById('optSound').checked=S.sound;document.getElementById('optShuffle').checked=S.shuffle;const orr=document.getElementById('optRound');if(![...orr.options].some(o=>+o.value===S.round)){const o=document.createElement('option');o.value=S.round;o.textContent=S.round;orr.appendChild(o)}orr.value=S.round;
   document.getElementById('code').value=btoa(unescape(encodeURIComponent(JSON.stringify(S))));dlg.classList.add('open');document.getElementById('closeSettings').focus()};
 document.getElementById('closeSettings').onclick=()=>{S.sound=document.getElementById('optSound').checked;S.shuffle=document.getElementById('optShuffle').checked;S.round=+document.getElementById('optRound').value;save();dlg.classList.remove('open');if(!cur)home()};
 document.getElementById('copyCode').onclick=async()=>{try{await navigator.clipboard.writeText(document.getElementById('code').value);toast('Code copied')}catch(e){document.getElementById('code').select();toast('Select the code and copy it')}};
