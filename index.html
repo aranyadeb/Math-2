@@ -70,7 +70,25 @@ h2.sec{font-family:var(--display);font-weight:700;font-size:21px;margin:28px 0 1
 .secpick{margin-top:10px;display:flex;gap:10px;align-items:center;flex-wrap:wrap;font-size:15px}
 select{font:inherit;font-size:15px;padding:6px 10px;border:1px solid var(--line);border-radius:8px;background:var(--surface);max-width:100%}
 
-.modes{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.modes{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.mode.read{background:var(--surface);color:var(--ink);border:2px solid var(--ink)}
+.rview{display:flex;gap:6px;margin-left:auto}
+.rview button{padding:6px 12px;border-radius:var(--r-btn);border:2px solid var(--line);background:var(--surface);font-weight:700;font-size:14px}
+.rview button[aria-pressed="true"]{border-color:var(--ink);background:var(--solid);color:var(--on-solid)}
+.rcard .a{margin-top:14px}
+.rnav{display:grid;grid-template-columns:1fr 1.6fr;gap:10px;margin-top:20px}
+.rnav button{padding:15px 10px;border-radius:var(--r-tile);border:2px solid var(--ink);background:var(--surface);font-family:var(--display);font-weight:700;font-size:18px}
+.rnav .go{background:var(--solid);color:var(--on-solid);border-color:var(--solid)}
+.rlist{display:flex;flex-direction:column;gap:2px;background:var(--surface);border:2px solid var(--line);border-radius:var(--r-tile);overflow:hidden}
+.rrow{padding:12px 16px;border-bottom:1px solid var(--line);line-height:1.45}
+.rrow:last-child{border-bottom:0}
+.rrow .n{color:var(--muted);font-size:13px;margin-right:6px}
+.rrow .rq{font-weight:600}
+.rrow .ra{font-weight:700;color:var(--good)}
+.rrow .rh{font-size:13px;color:var(--muted);margin-top:3px}
+.rrow .rt{float:right;margin-left:8px;padding:2px 8px;border-radius:8px;border:1px solid var(--line);background:var(--surface);font-size:12px;color:var(--muted)}
+.rrow .rt[aria-pressed="true"]{border-color:var(--bad);color:var(--bad);background:var(--bad-bg)}
+.rdone{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}
 .mode{background:var(--solid);color:var(--on-solid);border:0;border-radius:var(--r-tile);padding:16px;text-align:left;min-height:132px;display:flex;flex-direction:column;gap:6px;transition:transform .12s}
 .mode:hover{transform:translateY(-2px)}
 .mode .t{font-family:var(--display);font-weight:800;font-size:22px}
@@ -159,7 +177,7 @@ sub,sup{font-size:.72em;line-height:0}
 canvas#fx{position:fixed;inset:0;pointer-events:none;z-index:7}
 @media (max-width:820px){
   .chapters{grid-template-columns:repeat(3,1fr)}
-  .modes{grid-template-columns:1fr}
+  .modes{grid-template-columns:1fr 1fr}
   .statgrid{grid-template-columns:repeat(2,1fr)}
 }
 @media (max-width:560px){
@@ -321,6 +339,7 @@ function home(){
   </div>
   <h2 class="sec">Play</h2>
   <div class="modes">
+    <button class="mode read" data-mode="read" ${p.length?'':'disabled'}><span class="t">Read first</span><span class="d">Question and answer together, with the memory hook. Flip through fast, then practise the same cards.</span><span class="n">${S.chap.length?`${roundN()} cards · from #${(readPos()%p.length)+1}`:'Choose chapters first'}</span></button>
     <button class="mode" data-mode="play" ${p.length?'':'disabled'}><span class="t">Play a round</span><span class="d">See only the question. Know it? Move on. Forgot? Tap “Show answer”.</span><span class="n">${S.chap.length?`${roundN()} cards · ${due} due · ${fresh} new`:'Choose chapters first'}</span></button>
     <button class="mode" data-mode="sprint" ${p.length?'':'disabled'}><span class="t">60-second sprint</span><span class="d">How many can you recall before the burner goes out?</span><span class="n">${S.chap.length?`Best: ${S.best} known`:'Choose chapters first'}</span></button>
     <button class="mode tough" data-mode="tough"><span class="t">Tough pile</span><span class="d">Only the cards you set aside. Know one three times in a row to clear it.</span><span class="n">${tough} card${tough===1?'':'s'}</span></button>
@@ -341,6 +360,7 @@ function pickRound(n){const p=pool();const due=shuffle(p.filter(c=>isDue(c.id)))
 function newSession(mode,cards,tough){cur={mode,tough:!!tough,cards,i:0,know:0,looked:0,combo:0,best:0,xp:0,mast:0,startLvl:level(),end:mode==='sprint'?Date.now()+60000:0,lookedIds:[],requeued:{},prev:null};markDay(true);next()}
 function start(mode){
   if(mode==='tough')return toughList();
+  if(mode==='read')return startRead();
   let cards=mode==='sprint'?shuffle(pool().slice()).slice(0,400):pickRound(roundN());
   if(!cards.length){toast('Nothing to play in this selection');return}
   newSession(mode,cards,false);
@@ -393,6 +413,43 @@ function reveal(c){if(cur.shown)return;cur.shown=true;const s=st(c.id);s.seen++;
   document.getElementById('judge').innerHTML=`<button class="j-tough" id="tough" aria-pressed="${t}">${t?'In tough pile':'Set aside'}<small>${t?'tap to remove':'drill it later'}</small></button><button class="j-next" id="nx">Next card<small>${cur.mode==='sprint'?'keep going':'it comes back once more'}</small></button>`;
   document.getElementById('tough').onclick=()=>{const on=!S.cards[c.id]?.t;setStar(c,on);const b=document.getElementById('tough');b.setAttribute('aria-pressed',on);b.innerHTML=(on?'In tough pile':'Set aside')+`<small>${on?'tap to remove':'drill it later'}</small>`;if(on)beep('bad')};
   const nx=document.getElementById('nx');nx.focus({preventScroll:true});nx.onclick=()=>{cur.prev=null;cur.i++;next()}}
+
+/* reader */
+let rd=null;
+function selKey(){return S.chap.slice().sort().join(',')+'|'+S.sec}
+function readPos(){return (S.readPos||{})[selKey()]||0}
+function startRead(){const p=pool();if(!p.length)return;const n=roundN();let from=readPos()%p.length;
+  const cards=p.slice(from,from+n);if(cards.length<n)cards.push(...p.slice(0,Math.min(from,n-cards.length)));
+  rd={cards,i:0,from,list:!!S.readList};markDay(true);readView()}
+function readTop(){return `<div class="playbar"><button class="iconbtn" id="rquit">Stop</button><div class="prog"><i style="width:${rd.list?100:100*(rd.i+1)/rd.cards.length}%"></i></div><span class="count">${rd.list?rd.cards.length+' cards':(rd.i+1)+'/'+rd.cards.length}</span>
+  <div class="rview" role="group" aria-label="View"><button data-v="0" aria-pressed="${!rd.list}">Cards</button><button data-v="1" aria-pressed="${rd.list}">List</button></div></div>`}
+function readBind(){document.getElementById('rquit').onclick=()=>{rd=null;home()};
+  document.querySelectorAll('.rview button').forEach(b=>b.onclick=()=>{rd.list=b.dataset.v==='1';S.readList=rd.list;save();readView()})}
+function tBtn(c,cls){const t=!!S.cards[c.id]?.t;return `<button class="${cls}" data-t="${c.id}" aria-pressed="${t}">${t?'In tough pile':'Set aside'}</button>`}
+function tBind(){document.querySelectorAll('[data-t]').forEach(b=>b.onclick=()=>{const c=BYID[b.dataset.t];const on=!S.cards[c.id]?.t;setStar(c,on);b.setAttribute('aria-pressed',on);b.textContent=on?'In tough pile':'Set aside'})}
+function readView(){cur=null;const app=document.getElementById('app');window.scrollTo(0,0);
+  if(rd.list){app.innerHTML=`<div class="play">${readTop()}<div class="rlist">${rd.cards.map((c,k)=>`<div class="rrow">${tBtn(c,'rt')}<span class="n">${k+1}.</span><span class="rq">${chem(c.q)}</span> — <span class="ra">${chem(c.a)}</span><div class="rh">${c.hook?'Hook: “'+chem(c.hook)+'” · ':''}${esc(c.ref)}</div></div>`).join('')}</div>
+    <div class="rdone"><button class="btn primary" id="rprac">Practise these ${rd.cards.length} now</button><button class="btn" id="rmore">Read the next ${roundN()}</button></div></div>`;
+    readBind();tBind();doneBind();return}
+  const c=rd.cards[rd.i];
+  app.innerHTML=`<div class="play">${readTop()}<article class="qcard rcard" id="qc">${tBtn(c,'star')}${cardMeta(c)}<div class="q">${chem(c.q)}</div><div class="a">${chem(c.a)}</div>${hookHtml(c)}
+  <div class="rnav"><button id="rprev" ${rd.i?'':'disabled'}>← Back</button><button class="go" id="rnext">${rd.i+1<rd.cards.length?'Next →':'Done reading'}</button></div></article>
+  <p class="keys">→ or Space: next · ←: back · T: set aside · swipe left for next</p></div>`;
+  readBind();tBind();
+  document.getElementById('rprev').onclick=()=>readStep(-1);document.getElementById('rnext').onclick=()=>readStep(1)}
+function readStep(d){if(!rd)return;const j=rd.i+d;if(j<0)return;if(j>=rd.cards.length)return readDone();rd.i=j;readView()}
+function readDone(){const p=pool();S.readPos=S.readPos||{};S.readPos[selKey()]=(rd.from+rd.cards.length)%Math.max(1,p.length);save();
+  document.getElementById('app').innerHTML=`<div class="play"><div class="summary" style="text-align:left"><h2 class="sec" style="margin-top:0">You read ${rd.cards.length} cards.</h2>
+  <p>Now test yourself on the same cards: you'll see only the question and judge whether you know it.</p>
+  <div class="rdone"><button class="btn primary" id="rprac">Practise these ${rd.cards.length} now</button><button class="btn" id="rmore">Read the next ${roundN()}</button><button class="btn" id="rhome">Home</button></div></div></div>`;
+  doneBind();document.getElementById('rhome').onclick=()=>{rd=null;home()};document.getElementById('rprac').focus()}
+function doneBind(){document.getElementById('rprac').onclick=()=>{if(rd.list){const p=pool();S.readPos=S.readPos||{};S.readPos[selKey()]=(rd.from+rd.cards.length)%Math.max(1,p.length);save()}const cs=rd.cards.slice();rd=null;newSession('play',S.shuffle?shuffle(cs):cs,false)};
+  document.getElementById('rmore').onclick=()=>{if(rd.list){const p=pool();S.readPos=S.readPos||{};S.readPos[selKey()]=(rd.from+rd.cards.length)%Math.max(1,p.length);save()}startRead()}}
+addEventListener('keydown',e=>{if(!rd||rd.list||cur||document.getElementById('settings').classList.contains('open'))return;if(!document.getElementById('rnext'))return;
+  if(e.key==='ArrowRight'||e.key===' '||e.key==='Enter'){e.preventDefault();readStep(1)}else if(e.key==='ArrowLeft'){e.preventDefault();readStep(-1)}
+  else if(e.key==='t'||e.key==='T'){document.querySelector('.rcard [data-t]')?.click()}});
+let rx=null;addEventListener('touchstart',e=>{rx=e.touches[0].clientX},{passive:true});
+addEventListener('touchend',e=>{if(rx==null||!rd||rd.list||cur||!document.getElementById('rnext'))return;const dx=e.changedTouches[0].clientX-rx;rx=null;if(Math.abs(dx)<80)return;readStep(dx<0?1:-1)},{passive:true});
 
 /* summary */
 function summary(){
