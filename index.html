@@ -6,6 +6,9 @@
 <title>Flame Test — JEE Chemistry Memory Game</title>
 <meta name="description" content="Play your way through 2,359 NCERT one-liners: p-Block, d- & f-Block, Periodic Table, Chemical Bonding and Coordination Compounds.">
 <meta name="theme-color" content="#1A2238">
+<link rel="manifest" href="/manifest.webmanifest">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="IOC 100">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&display=swap" rel="stylesheet">
@@ -215,6 +218,7 @@ canvas#fx{position:fixed;inset:0;pointer-events:none;z-index:7}
     <div class="topstats">
       <span title="Days in a row">🔥 <b id="streak">0</b><span class="hide-s"> day streak</span></span>
       <span class="hide-s">XP <b id="xpTop">0</b></span>
+      <button class="iconbtn" id="installApp" hidden>Install app</button>
       <button class="iconbtn" id="openSettings">Settings</button>
     </div>
   </header>
@@ -536,6 +540,16 @@ document.getElementById('resetAll').onclick=e=>{const b=e.currentTarget;if(b.dat
 addEventListener('keydown',e=>{if(e.key==='Escape'&&dlg.classList.contains('open'))document.getElementById('closeSettings').click()});
 document.getElementById('home').onclick=()=>{if(cur&&cur.tick)clearInterval(cur.tick);home()};
 boot();
+</script>
+<script>
+/* installable app + offline */
+(function(){
+  if('serviceWorker' in navigator&&location.protocol==='https:')navigator.serviceWorker.register('/sw.js').catch(()=>{});
+  const ib=document.getElementById('installApp');let ev=null;
+  addEventListener('beforeinstallprompt',e=>{e.preventDefault();ev=e;ib.hidden=false});
+  ib.onclick=async()=>{if(!ev)return;ev.prompt();try{await ev.userChoice}catch(e){}ev=null;ib.hidden=true};
+  addEventListener('appinstalled',()=>{ib.hidden=true;try{toast('Installed — open IOC 100 from your apps')}catch(e){}});
+})();
 </script>
 </body>
 </html>
