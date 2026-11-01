@@ -1,0 +1,77 @@
+@ prob | Probability | 12 | Probability & Statistics
+
+## Basics
+Q: Classical probability
+F: P(A)=\frac{n(A)}{n(S)},\qquad P(A')=1-P(A)
+N: Odds in favour $a:b\Rightarrow P=\frac a{a+b}$.
+
+Q: Addition theorem
+F: P(A\cup B)=P(A)+P(B)-P(A\cap B)
+N: Three events: $\sum P(A)-\sum P(A\cap B)+P(A\cap B\cap C)$.
+
+Q: Exactly one of A, B
+F: P(A)+P(B)-2P(A\cap B)
+N: $P(A\cap B')=P(A)-P(A\cap B)$; neither: $1-P(A\cup B)$.
+
+Q: Bounds
+F: P(A)+P(B)-1\le P(A\cap B)\le\min(P(A),P(B))
+N: $\max(P(A),P(B))\le P(A\cup B)\le\min(1,P(A)+P(B))$.
+
+## Conditional probability
+Q: Conditional probability
+F: P(A|B)=\frac{P(A\cap B)}{P(B)}
+N: $P(A'|B)=1-P(A|B)$.
+
+Q: Multiplication theorem
+F: P(A\cap B)=P(A)P(B|A)=P(B)P(A|B)
+
+Q: Independent events
+F: P(A\cap B)=P(A)P(B)
+N: Then $A,B'$; $A',B$; $A',B'$ are also independent. Mutually exclusive events with non-zero probabilities are never independent. Three events need pairwise and triple product conditions.
+
+Q: Total probability
+F: P(A)=\sum_iP(E_i)P(A|E_i)
+N: $E_i$ partition the sample space.
+
+Q: Bayes' theorem
+F: P(E_i|A)=\frac{P(E_i)P(A|E_i)}{\sum_jP(E_j)P(A|E_j)}
+
+## Random variables
+Q: Mean and variance of a discrete random variable
+F: \mu=E(X)=\sum x_ip_i,\qquad\sigma^2=E(X^2)-\mu^2=\sum x_i^2p_i-\mu^2
+N: $E(aX+b)=aE(X)+b$; $\operatorname{Var}(aX+b)=a^2\operatorname{Var}(X)$.
+
+Q: Binomial distribution
+F: P(X=r)={}^nC_rp^rq^{n-r},\qquad\mu=np,\quad\sigma^2=npq
+N: Mode: the integer part of $(n+1)p$ (two modes if $(n+1)p$ is an integer). $P(\text{at least one})=1-q^n$.
+
+Q: Geometric-type (first success on trial $r$)
+F: P(X=r)=q^{r-1}p,\qquad E(X)=\frac1p
+
+Q: Poisson (for reference)
+F: P(X=r)=\frac{e^{-\lambda}\lambda^r}{r!},\quad\mu=\sigma^2=\lambda
+
+## Geometric probability
+Q: Geometric probability
+F: P=\frac{\text{favourable length/area/volume}}{\text{total length/area/volume}}
+
+## Common results
+Q: Two players alternating, first success wins
+F: P(\text{first player wins})=\frac p{1-q^2}=\frac1{1+q}\quad(\text{same } p \text{ for both})
+D: First player wins on turn 1, 3, 5, …: $p+q^2p+q^4p+\cdots=\frac p{1-q^2}$.
+N: General: $P(A\ \text{wins})=\frac{p_1}{1-q_1q_2}$ when A starts.
+
+Q: Birthday / at least two same
+F: P=1-\frac{{}^{365}P_n}{365^n}
+
+Q: Derangement probability
+F: P(\text{no letter in correct envelope})=\frac{D_n}{n!}\approx\frac1e
+
+Q: Sum of two dice
+F: P(\text{sum}=s)=\frac{6-|s-7|}{36},\quad s=2,\dots,12
+
+Q: Probability that a quadratic / random choice satisfies a condition
+F: \text{count favourable pairs over total pairs (often } 36 \text{ for two dice)}
+
+Q: Independence check for three events
+F: P(A\cap B\cap C)=P(A)P(B)P(C)\ \text{and all pairs}

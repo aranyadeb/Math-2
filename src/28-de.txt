@@ -1,0 +1,55 @@
+@ de | Differential Equations | 12 | Calculus
+
+## Basics
+Q: Order and degree
+F: \text{order}=\text{highest derivative};\quad\text{degree}=\text{power of the highest derivative (after making it polynomial in derivatives)}
+N: Degree is not defined if derivatives appear inside $\sin$, $e^{(\cdot)}$, $\ln$ etc.
+
+Q: Forming a DE
+F: n\ \text{arbitrary constants}\Rightarrow\text{differentiate } n\ \text{times and eliminate}
+N: Order of the DE = number of independent arbitrary constants.
+
+## First-order methods
+Q: Variables separable
+F: \frac{dy}{dx}=f(x)g(y)\Rightarrow\int\frac{dy}{g(y)}=\int f(x)\,dx+C
+N: $\frac{dy}{dx}=f(ax+by+c)$: put $v=ax+by+c$.
+
+Q: Homogeneous equation
+F: \frac{dy}{dx}=F\left(\frac yx\right):\ y=vx,\ \ v+x\frac{dv}{dx}=F(v)
+N: Reducible: $\frac{dy}{dx}=\frac{a_1x+b_1y+c_1}{a_2x+b_2y+c_2}$ — shift origin $x=X+h,\ y=Y+k$ (if $\frac{a_1}{a_2}\ne\frac{b_1}{b_2}$), else put $v=a_1x+b_1y$.
+
+Q: Linear equation
+F: \frac{dy}{dx}+Py=Q:\quad\text{IF}=e^{\int P\,dx},\quad y\cdot\text{IF}=\int Q\cdot\text{IF}\,dx+C
+D: Multiply by $e^{\int P}$: the left side becomes $\frac d{dx}\left(ye^{\int P}\right)$.
+
+Q: Linear in $x$
+F: \frac{dx}{dy}+Px=Q\ (P,Q\ \text{functions of }y):\ x\cdot\text{IF}=\int Q\cdot\text{IF}\,dy+C
+
+Q: Bernoulli's equation
+F: \frac{dy}{dx}+Py=Qy^n:\ \text{put } z=y^{1-n}\Rightarrow\frac{dz}{dx}+(1-n)Pz=(1-n)Q
+
+Q: Exact differentials to recognise
+F: d(xy)=x\,dy+y\,dx,\quad d\!\left(\frac yx\right)=\frac{x\,dy-y\,dx}{x^2},\quad d\!\left(\tan^{-1}\frac yx\right)=\frac{x\,dy-y\,dx}{x^2+y^2}
+N: $d\left(\ln(xy)\right)=\frac{x\,dy+y\,dx}{xy}$; $d\left(\frac{x^2+y^2}{2}\right)=x\,dx+y\,dy$; $d\left(\ln\frac yx\right)=\frac{x\,dy-y\,dx}{xy}$.
+
+Q: Exact equation
+F: M\,dx+N\,dy=0\ \text{exact iff}\ \frac{\partial M}{\partial y}=\frac{\partial N}{\partial x}
+
+Q: Clairaut's equation
+F: y=px+f(p),\ p=\tfrac{dy}{dx}:\quad\text{general solution } y=cx+f(c)
+
+## Applications
+Q: Orthogonal trajectories
+F: \text{replace } \frac{dy}{dx}\ \text{by}\ -\frac{dx}{dy}\ \text{in the DE of the family}
+
+Q: Growth and decay
+F: \frac{dN}{dt}=kN\Rightarrow N=N_0e^{kt}
+N: Half-life $=\frac{\ln2}{|k|}$. Newton's cooling: $\frac{dT}{dt}=-k(T-T_s)$.
+
+## Common results
+Q: Second-order with constant coefficients (for reference)
+F: y''+py'+qy=0:\ m^2+pm+q=0;\ \text{distinct } m_1,m_2: y=Ae^{m_1x}+Be^{m_2x}
+N: Equal roots: $(A+Bx)e^{mx}$; complex $\alpha\pm i\beta$: $e^{\alpha x}(A\cos\beta x+B\sin\beta x)$.
+
+Q: Curves with geometric conditions
+F: \text{subtangent}=\frac y{y'},\ \text{subnormal}=yy',\ \text{tangent intercepts: } x-\frac y{y'},\ y-xy'

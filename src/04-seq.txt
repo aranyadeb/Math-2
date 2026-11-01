@@ -1,0 +1,99 @@
+@ seq | Sequences & Series | 11 | Algebra
+
+## Arithmetic progression
+Q: n-th term of an AP
+F: a_n=a+(n-1)d
+N: $n$-th term from the end $=l-(n-1)d$.
+
+Q: Sum of n terms of an AP
+F: S_n=\frac n2\left[2a+(n-1)d\right]=\frac n2(a+l)
+D: Write $S_n$ forwards and backwards and add: each pair sums to $a+l$, $n$ pairs, so $2S_n=n(a+l)$.
+
+Q: Term from sum
+F: a_n=S_n-S_{n-1}
+N: If $S_n$ is quadratic in $n$ with no constant term, the series is an AP with $d=2\times$(coefficient of $n^2$).
+
+Q: Arithmetic mean
+F: A=\frac{a+b}2;\qquad n\ \text{AMs between } a,b:\ d=\frac{b-a}{n+1},\ \ \sum A_i=n\cdot\frac{a+b}{2}
+
+Q: Convenient choice of terms in AP
+F: 3:\ a-d,a,a+d;\qquad 4:\ a-3d,a-d,a+d,a+3d
+
+## Geometric progression
+Q: n-th term of a GP
+F: a_n=ar^{n-1}
+
+Q: Sum of n terms of a GP
+F: S_n=\frac{a(r^n-1)}{r-1}\ (r\ne1),\qquad S_n=na\ (r=1)
+D: $S_n-rS_n=a-ar^n$.
+
+Q: Sum to infinity of a GP
+F: S_\infty=\frac a{1-r},\quad |r|<1
+
+Q: Geometric mean
+F: G=\sqrt{ab};\qquad n\ \text{GMs}:\ r=\left(\frac ba\right)^{\frac1{n+1}},\ \ \prod G_i=\left(\sqrt{ab}\right)^n
+
+Q: Convenient choice of terms in GP
+F: 3:\ \frac ar,a,ar;\qquad 4:\ \frac a{r^3},\frac ar,ar,ar^3
+
+## Harmonic progression
+Q: HP definition and n-th term
+F: \frac1{a_n}\ \text{form an AP}:\quad a_n=\frac1{\frac1a+(n-1)d}
+N: No formula for the sum of an HP.
+
+Q: Harmonic mean
+F: H=\frac{2ab}{a+b};\qquad \frac{1}{H}=\frac12\left(\frac1a+\frac1b\right)
+
+Q: Relation among A, G, H of two numbers
+F: G^2=AH,\qquad A\ge G\ge H
+N: Roots of $x^2-2Ax+G^2=0$ are the two numbers.
+
+Q: Test of AP/GP/HP using a ratio
+F: \frac{a-b}{b-c}=\frac aa\ (\text{AP}),\ \ \frac ab\ (\text{GP}),\ \ \frac ac\ (\text{HP})
+
+## AGP and special series
+Q: Sum to infinity of an AGP $a,(a+d)r,(a+2d)r^2,\dots$
+F: S_\infty=\frac a{1-r}+\frac{dr}{(1-r)^2},\quad|r|<1
+D: $S-rS=a+dr+dr^2+\cdots=a+\frac{dr}{1-r}$.
+
+Q: Sum of n terms of an AGP
+F: S_n=\frac a{1-r}+\frac{dr(1-r^{n-1})}{(1-r)^2}-\frac{[a+(n-1)d]r^n}{1-r}
+
+Q: Sum of first n natural numbers, squares, cubes
+F: \sum n=\frac{n(n+1)}2,\quad \sum n^2=\frac{n(n+1)(2n+1)}6,\quad \sum n^3=\left[\frac{n(n+1)}2\right]^2
+D: For $\sum n^2$: sum $(k+1)^3-k^3=3k^2+3k+1$ from $k=1$ to $n$; telescope: $(n+1)^3-1=3\sum k^2+3\sum k+n$.
+
+Q: Sum of fourth powers
+F: \sum_{k=1}^n k^4=\frac{n(n+1)(2n+1)(3n^2+3n-1)}{30}
+
+Q: Sum of first n odd numbers and their squares
+F: \sum_{k=1}^n(2k-1)=n^2,\qquad\sum_{k=1}^n(2k-1)^2=\frac{n(2n-1)(2n+1)}3
+
+Q: Method of differences
+F: T_k=f(k+1)-f(k)\ \Rightarrow\ \sum_{k=1}^nT_k=f(n+1)-f(1)
+N: If differences of successive terms form an AP, $T_n$ is quadratic in $n$; if they form a GP, $T_n=ar^{n}+b$.
+
+Q: Telescoping product-type sum
+F: \sum_{k=1}^{n}\frac{1}{k(k+1)}=1-\frac1{n+1},\qquad\sum_{k=1}^n\frac1{k(k+1)(k+2)}=\frac14-\frac1{2(n+1)(n+2)}
+
+Q: Vn method (product of consecutive terms)
+F: \sum_{k=1}^n k(k+1)(k+2)=\frac{n(n+1)(n+2)(n+3)}4
+N: Rule: $\sum$ of products of $r$ consecutive integers $=\frac{\text{(last product)}\times(\text{next integer})}{r+1}$.
+
+## Common results
+Q: Infinite series to memorise
+F: \sum_{n=1}^\infty\frac1{n^2}=\frac{\pi^2}6,\qquad\sum\frac1{(2n-1)^2}=\frac{\pi^2}8,\qquad\sum\frac{(-1)^{n+1}}{n^2}=\frac{\pi^2}{12}
+
+Q: Exponential and log series
+F: e^x=\sum_{n\ge0}\frac{x^n}{n!},\qquad \ln(1+x)=x-\frac{x^2}2+\frac{x^3}3-\cdots\ (-1<x\le1)
+N: $\ln 2=1-\frac12+\frac13-\cdots$; $\ln\frac{1+x}{1-x}=2\left(x+\frac{x^3}3+\cdots\right)$.
+
+Q: Sum $\sum_{k=1}^n k\cdot k!$
+F: \sum_{k=1}^n k\cdot k!=(n+1)!-1
+
+Q: Recurring decimal as GP
+F: 0.\overline{ab}=\frac{ab}{99},\qquad 0.a\overline{b}=\frac{ab-a}{90}
+
+Q: Three numbers in AP/GP/HP
+F: a,b,c\ \text{AP}\iff 2b=a+c;\quad\text{GP}\iff b^2=ac;\quad\text{HP}\iff b=\frac{2ac}{a+c}
+N: If $a,b,c$ in AP then $ka,kb,kc$ and $a+k,b+k,c+k$ are AP; if in GP then $\log a,\log b,\log c$ are in AP.

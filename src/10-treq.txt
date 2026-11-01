@@ -1,0 +1,47 @@
+@ treq | Trigonometric Equations | 11 | Trigonometry
+
+## General solutions
+Q: General solution of $\sin\theta=\sin\alpha$
+F: \theta=n\pi+(-1)^n\alpha,\quad n\in\mathbb Z
+
+Q: General solution of $\cos\theta=\cos\alpha$
+F: \theta=2n\pi\pm\alpha
+
+Q: General solution of $\tan\theta=\tan\alpha$
+F: \theta=n\pi+\alpha
+
+Q: Squared forms
+F: \sin^2\theta=\sin^2\alpha,\ \cos^2\theta=\cos^2\alpha,\ \tan^2\theta=\tan^2\alpha\ \Rightarrow\ \theta=n\pi\pm\alpha
+
+Q: Zeros and special values
+F: \sin\theta=0\Rightarrow\theta=n\pi;\quad\cos\theta=0\Rightarrow\theta=(2n+1)\tfrac\pi2;\quad\tan\theta=0\Rightarrow\theta=n\pi
+N: $\sin\theta=1\Rightarrow\theta=2n\pi+\frac\pi2$; $\cos\theta=1\Rightarrow2n\pi$; $\cos\theta=-1\Rightarrow(2n+1)\pi$.
+
+Q: Simultaneous equations ($\sin\theta=\sin\alpha$, $\cos\theta=\cos\alpha$)
+F: \theta=2n\pi+\alpha
+N: Find $\alpha$ in $[0,2\pi)$ satisfying both, then add $2n\pi$.
+
+## Standard forms
+Q: $a\cos\theta+b\sin\theta=c$
+F: \cos(\theta-\phi)=\frac c{\sqrt{a^2+b^2}},\ \tan\phi=\frac ba;\qquad\text{solvable iff } |c|\le\sqrt{a^2+b^2}
+
+Q: Equations in $\sin x\pm\cos x$ and $\sin x\cos x$
+F: t=\sin x+\cos x\Rightarrow\sin x\cos x=\frac{t^2-1}2,\ \ t\in[-\sqrt2,\sqrt2]
+
+Q: Equations reducible by $\tan\frac\theta2$
+F: \sin\theta=\frac{2t}{1+t^2},\quad\cos\theta=\frac{1-t^2}{1+t^2},\quad t=\tan\tfrac\theta2
+N: Check $\theta=(2n+1)\pi$ separately (lost when substituting).
+
+## Common results
+Q: Things to check when solving
+F: \text{domain},\ \text{extraneous roots from squaring},\ \text{division by a zero factor}
+
+Q: Number of solutions by graph
+F: \#\text{solutions of } f(x)=g(x)=\#\text{intersections of } y=f(x),\ y=g(x)
+
+Q: Equations with boundedness
+F: \sin^m x+\cos^n x=1\ \text{or}\ \sin x\cdot\sin y=1\ \Rightarrow\ \text{each factor at its extreme}
+N: E.g. $\sin x+\sin y=2\Rightarrow\sin x=\sin y=1$.
+
+Q: Principal solutions
+F: \text{solutions in } [0,2\pi)

@@ -1,0 +1,79 @@
+@ def | Definite Integration | 12 | Calculus
+
+## Fundamentals
+Q: Fundamental theorem of calculus
+F: \int_a^bf(x)\,dx=F(b)-F(a),\qquad\frac{d}{dx}\int_a^xf(t)\,dt=f(x)
+
+Q: Definite integral as a limit of a sum
+F: \int_a^bf(x)\,dx=\lim_{n\to\infty}h\sum_{r=1}^nf(a+rh),\quad h=\frac{b-a}n
+N: Shortcut: $\lim\frac1n\sum f\left(\frac rn\right)=\int_0^1f(x)dx$ (replace $\frac rn\to x$, $\frac1n\to dx$; limits from the range of $\frac rn$).
+
+## Properties
+Q: Basic properties
+F: \int_a^bf=-\int_b^af,\qquad\int_a^bf=\int_a^cf+\int_c^bf,\qquad\int_a^bf(x)dx=\int_a^bf(t)dt
+
+Q: King's property
+F: \int_a^bf(x)\,dx=\int_a^bf(a+b-x)\,dx
+N: Special: $\int_0^af(x)dx=\int_0^af(a-x)dx$. Use: $\int_0^{\pi/2}\frac{\sin^nx}{\sin^nx+\cos^nx}dx=\frac\pi4$.
+
+Q: Even and odd functions
+F: \int_{-a}^af(x)\,dx=\begin{cases}2\int_0^af(x)dx,&f\ \text{even}\\0,&f\ \text{odd}\end{cases}
+N: General: $\int_{-a}^af(x)dx=\int_0^a[f(x)+f(-x)]dx$.
+
+Q: Doubling property
+F: \int_0^{2a}f(x)\,dx=\begin{cases}2\int_0^af(x)dx,&f(2a-x)=f(x)\\0,&f(2a-x)=-f(x)\end{cases}
+
+Q: Periodic function
+F: \int_0^{nT}f(x)\,dx=n\int_0^Tf(x)\,dx,\qquad\int_a^{a+T}f(x)\,dx=\int_0^Tf(x)\,dx
+N: $\int_{a+nT}^{b+nT}f=\int_a^bf$.
+
+Q: $xf(\sin x)$ result
+F: \int_0^\pi xf(\sin x)\,dx=\frac\pi2\int_0^\pi f(\sin x)\,dx
+D: Apply King's rule: $I=\int_0^\pi(\pi-x)f(\sin x)dx$; add the two forms.
+
+Q: Bounds on integrals
+F: m(b-a)\le\int_a^bf\le M(b-a);\qquad\left|\int_a^bf\right|\le\int_a^b|f|
+N: $f\le g$ on $[a,b]\Rightarrow\int f\le\int g$.
+
+## Standard results
+Q: Wallis' formula
+F: \int_0^{\pi/2}\sin^nx\,dx=\int_0^{\pi/2}\cos^nx\,dx=\frac{(n-1)(n-3)\cdots}{n(n-2)\cdots}\times\begin{cases}\frac\pi2,&n\ \text{even}\\1,&n\ \text{odd}\end{cases}
+
+Q: Wallis for $\sin^m x\cos^n x$
+F: \int_0^{\pi/2}\sin^mx\cos^nx\,dx=\frac{[(m-1)(m-3)\cdots][(n-1)(n-3)\cdots]}{(m+n)(m+n-2)\cdots}\times\left(\tfrac\pi2\ \text{if } m,n\ \text{both even, else }1\right)
+
+Q: Log-sine integral
+F: \int_0^{\pi/2}\ln\sin x\,dx=\int_0^{\pi/2}\ln\cos x\,dx=-\frac\pi2\ln2
+D: Add the two equal forms: $2I=\int_0^{\pi/2}\ln\frac{\sin2x}2dx$; substitute $2x=t$ to get $2I=I-\frac\pi2\ln2$.
+
+Q: Gamma-type integral
+F: \int_0^\infty x^ne^{-x}\,dx=n!,\qquad\int_0^\infty e^{-ax}dx=\frac1a
+N: $\int_0^\infty e^{-x^2}dx=\frac{\sqrt\pi}2$.
+
+Q: Greatest integer in integrals
+F: \int_0^n[x]\,dx=\frac{n(n-1)}2,\qquad\int_0^n\{x\}\,dx=\frac n2
+N: Split at the integers where $[\,]$ jumps.
+
+Q: Integrals with $|\,|$ or $\max/\min$
+F: \text{split the interval where the inside changes sign}
+
+## Leibniz rule
+Q: Differentiating an integral with variable limits
+F: \frac d{dx}\int_{\phi(x)}^{\psi(x)}f(t)\,dt=f(\psi(x))\psi'(x)-f(\phi(x))\phi'(x)
+
+Q: Differentiation under the integral sign
+F: \frac d{d\alpha}\int_a^bf(x,\alpha)\,dx=\int_a^b\frac{\partial f}{\partial\alpha}dx
+
+## Common results
+Q: Classic King's results
+F: \int_0^{\pi/2}\frac{dx}{1+\tan^nx}=\frac\pi4,\qquad\int_0^{\pi/4}\ln(1+\tan x)\,dx=\frac\pi8\ln2
+N: $\int_0^1\frac{\ln(1+x)}{1+x^2}dx=\frac\pi8\ln2$ (put $x=\tan\theta$).
+
+Q: Inverse-function integral
+F: \int_a^bf(x)\,dx+\int_{f(a)}^{f(b)}f^{-1}(y)\,dy=bf(b)-af(a)
+
+Q: Mean value of a function
+F: \bar f=\frac1{b-a}\int_a^bf(x)\,dx
+
+Q: Useful definite values
+F: \int_0^{\pi/2}\sin^2x\,dx=\frac\pi4,\qquad\int_0^\pi\sin x\,dx=2,\qquad\int_0^1\frac{dx}{1+x^2}=\frac\pi4

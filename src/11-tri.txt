@@ -1,0 +1,98 @@
+@ tri | Properties & Solutions of Triangles | 11 | Trigonometry
+
+## Basic rules
+Q: Sine rule
+F: \frac a{\sin A}=\frac b{\sin B}=\frac c{\sin C}=2R
+D: Draw the circumcircle; the chord $BC=a$ subtends angle $A$ at the circumference, so $a=2R\sin A$.
+
+Q: Cosine rule
+F: \cos A=\frac{b^2+c^2-a^2}{2bc}
+N: $a^2=b^2+c^2-2bc\cos A$.
+
+Q: Projection rule
+F: a=b\cos C+c\cos B
+
+Q: Napier's analogy (tangent rule)
+F: \tan\frac{B-C}2=\frac{b-c}{b+c}\cot\frac A2
+
+Q: Half-angle formulae
+F: \sin\frac A2=\sqrt{\frac{(s-b)(s-c)}{bc}},\quad\cos\frac A2=\sqrt{\frac{s(s-a)}{bc}},\quad\tan\frac A2=\sqrt{\frac{(s-b)(s-c)}{s(s-a)}}
+N: $s=\frac{a+b+c}2$. Also $\tan\frac A2=\frac{\Delta}{s(s-a)}=\frac r{s-a}$.
+
+## Area
+Q: Area of a triangle
+F: \Delta=\tfrac12bc\sin A=\sqrt{s(s-a)(s-b)(s-c)}=\frac{abc}{4R}=rs
+N: $\sin A=\frac{2\Delta}{bc}$.
+
+Q: Heron expansion
+F: 16\Delta^2=2a^2b^2+2b^2c^2+2c^2a^2-a^4-b^4-c^4
+
+## Radii
+Q: Circumradius
+F: R=\frac a{2\sin A}=\frac{abc}{4\Delta}
+
+Q: Inradius
+F: r=\frac\Delta s=(s-a)\tan\frac A2=4R\sin\frac A2\sin\frac B2\sin\frac C2
+N: $r=\frac{a\sin\frac B2\sin\frac C2}{\cos\frac A2}$.
+
+Q: Exradius
+F: r_1=\frac\Delta{s-a}=s\tan\frac A2=4R\sin\frac A2\cos\frac B2\cos\frac C2
+
+Q: Relations between radii
+F: r_1+r_2+r_3-r=4R,\qquad\frac1{r_1}+\frac1{r_2}+\frac1{r_3}=\frac1r,\qquad r\,r_1r_2r_3=\Delta^2
+N: $r_1r_2+r_2r_3+r_3r_1=s^2$.
+
+## Centres and lengths
+Q: Distances between centres
+F: OI^2=R^2-2Rr,\qquad OI_1^2=R^2+2Rr_1
+N: Euler: $R\ge2r$ (equality for equilateral).
+
+Q: Distance of incentre from a vertex
+F: AI=\frac{r}{\sin\frac A2}=4R\sin\frac B2\sin\frac C2
+
+Q: Median length
+F: m_a=\frac12\sqrt{2b^2+2c^2-a^2}
+N: Apollonius: $b^2+c^2=2(m_a^2+\frac{a^2}4)$.
+
+Q: Angle bisector length
+F: AD=\frac{2bc}{b+c}\cos\frac A2
+N: $D$ divides $BC$ in ratio $c:b$.
+
+Q: Altitude
+F: h_a=\frac{2\Delta}a=b\sin C=c\sin B
+
+Q: Distances of orthocentre
+F: AH=2R\cos A,\qquad \text{distance of } H \text{ from } BC=2R\cos B\cos C
+
+Q: Pedal and excentral triangles
+F: \text{pedal triangle sides}: a\cos A,\ b\cos B,\ c\cos C;\quad\text{circumradius}=\tfrac R2
+N: Excentral triangle sides $4R\cos\frac A2$ etc.; angles $\frac\pi2-\frac A2$ etc.
+
+## Polygons and heights
+Q: Regular polygon with n sides of length a
+F: R=\frac a2\csc\frac\pi n,\qquad r=\frac a2\cot\frac\pi n,\qquad\text{Area}=\frac{na^2}4\cot\frac\pi n
+
+Q: Cyclic quadrilateral (Brahmagupta)
+F: \text{Area}=\sqrt{(s-a)(s-b)(s-c)(s-d)},\qquad\cos B=\frac{a^2+b^2-c^2-d^2}{2(ab+cd)}
+
+Q: Ambiguous case (given $a,b,A$)
+F: a<b\sin A:\ \text{none};\ a=b\sin A:\ \text{one (right)};\ b\sin A<a<b:\ \text{two};\ a\ge b:\ \text{one}
+N: For acute $A$.
+
+Q: m–n theorem
+F: (m+n)\cot\theta=m\cot\alpha-n\cot\beta=n\cot B-m\cot C
+N: $D$ divides $BC$ in $m:n$; $\theta=\angle ADC$; $\alpha=\angle BAD$, $\beta=\angle DAC$.
+
+## Common results
+Q: Right-angle check
+F: a^2+b^2=c^2\iff C=90^\circ;\quad a^2+b^2<c^2\iff C\ \text{obtuse}
+
+Q: In an equilateral triangle
+F: R=\frac a{\sqrt3},\quad r=\frac a{2\sqrt3},\quad\Delta=\frac{\sqrt3}4a^2
+N: $R:r:r_1=2:1:3$.
+
+Q: Sum of cotangents
+F: \cot A+\cot B+\cot C=\frac{a^2+b^2+c^2}{4\Delta}
+
+Q: Equal-angle shortcut
+F: \frac{a+b}{c}=\frac{\cos\frac{A-B}2}{\sin\frac C2},\qquad\frac{a-b}c=\frac{\sin\frac{A-B}2}{\cos\frac C2}

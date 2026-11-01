@@ -1,0 +1,98 @@
+@ cir | Circles | 11 | Coordinate Geometry
+
+## Equations
+Q: Standard and general equation
+F: (x-h)^2+(y-k)^2=r^2;\qquad x^2+y^2+2gx+2fy+c=0:\ C(-g,-f),\ r=\sqrt{g^2+f^2-c}
+G: p=cos(t),sin(t),0,2*pi | p=1+0.6*cos(t),0.5+0.6*sin(t),0,2*pi ; -2,2.4,-1.5,1.5
+
+Q: Diameter form
+F: (x-x_1)(x-x_2)+(y-y_1)(y-y_2)=0
+
+Q: Parametric form
+F: x=h+r\cos\theta,\quad y=k+r\sin\theta
+
+Q: Circle touching the axes
+F: (x-a)^2+(y-a)^2=a^2\ (\text{both axes});\quad\text{touching } x\text{-axis}: (x-h)^2+(y-k)^2=k^2
+
+Q: Intercepts on the axes
+F: x\text{-intercept}=2\sqrt{g^2-c},\qquad y\text{-intercept}=2\sqrt{f^2-c}
+
+Q: Circle through three points
+F: \text{substitute in } x^2+y^2+2gx+2fy+c=0\ \text{and solve}
+N: Or the circumcircle via the determinant with rows $(x^2+y^2,x,y,1)$.
+
+## Point and line with a circle
+Q: Power of a point
+F: S_1=x_1^2+y_1^2+2gx_1+2fy_1+c
+N: $S_1>0$ outside, $=0$ on, $<0$ inside. $S_1=PA\cdot PB$ for any secant through $P$.
+
+Q: Length of tangent
+F: L=\sqrt{S_1}
+
+Q: Condition of tangency of $y=mx+c$ to $x^2+y^2=a^2$
+F: c^2=a^2(1+m^2)
+N: Tangents with slope $m$: $y=mx\pm a\sqrt{1+m^2}$. In general a line is tangent iff (distance from centre) $=r$.
+
+Q: Tangent at a point (T = 0)
+F: xx_1+yy_1+g(x+x_1)+f(y+y_1)+c=0
+N: Parametric: $x\cos\theta+y\sin\theta=a$ for $x^2+y^2=a^2$.
+
+Q: Normal at a point
+F: \frac{x-x_1}{x_1+g}=\frac{y-y_1}{y_1+f}
+N: Every normal passes through the centre.
+
+Q: Pair of tangents from $(x_1,y_1)$
+F: SS_1=T^2
+
+Q: Chord of contact
+F: T=0
+
+Q: Chord with given midpoint
+F: T=S_1
+
+Q: Director circle and length of chord
+F: x^2+y^2=2a^2\ (\text{director circle of } x^2+y^2=a^2);\qquad\text{chord}=2\sqrt{r^2-p^2}
+N: $p$ = distance of the chord from the centre.
+
+Q: Angle between the pair of tangents
+F: \tan\frac\theta2=\frac r{\sqrt{S_1}}
+N: Area of quadrilateral (centre, two contact points, external point) $=r\sqrt{S_1}$; area of triangle (point & contact points) $=\frac{r\,S_1^{3/2}}{r^2+S_1}$.
+
+Q: Pole and polar
+F: \text{polar of }(x_1,y_1):\ T=0;\qquad\text{pole of } lx+my+n=0 \text{ w.r.t. } x^2+y^2=a^2:\ \left(-\frac{a^2l}n,-\frac{a^2m}n\right)
+
+## Two circles
+Q: Position of two circles
+F: d>r_1+r_2:\ 4\ \text{common tangents};\ d=r_1+r_2:\ 3;\ |r_1-r_2|<d<r_1+r_2:\ 2;\ d=|r_1-r_2|:\ 1;\ d<|r_1-r_2|:\ 0
+
+Q: Length of common tangents
+F: \text{direct}=\sqrt{d^2-(r_1-r_2)^2},\qquad\text{transverse}=\sqrt{d^2-(r_1+r_2)^2}
+N: Direct tangents meet at the external centre of similitude dividing $C_1C_2$ externally in $r_1:r_2$; transverse at the internal one.
+
+Q: Radical axis and common chord
+F: S_1-S_2=0
+N: Radical centre: concurrency point of three radical axes. Common chord length $=2\sqrt{r_1^2-p^2}$.
+
+Q: Orthogonal circles
+F: 2g_1g_2+2f_1f_2=c_1+c_2\iff d^2=r_1^2+r_2^2
+
+Q: Angle of intersection of two circles
+F: \cos\theta=\frac{r_1^2+r_2^2-d^2}{2r_1r_2}
+
+Q: Family of circles
+F: S+\lambda L=0\ (\text{through circle–line intersection});\qquad S_1+\lambda S_2=0
+N: Circles touching a line $L$ at a point $P$: $(x-x_1)^2+(y-y_1)^2+\lambda L=0$.
+
+## Common results
+Q: Circle on the common chord of $S=0$ and line $L=0$ as diameter
+F: S+\lambda L=0,\ \text{with } \lambda \text{ chosen so the centre lies on } L
+N: Smallest circle through the intersections of $S$ and $L$.
+
+Q: Locus of midpoints of chords through a point
+F: \text{chord with midpoint } (h,k):\ T=S_1,\ \text{then pass it through the point}
+
+Q: Image of a circle in a line
+F: \text{reflect the centre, keep the radius}
+
+Q: Maximum and minimum distance from a point
+F: |CP|\pm r

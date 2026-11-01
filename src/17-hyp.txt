@@ -1,0 +1,75 @@
+@ hyp | Hyperbola | 11 | Coordinate Geometry
+
+## Standard hyperbola
+Q: Standard hyperbola
+F: \frac{x^2}{a^2}-\frac{y^2}{b^2}=1,\quad b^2=a^2(e^2-1)
+G: p=1.5*cosh(t),1*sinh(t),-2,2 | p=-1.5*cosh(t),1*sinh(t),-2,2 | y=x/1.5 | y=-x/1.5 ; -5,5,-3.5,3.5
+N: Foci $(\pm ae,0)$, directrices $x=\pm\frac ae$, latus rectum $\frac{2b^2}a$, transverse axis $2a$, conjugate axis $2b$.
+
+Q: Focal distance property
+F: |SP-S'P|=2a;\qquad SP=ex_1-a,\ S'P=ex_1+a\ (\text{right branch})
+
+Q: Conjugate hyperbola
+F: -\frac{x^2}{a^2}+\frac{y^2}{b^2}=1;\qquad\frac1{e_1^2}+\frac1{e_2^2}=1
+
+Q: Parametric point
+F: (a\sec\theta,\ b\tan\theta)\quad\text{or}\quad(a\cosh t,\ b\sinh t)
+
+Q: Asymptotes
+F: \frac xa\pm\frac yb=0\ \ \Rightarrow\ y=\pm\frac bax
+N: Angle between asymptotes $=2\tan^{-1}\frac ba$. Equation of the hyperbola and of its asymptotes differ only by a constant: $H=0$, $A=H+k$, conjugate $=2A-H$.
+
+## Tangents and normals
+Q: Tangent at $(x_1,y_1)$ and at $\theta$
+F: \frac{xx_1}{a^2}-\frac{yy_1}{b^2}=1;\qquad\frac{x\sec\theta}a-\frac{y\tan\theta}b=1
+
+Q: Slope form and tangency condition
+F: y=mx\pm\sqrt{a^2m^2-b^2};\qquad c^2=a^2m^2-b^2
+N: Requires $|m|>\frac ba$.
+
+Q: Normal at $(x_1,y_1)$ and at $\theta$
+F: \frac{a^2x}{x_1}+\frac{b^2y}{y_1}=a^2+b^2;\qquad ax\cos\theta+by\cot\theta=a^2+b^2
+
+Q: Director circle
+F: x^2+y^2=a^2-b^2
+N: Exists only if $a>b$.
+
+Q: Chord of contact, midpoint chord, pair of tangents
+F: T=0,\qquad T=S_1,\qquad SS_1=T^2
+
+## Rectangular hyperbola
+Q: Rectangular hyperbola
+F: x^2-y^2=a^2,\ e=\sqrt2;\qquad xy=c^2
+G: y=1/x ; -5,5,-5,5
+N: Asymptotes of $xy=c^2$ are the axes; vertices $(\pm c,\pm c)$; foci $(\pm\sqrt2c,\pm\sqrt2c)$.
+
+Q: Parametric point and tangent of $xy=c^2$
+F: \left(ct,\frac ct\right);\qquad\frac xt+yt=2c
+N: Tangent at $(x_1,y_1)$: $xy_1+yx_1=2c^2$.
+
+Q: Normal of $xy=c^2$ at $t$
+F: xt^3-yt-ct^4+c=0
+
+Q: Chord joining $t_1,t_2$ on $xy=c^2$
+F: x+t_1t_2y=c(t_1+t_2)
+
+## Common results
+Q: Product of perpendiculars from foci to a tangent
+F: p_1p_2=b^2
+
+Q: Area of triangle formed by a tangent and the asymptotes
+F: ab\ (\text{constant})
+N: The point of contact is the midpoint of the intercept between the asymptotes.
+
+Q: Product of distances from a point to the asymptotes
+F: \frac{a^2b^2}{a^2+b^2}
+
+Q: Reflection property
+F: \text{tangent bisects the angle between focal radii (internally)}
+
+Q: Triangle inscribed in $xy=c^2$
+F: \text{orthocentre also lies on the hyperbola}
+
+Q: A circle meeting $xy=c^2$ at four points $t_1,\dots,t_4$
+F: t_1t_2t_3t_4=1
+N: Also the centroid of the four points is the midpoint of the circle's centre and the hyperbola's centre.

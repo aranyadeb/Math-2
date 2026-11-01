@@ -1,0 +1,146 @@
+@ cplx | Complex Numbers | 11 | Algebra
+
+## Basics
+Q: Powers of $i$
+F: i^{4k}=1,\quad i^{4k+1}=i,\quad i^{4k+2}=-1,\quad i^{4k+3}=-i
+N: Sum of four consecutive powers of $i$ is $0$. Careful: $\sqrt a\sqrt b=\sqrt{ab}$ fails when both $a,b<0$.
+
+Q: Modulus and argument
+F: z=x+iy:\quad |z|=\sqrt{x^2+y^2},\quad \tan\theta=\frac yx
+N: Principal argument $\theta\in(-\pi,\pi]$; fix the quadrant from the signs of $x,y$.
+
+Q: Polar and Euler form
+F: z=r(\cos\theta+i\sin\theta)=re^{i\theta}
+
+Q: Conjugate properties
+F: z\bar z=|z|^2,\quad z+\bar z=2\operatorname{Re}z,\quad z-\bar z=2i\operatorname{Im}z,\quad \overline{z_1z_2}=\bar z_1\bar z_2
+N: $z$ is purely real $\iff z=\bar z$; purely imaginary $\iff z=-\bar z$.
+
+Q: Reciprocal of $z$
+F: \frac1z=\frac{\bar z}{|z|^2}
+
+Q: Modulus rules
+F: |z_1z_2|=|z_1||z_2|,\quad\left|\frac{z_1}{z_2}\right|=\frac{|z_1|}{|z_2|},\quad |z^n|=|z|^n
+
+Q: Argument rules
+F: \arg(z_1z_2)=\arg z_1+\arg z_2,\quad \arg\frac{z_1}{z_2}=\arg z_1-\arg z_2\quad(\text{mod } 2\pi)
+N: $\arg\bar z=-\arg z$; $\arg z^n=n\arg z$ (mod $2\pi$).
+
+Q: Triangle inequality
+F: \big||z_1|-|z_2|\big|\le|z_1\pm z_2|\le|z_1|+|z_2|
+N: $|z_1+z_2|=|z_1|+|z_2|\iff \arg z_1=\arg z_2$.
+
+Q: Parallelogram law
+F: |z_1+z_2|^2+|z_1-z_2|^2=2\left(|z_1|^2+|z_2|^2\right)
+
+Q: Modulus of a sum squared
+F: |z_1+z_2|^2=|z_1|^2+|z_2|^2+2\operatorname{Re}(z_1\bar z_2)
+N: If $|z_1+z_2|=|z_1-z_2|$ then $\arg\frac{z_1}{z_2}=\pm\frac\pi2$.
+
+Q: Square root of $a+ib$
+F: \sqrt{a+ib}=\pm\left(\sqrt{\frac{|z|+a}{2}}+i\,\frac{b}{|b|}\sqrt{\frac{|z|-a}{2}}\right)
+N: $|z|=\sqrt{a^2+b^2}$, $b\ne0$.
+D: Let $(x+iy)^2=a+ib$: $x^2-y^2=a$, $2xy=b$, and $x^2+y^2=|z|$. Solve.
+
+## De Moivre and roots of unity
+Q: De Moivre's theorem
+F: (\cos\theta+i\sin\theta)^n=\cos n\theta+i\sin n\theta
+N: For integer $n$; for rational $n$ it gives one of the values.
+
+Q: n-th roots of unity
+F: z^n=1\Rightarrow z_k=e^{i2\pi k/n},\ k=0,1,\dots,n-1
+N: Sum of all roots $=0$; product $=(-1)^{n-1}$; they form a regular $n$-gon on the unit circle.
+
+Q: Sum of p-th powers of n-th roots of unity
+F: \sum_{k=0}^{n-1}\omega_k^{\,p}=\begin{cases}n,& n\mid p\\0,&\text{otherwise}\end{cases}
+
+Q: Cube roots of unity
+F: 1,\ \omega=\frac{-1+i\sqrt3}{2},\ \omega^2=\frac{-1-i\sqrt3}{2};\qquad 1+\omega+\omega^2=0,\ \omega^3=1
+N: $\bar\omega=\omega^2$; $1+\omega^n+\omega^{2n}=3$ if $3\mid n$, else $0$.
+
+Q: Factorisations using $\omega$
+F: a^2+b^2+c^2-ab-bc-ca=(a+b\omega+c\omega^2)(a+b\omega^2+c\omega)
+N: $a^3+b^3=(a+b)(a+b\omega)(a+b\omega^2)$; $x^2+x+1=(x-\omega)(x-\omega^2)$.
+
+Q: Product formula from n-th roots of unity
+F: x^{n}-1=\prod_{k=0}^{n-1}(x-\omega_k)\ \Rightarrow\ \prod_{k=1}^{n-1}(1-\omega_k)=n
+D: $\frac{x^n-1}{x-1}=1+x+\cdots+x^{n-1}=\prod_{k=1}^{n-1}(x-\omega_k)$; put $x=1$.
+
+Q: Roots of $z^n=a$
+F: z_k=|a|^{1/n}e^{i(\arg a+2k\pi)/n},\quad k=0,\dots,n-1
+
+## Logarithm and powers
+Q: Logarithm of a complex number
+F: \log z=\ln|z|+i(\arg z+2k\pi)
+N: Principal value with $k=0$. $i^i=e^{-\pi/2}$ (principal).
+
+Q: Euler forms of cos and sin
+F: \cos\theta=\frac{e^{i\theta}+e^{-i\theta}}{2},\qquad \sin\theta=\frac{e^{i\theta}-e^{-i\theta}}{2i}
+
+## Geometry with complex numbers
+Q: Distance between two points
+F: |z_1-z_2|
+
+Q: Section formula
+F: z=\frac{mz_2+nz_1}{m+n}\ (\text{internal}),\qquad z=\frac{mz_2-nz_1}{m-n}\ (\text{external})
+
+Q: Centroid, incentre, circumcentre (equilateral)
+F: G=\frac{z_1+z_2+z_3}{3},\qquad I=\frac{az_1+bz_2+cz_3}{a+b+c}
+
+Q: Rotation theorem
+F: \frac{z_3-z_1}{z_2-z_1}=\frac{|z_3-z_1|}{|z_2-z_1|}e^{i\theta}
+N: $\theta$ = angle from $\overrightarrow{z_1z_2}$ to $\overrightarrow{z_1z_3}$, anticlockwise.
+
+Q: Collinearity of three points
+F: \frac{z_3-z_1}{z_2-z_1}\in\mathbb R\iff\begin{vmatrix}z_1&\bar z_1&1\\z_2&\bar z_2&1\\z_3&\bar z_3&1\end{vmatrix}=0
+
+Q: Perpendicularity
+F: \frac{z_3-z_1}{z_2-z_1}\ \text{purely imaginary}\iff z_1z_3\perp z_1z_2
+
+Q: Equilateral triangle condition
+F: z_1^2+z_2^2+z_3^2=z_1z_2+z_2z_3+z_3z_1
+N: Equivalent: $\frac1{z_1-z_2}+\frac1{z_2-z_3}+\frac1{z_3-z_1}=0$. With centroid $z_0$: $z_1^2+z_2^2+z_3^2=3z_0^2$.
+
+Q: Area of triangle
+F: \Delta=\frac{1}{4i}\begin{vmatrix}z_1&\bar z_1&1\\z_2&\bar z_2&1\\z_3&\bar z_3&1\end{vmatrix}
+N: Take modulus for the magnitude.
+
+Q: Equation of a line through $z_1,z_2$
+F: \begin{vmatrix}z&\bar z&1\\z_1&\bar z_1&1\\z_2&\bar z_2&1\end{vmatrix}=0
+
+Q: General line
+F: \bar a z+a\bar z+b=0\quad(b\in\mathbb R)
+N: Slope $=-\frac{a+\bar a}{i(a-\bar a)}=-\frac{\operatorname{Re}a}{\operatorname{Im}a}$; distance of $z_0$ from it $=\frac{|\bar az_0+a\bar z_0+b|}{2|a|}$.
+
+Q: Perpendicular bisector of $z_1z_2$
+F: |z-z_1|=|z-z_2|
+
+Q: Circle
+F: |z-z_0|=r\iff z\bar z-\bar z_0z-z_0\bar z+|z_0|^2-r^2=0
+N: General: $z\bar z+\bar az+a\bar z+b=0$, centre $-a$, radius $\sqrt{|a|^2-b}$.
+
+Q: Circle on diameter $z_1z_2$
+F: (z-z_1)(\bar z-\bar z_2)+(z-z_2)(\bar z-\bar z_1)=0
+N: Equivalent: $\arg\frac{z-z_1}{z-z_2}=\pm\frac\pi2$.
+
+Q: Apollonius circle
+F: \left|\frac{z-z_1}{z-z_2}\right|=k\ (k\ne1):\ \text{circle};\quad k=1:\ \text{perpendicular bisector}
+
+Q: Arc locus
+F: \arg\frac{z-z_1}{z-z_2}=\theta:\ \text{arc of a circle through } z_1,z_2
+N: $\theta=0$ or $\pi$: the line (outside / inside the segment).
+
+Q: Ellipse and hyperbola loci
+F: |z-z_1|+|z-z_2|=2a\ (2a>|z_1-z_2|):\ \text{ellipse};\qquad \big||z-z_1|-|z-z_2|\big|=2a\ (2a<|z_1-z_2|):\ \text{hyperbola}
+
+Q: Concyclic points
+F: \frac{(z_4-z_1)(z_2-z_3)}{(z_4-z_3)(z_2-z_1)}\in\mathbb R
+
+Q: Reflection of $z$ in the line $\bar az+a\bar z+b=0$
+F: \bar a z'+a\bar z+b=0\ \Rightarrow\ z'=-\frac{a\bar z+b}{\bar a}
+
+Q: Range of $|z|$ given $|z-z_0|=r$
+F: \big||z_0|-r\big|\le|z|\le|z_0|+r
+
+Q: Maximum of $|z|$ when $\left|z-\frac{a}{z}\right|=k$
+F: |z|_{\max}=\frac{k+\sqrt{k^2+4|a|}}{2},\qquad |z|_{\min}=\frac{-k+\sqrt{k^2+4|a|}}{2}

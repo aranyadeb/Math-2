@@ -1,0 +1,87 @@
+@ par | Parabola | 11 | Coordinate Geometry
+
+## Standard parabola
+Q: Standard parabola and its parts
+F: y^2=4ax:\ \text{focus }(a,0),\ \text{directrix }x=-a,\ \text{latus rectum }4a,\ e=1
+G: p=t*t,2*t,-2.2,2.2 ; -1.5,5,-4.5,4.5
+N: Axis $y=0$, vertex $(0,0)$. Ends of the latus rectum $(a,\pm2a)$.
+
+Q: Other standard forms
+F: y^2=-4ax,\quad x^2=4ay,\quad x^2=-4ay
+N: Shifted: $(y-k)^2=4a(x-h)$, vertex $(h,k)$, focus $(h+a,k)$.
+
+Q: General conic via focus–directrix
+F: \frac{PS}{PM}=e:\quad e=1\ \text{parabola},\ e<1\ \text{ellipse},\ e>1\ \text{hyperbola}
+
+Q: Identifying a conic $ax^2+2hxy+by^2+2gx+2fy+c=0$
+F: \Delta\ne0:\ h^2=ab\ \text{parabola},\ h^2<ab\ \text{ellipse},\ h^2>ab\ \text{hyperbola}
+N: $\Delta=abc+2fgh-af^2-bg^2-ch^2$. Rectangular hyperbola when also $a+b=0$. $\Delta=0$: pair of lines.
+
+Q: Parametric point
+F: (at^2,\ 2at)
+N: Focal distance $=x+a=a(1+t^2)$.
+
+Q: Equation of the parabola $y=ax^2+bx+c$
+F: \text{vertex}\left(-\tfrac b{2a},-\tfrac D{4a}\right),\ \text{latus rectum}=\tfrac1{|a|}
+
+## Chords
+Q: Chord joining $t_1,t_2$
+F: 2x-(t_1+t_2)y+2at_1t_2=0
+N: Slope $\frac2{t_1+t_2}$.
+
+Q: Focal chord condition
+F: t_1t_2=-1
+N: Length of focal chord $=a\left(t+\frac1t\right)^2$. Harmonic mean of focal segments $=2a$ (semi-latus rectum): $\frac1{SP}+\frac1{SQ}=\frac1a$.
+
+Q: Chord with given midpoint
+F: T=S_1:\quad yk-2a(x+h)=k^2-4ah
+
+## Tangents
+Q: Tangent at $(x_1,y_1)$
+F: yy_1=2a(x+x_1)
+
+Q: Tangent at $t$
+F: ty=x+at^2
+
+Q: Slope form of tangent
+F: y=mx+\frac am,\quad\text{point of contact}\left(\frac a{m^2},\frac{2a}m\right)
+N: Condition for $y=mx+c$ to touch: $c=\frac am$.
+
+Q: Intersection of tangents at $t_1,t_2$
+F: \left(at_1t_2,\ a(t_1+t_2)\right)
+
+Q: Tangent properties
+F: \text{tangents at ends of a focal chord meet on the directrix at right angles}
+N: Foot of perpendicular from the focus to any tangent lies on the tangent at the vertex. Tangent bisects the angle between the focal radius and the perpendicular to the directrix (reflection property).
+
+Q: Director circle
+F: \text{director circle of a parabola is its directrix } x=-a
+
+## Normals
+Q: Normal at $t$
+F: y+tx=2at+at^3
+
+Q: Slope form of normal
+F: y=mx-2am-am^3,\quad\text{foot }(am^2,-2am)
+
+Q: Normal at $t_1$ meets the parabola again at $t_2$
+F: t_2=-t_1-\frac2{t_1}
+N: Normals at $t_1,t_2$ meet on the parabola if $t_1t_2=2$.
+
+Q: Co-normal points
+F: \text{three normals from a point}: m_1+m_2+m_3=0,\ \ t_1+t_2+t_3=0
+N: Three real normals from $(h,0)$ iff $h>2a$. Centroid of feet lies on the axis.
+
+## Common results
+Q: Length of subtangent and subnormal
+F: \text{subtangent}=2x_1,\qquad\text{subnormal}=2a\ (\text{constant})
+
+Q: Length of chord intercepted
+F: \text{chord } y=mx+c:\ \ \frac4{m^2}\sqrt{a(1+m^2)(a-mc)}
+
+Q: Area of triangle with vertices $t_1,t_2,t_3$
+F: \Delta=a^2|(t_1-t_2)(t_2-t_3)(t_3-t_1)|
+N: The triangle formed by the tangents at these points has half this area.
+
+Q: Locus of the foot of perpendicular from focus on a tangent
+F: \text{tangent at the vertex } x=0

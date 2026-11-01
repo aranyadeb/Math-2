@@ -1,0 +1,104 @@
+@ ind | Indefinite Integration | 12 | Calculus
+
+## Standard integrals
+Q: Power and exponential
+F: \int x^n\,dx=\frac{x^{n+1}}{n+1}+C\ (n\ne-1),\quad\int\frac{dx}x=\ln|x|+C,\quad\int e^x\,dx=e^x+C,\quad\int a^x\,dx=\frac{a^x}{\ln a}+C
+
+Q: Trigonometric integrals
+F: \int\sin x=-\cos x,\ \int\cos x=\sin x,\ \int\sec^2x=\tan x,\ \int\csc^2x=-\cot x,\ \int\sec x\tan x=\sec x,\ \int\csc x\cot x=-\csc x
+
+Q: Integrals of tan, cot, sec, csc
+F: \int\tan x\,dx=\ln|\sec x|,\quad\int\cot x\,dx=\ln|\sin x|,\quad\int\sec x\,dx=\ln|\sec x+\tan x|,\quad\int\csc x\,dx=\ln\left|\tan\tfrac x2\right|
+N: $\int\sec x\,dx=\ln\left|\tan\left(\frac\pi4+\frac x2\right)\right|$; $\int\csc x\,dx=\ln|\csc x-\cot x|$.
+D: $\int\sec x\,dx=\int\frac{\sec x(\sec x+\tan x)}{\sec x+\tan x}dx$; numerator is the derivative of the denominator.
+
+Q: Standard algebraic forms (1)
+F: \int\frac{dx}{x^2+a^2}=\frac1a\tan^{-1}\frac xa,\quad\int\frac{dx}{\sqrt{a^2-x^2}}=\sin^{-1}\frac xa
+N: $\int\frac{dx}{x\sqrt{x^2-a^2}}=\frac1a\sec^{-1}\frac xa$.
+
+Q: Standard algebraic forms (2)
+F: \int\frac{dx}{x^2-a^2}=\frac1{2a}\ln\left|\frac{x-a}{x+a}\right|,\quad\int\frac{dx}{a^2-x^2}=\frac1{2a}\ln\left|\frac{a+x}{a-x}\right|
+D: Partial fractions: $\frac1{x^2-a^2}=\frac1{2a}\left(\frac1{x-a}-\frac1{x+a}\right)$.
+
+Q: Standard algebraic forms (3)
+F: \int\frac{dx}{\sqrt{x^2\pm a^2}}=\ln\left|x+\sqrt{x^2\pm a^2}\right|
+
+Q: Square-root integrals
+F: \int\sqrt{a^2-x^2}\,dx=\frac x2\sqrt{a^2-x^2}+\frac{a^2}2\sin^{-1}\frac xa
+N: $\int\sqrt{x^2\pm a^2}\,dx=\frac x2\sqrt{x^2\pm a^2}\pm\frac{a^2}2\ln\left|x+\sqrt{x^2\pm a^2}\right|$.
+D: By parts with $u=\sqrt{a^2-x^2}$, $dv=dx$, then add the integral back to both sides.
+
+## Techniques
+Q: Integration by parts
+F: \int u\,v\,dx=u\int v\,dx-\int\left(u'\int v\,dx\right)dx
+H: ILATE: Inverse, Log, Algebraic, Trig, Exponential — choose $u$ from the left.
+
+Q: The $e^x$ special form
+F: \int e^x\left[f(x)+f'(x)\right]dx=e^xf(x)+C
+N: Also $\int\left[f(x)+xf'(x)\right]dx=xf(x)+C$.
+
+Q: Exponential × trig
+F: \int e^{ax}\sin bx\,dx=\frac{e^{ax}}{a^2+b^2}(a\sin bx-b\cos bx)+C
+N: $\int e^{ax}\cos bx\,dx=\frac{e^{ax}}{a^2+b^2}(a\cos bx+b\sin bx)+C$.
+
+Q: Derivative over function
+F: \int\frac{f'(x)}{f(x)}dx=\ln|f(x)|+C,\qquad\int\frac{f'(x)}{\sqrt{f(x)}}dx=2\sqrt{f(x)}+C
+N: $\int[f(x)]^nf'(x)\,dx=\frac{[f(x)]^{n+1}}{n+1}+C$.
+
+Q: Linear substitution
+F: \int f(ax+b)\,dx=\frac1aF(ax+b)+C
+
+## Standard substitutions
+Q: Quadratic in the denominator
+F: \int\frac{dx}{ax^2+bx+c}:\ \text{complete the square}
+N: $\int\frac{px+q}{ax^2+bx+c}dx$: write $px+q=A\frac d{dx}(ax^2+bx+c)+B$. Same for $\sqrt{ax^2+bx+c}$.
+
+Q: Trig rational: $\int\frac{dx}{a+b\cos x}$
+F: t=\tan\tfrac x2:\ \ \cos x=\frac{1-t^2}{1+t^2},\ \sin x=\frac{2t}{1+t^2},\ dx=\frac{2\,dt}{1+t^2}
+
+Q: $\int\frac{dx}{a\sin^2x+b\cos^2x+c}$
+F: \text{divide by } \cos^2x,\ \text{put } t=\tan x
+
+Q: $\int\frac{a\sin x+b\cos x}{c\sin x+d\cos x}dx$
+F: \text{Numerator}=A(\text{Denominator})+B(\text{Denominator})'
+
+Q: Powers of sin and cos
+F: \int\sin^mx\cos^nx\,dx:\ m\ \text{odd}\to t=\cos x;\ n\ \text{odd}\to t=\sin x;\ m+n\ \text{negative even}\to t=\tan x
+
+Q: Irrational substitutions
+F: \int\frac{dx}{(ax+b)\sqrt{cx+d}}:\ t^2=cx+d;\qquad\int\frac{dx}{(px+q)\sqrt{ax^2+bx+c}}:\ px+q=\frac1t
+N: $\int\frac{dx}{(ax^2+b)\sqrt{cx^2+d}}$: $x=\frac1t$, then $u^2=c+dt^2$.
+
+Q: Euler substitutions / trigonometric forms
+F: \sqrt{a^2-x^2}:\ x=a\sin\theta;\quad\sqrt{a^2+x^2}:\ x=a\tan\theta;\quad\sqrt{x^2-a^2}:\ x=a\sec\theta
+N: $\sqrt{\frac{a-x}{a+x}}$: $x=a\cos2\theta$. $\sqrt{(x-\alpha)(\beta-x)}$: $x=\alpha\cos^2\theta+\beta\sin^2\theta$.
+
+Q: $\int\frac{x^2\pm1}{x^4+kx^2+1}dx$
+F: \text{divide by } x^2:\ \frac{1\pm\frac1{x^2}}{x^2+\frac1{x^2}+k};\ \ t=x\mp\frac1x
+N: Used for $\int\sqrt{\tan x}\,dx$ and $\int\frac{dx}{x^4+1}$.
+
+## Partial fractions
+Q: Partial fraction forms
+F: \frac{px+q}{(x-a)(x-b)}=\frac A{x-a}+\frac B{x-b};\quad\frac{\cdots}{(x-a)^2}=\frac A{x-a}+\frac B{(x-a)^2};\quad\frac{\cdots}{(x-a)(x^2+bx+c)}=\frac A{x-a}+\frac{Bx+C}{x^2+bx+c}
+N: Cover-up rule for linear factors: $A=\left.\frac{px+q}{x-b}\right|_{x=a}$.
+
+## Reduction formulae
+Q: Reduction for $\sin^n x$ and $\cos^nx$
+F: I_n=\int\sin^nx\,dx=-\frac{\sin^{n-1}x\cos x}n+\frac{n-1}nI_{n-2}
+
+Q: Reduction for $\tan^n x$
+F: I_n=\frac{\tan^{n-1}x}{n-1}-I_{n-2}
+
+Q: Reduction for $\sec^n x$
+F: I_n=\frac{\sec^{n-2}x\tan x}{n-1}+\frac{n-2}{n-1}I_{n-2}
+
+## Common results
+Q: Useful results
+F: \int\frac{dx}{1+\sin x}=\tan x-\sec x+C,\qquad\int\frac{dx}{1+\cos x}=\tan\frac x2+C
+N: $\int\frac{dx}{\sin x\cos x}=\ln|\tan x|+C$; $\int\frac{dx}{\sin^2x\cos^2x}=\tan x-\cot x+C$.
+
+Q: Log integrals
+F: \int\ln x\,dx=x\ln x-x+C,\qquad\int\frac{\ln x}x\,dx=\frac{(\ln x)^2}2+C
+
+Q: Inverse trig integrals
+F: \int\sin^{-1}x\,dx=x\sin^{-1}x+\sqrt{1-x^2}+C,\qquad\int\tan^{-1}x\,dx=x\tan^{-1}x-\tfrac12\ln(1+x^2)+C

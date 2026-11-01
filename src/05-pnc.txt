@@ -1,0 +1,98 @@
+@ pnc | Permutations & Combinations | 11 | Algebra
+
+## Basics
+Q: Factorial and permutations
+F: {}^nP_r=\frac{n!}{(n-r)!},\qquad 0!=1
+N: Number of arrangements of $r$ out of $n$ distinct objects.
+
+Q: Combinations
+F: {}^nC_r=\binom nr=\frac{n!}{r!(n-r)!}
+N: ${}^nP_r=r!\,{}^nC_r$.
+
+Q: Properties of $^nC_r$
+F: {}^nC_r={}^nC_{n-r},\qquad {}^nC_r+{}^nC_{r-1}={}^{n+1}C_r
+N: ${}^nC_x={}^nC_y\Rightarrow x=y$ or $x+y=n$.
+
+Q: Other identities
+F: \frac{{}^nC_r}{{}^nC_{r-1}}=\frac{n-r+1}{r},\qquad r\,{}^nC_r=n\,{}^{n-1}C_{r-1}
+N: ${}^nC_r$ is greatest at $r=\frac n2$ ($n$ even) or $r=\frac{n\pm1}2$ ($n$ odd).
+
+Q: Hockey-stick identity
+F: \sum_{k=r}^{n}{}^kC_r={}^{n+1}C_{r+1}
+
+## Arrangements
+Q: Permutations with repetition allowed
+F: n^r
+
+Q: Permutations of identical objects
+F: \frac{n!}{p!\,q!\,r!\cdots}
+N: $p$ alike of one kind, $q$ alike of another, etc.
+
+Q: Circular permutations
+F: (n-1)!;\qquad \text{necklace/garland (flip same)}:\ \frac{(n-1)!}{2}
+N: Choose $r$ of $n$ in a circle: $\frac{{}^nP_r}{r}$.
+
+Q: Things always together / never together
+F: \text{together: treat as one unit};\quad\text{never together} = \text{total} - \text{together}
+N: Gap method: arrange others first, then place the restricted items in the gaps.
+
+Q: Rank of a word in dictionary order
+F: \text{rank}=1+\sum(\text{count of words starting with smaller letters at each position})
+
+## Selections
+Q: At least one from n distinct objects
+F: 2^n-1
+
+Q: Selection from identical objects
+F: (p+1)(q+1)(r+1)\cdots-1
+N: $p$ alike, $q$ alike, … at least one selected. Add $\times 2^k$ for $k$ distinct ones.
+
+Q: Number of divisors of $N=p^aq^br^c$
+F: (a+1)(b+1)(c+1);\qquad \text{sum}=\frac{p^{a+1}-1}{p-1}\cdot\frac{q^{b+1}-1}{q-1}\cdots
+N: Ways to write $N$ as a product of two coprime factors: $2^{k-1}$ ($k$ distinct primes).
+
+Q: Ways to write $N$ as product of two factors
+F: \frac{\tau(N)}2\ (N\ \text{not a square}),\qquad\frac{\tau(N)+1}2\ (N\ \text{a square})
+
+Q: Exponent of prime $p$ in $n!$ (Legendre)
+F: E_p(n!)=\left[\frac np\right]+\left[\frac n{p^2}\right]+\left[\frac n{p^3}\right]+\cdots
+
+## Distribution
+Q: Dividing $n$ distinct items into groups of sizes $p,q,r$
+F: \frac{n!}{p!\,q!\,r!}\ (\text{unequal sizes});\qquad \frac{(3p)!}{(p!)^3\,3!}\ (\text{3 equal groups})
+N: Multiply by the number of ways to hand the groups to people ($3!$) if distributing.
+
+Q: Identical items into distinct boxes (stars and bars)
+F: x_1+\cdots+x_r=n,\ x_i\ge0:\ {}^{n+r-1}C_{r-1};\qquad x_i\ge1:\ {}^{n-1}C_{r-1}
+
+Q: Distinct items into distinct boxes, none empty
+F: r^n-{}^rC_1(r-1)^n+{}^rC_2(r-2)^n-\cdots
+
+Q: Derangements
+F: D_n=n!\left(1-\frac1{1!}+\frac1{2!}-\cdots+\frac{(-1)^n}{n!}\right)
+N: $D_1=0,\ D_2=1,\ D_3=2,\ D_4=9,\ D_5=44$. Recurrence $D_n=(n-1)(D_{n-1}+D_{n-2})$.
+
+Q: Multinomial coefficient – coefficient form
+F: \text{ways}=\text{coefficient of } x^n \text{ in } (1+x+x^2+\cdots)^r
+
+## Geometry counts
+Q: Lines and triangles from n points (no 3 collinear)
+F: \text{lines}={}^nC_2,\qquad\text{triangles}={}^nC_3,\qquad\text{diagonals of }n\text{-gon}={}^nC_2-n
+N: With $m$ collinear: lines ${}^nC_2-{}^mC_2+1$, triangles ${}^nC_3-{}^mC_3$.
+
+Q: Rectangles and squares on a chessboard grid
+F: m\times n\ \text{grid lines}:\ {}^mC_2\cdot{}^nC_2\ \text{rectangles};\quad 8\times8\ \text{board}: 204\ \text{squares},\ 1296\ \text{rectangles}
+
+Q: Points of intersection
+F: n\ \text{lines (none parallel, no 3 concurrent)}:\ {}^nC_2;\qquad n\ \text{circles}:\ 2\cdot{}^nC_2
+
+Q: Shortest grid paths
+F: \text{from }(0,0)\text{ to }(m,n):\ {}^{m+n}C_n
+
+## Common results
+Q: Principle of inclusion–exclusion
+F: |A\cup B\cup C|=\sum|A|-\sum|A\cap B|+|A\cap B\cap C|
+
+Q: Number of onto functions $A\to B$
+F: |A|=n,\ |B|=m:\ \sum_{k=0}^{m}(-1)^k\binom mk(m-k)^n
+N: Total functions $m^n$; one-one functions ${}^mP_n$ ($n\le m$).

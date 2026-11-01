@@ -1,0 +1,62 @@
+@ lim | Limits | 11 | Calculus
+
+## Standard limits
+Q: Trigonometric limits
+F: \lim_{x\to0}\frac{\sin x}x=1,\quad\lim_{x\to0}\frac{\tan x}x=1,\quad\lim_{x\to0}\frac{1-\cos x}{x^2}=\frac12
+N: Also $\frac{\sin^{-1}x}x\to1$, $\frac{\tan^{-1}x}x\to1$ as $x\to0$ ($x$ in radians).
+D: For $0<x<\frac\pi2$: $\sin x<x<\tan x$; divide by $\sin x$ and squeeze.
+G: y=sin(x)/x ; -12,12,-0.4,1.2
+
+Q: Exponential and log limits
+F: \lim_{x\to0}\frac{e^x-1}x=1,\quad\lim_{x\to0}\frac{a^x-1}x=\ln a,\quad\lim_{x\to0}\frac{\ln(1+x)}x=1
+
+Q: Algebraic limit
+F: \lim_{x\to a}\frac{x^n-a^n}{x-a}=na^{n-1}
+N: Also $\lim_{x\to0}\frac{(1+x)^n-1}x=n$.
+
+Q: The number $e$
+F: \lim_{x\to0}(1+x)^{1/x}=e,\qquad\lim_{x\to\infty}\left(1+\frac ax\right)^{x}=e^a
+
+Q: $1^\infty$ form
+F: \lim f^g=e^{\lim g(f-1)}\quad\text{when } f\to1,\ g\to\infty
+D: $f^g=e^{g\ln f}$ and $\ln f\approx f-1$ as $f\to1$.
+
+Q: Indeterminate forms
+F: \frac00,\ \frac\infty\infty,\ 0\cdot\infty,\ \infty-\infty,\ 0^0,\ \infty^0,\ 1^\infty
+
+## Methods
+Q: L'Hôpital's rule
+F: \lim\frac{f(x)}{g(x)}=\lim\frac{f'(x)}{g'(x)}\quad\left(\tfrac00\ \text{or}\ \tfrac\infty\infty\right)
+
+Q: Series expansions for limits
+F: \sin x=x-\frac{x^3}{6}+\cdots,\ \cos x=1-\frac{x^2}2+\frac{x^4}{24}-\cdots,\ \tan x=x+\frac{x^3}3+\frac{2x^5}{15}+\cdots
+N: $e^x=1+x+\frac{x^2}2+\frac{x^3}6+\cdots$; $\ln(1+x)=x-\frac{x^2}2+\frac{x^3}3-\cdots$; $\sin^{-1}x=x+\frac{x^3}6+\cdots$; $\tan^{-1}x=x-\frac{x^3}3+\cdots$.
+
+Q: Limits at infinity of rational functions
+F: \lim_{x\to\infty}\frac{a_0x^m+\cdots}{b_0x^n+\cdots}=\begin{cases}0,&m<n\\\frac{a_0}{b_0},&m=n\\\pm\infty,&m>n\end{cases}
+
+Q: Sandwich theorem
+F: g\le f\le h,\ \lim g=\lim h=L\Rightarrow\lim f=L
+
+Q: Limit using the greatest integer
+F: \lim_{x\to a^+}[x]=a,\ \ \lim_{x\to a^-}[x]=a-1\ (a\in\mathbb Z)
+
+Q: Limit as a Riemann sum
+F: \lim_{n\to\infty}\frac1n\sum_{r=1}^{n}f\!\left(\frac rn\right)=\int_0^1f(x)\,dx
+
+## Common results
+Q: Useful limits
+F: \lim_{x\to\infty}\frac{\ln x}{x^k}=0,\qquad\lim_{x\to\infty}\frac{x^k}{e^x}=0,\qquad\lim_{x\to0^+}x\ln x=0
+
+Q: $n$-th root limits
+F: \lim_{n\to\infty}n^{1/n}=1,\qquad\lim_{n\to\infty}\frac{(n!)^{1/n}}{n}=\frac1e
+
+Q: Limit of $(1+\frac1n)^n$ type with $a$, $b$
+F: \lim_{x\to0}\left(\frac{a^x+b^x}2\right)^{1/x}=\sqrt{ab}
+
+Q: Difference of roots trick
+F: \lim_{x\to\infty}\left(\sqrt{x^2+ax}-x\right)=\frac a2
+N: Rationalise: multiply and divide by the conjugate.
+
+Q: Limit of $\frac{\sin x^\circ}{x}$
+F: \lim_{x\to0}\frac{\sin x^\circ}{x}=\frac\pi{180}

@@ -1,0 +1,65 @@
+@ det | Determinants | 12 | Algebra
+
+## Evaluation
+Q: 2×2 determinant
+F: \begin{vmatrix}a&b\\c&d\end{vmatrix}=ad-bc
+
+Q: 3×3 determinant (expansion)
+F: \begin{vmatrix}a_1&b_1&c_1\\a_2&b_2&c_2\\a_3&b_3&c_3\end{vmatrix}=a_1(b_2c_3-b_3c_2)-b_1(a_2c_3-a_3c_2)+c_1(a_2b_3-a_3b_2)
+
+Q: Cofactor
+F: C_{ij}=(-1)^{i+j}M_{ij}
+N: $\sum_j a_{ij}C_{ij}=|A|$; $\sum_j a_{ij}C_{kj}=0$ for $i\ne k$.
+
+## Properties
+Q: Effect of row/column operations
+F: |A^T|=|A|;\ \text{swap two rows: sign changes};\ \text{two equal rows: } 0;\ R_i\to kR_i:\ \times k
+N: $R_i\to R_i+kR_j$ leaves the value unchanged. A row that is a sum splits into a sum of two determinants.
+
+Q: Factor theorem for determinants
+F: \text{if } \Delta=0\ \text{when } x=a,\ \text{then } (x-a)\ \text{is a factor}
+
+## Standard determinants
+Q: Vandermonde determinant
+F: \begin{vmatrix}1&1&1\\a&b&c\\a^2&b^2&c^2\end{vmatrix}=(a-b)(b-c)(c-a)
+
+Q: Cyclic determinant
+F: \begin{vmatrix}a&b&c\\b&c&a\\c&a&b\end{vmatrix}=-(a^3+b^3+c^3-3abc)
+
+Q: Determinant with cubes
+F: \begin{vmatrix}1&1&1\\a&b&c\\a^3&b^3&c^3\end{vmatrix}=(a-b)(b-c)(c-a)(a+b+c)
+
+Q: Symmetric determinant
+F: \begin{vmatrix}a&h&g\\h&b&f\\g&f&c\end{vmatrix}=abc+2fgh-af^2-bg^2-ch^2
+
+Q: Product of determinants
+F: |A||B|=|AB|\ \ (\text{row-by-row or row-by-column multiplication})
+
+Q: Differentiation of a determinant
+F: \frac{d}{dx}\Delta=\text{sum of determinants with one row differentiated at a time}
+
+## Applications
+Q: Area of a triangle
+F: \Delta=\frac12\left|\begin{vmatrix}x_1&y_1&1\\x_2&y_2&1\\x_3&y_3&1\end{vmatrix}\right|
+N: Three points are collinear iff this determinant is $0$.
+
+Q: Cramer's rule
+F: x=\frac{\Delta_1}{\Delta},\ y=\frac{\Delta_2}{\Delta},\ z=\frac{\Delta_3}{\Delta}
+N: $\Delta\ne0$: unique solution. $\Delta=0$ and some $\Delta_i\ne0$: no solution. $\Delta=\Delta_1=\Delta_2=\Delta_3=0$: infinitely many or none.
+
+Q: Concurrency of three lines
+F: \begin{vmatrix}a_1&b_1&c_1\\a_2&b_2&c_2\\a_3&b_3&c_3\end{vmatrix}=0
+N: Necessary condition (lines not parallel).
+
+Q: Consistency of three equations in two unknowns
+F: a_ix+b_iy+c_i=0\ (i=1,2,3)\ \text{consistent}\Rightarrow\begin{vmatrix}a_1&b_1&c_1\\a_2&b_2&c_2\\a_3&b_3&c_3\end{vmatrix}=0
+
+## Common results
+Q: Sum of a determinant over a variable
+F: \sum_{r}\Delta_r:\ \text{sum only the row/column that contains } r
+
+Q: Determinant of triangular / diagonal matrix
+F: |A|=a_{11}a_{22}\cdots a_{nn}
+
+Q: Minors of the adjoint
+F: \Delta'=\Delta^{n-1}\quad(\text{determinant of cofactors})

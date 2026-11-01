@@ -1,0 +1,83 @@
+@ bin | Binomial Theorem | 11 | Algebra
+
+## Expansion
+Q: Binomial theorem
+F: (x+a)^n=\sum_{r=0}^{n}{}^nC_r\,x^{n-r}a^r
+N: $n+1$ terms, $n\in\mathbb N$.
+D: Induction: assume for $n$, multiply by $(x+a)$, and use ${}^nC_r+{}^nC_{r-1}={}^{n+1}C_r$.
+
+Q: General term
+F: T_{r+1}={}^nC_r\,x^{n-r}a^r
+
+Q: Middle term(s)
+F: n\ \text{even}:\ T_{\frac n2+1};\qquad n\ \text{odd}:\ T_{\frac{n+1}2},\ T_{\frac{n+3}2}
+
+Q: Term independent of $x$ in $\left(x^\alpha+\frac1{x^\beta}\right)^n$
+F: \alpha(n-r)-\beta r=0\ \Rightarrow\ r=\frac{\alpha n}{\alpha+\beta}
+
+Q: Numerically greatest term in $(1+x)^n$
+F: \frac{T_{r+1}}{T_r}=\frac{n-r+1}{r}|x|\ge1\iff r\le\frac{(n+1)|x|}{1+|x|}
+N: If $m=\frac{(n+1)|x|}{1+|x|}$ is an integer, $T_m$ and $T_{m+1}$ are equal and greatest; else $T_{[m]+1}$.
+
+Q: Number of terms in a multinomial expansion
+F: (x_1+\cdots+x_r)^n:\ {}^{n+r-1}C_{r-1}\ \text{terms}
+
+Q: Multinomial coefficient
+F: (x_1+\cdots+x_k)^n=\sum\frac{n!}{n_1!\cdots n_k!}x_1^{n_1}\cdots x_k^{n_k},\quad\sum n_i=n
+
+## Sums of coefficients
+Q: Sum of all binomial coefficients
+F: C_0+C_1+\cdots+C_n=2^n
+D: Put $x=1$ in $(1+x)^n=\sum C_rx^r$.
+
+Q: Alternate sums
+F: C_0+C_2+C_4+\cdots=C_1+C_3+\cdots=2^{n-1}
+D: Put $x=-1$: $\sum(-1)^rC_r=0$; combine with the total $2^n$.
+
+Q: Weighted sum $\sum rC_r$
+F: \sum_{r=0}^n r\,C_r=n2^{n-1},\qquad\sum r^2C_r=n(n+1)2^{n-2}
+D: Differentiate $(1+x)^n$ and put $x=1$.
+
+Q: Sum $\sum\frac{C_r}{r+1}$
+F: \sum_{r=0}^n\frac{C_r}{r+1}=\frac{2^{n+1}-1}{n+1}
+D: Integrate $(1+x)^n$ from $0$ to $1$.
+
+Q: Alternating version
+F: \sum_{r=0}^n\frac{(-1)^rC_r}{r+1}=\frac1{n+1}
+
+Q: Vandermonde's identity
+F: \sum_{r}{}^mC_r\,{}^nC_{k-r}={}^{m+n}C_k
+N: Special: $C_0^2+C_1^2+\cdots+C_n^2={}^{2n}C_n$.
+D: Compare coefficient of $x^k$ in $(1+x)^m(1+x)^n=(1+x)^{m+n}$.
+
+Q: Product sum $\sum C_rC_{r+k}$
+F: C_0C_k+C_1C_{k+1}+\cdots+C_{n-k}C_n={}^{2n}C_{n-k}
+
+Q: Alternating squares
+F: C_0^2-C_1^2+C_2^2-\cdots=\begin{cases}0,&n\ \text{odd}\\(-1)^{n/2}\,{}^nC_{n/2},&n\ \text{even}\end{cases}
+
+Q: Sum of coefficients of a polynomial
+F: f(1);\qquad\text{even-power coefficients}=\frac{f(1)+f(-1)}2
+
+## General index
+Q: Binomial theorem for any index
+F: (1+x)^n=1+nx+\frac{n(n-1)}{2!}x^2+\cdots,\quad|x|<1
+N: General term $\frac{n(n-1)\cdots(n-r+1)}{r!}x^r$.
+
+Q: Standard expansions
+F: (1-x)^{-1}=\sum x^r,\quad(1-x)^{-2}=\sum(r+1)x^r,\quad(1-x)^{-n}=\sum{}^{n+r-1}C_r\,x^r
+
+Q: Approximation for small $x$
+F: (1+x)^n\approx1+nx
+
+## Common results
+Q: Divisibility / remainder trick
+F: (1+a)^n=1+na+\binom n2a^2+\cdots\ \Rightarrow\ (1+a)^n\equiv1+na\pmod{a^2}
+N: E.g. $7^{2n}=49^n=(1+48)^n$.
+
+Q: Integral and fractional part trick
+F: (\sqrt a+b)^n=I+f,\ \ (\sqrt a-b)^n=f'\ (0<f'<1):\ \ I+f\pm f'\ \text{is an integer}
+N: If $n$ is odd and $\sqrt a-b>0$, $f=f'$; then $(I+f)f=(a-b^2)^n$.
+
+Q: Last digits
+F: \text{use } (10k\pm1)^n\ \text{expansion modulo } 10, 100

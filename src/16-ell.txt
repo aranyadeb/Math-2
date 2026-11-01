@@ -1,0 +1,76 @@
+@ ell | Ellipse | 11 | Coordinate Geometry
+
+## Standard ellipse
+Q: Standard ellipse ($a>b$)
+F: \frac{x^2}{a^2}+\frac{y^2}{b^2}=1,\quad b^2=a^2(1-e^2)
+G: p=2*cos(t),1.2*sin(t),0,2*pi ; -3,3,-2,2
+N: Foci $(\pm ae,0)$, directrices $x=\pm\frac ae$, latus rectum $\frac{2b^2}a$, major axis $2a$, minor axis $2b$.
+
+Q: Ellipse with major axis along $y$ ($b>a$)
+F: \frac{x^2}{a^2}+\frac{y^2}{b^2}=1,\ b>a:\ a^2=b^2(1-e^2),\ \text{foci }(0,\pm be)
+
+Q: Focal distances
+F: SP=a-ex_1,\quad S'P=a+ex_1,\quad SP+S'P=2a
+
+Q: Parametric point (eccentric angle)
+F: (a\cos\theta,\ b\sin\theta)
+N: Auxiliary circle $x^2+y^2=a^2$.
+
+Q: Position of a point
+F: S_1=\frac{x_1^2}{a^2}+\frac{y_1^2}{b^2}-1:\ <0\ \text{inside},\ =0\ \text{on},\ >0\ \text{outside}
+
+## Chords
+Q: Chord joining $\alpha,\beta$
+F: \frac xa\cos\frac{\alpha+\beta}2+\frac yb\sin\frac{\alpha+\beta}2=\cos\frac{\alpha-\beta}2
+N: Focal chord condition: $\tan\frac\alpha2\tan\frac\beta2=\frac{e-1}{e+1}$ (through $(ae,0)$).
+
+Q: Chord with given midpoint, chord of contact, pair of tangents
+F: T=S_1,\qquad T=0,\qquad SS_1=T^2
+
+## Tangents and normals
+Q: Tangent at $(x_1,y_1)$ and at $\theta$
+F: \frac{xx_1}{a^2}+\frac{yy_1}{b^2}=1;\qquad\frac{x\cos\theta}a+\frac{y\sin\theta}b=1
+
+Q: Slope form and tangency condition
+F: y=mx\pm\sqrt{a^2m^2+b^2};\qquad c^2=a^2m^2+b^2
+N: Point of contact $\left(\frac{\mp a^2m}{\sqrt{a^2m^2+b^2}},\frac{\pm b^2}{\sqrt{a^2m^2+b^2}}\right)$.
+
+Q: Normal at $(x_1,y_1)$ and at $\theta$
+F: \frac{a^2x}{x_1}-\frac{b^2y}{y_1}=a^2-b^2;\qquad ax\sec\theta-by\csc\theta=a^2-b^2
+
+Q: Slope form of normal
+F: y=mx\mp\frac{(a^2-b^2)m}{\sqrt{a^2+b^2m^2}}
+
+Q: Director circle
+F: x^2+y^2=a^2+b^2
+
+Q: Reflection property
+F: \text{the tangent and normal bisect the angles between the focal radii}
+
+Q: Product of perpendiculars from foci to a tangent
+F: p_1p_2=b^2
+N: Foot of perpendicular from a focus to a tangent lies on the auxiliary circle.
+
+## Common results
+Q: Area of ellipse
+F: A=\pi ab
+
+Q: Conormal points
+F: \text{up to 4 normals from a point};\ \ \alpha+\beta+\gamma+\delta=(2n+1)\pi
+N: Eccentric angles of the feet of co-normal points.
+
+Q: Concyclic points on an ellipse
+F: \alpha+\beta+\gamma+\delta=2n\pi
+
+Q: Conjugate diameters
+F: m_1m_2=-\frac{b^2}{a^2};\quad\text{eccentric angles differ by }\tfrac\pi2;\quad CP^2+CD^2=a^2+b^2
+
+Q: Locus of the point of intersection of perpendicular tangents
+F: \text{director circle } x^2+y^2=a^2+b^2
+
+Q: Maximum area of triangle inscribed / ellipse tricks
+F: \text{max area of inscribed triangle}=\frac{3\sqrt3}4ab
+N: Obtained from an equilateral triangle in the auxiliary circle compressed by $\frac ba$.
+
+Q: Length of the latus rectum and semi-latus rectum
+F: \frac{2b^2}a;\qquad\frac1{SP}+\frac1{SQ}=\frac{2a}{b^2}\ (\text{focal chord } PQ)

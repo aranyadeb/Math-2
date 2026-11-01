@@ -1,0 +1,79 @@
+@ mat | Matrices | 12 | Algebra
+
+## Algebra of matrices
+Q: Matrix multiplication
+F: (AB)_{ij}=\sum_k a_{ik}b_{kj}
+N: Defined when columns of $A$ = rows of $B$. Generally $AB\ne BA$; $AB=O$ does not imply $A=O$ or $B=O$.
+
+Q: Transpose properties
+F: (A^T)^T=A,\quad (A+B)^T=A^T+B^T,\quad (AB)^T=B^TA^T,\quad (kA)^T=kA^T
+
+Q: Symmetric and skew-symmetric
+F: A^T=A\ (\text{symmetric}),\qquad A^T=-A\ (\text{skew})
+N: Diagonal of a skew-symmetric matrix is zero. Every square matrix: $A=\frac{A+A^T}2+\frac{A-A^T}2$.
+
+Q: Number of symmetric / skew matrices
+F: n\times n\ \text{entries from }k\ \text{values}:\ \text{symmetric}=k^{\frac{n(n+1)}2}
+N: Independent entries: symmetric $\frac{n(n+1)}2$, skew $\frac{n(n-1)}2$.
+
+Q: Trace properties
+F: \operatorname{tr}(A+B)=\operatorname{tr}A+\operatorname{tr}B,\quad\operatorname{tr}(AB)=\operatorname{tr}(BA)
+N: $\operatorname{tr}(A)$ = sum of eigenvalues.
+
+## Special matrices
+Q: Orthogonal matrix
+F: AA^T=A^TA=I\ \Rightarrow\ A^{-1}=A^T,\ |A|=\pm1
+
+Q: Idempotent, involutory, nilpotent
+F: A^2=A\ (\text{idempotent}),\quad A^2=I\ (\text{involutory}),\quad A^k=O\ (\text{nilpotent, index }k)
+N: Idempotent: $(I-A)$ also idempotent; $(A+I)^n=I+(2^n-1)A$.
+
+Q: Hermitian and skew-Hermitian
+F: A^\theta=(\bar A)^T=A\ (\text{Hermitian}),\qquad A^\theta=-A\ (\text{skew-Hermitian})
+N: Unitary: $AA^\theta=I$.
+
+Q: Powers of a rotation matrix
+F: \begin{pmatrix}\cos\theta&-\sin\theta\\\sin\theta&\cos\theta\end{pmatrix}^n=\begin{pmatrix}\cos n\theta&-\sin n\theta\\\sin n\theta&\cos n\theta\end{pmatrix}
+
+## Inverse
+Q: Inverse using adjoint
+F: A^{-1}=\frac{\operatorname{adj}A}{|A|},\quad |A|\ne0
+
+Q: Inverse of a 2×2 matrix
+F: \begin{pmatrix}a&b\\c&d\end{pmatrix}^{-1}=\frac1{ad-bc}\begin{pmatrix}d&-b\\-c&a\end{pmatrix}
+H: Swap the diagonal, negate the off-diagonal.
+
+Q: Properties of inverse
+F: (AB)^{-1}=B^{-1}A^{-1},\quad(A^T)^{-1}=(A^{-1})^T,\quad(A^{-1})^{-1}=A,\quad|A^{-1}|=\frac1{|A|}
+
+Q: Properties of adjoint
+F: A\,\operatorname{adj}A=\operatorname{adj}A\,A=|A|I
+N: For $n\times n$: $|\operatorname{adj}A|=|A|^{n-1}$, $\operatorname{adj}(\operatorname{adj}A)=|A|^{n-2}A$, $|\operatorname{adj}(\operatorname{adj}A)|=|A|^{(n-1)^2}$, $\operatorname{adj}(AB)=\operatorname{adj}B\,\operatorname{adj}A$, $\operatorname{adj}(kA)=k^{n-1}\operatorname{adj}A$.
+D: From $A\operatorname{adj}A=|A|I$: take determinants, $|A||\operatorname{adj}A|=|A|^n$.
+
+## Systems and eigenvalues
+Q: Matrix method for $AX=B$
+F: X=A^{-1}B\quad(|A|\ne0)
+N: $|A|=0$: if $(\operatorname{adj}A)B\ne O$ no solution; if $(\operatorname{adj}A)B=O$ then infinitely many or none (check).
+
+Q: Homogeneous system $AX=O$
+F: |A|\ne0:\ \text{only trivial};\qquad|A|=0:\ \text{non-trivial solutions exist}
+
+Q: Characteristic equation and Cayley–Hamilton
+F: |A-\lambda I|=0;\qquad \text{every matrix satisfies its own characteristic equation}
+N: For $2\times2$: $A^2-(\operatorname{tr}A)A+|A|I=O$.
+
+Q: Eigenvalue facts
+F: \sum\lambda_i=\operatorname{tr}A,\qquad\prod\lambda_i=|A|
+N: Eigenvalues of $A^{-1}$: $\frac1{\lambda_i}$; of $A^k$: $\lambda_i^k$; of a triangular matrix: its diagonal entries.
+
+## Common results
+Q: Determinant of scalar multiple
+F: |kA|=k^n|A|\quad(A\ \text{is } n\times n)
+
+Q: Skew-symmetric of odd order
+F: |A|=0\ \text{if } A^T=-A,\ n\ \text{odd}
+D: $|A|=|A^T|=|-A|=(-1)^n|A|=-|A|$.
+
+Q: Determinant of product
+F: |AB|=|A||B|,\qquad|A^n|=|A|^n

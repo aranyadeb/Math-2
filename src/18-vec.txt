@@ -1,0 +1,88 @@
+@ vec | Vectors | 12 | Vectors & 3D
+
+## Basics
+Q: Magnitude and unit vector
+F: |\vec a|=\sqrt{a_1^2+a_2^2+a_3^2},\qquad\hat a=\frac{\vec a}{|\vec a|}
+
+Q: Position vector of a dividing point
+F: \vec r=\frac{m\vec b+n\vec a}{m+n}\ (\text{internal}),\qquad\frac{m\vec b-n\vec a}{m-n}\ (\text{external})
+
+Q: Direction cosines
+F: l=\cos\alpha=\frac{a_1}{|\vec a|},\ \dots;\qquad l^2+m^2+n^2=1
+N: $\cos^2\alpha+\cos^2\beta+\cos^2\gamma=1$, $\sin^2\alpha+\sin^2\beta+\sin^2\gamma=2$.
+
+Q: Collinearity and coplanarity of points
+F: \text{collinear}\iff\vec{AB}=\lambda\vec{AC};\qquad\text{coplanar}\iff[\vec{AB}\ \vec{AC}\ \vec{AD}]=0
+N: Points $\vec a,\vec b,\vec c$ collinear iff there exist scalars, not all zero, with $x\vec a+y\vec b+z\vec c=\vec 0$ and $x+y+z=0$.
+
+## Dot product
+Q: Scalar product
+F: \vec a\cdot\vec b=|\vec a||\vec b|\cos\theta=a_1b_1+a_2b_2+a_3b_3
+N: $\vec a\perp\vec b\iff\vec a\cdot\vec b=0$. $\hat i\cdot\hat i=1$, $\hat i\cdot\hat j=0$.
+
+Q: Projection
+F: \text{projection of } \vec a \text{ on } \vec b=\frac{\vec a\cdot\vec b}{|\vec b|};\qquad\text{vector projection}=\frac{\vec a\cdot\vec b}{|\vec b|^2}\vec b
+
+Q: Work done
+F: W=\vec F\cdot\vec d
+
+Q: Expansions
+F: |\vec a\pm\vec b|^2=|\vec a|^2+|\vec b|^2\pm2\vec a\cdot\vec b
+N: $(\vec a+\vec b)\cdot(\vec a-\vec b)=|\vec a|^2-|\vec b|^2$; $|\vec a+\vec b|=|\vec a-\vec b|\iff\vec a\perp\vec b$.
+
+## Cross product
+Q: Vector product
+F: \vec a\times\vec b=|\vec a||\vec b|\sin\theta\,\hat n=\begin{vmatrix}\hat i&\hat j&\hat k\\a_1&a_2&a_3\\b_1&b_2&b_3\end{vmatrix}
+N: $\vec a\times\vec b=-\vec b\times\vec a$; parallel iff $\vec a\times\vec b=\vec0$. $\hat i\times\hat j=\hat k$, $\hat j\times\hat k=\hat i$, $\hat k\times\hat i=\hat j$.
+
+Q: Lagrange's identity
+F: |\vec a\times\vec b|^2+(\vec a\cdot\vec b)^2=|\vec a|^2|\vec b|^2
+
+Q: Areas
+F: \text{parallelogram}=|\vec a\times\vec b|,\quad\text{triangle}=\tfrac12|\vec a\times\vec b|,\quad\text{parallelogram (diagonals } \vec d_1,\vec d_2)=\tfrac12|\vec d_1\times\vec d_2|
+N: Triangle with vertices $\vec a,\vec b,\vec c$: $\frac12|\vec a\times\vec b+\vec b\times\vec c+\vec c\times\vec a|$.
+
+Q: Moment (torque)
+F: \vec M=\vec r\times\vec F
+
+Q: Unit vector perpendicular to both
+F: \pm\frac{\vec a\times\vec b}{|\vec a\times\vec b|}
+
+## Triple products
+Q: Scalar triple product
+F: [\vec a\ \vec b\ \vec c]=\vec a\cdot(\vec b\times\vec c)=\begin{vmatrix}a_1&a_2&a_3\\b_1&b_2&b_3\\c_1&c_2&c_3\end{vmatrix}
+N: Volume of parallelepiped; tetrahedron $=\frac16|[\vec a\ \vec b\ \vec c]|$. Cyclic shifts keep the value; swapping two changes sign; zero iff coplanar.
+
+Q: Products of triple products
+F: [\vec a\times\vec b\ \ \vec b\times\vec c\ \ \vec c\times\vec a]=[\vec a\ \vec b\ \vec c]^2
+N: $[\vec a\ \vec b\ \vec c][\vec p\ \vec q\ \vec r]=\begin{vmatrix}\vec a\cdot\vec p&\vec a\cdot\vec q&\vec a\cdot\vec r\\\vec b\cdot\vec p&\cdots\\\vec c\cdot\vec p&\cdots\end{vmatrix}$.
+
+Q: Vector triple product
+F: \vec a\times(\vec b\times\vec c)=(\vec a\cdot\vec c)\vec b-(\vec a\cdot\vec b)\vec c
+H: "BAC minus CAB".
+N: $(\vec a\times\vec b)\times\vec c=(\vec a\cdot\vec c)\vec b-(\vec b\cdot\vec c)\vec a$ — not associative.
+
+Q: Product of two cross products
+F: (\vec a\times\vec b)\cdot(\vec c\times\vec d)=\begin{vmatrix}\vec a\cdot\vec c&\vec a\cdot\vec d\\\vec b\cdot\vec c&\vec b\cdot\vec d\end{vmatrix}
+N: $(\vec a\times\vec b)\times(\vec c\times\vec d)=[\vec a\ \vec b\ \vec d]\vec c-[\vec a\ \vec b\ \vec c]\vec d$.
+
+Q: Reciprocal system
+F: \vec a'=\frac{\vec b\times\vec c}{[\vec a\ \vec b\ \vec c]},\ \text{etc.};\quad\vec a\cdot\vec a'=1,\ \ [\vec a'\ \vec b'\ \vec c'][\vec a\ \vec b\ \vec c]=1
+
+## Common results
+Q: Any vector in terms of three non-coplanar vectors
+F: \vec r=\frac{[\vec r\ \vec b\ \vec c]\vec a+[\vec a\ \vec r\ \vec c]\vec b+[\vec a\ \vec b\ \vec r]\vec c}{[\vec a\ \vec b\ \vec c]}
+
+Q: Angle bisector direction
+F: \hat a+\hat b\ (\text{internal}),\qquad\hat a-\hat b\ (\text{external})
+
+Q: Solving $\vec r\times\vec b=\vec a\times\vec b$ and $\vec r\cdot\vec c=0$
+F: \vec r=\vec a-\frac{\vec a\cdot\vec c}{\vec b\cdot\vec c}\vec b
+N: First equation gives $\vec r=\vec a+\lambda\vec b$; fix $\lambda$ from the second.
+
+Q: Solving $\vec x+\vec x\times\vec a=\vec b$
+F: \vec x=\frac{\vec b+(\vec a\cdot\vec b)\vec a+\vec a\times\vec b}{1+|\vec a|^2}
+D: Take dot and cross with $\vec a$ to find $\vec x\cdot\vec a$ and $\vec x\times\vec a$, then substitute.
+
+Q: Medians, centroid, and vector proofs
+F: \text{centroid}=\frac{\vec a+\vec b+\vec c}3,\qquad\text{tetrahedron centroid}=\frac{\vec a+\vec b+\vec c+\vec d}4

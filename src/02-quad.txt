@@ -1,0 +1,114 @@
+@ quad | Quadratic Equations | 11 | Algebra
+
+## Roots
+Q: Quadratic formula
+F: ax^2+bx+c=0\ \Rightarrow\ x=\frac{-b\pm\sqrt{b^2-4ac}}{2a}
+N: $a\ne0$. $D=b^2-4ac$.
+D: $ax^2+bx+c=0 \Rightarrow x^2+\frac bax=-\frac ca \Rightarrow \left(x+\frac b{2a}\right)^2=\frac{b^2-4ac}{4a^2}$; take square roots.
+
+Q: Sum and product of roots
+F: \alpha+\beta=-\frac ba,\qquad \alpha\beta=\frac ca
+D: $a(x-\alpha)(x-\beta)=ax^2-a(\alpha+\beta)x+a\alpha\beta$; compare coefficients.
+
+Q: Difference of roots
+F: |\alpha-\beta|=\frac{\sqrt D}{|a|}
+D: $(\alpha-\beta)^2=(\alpha+\beta)^2-4\alpha\beta=\frac{b^2-4ac}{a^2}$.
+
+Q: Quadratic with given roots
+F: x^2-(\alpha+\beta)x+\alpha\beta=0
+
+Q: Nature of roots (real coefficients)
+F: D>0:\ \text{real, distinct};\quad D=0:\ \text{real, equal}\ \left(-\tfrac b{2a}\right);\quad D<0:\ \text{complex conjugates}
+N: If $a,b,c\in\mathbb Q$ and $D$ is a perfect square, roots are rational. Irrational roots of a rational quadratic come in pairs $p\pm\sqrt q$.
+
+Q: Useful symmetric expressions
+F: \alpha^2+\beta^2=(\alpha+\beta)^2-2\alpha\beta,\qquad \alpha^3+\beta^3=(\alpha+\beta)^3-3\alpha\beta(\alpha+\beta)
+N: $\alpha^2-\beta^2=(\alpha+\beta)(\alpha-\beta)$; $\alpha^4+\beta^4=(\alpha^2+\beta^2)^2-2\alpha^2\beta^2$.
+
+Q: Newton's sums for a quadratic
+F: S_n=\alpha^n+\beta^n:\quad aS_{n+2}+bS_{n+1}+cS_n=0
+D: $a\alpha^2+b\alpha+c=0$; multiply by $\alpha^n$; same for $\beta$; add.
+
+## Common roots
+Q: Condition for one common root
+F: (c_1a_2-c_2a_1)^2=(a_1b_2-a_2b_1)(b_1c_2-b_2c_1)
+N: For $a_1x^2+b_1x+c_1=0$ and $a_2x^2+b_2x+c_2=0$.
+D: Cross-multiplication: $\frac{\alpha^2}{b_1c_2-b_2c_1}=\frac{\alpha}{c_1a_2-c_2a_1}=\frac1{a_1b_2-a_2b_1}$; square the middle ratio and equate.
+
+Q: Condition for both roots common
+F: \frac{a_1}{a_2}=\frac{b_1}{b_2}=\frac{c_1}{c_2}
+
+## Graph and sign of the quadratic
+Q: Vertex of $y=ax^2+bx+c$
+F: \left(-\frac b{2a},\ -\frac D{4a}\right)
+N: Minimum value $-\frac D{4a}$ if $a>0$; maximum if $a<0$.
+D: $ax^2+bx+c=a\left(x+\frac b{2a}\right)^2-\frac D{4a}$.
+
+Q: Quadratic always positive / negative
+F: ax^2+bx+c>0\ \forall x\iff a>0,\ D<0;\qquad <0\ \forall x\iff a<0,\ D<0
+N: Use $\ge0$ with $D\le0$ for non-strict.
+
+Q: Range of quadratic on an interval
+F: \text{check } f(p),\ f(q)\ \text{and } f\!\left(-\tfrac b{2a}\right)\text{ if } -\tfrac b{2a}\in[p,q]
+
+## Location of roots
+Q: Both roots greater than $k$
+F: D\ge0,\quad af(k)>0,\quad -\frac b{2a}>k
+
+Q: Both roots less than $k$
+F: D\ge0,\quad af(k)>0,\quad -\frac b{2a}<k
+
+Q: $k$ lies between the roots
+F: af(k)<0
+N: Then $D>0$ automatically.
+
+Q: Exactly one root in $(k_1,k_2)$
+F: f(k_1)f(k_2)<0
+
+Q: Both roots in $(k_1,k_2)$
+F: D\ge0,\quad af(k_1)>0,\quad af(k_2)>0,\quad k_1<-\frac b{2a}<k_2
+
+Q: $k_1,k_2$ both between the roots
+F: af(k_1)<0,\quad af(k_2)<0
+
+Q: Roots of opposite signs
+F: \frac ca<0
+
+Q: Both roots positive
+F: D\ge0,\quad -\frac ba>0,\quad \frac ca>0
+
+## Transformation of equations
+Q: Roots changed to $\frac1\alpha$
+F: \text{replace } x\to\frac1x:\quad cx^2+bx+a=0
+
+Q: Roots changed to $-\alpha$, $k\alpha$, $\alpha+k$
+F: x\to -x,\qquad x\to\frac xk,\qquad x\to x-k
+
+## Higher degree
+Q: Relations between roots and coefficients (cubic)
+F: ax^3+bx^2+cx+d=0:\ \ \sum\alpha=-\frac ba,\quad\sum\alpha\beta=\frac ca,\quad\alpha\beta\gamma=-\frac da
+
+Q: Relations for degree $n$ (Vieta)
+F: \sum\alpha_i=-\frac{a_1}{a_0},\quad\sum\alpha_i\alpha_j=\frac{a_2}{a_0},\ \dots,\ \prod\alpha_i=(-1)^n\frac{a_n}{a_0}
+N: For $a_0x^n+a_1x^{n-1}+\cdots+a_n=0$.
+
+Q: Biquadratic relations
+F: ax^4+bx^3+cx^2+dx+e=0:\ \sum\alpha=-\tfrac ba,\ \sum\alpha\beta=\tfrac ca,\ \sum\alpha\beta\gamma=-\tfrac da,\ \alpha\beta\gamma\delta=\tfrac ea
+
+Q: Descartes' rule of signs
+F: \#\text{positive roots}\le\text{sign changes in } f(x);\qquad \#\text{negative roots}\le\text{sign changes in } f(-x)
+N: The difference is an even number.
+
+Q: Remainder and factor theorem
+F: f(x)\div(x-a)\ \text{leaves remainder } f(a);\qquad f(a)=0\iff(x-a)\mid f(x)
+
+Q: Repeated root condition
+F: \alpha\ \text{is a root of multiplicity } r \iff f(\alpha)=f'(\alpha)=\cdots=f^{(r-1)}(\alpha)=0,\ f^{(r)}(\alpha)\ne0
+
+## Expressions in two variables
+Q: Condition for $ax^2+2hxy+by^2+2gx+2fy+c$ to factor into two linear factors
+F: \Delta=abc+2fgh-af^2-bg^2-ch^2=0
+N: Equivalently $\begin{vmatrix}a&h&g\\h&b&f\\g&f&c\end{vmatrix}=0$.
+
+Q: Range of a rational expression $y=\frac{a_1x^2+b_1x+c_1}{a_2x^2+b_2x+c_2}$
+F: \text{cross-multiply to a quadratic in } x;\ \text{require } D\ge0\ \text{for real } x

@@ -1,0 +1,92 @@
+@ fn | Sets, Relations & Functions | 11 | Calculus
+
+## Sets and relations
+Q: Cardinality of union
+F: n(A\cup B)=n(A)+n(B)-n(A\cap B)
+N: Three sets: $n(A\cup B\cup C)=\sum n(A)-\sum n(A\cap B)+n(A\cap B\cap C)$.
+
+Q: De Morgan's laws
+F: (A\cup B)'=A'\cap B',\qquad(A\cap B)'=A'\cup B'
+
+Q: Distributive laws and differences
+F: A\cap(B\cup C)=(A\cap B)\cup(A\cap C);\qquad A-B=A\cap B'
+
+Q: Number of subsets and relations
+F: |P(A)|=2^n;\qquad\#\text{relations } A\to B=2^{mn}
+N: Reflexive relations on an $n$-set: $2^{n^2-n}$; symmetric: $2^{\frac{n(n+1)}2}$.
+
+Q: Types of relations
+F: \text{reflexive: }(a,a)\in R;\ \text{symmetric: }(a,b)\Rightarrow(b,a);\ \text{transitive: }(a,b),(b,c)\Rightarrow(a,c)
+N: Equivalence = all three; it partitions the set into equivalence classes.
+
+## Function basics
+Q: Number of functions from A to B
+F: |A|=m,\ |B|=n:\ \text{functions}=n^m,\quad\text{one-one}={}^nP_m\ (m\le n)
+N: Onto ($m\ge n$): $\sum_{k=0}^n(-1)^k\binom nk(n-k)^m$. Bijections when $m=n$: $n!$.
+
+Q: Test for one-one and onto
+F: f'(x)\ \text{of constant sign}\Rightarrow\text{one-one};\qquad\text{onto}\iff\text{range}=\text{codomain}
+N: Horizontal line test.
+
+Q: Even and odd functions
+F: f(-x)=f(x)\ (\text{even, symmetric about }y\text{-axis}),\qquad f(-x)=-f(x)\ (\text{odd, about origin})
+N: Every function $=\frac{f(x)+f(-x)}2+\frac{f(x)-f(-x)}2$.
+
+Q: Periodic functions
+F: f(x+T)=f(x);\quad\text{period of } f(ax+b)=\frac T{|a|}
+N: $\sin^n x,\cos^n x$: period $\pi$ for $n$ even, $2\pi$ for $n$ odd; $|\sin x|+|\cos x|$: $\frac\pi2$. Period of a sum = LCM of periods (if it exists). $\{x\}$: period $1$.
+
+Q: Composition and inverse
+F: (f\circ g)(x)=f(g(x));\qquad f^{-1}\ \text{exists}\iff f\ \text{bijective};\quad(f\circ g)^{-1}=g^{-1}\circ f^{-1}
+N: Graph of $f^{-1}$ is the mirror of $f$ in $y=x$; $f$ and $f^{-1}$ meet on $y=x$ when $f$ is increasing.
+
+Q: Domain rules
+F: \sqrt{f}:f\ge0;\quad\frac1f:f\ne0;\quad\log f:f>0;\quad\sin^{-1}f:|f|\le1
+
+## Standard graphs
+Q: Modulus function
+F: y=|x|
+G: y=abs(x) ; -4,4,-1,4
+
+Q: Greatest integer function
+F: y=[x],\ \text{discontinuous at integers}
+G: y=floor(x) ; -3.5,3.5,-3.5,3.5
+
+Q: Fractional part function
+F: y=\{x\}=x-[x]\in[0,1)
+G: y=x-floor(x) ; -3,3,-0.5,1.5
+
+Q: Signum function
+F: \operatorname{sgn}x=\begin{cases}1,&x>0\\0,&x=0\\-1,&x<0\end{cases}
+G: y=sign(x) ; -3,3,-1.6,1.6
+
+Q: Exponential and logarithm
+F: y=e^x\ (\text{range }(0,\infty)),\qquad y=\ln x\ (\text{domain }(0,\infty))
+G: y=exp(x) | y=log(x) | y=x ; -3,4,-3,4
+
+Q: Polynomial and reciprocal curves
+F: y=x^2,\quad y=x^3,\quad y=\frac1x,\quad y=\frac1{x^2}
+G: y=x**2 | y=x**3 | y=1/x ; -3,3,-3,3
+
+Q: Square root and cube root
+F: y=\sqrt x\ (x\ge0),\qquad y=\sqrt[3]x\ (x\in\mathbb R)
+G: y=sqrt(x) | y=cbrt(x) ; -4,4,-2,2.5
+
+Q: Transformations of graphs
+F: y=f(x)+k\ (\text{up}),\ f(x-h)\ (\text{right}),\ -f(x)\ (\text{flip in }x\text{-axis}),\ f(-x)\ (\text{flip in }y\text{-axis}),\ f(ax)\ (\text{squeeze})
+N: $|f(x)|$: reflect the negative part up. $f(|x|)$: keep the right half, mirror it to the left.
+G: y=sin(x) | y=abs(sin(x)) | y=sin(abs(x)) ; -6.5,6.5,-1.5,1.5
+
+## Common results
+Q: Functional equations
+F: f(x+y)=f(x)+f(y)\Rightarrow f(x)=kx;\quad f(xy)=f(x)+f(y)\Rightarrow k\ln x;\quad f(x+y)=f(x)f(y)\Rightarrow a^x
+N: $f(x)+f\left(\frac1x\right)=f(x)f\left(\frac1x\right)\Rightarrow f(x)=1\pm x^n$.
+
+Q: Max and min functions
+F: \max(a,b)=\frac{a+b+|a-b|}2,\qquad\min(a,b)=\frac{a+b-|a-b|}2
+
+Q: Range by AM–GM, quadratic in $x$, or monotonicity
+F: y=f(x)\Rightarrow\text{solve for } x,\ \text{require real } x
+
+Q: $f(x)=f^{-1}(x)$ shortcut
+F: f\ \text{increasing}:\ f(x)=f^{-1}(x)\iff f(x)=x

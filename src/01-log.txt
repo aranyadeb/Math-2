@@ -1,0 +1,108 @@
+@ log | Logarithms, Modulus & Inequalities | 11 | Algebra
+
+## Logarithm basics
+Q: Definition of logarithm
+F: \log_a x = y \iff a^y = x
+N: $a>0,\ a\ne 1,\ x>0$.
+H: "log is the exponent".
+
+Q: Log of a product
+F: \log_a(mn)=\log_a m+\log_a n
+N: $m,n>0$.
+D: Let $m=a^p,\ n=a^q$. Then $mn=a^{p+q}$, so $\log_a(mn)=p+q$.
+
+Q: Log of a quotient
+F: \log_a\frac{m}{n}=\log_a m-\log_a n
+N: $m,n>0$.
+
+Q: Log of a power
+F: \log_a m^k = k\log_a m
+N: For even $k$ with $m<0$: $\log_a m^{2} = 2\log_a|m|$.
+
+Q: Change of base
+F: \log_a b=\frac{\log_c b}{\log_c a}=\frac{\ln b}{\ln a}
+N: $c>0,\ c\ne1$.
+D: Let $\log_a b=y \Rightarrow a^y=b$. Take $\log_c$: $y\log_c a=\log_c b$.
+
+Q: Reciprocal property
+F: \log_a b\cdot\log_b a=1
+N: Also $\log_a b\cdot\log_b c\cdot\log_c d=\log_a d$ (chain rule of logs).
+
+Q: Base-power rule
+F: \log_{a^q} b^p=\frac{p}{q}\log_a b
+N: $q\ne0$.
+
+Q: Exponent–log identity
+F: a^{\log_a x}=x,\qquad a^{\log_b c}=c^{\log_b a}
+D: Take $\log_b$ of both sides of the second: $\log_b c\cdot\log_b a$ on each side.
+
+Q: Special values
+F: \log_a 1=0,\quad \log_a a=1,\quad \log_{1/a} x=-\log_a x
+
+Q: Monotonicity of log
+F: a>1:\ x_1<x_2\iff\log_a x_1<\log_a x_2;\qquad 0<a<1:\ \text{inequality reverses}
+H: Base below 1 flips the sign.
+
+Q: Number of digits of $N$
+F: \text{digits}(N)=\lfloor\log_{10}N\rfloor+1
+N: Number of zeros after decimal before first significant digit of $0<N<1$: $|\lfloor\log_{10}N\rfloor|-1$.
+
+## Modulus
+Q: Definition of $|x|$
+F: |x|=\begin{cases}x,&x\ge0\\-x,&x<0\end{cases},\qquad |x|=\sqrt{x^2}
+
+Q: Basic modulus inequalities
+F: |x|<a\iff -a<x<a;\qquad |x|>a\iff x<-a\ \text{or}\ x>a
+N: $a>0$.
+
+Q: Triangle inequality
+F: \big||a|-|b|\big|\le|a\pm b|\le|a|+|b|
+N: $|a+b|=|a|+|b|\iff ab\ge0$; $|a-b|=|a|+|b|\iff ab\le0$.
+
+Q: Product and quotient of modulus
+F: |ab|=|a||b|,\qquad \left|\frac ab\right|=\frac{|a|}{|b|}
+
+## Greatest integer and fractional part
+Q: Greatest integer function
+F: [x]=n \iff n\le x<n+1,\ n\in\mathbb Z;\qquad x-1<[x]\le x
+N: $\{x\}=x-[x]\in[0,1)$.
+
+Q: Properties of $[x]$
+F: [x+n]=[x]+n;\quad [x]+[-x]=\begin{cases}0,&x\in\mathbb Z\\-1,&x\notin\mathbb Z\end{cases}
+N: $\{x\}+\{-x\}=0$ if $x\in\mathbb Z$, else $1$.
+
+Q: Hermite's identity
+F: [x]+\left[x+\tfrac1n\right]+\cdots+\left[x+\tfrac{n-1}{n}\right]=[nx]
+N: Special case: $[x]+[x+\tfrac12]=[2x]$.
+
+## Mean inequalities
+Q: AM ≥ GM ≥ HM (two numbers)
+F: \frac{a+b}{2}\ge\sqrt{ab}\ge\frac{2ab}{a+b}
+N: $a,b>0$; equality iff $a=b$. Also $G^2=AH$ for two numbers.
+D: $\frac{a+b}{2}-\sqrt{ab}=\frac{(\sqrt a-\sqrt b)^2}{2}\ge0$.
+
+Q: AM ≥ GM ≥ HM (n numbers)
+F: \frac{a_1+\cdots+a_n}{n}\ge\sqrt[n]{a_1\cdots a_n}\ge\frac{n}{\frac1{a_1}+\cdots+\frac1{a_n}}
+N: All $a_i>0$; equality iff all equal.
+
+Q: Weighted AM–GM
+F: \frac{w_1a_1+\cdots+w_na_n}{w_1+\cdots+w_n}\ge\left(a_1^{w_1}\cdots a_n^{w_n}\right)^{1/(w_1+\cdots+w_n)}
+
+Q: Power mean (RMS ≥ AM)
+F: \sqrt{\frac{a_1^2+\cdots+a_n^2}{n}}\ge\frac{a_1+\cdots+a_n}{n}
+
+Q: m-th power mean inequality
+F: \frac{a_1^m+\cdots+a_n^m}{n}\ \gtrless\ \left(\frac{a_1+\cdots+a_n}{n}\right)^m
+N: $>$ if $m<0$ or $m>1$; $<$ if $0<m<1$ (all $a_i>0$, not all equal).
+
+Q: Cauchy–Schwarz inequality
+F: (a_1b_1+\cdots+a_nb_n)^2\le(a_1^2+\cdots+a_n^2)(b_1^2+\cdots+b_n^2)
+N: Equality iff $\frac{a_1}{b_1}=\cdots=\frac{a_n}{b_n}$.
+
+Q: Sum of a number and its reciprocal
+F: x+\frac1x\ge2\ (x>0),\qquad x+\frac1x\le-2\ (x<0)
+
+## Wavy curve method
+Q: Sign scheme of a rational function
+F: f(x)=\frac{(x-a_1)^{k_1}\cdots}{(x-b_1)^{m_1}\cdots}:\ \text{sign changes at a root of odd multiplicity only}
+N: Mark critical points, start with $+$ on the far right (leading coefficient positive), flip sign only across odd-multiplicity points; exclude zeros of the denominator.

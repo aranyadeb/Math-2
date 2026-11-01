@@ -1,0 +1,109 @@
+@ sl | Straight Lines & Pair of Lines | 11 | Coordinate Geometry
+
+## Points
+Q: Distance formula
+F: d=\sqrt{(x_2-x_1)^2+(y_2-y_1)^2}
+
+Q: Section formula
+F: \left(\frac{mx_2+nx_1}{m+n},\frac{my_2+ny_1}{m+n}\right)\ \text{internal};\qquad\left(\frac{mx_2-nx_1}{m-n},\frac{my_2-ny_1}{m-n}\right)\ \text{external}
+N: Line $ax+by+c=0$ divides the join of $P_1,P_2$ in ratio $-\frac{L_1}{L_2}$ where $L_i=ax_i+by_i+c$.
+
+Q: Centroid and incentre
+F: G=\left(\frac{x_1+x_2+x_3}3,\frac{y_1+y_2+y_3}3\right),\qquad I=\left(\frac{ax_1+bx_2+cx_3}{a+b+c},\frac{ay_1+by_2+cy_3}{a+b+c}\right)
+N: Excentre $I_1=\left(\frac{-ax_1+bx_2+cx_3}{-a+b+c},\dots\right)$. $O,G,H$ collinear with $OG:GH=1:2$.
+
+Q: Area of a triangle (coordinates)
+F: \Delta=\frac12\left|x_1(y_2-y_3)+x_2(y_3-y_1)+x_3(y_1-y_2)\right|
+N: Polygon (shoelace): $\frac12\left|\sum(x_iy_{i+1}-x_{i+1}y_i)\right|$.
+
+## Forms of a line
+Q: Slope
+F: m=\tan\theta=\frac{y_2-y_1}{x_2-x_1}=-\frac ab
+
+Q: Forms of a line
+F: y=mx+c;\quad y-y_1=m(x-x_1);\quad\frac xa+\frac yb=1;\quad x\cos\alpha+y\sin\alpha=p
+N: Two-point: $y-y_1=\frac{y_2-y_1}{x_2-x_1}(x-x_1)$.
+
+Q: Parametric (distance) form
+F: \frac{x-x_1}{\cos\theta}=\frac{y-y_1}{\sin\theta}=r\ \Rightarrow\ (x_1+r\cos\theta,\ y_1+r\sin\theta)
+
+Q: Angle between two lines
+F: \tan\theta=\left|\frac{m_1-m_2}{1+m_1m_2}\right|
+N: Parallel: $m_1=m_2$; perpendicular: $m_1m_2=-1$ or $a_1a_2+b_1b_2=0$.
+
+Q: Lines through $(x_1,y_1)$ making angle $\alpha$ with $y=mx+c$
+F: y-y_1=\frac{m\pm\tan\alpha}{1\mp m\tan\alpha}(x-x_1)
+
+## Distances
+Q: Perpendicular distance of a point from a line
+F: d=\frac{|ax_1+by_1+c|}{\sqrt{a^2+b^2}}
+
+Q: Distance between parallel lines
+F: d=\frac{|c_1-c_2|}{\sqrt{a^2+b^2}}
+
+Q: Foot of perpendicular and image
+F: \frac{x-x_1}a=\frac{y-y_1}b=-\frac{ax_1+by_1+c}{a^2+b^2}\ (\text{foot});\qquad=-\frac{2(ax_1+by_1+c)}{a^2+b^2}\ (\text{image})
+
+Q: Position of points relative to a line
+F: \text{same side}\iff L(x_1,y_1)\cdot L(x_2,y_2)>0
+
+## Families and bisectors
+Q: Family of lines through the intersection
+F: L_1+\lambda L_2=0
+
+Q: Angle bisectors
+F: \frac{a_1x+b_1y+c_1}{\sqrt{a_1^2+b_1^2}}=\pm\frac{a_2x+b_2y+c_2}{\sqrt{a_2^2+b_2^2}}
+N: With $c_1,c_2>0$: the $+$ sign gives the bisector of the angle containing the origin; it is the acute bisector if $a_1a_2+b_1b_2<0$.
+
+Q: Concurrency of three lines
+F: \begin{vmatrix}a_1&b_1&c_1\\a_2&b_2&c_2\\a_3&b_3&c_3\end{vmatrix}=0
+
+Q: Area of triangle formed by lines $y=m_ix+c_i$
+F: \Delta=\frac12\left|\frac{(c_1-c_2)^2}{m_1-m_2}+\frac{(c_2-c_3)^2}{m_2-m_3}+\frac{(c_3-c_1)^2}{m_3-m_1}\right|
+N: Triangle by $\frac xa+\frac yb=1$ and the axes: $\frac12|ab|$.
+
+Q: Area of parallelogram from four lines
+F: \text{Area}=\left|\frac{(c_1-d_1)(c_2-d_2)}{m_1-m_2}\right|
+N: Sides $y=m_1x+c_1$, $y=m_1x+d_1$, $y=m_2x+c_2$, $y=m_2x+d_2$.
+
+## Transformations
+Q: Shifting the origin
+F: x=X+h,\quad y=Y+k
+
+Q: Rotation of axes by $\theta$
+F: x=X\cos\theta-Y\sin\theta,\qquad y=X\sin\theta+Y\cos\theta
+
+## Pair of straight lines
+Q: Homogeneous pair through the origin
+F: ax^2+2hxy+by^2=0:\quad m_1+m_2=-\frac{2h}b,\quad m_1m_2=\frac ab
+
+Q: Angle between the pair
+F: \tan\theta=\left|\frac{2\sqrt{h^2-ab}}{a+b}\right|
+N: Real lines iff $h^2\ge ab$; perpendicular iff $a+b=0$; coincident iff $h^2=ab$.
+
+Q: Bisectors of the pair
+F: \frac{x^2-y^2}{a-b}=\frac{xy}h
+
+Q: General second-degree pair
+F: ax^2+2hxy+by^2+2gx+2fy+c=0\ \text{is a pair of lines iff } abc+2fgh-af^2-bg^2-ch^2=0
+N: Point of intersection: solve $\frac{\partial S}{\partial x}=0,\ \frac{\partial S}{\partial y}=0$, i.e. $\left(\frac{hf-bg}{ab-h^2},\frac{gh-af}{ab-h^2}\right)$.
+
+Q: Joining origin to intersections of a line and a curve
+F: \text{homogenise the curve using } \frac{lx+my}{-n}=1
+N: Line $lx+my+n=0$.
+
+Q: Distance between parallel lines of a pair
+F: 2\sqrt{\frac{g^2-ac}{a(a+b)}}
+
+## Common results
+Q: Reflection of a point in special lines
+F: y=x:\ (y,x);\quad y=-x:\ (-y,-x);\quad x=a:\ (2a-x,y)
+
+Q: Equal intercepts and slopes
+F: \text{equal intercepts: } x+y=a\ \text{or through origin }y=mx
+
+Q: Orthocentre of a right triangle
+F: H=\text{vertex at the right angle};\qquad O=\text{midpoint of hypotenuse}
+
+Q: Locus with fixed angle between lines through two points
+F: \text{use slopes and } \tan\theta=\frac{m_1-m_2}{1+m_1m_2}
