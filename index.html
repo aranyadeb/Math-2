@@ -66,6 +66,8 @@ h2.sec{font-family:var(--display);font-weight:700;font-size:21px;margin:28px 0 1
 .chap .meter{height:5px;background:var(--bench);border-radius:3px;margin-top:8px;overflow:hidden}
 .chap .meter i{display:block;height:100%;background:var(--c)}
 .katex{font-size:1.06em}
+.pyqb{display:inline-block;margin-top:12px;padding:4px 10px;border-radius:999px;background:var(--bench);border:1px solid var(--line);font-size:13px;font-weight:700;color:var(--ink)}
+.qcard .q .tag{display:block;font-family:var(--body);font-size:13px;font-weight:700;color:var(--flame);margin-bottom:4px}
 .qcard .a .katex-display{margin:.2em 0;overflow-x:auto;overflow-y:hidden;padding:4px 0}
 .qcard .a{font-weight:400;font-size:21px;text-align:center;line-height:2.1}
 .recap .rf{padding:3px 0;line-height:2}
@@ -290,7 +292,7 @@ const ELEMENTS=MATHS.map(m=>m[0]),ENAMES=MATHS.map(m=>m[1]),MAXL=MATHS.length;
 const INTERVAL=[0,0,1,3,7,16]; // days per Leitner box
 const DAY=864e5;
 let DB=[], BYID={}, S, cur=null;
-const DSHA='8a34ca961370ad16d4c784e0a37c6fcd81527a31';
+const DSHA='65acc2c10dbb3a4ecb303bf6cab450edf76187c7';
 
 /* ---------- storage ---------- */
 const KEY='maths100.v1';
@@ -315,7 +317,7 @@ async function boot(){
     CHAPTERS=idx.chapters.map((c,i)=>({k:c.k,sym:SYM[c.k]||c.k.slice(0,2),z:i+1,name:c.t,unit:c.u,cls:c.cls,color:UNITS[c.u]||'#555'}));
     const all=await Promise.all(CHAPTERS.map(c=>getJSON('data/'+c.k+'.json')));
     all.forEach(d=>{let n=0;d.s.forEach(([title,cards],si)=>cards.forEach((x,ii)=>{n++;const id=d.k+'.'+si+'.'+ii;
-      const card={id,ch:d.k,si,sec:'',stitle:title,q:x.q,a:'$\\displaystyle '+x.f+'$',f:x.f,note:x.n||'',deriv:x.d||'',hook:x.h||'',g:x.g||'',ref:'Class '+d.cls+' · '+d.t,n};DB.push(card);BYID[id]=card}))});
+      const card={id,ch:d.k,si,sec:'',stitle:title,q:x.q,a:'$\\displaystyle '+x.f+'$',f:x.f,note:x.n||'',deriv:x.d||'',hook:x.h||'',g:x.g||'',pyq:x.p||'',ref:'Class '+d.cls+' · '+d.t,n};DB.push(card);BYID[id]=card}))});
   }catch(e){document.getElementById('app').innerHTML='<div class="empty">Could not load the formulas ('+esc(e.message)+'). Check your connection and reload the page.</div>';return}
   S.chap=[];S.sec='';markDay(false); home();
 }
@@ -350,7 +352,7 @@ function streak(){let n=0;const d=new Date();for(;;){const k=d.getFullYear()+'-'
 function inSel(ch){return !S.chap.length||S.chap.includes(ch)}
 function isEasy(id){return !!S.cards[id]?.e}
 function pileIds(k){return Object.keys(S.cards).filter(id=>S.cards[id][k]&&BYID[id]&&inSel(BYID[id].ch))}
-function pool(){return DB.filter(c=>!isEasy(c.id)&&S.chap.includes(c.ch)&&(!S.sec||(c.ch+'|'+c.si)===S.sec))}
+function pool(){return DB.filter(c=>!isEasy(c.id)&&S.chap.includes(c.ch)&&(S.kind!=='t'||c.pyq)&&(S.kind!=='f'||!c.pyq)&&(!S.sec||(c.ch+'|'+c.si)===S.sec))}
 function toughIds(){return Object.keys(S.cards).filter(id=>S.cards[id].t&&BYID[id])}
 function shuffle(a){for(let i=a.length-1;i>0;i--){const j=Math.random()*(i+1)|0;[a[i],a[j]]=[a[j],a[i]]}return a}
 function chapterOf(k){return CHAPTERS.find(c=>c.k===k)}
@@ -401,6 +403,8 @@ function home(){
   ${chapHtml}<div class="unit" style="--c:var(--ink)">Everything<button data-unit="*">${CHAPTERS.every(c=>S.chap.includes(c.k))?'Clear all':'Select all 30'}</button></div>
   ${S.chap.length?'':'<p class="hint">Tap one or more chapters to choose what to practise.</p>'}
   <div class="secpick">${S.chap.length===1?`<label for="secSel">Part:</label><select id="secSel">${secOpts}</select>`:S.chap.length?`<span style="color:var(--muted)">Select a single chapter to drill one part of it.</span>`:''}</div>
+  <h2 class="sec">What to include</h2>
+  <div class="counts" role="group" aria-label="Card kinds">${[['','All cards'],['f','Formulas only'],['t','Question types (solve like this)']].map(([k,t])=>`<button class="cnt" data-kind="${k}" aria-pressed="${(S.kind||'')===k}">${t}</button>`).join('')}</div>
   <h2 class="sec">How many questions?</h2>
   <div class="counts" role="group" aria-label="Questions per round">
     ${[10,20,30,50,100].map(n=>`<button class="cnt" data-n="${n}" aria-pressed="${S.round===n}">${n}</button>`).join('')}
@@ -420,7 +424,8 @@ function home(){
   document.querySelectorAll('.chap').forEach(b=>b.onclick=()=>{const k=b.dataset.ch;S.chap=S.chap.includes(k)?S.chap.filter(x=>x!==k):[...S.chap,k];S.sec='';save();home()});
   document.querySelectorAll('[data-unit]').forEach(b=>b.onclick=()=>{const u=b.dataset.unit;const ks=CHAPTERS.filter(c=>u==='*'||c.unit===u).map(c=>c.k);const allOn=ks.every(k=>S.chap.includes(k));
     S.chap=allOn?S.chap.filter(k=>!ks.includes(k)):[...new Set([...S.chap,...ks])];S.sec='';save();home()});
-  document.querySelectorAll('.cnt').forEach(b=>b.onclick=()=>{S.round=+b.dataset.n;save();home()});
+  document.querySelectorAll('.cnt[data-n]').forEach(b=>b.onclick=()=>{S.round=+b.dataset.n;save();home()});
+  document.querySelectorAll('.cnt[data-kind]').forEach(b=>b.onclick=()=>{S.kind=b.dataset.kind;save();home()});
   const co=document.getElementById('cntOwn');co.onchange=()=>{const v=Math.round(+co.value);if(v>0){S.round=Math.min(v,DB.length);save();home()}};
   const ss=document.getElementById('secSel');if(ss)ss.onchange=()=>{S.sec=ss.value;save();home()};
   document.querySelectorAll('.mode').forEach(b=>b.onclick=()=>start(b.dataset.mode));
@@ -463,7 +468,7 @@ function setMark(id,k,on){const s=st(id);s[k]=on;if(on&&k==='e'){s.t=false}if(on
 function bindMarks(onEasy){document.querySelectorAll('[data-mk]').forEach(b=>b.onclick=()=>{const id=b.dataset.id,k=b.dataset.mk,on=!S.cards[id]?.[k];setMark(id,k,on);
   if(k==='e'&&on){toast('Very easy — it won’t come back');if(onEasy)onEasy(id)}else if(k==='t'&&on){toast('Added to your difficult pile');beep('bad')}else if(k==='p'&&on)toast('Pinned')})}
 function pressMark(k){const b=document.querySelector(`.qcard [data-mk="${k}"]`);if(b)b.click()}
-function hookHtml(c){return `${c.note?`<div class="note">${chem(c.note)}</div>`:''}${c.hook?`<div class="hook"><b>Memory hook</b> — ${chem(c.hook)}</div>`:''}${c.g?graphSvg(c.g,chapterOf(c.ch).color):''}${c.deriv?`<details class="deriv"><summary>Derivation</summary><div>${chem(c.deriv)}</div></details>`:''}<div class="ref">${esc(c.ref)} · ${chem(c.stitle)}</div>`}
+function hookHtml(c){return `${c.pyq?`<div class="pyqb">${esc(c.pyq)}</div>`:''}${c.note?`<div class="note">${c.pyq?'<b>How to solve:</b> ':''}${chem(c.note)}</div>`:''}${c.hook?`<div class="hook">${c.pyq?'':'<b>Memory hook</b> — '}${chem(c.hook)}</div>`:''}${c.g?graphSvg(c.g,chapterOf(c.ch).color):''}${c.deriv?`<details class="deriv"><summary>Derivation</summary><div>${chem(c.deriv)}</div></details>`:''}<div class="ref">${esc(c.ref)} · ${chem(c.stitle)}</div>`}
 function setStar(c,on){setMark(c.id,'t',on)}
 function bindCommon(c){document.getElementById('quit').onclick=()=>{clearInterval(cur&&cur.tick);summary()};
   bindMarks(()=>setTimeout(()=>{if(cur&&cur.cards[cur.i]===c){cur.prev=null;cur.i++;next()}},250))}
@@ -471,7 +476,7 @@ function bindCommon(c){document.getElementById('quit').onclick=()=>{clearInterva
 function renderCard(c){
   const app=document.getElementById('app');
   const prev=cur.prev?`<details class="prev"><summary>Check the last answer</summary><div><b>${chem(cur.prev.q)}</b><br>${chem(cur.prev.a)}</div></details>`:'';
-  app.innerHTML=`<div class="play">${headBar()}<article class="qcard flip" id="qc">${cardMeta(c)}<div class="q">${chem(c.q)}</div><div id="back"></div>
+  app.innerHTML=`<div class="play">${headBar()}<article class="qcard flip" id="qc">${cardMeta(c)}<div class="q">${c.pyq?'<span class="tag">Question type · solve like this</span>':''}${chem(c.q)}</div><div id="back"></div>
   ${cur.mode==='sprint'?'':marksHtml(c)}<div class="judge" id="judge"><button class="j-show" id="show">Show answer</button><button class="j-know" id="know">I know it<small>next card</small></button></div></article>
   ${prev}<p class="keys">→ or K: I know it · Space: show answer · then → next · E very easy · D difficult · P pin</p></div>`;
   bindCommon(c);cur.shown=false;
@@ -500,8 +505,8 @@ function reveal(c){if(cur.shown)return;cur.shown=true;const s=st(c.id);s.seen++;
 /* quick recap */
 function recapView(){cur=null;rd=null;const notes=!!S.recapNotes;window.scrollTo(0,0);
   const chs=CHAPTERS.filter(c=>S.chap.includes(c.k));
-  const body=chs.map(ch=>{const cards=DB.filter(c=>c.ch===ch.k);const groups=[];cards.forEach(c=>{let g=groups.find(x=>x.si===c.si);if(!g)groups.push(g={si:c.si,t:c.stitle,cs:[]});g.cs.push(c)});
-    return `<h3 style="--c:${ch.color}">${esc(ch.name)} <span style="font-size:13px;color:var(--muted);font-weight:400">Class ${ch.cls}</span></h3>`+groups.map(g=>`<div class="rg"><h4>${chem(g.t)}</h4>${g.cs.map(c=>`<div class="ri"><div class="rp">${chem(c.q)}${S.cards[c.id]?.t?' · <b style="color:var(--bad)">difficult</b>':''}</div><div class="rf">${kx('\\displaystyle '+c.f,false)}</div>${notes&&c.note?`<div class="rn">${chem(c.note)}</div>`:''}</div>`).join('')}</div>`).join('')}).join('');
+  const body=chs.map(ch=>{const cards=DB.filter(c=>c.ch===ch.k&&(S.kind!=='t'||c.pyq)&&(S.kind!=='f'||!c.pyq));const groups=[];cards.forEach(c=>{let g=groups.find(x=>x.si===c.si);if(!g)groups.push(g={si:c.si,t:c.stitle,cs:[]});g.cs.push(c)});
+    return `<h3 style="--c:${ch.color}">${esc(ch.name)} <span style="font-size:13px;color:var(--muted);font-weight:400">Class ${ch.cls}</span></h3>`+groups.map(g=>`<div class="rg"><h4>${chem(g.t)}</h4>${g.cs.map(c=>`<div class="ri"><div class="rp">${chem(c.q)}${S.cards[c.id]?.t?' · <b style="color:var(--bad)">difficult</b>':''}</div><div class="rf">${kx('\\displaystyle '+c.f,false)}</div>${(notes||c.pyq)&&c.note?`<div class="rn">${chem(c.note)}</div>`:''}${c.pyq?`<div class="rn"><b>${esc(c.pyq)}</b></div>`:''}</div>`).join('')}</div>`).join('')}).join('');
   document.getElementById('app').innerHTML=`<div><div class="playbar recapbar"><button class="iconbtn" id="rcHome">Home</button><span style="font-weight:700">${chs.length} chapter${chs.length===1?'':'s'} · ${DB.filter(c=>S.chap.includes(c.ch)).length} formulas</span>
     <label class="toggle" style="margin-left:auto"><input type="checkbox" id="rcNotes" ${notes?'checked':''}> Show conditions</label><button class="iconbtn" id="rcPrint">Print / save PDF</button></div><div class="recap">${body}</div></div>`;
   document.getElementById('rcHome').onclick=home;document.getElementById('rcPrint').onclick=()=>print();
@@ -526,7 +531,7 @@ function readView(){cur=null;if(rd&&rd.cards[rd.i])setFlame(rd.cards[rd.i].ch);c
     <div class="rdone"><button class="btn primary" id="rprac">Practise these ${rd.cards.length} now</button>${rd.pile?'':`<button class="btn" id="rmore">Read the next ${roundN()}</button>`}</div></div>`;
     readBind();tBind();doneBind();return}
   const c=rd.cards[rd.i];
-  app.innerHTML=`<div class="play">${readTop()}<article class="qcard rcard" id="qc">${cardMeta(c)}<div class="q">${chem(c.q)}</div><div class="a">${chem(c.a)}</div>${hookHtml(c)}${marksHtml(c)}
+  app.innerHTML=`<div class="play">${readTop()}<article class="qcard rcard" id="qc">${cardMeta(c)}<div class="q">${c.pyq?'<span class="tag">Question type · solve like this</span>':''}${chem(c.q)}</div><div class="a">${chem(c.a)}</div>${hookHtml(c)}${marksHtml(c)}
   <div class="rnav"><button id="rprev" ${rd.i?'':'disabled'}>← Back</button><button class="go" id="rnext">${rd.i+1<rd.cards.length?'Next →':'Done reading'}</button></div></article>
   <p class="keys">→ or Space: next · ←: back · E very easy · D difficult · P pin · swipe left for next</p></div>`;
   readBind();tBind();
