@@ -1,37 +1,53 @@
 @ log | Logarithms, Modulus & Inequalities | 11 | Algebra
 
 ## If this type comes, solve like this
-Q: If an equation mixes $|x-a|$ terms or $x|x+a|$
-F: \text{split at the zeros of each modulus; solve a quadratic in each interval}
-N: 1) Mark critical points. 2) In each interval drop the bars with the right sign. 3) Solve and keep roots that lie inside that interval. For $|x-2|^2+|x-2|-2=0$ put $t=|x-2|\ge0$ directly.
-H: Trap: a root found in an interval must be checked against that interval.
+Q: If the equation has modulus terms like $|x-a|$, $|x+b|$ or $x|x+a|$ and asks for roots, their number or their sum
+R: You see one or more absolute-value bars around linear expressions in $x$, and the question asks "number of real roots", "sum of roots" or "sum of squares of roots".
+F: |u|=\begin{cases}u,&u\ge0\\-u,&u<0\end{cases}
+S: Find the critical points: the values of $x$ that make each expression inside $|\ |$ zero. || Mark them on the number line; they split it into intervals. || In each interval remove the bars with the correct sign and solve the resulting (usually quadratic) equation. || Keep a root only if it lies inside the interval you were working in. || If the whole equation depends only on $|x-a|$, put $t=|x-a|\ge0$ instead and solve in $t$ directly.
+E: $|x-2|^2+|x-2|-2=0$. Put $t=|x-2|\ge0$: $t^2+t-2=0\Rightarrow t=1$ (reject $t=-2$). So $|x-2|=1$, i.e. $x=1$ or $3$.
+H: Trap: forgetting to check that each root belongs to its interval, or keeping a negative value of $t=|\ldots|$.
 P: 00:1,2,5,6,10,14,18
 
-Q: If it asks $|f|=|g|+|h|$ or $|a+b|=|a|+|b|$ style
-F: |a|+|b|=|a+b|\iff ab\ge0;\qquad|a-b|=|a|+|b|\iff ab\le0
-N: Rewrite as $|u|+|v|=|u+v|$ with $u,v$ chosen so the identity applies; then solve $uv\ge0$ by the wavy curve.
+Q: If it gives $|f|=|g|+|h|$ type equation where the right side's inside terms add to the left side's inside
+R: The expression inside the left modulus equals the sum (or difference) of the expressions inside the right moduli, e.g. $|x^2+x-9|=|x|+|x^2-9|$.
+F: |a+b|=|a|+|b|\iff ab\ge0;\qquad|a-b|=|a|+|b|\iff ab\le0
+S: Name $a$ and $b$ so that the left side is $|a+b|$ (or $|a-b|$). || Replace the whole equation by the sign condition $ab\ge0$ (or $\le0$). || Solve that inequality with the wavy-curve method. || Read off the answer intervals.
+E: $|x^2+x-9|=|x|+|x^2-9|$: here $a=x$, $b=x^2-9$, so we need $x(x^2-9)\ge0\Rightarrow x\in[-3,0]\cup[3,\infty)$.
 P: 00:3
 
-Q: If it is a log equation/inequality with variable base or argument
-F: \log_ab=\frac{\ln b}{\ln a};\ \ \log_{f}g>0\iff(f-1)(g-1)>0
-N: 1) Write the domain: argument $>0$, base $>0$, base $\ne1$. 2) Factor the arguments to make $\log_a b\cdot\log_b a=1$ appear; put $t=\log$. 3) Solve, then intersect with the domain.
-H: Trap: $\log_4(x-1)=\log_2(x-3)$ needs $x>3$; squared logs: $\log(x^2)=2\log|x|$.
+Q: If it is a logarithmic equation or inequality, especially with variable base or variable argument
+R: $\log$ appears with $x$ in the base or the argument, often two logs whose bases and arguments swap (like $\log_{(x+1)}(\ldots)$ and $\log_{(2x+3)}(\ldots)$).
+F: \log_ab=\frac{\ln b}{\ln a},\quad\log_ab\cdot\log_ba=1,\quad\log_{f}g>0\iff(f-1)(g-1)>0
+S: Write the domain first: every argument $>0$, every base $>0$ and $\ne1$. || Factor the arguments; often they share the bases, e.g. $2x^2+5x+3=(x+1)(2x+3)$. || Use $\log_a(bc)=\log_ab+\log_ac$ so that $\log_ab$ and $\log_ba$ appear; put $t=\log_ab$, then $\log_ba=\frac1t$. || Solve the equation in $t$, go back to $x$. || Intersect with the domain; for inequalities remember the direction flips when the base is between $0$ and $1$.
+E: $\log_4(x-1)=\log_2(x-3)$. Domain $x>3$. LHS $=\frac12\log_2(x-1)$, so $x-1=(x-3)^2\Rightarrow x^2-7x+10=0\Rightarrow x=2,5$. Only $x=5$ is in the domain: one solution.
+H: Trap: $\log(x^2)=2\log|x|$, not $2\log x$; and always check the base $\ne1$.
 P: 00:4,7,9,16
 
-Q: If a rational expression must be negative/positive for all $x$
-F: \frac{P(x)}{Q(x)}<0\ \forall x,\ Q>0\ \forall x\Rightarrow P<0\ \forall x:\ a<0,\ D<0
+Q: If a rational expression must be positive (or negative) for every real $x$
+R: "for all $x\in\mathbb R$" with a fraction of two quadratics, and a parameter $a$ in the numerator.
+F: ax^2+bx+c<0\ \forall x\iff a<0\ \text{and}\ D<0
+S: Check the sign of the denominator: if its discriminant is negative and leading coefficient positive, it is always positive. || Then the fraction has the same sign as the numerator. || Apply the "always negative/positive" condition to the numerator: leading coefficient sign and $D<0$. || Solve for the parameter and count the required values.
+E: $\frac{ax^2+2(a+1)x+9a+4}{x^2-8x+32}<0\ \forall x$: denominator has $D=64-128<0$, so need $a<0$ and $4(a+1)^2-4a(9a+4)<0$.
 P: 00:8
 
-Q: If it is an exponential equation reducible to quadratic
-F: t=a^x>0
-N: $8^{2x}-16\cdot8^x+48=0$: $t^2-16t+48=0$; sum of $x$ = $\log_8(t_1t_2)$.
+Q: If it is an exponential equation that becomes a quadratic in $a^x$
+R: Terms like $8^{2x}$ and $8^x$, or $e^{2x}$ and $e^x$, or $2^{(\ldots)}=1$.
+F: t=a^x>0,\qquad a^{f(x)}=1\iff f(x)=0
+S: Substitute $t=a^x$ (so $a^{2x}=t^2$). || Solve the quadratic in $t$. || Reject any $t\le0$. || Convert back: $x=\log_at$. For "sum of solutions": $x_1+x_2=\log_a(t_1t_2)$.
+E: $8^{2x}-16\cdot8^x+48=0$: $t^2-16t+48=0$, $t=4,12$. Sum of $x$ $=\log_8(4\cdot12)=\log_848$.
 P: 00:15,13
 
-Q: If it is a radical equation $\sqrt{A}+\sqrt{B}=\sqrt{C}$
-F: \text{find the domain first (all radicands} \ge0);\ \text{often } C=\ldots \text{ makes } A,B \text{ factor with a common term}
-N: Square once, isolate, square again, then check every root in the original.
+Q: If it is a radical equation like $\sqrt A+\sqrt B=\sqrt C$
+R: Square roots of quadratics on both sides; the question asks for the number of real roots.
+F: \text{domain: all radicands}\ge0
+S: Write the domain from every radicand. || Look for a common factor: often $A$, $B$, $C$ share a linear factor, which gives one root immediately. || Otherwise square, isolate the remaining root, square again. || Check every root in the original equation and in the domain.
+H: Trap: squaring creates extra roots — always substitute back.
 P: 00:17
 
-Q: If it is a continued fraction or a number-theory Diophantine pair
-F: y=a+\frac1{b+\frac1y};\qquad x^2-2^y=N:\ \text{check parity and small } y
+Q: If it is a continued fraction, or an integer (Diophantine) equation
+R: An expression that repeats forever like $3+\frac1{4+\frac1{3+\cdots}}$, or "$x,y\in\mathbb N$" with an equation such as $x^2-2^y=2023$.
+F: y=a+\frac1{b+\frac1y}
+S: Continued fraction: call the whole value $y$; the part after one full period is $y$ again. Form the quadratic and take the positive root. || Integer equation: check parity (odd/even), small values of the exponent, and factor differences of squares.
+E: $y=3+\frac1{4+\frac1y}\Rightarrow y=3+\frac{y}{4y+1}\Rightarrow4y^2-12y-3=0\Rightarrow y=\frac{3+2\sqrt3}2$.
 P: 00:11,19,12
