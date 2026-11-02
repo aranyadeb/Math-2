@@ -1,0 +1,108 @@
+@ sl | Straight Lines & Pair of Lines | 11 | Coordinate Geometry
+
+## Points
+Q: Midpoint and trisection points
+F: M=\left(\tfrac{x_1+x_2}2,\tfrac{y_1+y_2}2\right);\qquad\text{trisection}: \left(\tfrac{2x_1+x_2}3,\tfrac{2y_1+y_2}3\right)
+
+Q: Fourth vertex of a parallelogram
+F: D=A+C-B
+
+Q: Circumcentre coordinates
+F: O=\left(\frac{x_1\sin2A+x_2\sin2B+x_3\sin2C}{\sin2A+\sin2B+\sin2C},\ \ldots\right)
+
+Q: Orthocentre coordinates
+F: H=\left(\frac{x_1\tan A+x_2\tan B+x_3\tan C}{\tan A+\tan B+\tan C},\ \ldots\right)
+
+Q: Euler line relation
+F: H=3G-2O
+
+Q: Area of a quadrilateral
+F: \frac12\left|(x_1-x_3)(y_2-y_4)-(x_2-x_4)(y_1-y_3)\right|
+
+## Forms of a line
+Q: Line with given intercepts on the axes
+F: \frac xa+\frac yb=1;\qquad\text{intercepts of } ax+by+c=0:\ -\frac ca,\ -\frac cb
+
+Q: Normal form from general form
+F: ax+by+c=0\ \to\ x\cos\alpha+y\sin\alpha=p,\quad\cos\alpha=\frac{\mp a}{\sqrt{a^2+b^2}},\ \sin\alpha=\frac{\mp b}{\sqrt{a^2+b^2}},\ p=\frac{|c|}{\sqrt{a^2+b^2}}
+N: Choose the sign so that $p\ge0$ (upper sign when $c>0$).
+
+Q: Line parallel / perpendicular to $ax+by+c=0$
+F: \text{parallel: } ax+by+k=0;\qquad\text{perpendicular: } bx-ay+k=0
+
+Q: Line through a point parallel / perpendicular
+F: a(x-x_1)+b(y-y_1)=0;\qquad b(x-x_1)-a(y-y_1)=0
+
+Q: Intersection point of two lines
+F: \left(\frac{b_1c_2-b_2c_1}{a_1b_2-a_2b_1},\ \frac{c_1a_2-c_2a_1}{a_1b_2-a_2b_1}\right)
+
+Q: Points at distance $r$ along a line
+F: (x_1\pm r\cos\theta,\ y_1\pm r\sin\theta)
+
+## Distances
+Q: Length of perpendicular from origin
+F: p=\frac{|c|}{\sqrt{a^2+b^2}}
+
+Q: Distance of a point from a line along a given direction
+F: \text{use parametric point } (x_1+r\cos\theta,y_1+r\sin\theta),\ \text{substitute in the line, solve for } r
+
+Q: Reflection of a point in the axes and origin
+F: x\text{-axis}:(x,-y);\quad y\text{-axis}:(-x,y);\quad\text{origin}:(-x,-y)
+
+Q: Reflection of a line in another line
+F: \text{reflect two points (or the intersection point and one other point)}
+
+## Families and bisectors
+Q: Family of lines with fixed slope / through a fixed point
+F: y=mx+c\ (c\ \text{varies});\qquad y-y_1=m(x-x_1)\ (m\ \text{varies})
+
+Q: Line $ax+by+c=0$ passes through a fixed point if $\alpha a+\beta b+\gamma c=0$
+F: \text{fixed point }\left(\tfrac\alpha\gamma,\tfrac\beta\gamma\right)
+
+Q: Incentre via bisectors
+F: \text{intersection of internal bisectors};\ \text{excentre: two external and one internal}
+
+Q: Locus problems
+F: \text{set the moving point }(h,k),\ \text{use the condition, eliminate parameters, replace } h,k\to x,y
+
+## Transformations
+Q: Rotation of a point about origin by $\theta$
+F: (x\cos\theta-y\sin\theta,\ x\sin\theta+y\cos\theta)
+
+Q: Removing the $xy$ term
+F: \tan2\theta=\frac{2h}{a-b}
+
+## Pair of straight lines
+Q: Pair of lines through origin perpendicular to a given pair
+F: bx^2-2hxy+ay^2=0
+
+Q: Joint equation of lines through $(x_1,y_1)$ parallel to $ax^2+2hxy+by^2=0$
+F: a(x-x_1)^2+2h(x-x_1)(y-y_1)+b(y-y_1)^2=0
+
+Q: Area of triangle formed by $ax^2+2hxy+by^2=0$ and $lx+my+n=0$
+F: \frac{n^2\sqrt{h^2-ab}}{|am^2-2hlm+bl^2|}
+
+Q: Lines equally inclined to the axes
+F: h=0\ (\text{pair } ax^2+by^2=0 \text{ type})
+
+Q: Product of perpendiculars from a point to a pair
+F: \frac{|ax_1^2+2hx_1y_1+by_1^2|}{\sqrt{(a-b)^2+4h^2}}
+
+## Common results
+Q: Equation of a line equally inclined to two lines
+F: \text{parallel to an angle bisector}
+
+Q: Condition for three points to be collinear (slope)
+F: m_{AB}=m_{BC}
+
+Q: Angle of a line with axes
+F: \tan\theta=m;\ \text{angle with } y\text{-axis}=\frac\pi2-\theta
+
+Q: Equal angle reflection (light ray) problems
+F: \text{reflect the source in the mirror line; the reflected ray passes through the image}
+
+Q: Area of a rhombus formed by $ax\pm by\pm c=0$
+F: \frac{2c^2}{|ab|}
+
+Q: Minimum of $PA+PB$ for $P$ on a line
+F: \text{reflect } B\text{ (if same side); } \min=|AB'|

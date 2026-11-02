@@ -1,0 +1,23 @@
+@ treq | Trigonometric Equations | 11 | Trigonometry
+
+## If this type comes, solve like this
+Q: If it asks the number of solutions in an interval
+F: \text{reduce to } \sin x=k,\ \cos x=k,\ \tan x=k;\ \text{count over the interval (or by graphs)}
+N: Use the general solution and list $n$; or sketch both sides and count intersections. Exclude points where the original is undefined.
+P: 28:1,5,9,11,15,16,26,35
+
+Q: If a parameter must make the equation solvable
+F: \cos2x+a\sin x=\ldots\Rightarrow\text{quadratic in } t=\sin x,\ t\in[-1,1]\ \text{must have a root}
+P: 28:6,24
+
+Q: If $a\cos\theta+b\sin\theta=c$ in a restricted interval
+F: \text{square carefully or use } \cos(\theta-\phi)=\frac c{\sqrt{a^2+b^2}};\ \text{pick the root in range}
+P: 28:19
+
+Q: If $\log_{\cos x}$ or exponents with $\sin^2x$
+F: \log_{\cos x}\cot x=\frac{\ln\cot x}{\ln\cos x};\ \ 81^{\sin^2x}+81^{\cos^2x}=30\Rightarrow t+\tfrac{81}t=30
+P: 28:25,15
+
+Q: If a trig inequality is asked
+F: \text{solve the equality, then test signs between consecutive roots}
+P: 28:36

@@ -1,0 +1,62 @@
+@ hyp | Hyperbola | 11 | Coordinate Geometry
+
+## Standard hyperbola
+Q: Eccentricity from axes
+F: e=\sqrt{1+\frac{b^2}{a^2}}
+
+Q: Ends of latus rectum and directrix distance
+F: \left(\pm ae,\ \pm\frac{b^2}a\right);\qquad\text{distance between directrices}=\frac{2a}e
+
+Q: Shifted hyperbola
+F: \frac{(x-h)^2}{a^2}-\frac{(y-k)^2}{b^2}=1:\ \text{centre }(h,k)
+
+Q: Hyperbola with vertical transverse axis
+F: \frac{y^2}{b^2}-\frac{x^2}{a^2}=1:\ e=\sqrt{1+\frac{a^2}{b^2}},\ \text{foci }(0,\pm be)
+
+Q: Position of a point
+F: S_1=\frac{x_1^2}{a^2}-\frac{y_1^2}{b^2}-1:\ >0\ \text{inside (focus side)},\ <0\ \text{outside}
+
+## Tangents and normals
+Q: Tangents from a point (slopes)
+F: (x_1^2-a^2)m^2-2x_1y_1m+(y_1^2+b^2)=0
+
+Q: Chord with given midpoint
+F: \frac{xx_1}{a^2}-\frac{yy_1}{b^2}=\frac{x_1^2}{a^2}-\frac{y_1^2}{b^2}
+
+Q: Chord joining $\theta_1$, $\theta_2$ (sec–tan form)
+F: \frac xa\cos\frac{\theta_1-\theta_2}2-\frac yb\sin\frac{\theta_1+\theta_2}2=\cos\frac{\theta_1+\theta_2}2
+
+Q: Normal slope form
+F: y=mx\mp\frac{(a^2+b^2)m}{\sqrt{a^2-b^2m^2}}
+
+## Rectangular hyperbola
+Q: Rectangular hyperbola $xy=c^2$ properties
+F: e=\sqrt2,\ \text{LR}=2\sqrt2\,c,\ \text{directrices } x+y=\pm\sqrt2\,c
+
+Q: Tangent of $xy=c^2$ in slope form
+F: y=mx\pm2c\sqrt{-m}\quad(m<0)
+
+Q: Intersection of tangents at $t_1$, $t_2$ on $xy=c^2$
+F: \left(\frac{2ct_1t_2}{t_1+t_2},\ \frac{2c}{t_1+t_2}\right)
+
+Q: Normal at $t$ meets the curve again at $t'$
+F: t'=-\frac1{t^3}
+
+Q: Hyperbola $xy=k$ after rotation
+F: x^2-y^2=a^2\ \text{rotated by } 45^\circ\ \text{gives}\ xy=\frac{a^2}2
+
+## Common results
+Q: Conjugate diameters of a hyperbola
+F: m_1m_2=\frac{b^2}{a^2}
+
+Q: Angle between asymptotes and eccentricity
+F: \theta=2\tan^{-1}\frac ba,\qquad e=\sec\frac\theta2
+
+Q: Locus of the foot of perpendicular from a focus to a tangent
+F: \text{auxiliary circle } x^2+y^2=a^2
+
+Q: Intersection of hyperbola and conjugate hyperbola
+F: \text{they never meet (for real points)};\ \text{asymptotes are shared}
+
+Q: Area of the triangle formed by a tangent and asymptotes of $xy=c^2$
+F: 2c^2

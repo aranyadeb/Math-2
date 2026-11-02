@@ -1,0 +1,38 @@
+@ bin | Binomial Theorem | 11 | Algebra
+
+## If this type comes, solve like this
+Q: If it asks the term independent of $x$ / a given power of $x$
+F: T_{r+1}={}^nC_r\,(\text{first})^{n-r}(\text{second})^r;\ \ \text{set the power of } x\text{ equal to the target}
+N: Write the power of $x$ in $T_{r+1}$ as a linear function of $r$, solve, check $r$ is an integer in $[0,n]$. With a polynomial multiplier $(1+2x-3x^3)(\ldots)^9$, add contributions for each multiplier term.
+P: 18:1,3,4,7,13,14,15,16,29,30,23,10,39,40
+
+Q: If it asks the coefficient in a product of expansions
+F: [x^k]\,(A(x)B(x))=\sum_ra_rb_{k-r}
+N: Simplify first: $(1+x)(1-x)^{10}(1+x+x^2)^9=(1-x)(1-x^3)^9\cdot\ldots$; $(1-x)^{101}(1+x+x^2)^{100}=(1-x)(1-x^3)^{100}$.
+P: 18:5,6,21,11,22
+
+Q: If coefficients of consecutive terms are in a ratio / AP / GP
+F: \frac{{}^nC_r}{{}^nC_{r-1}}=\frac{n-r+1}r
+N: Two ratios ⇒ two linear equations in $n$ and $r$. AP: $2\,{}^nC_r={}^nC_{r-1}+{}^nC_{r+1}$.
+P: 18:2,20,26,28,42,18,25,19
+
+Q: If it counts rational/integral terms in $(a^{1/p}+b^{1/q})^n$
+F: \text{need } p\mid(n-r)\ \text{and } q\mid r\ \Rightarrow\ r \text{ in an AP; count it}
+N: Irrational terms $=(n+1)-$rational terms.
+P: 18:8,9,31,32,33
+
+Q: If it compares $k$-th term from the start and from the end
+F: T_k\ \text{from end of }(a+b)^n=T_k\ \text{of }(b+a)^n
+P: 18:17,34
+
+Q: If it asks the greatest term or the maximum of the constant term over a parameter
+F: \frac{T_{r+1}}{T_r}\ge1;\ \ \text{constant term as function of } x\ \text{or } \theta\ \text{then maximise}
+P: 18:24,35,36,37,38
+
+Q: If it uses sums of coefficients
+F: \text{put } x=1,\ -1,\ \omega,\ i;\ \ \text{mean of coefficients}=\frac{2^n}{n+1}
+P: 18:27,41,44,12,45
+
+Q: If it gives terms $T_2,T_3,T_4$ numerically
+F: \frac{T_{r+1}}{T_r}=\frac{n-r+1}r\cdot\frac yx
+P: 18:43

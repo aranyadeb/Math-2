@@ -1,0 +1,81 @@
+@ prob | Probability | 12 | Probability & Statistics
+
+## Basics
+Q: Odds against and in favour
+F: \text{odds in favour } a:b\Rightarrow P(A)=\frac a{a+b};\quad\text{against } a:b\Rightarrow P(A)=\frac b{a+b}
+
+Q: De Morgan in probability
+F: P(A'\cap B')=1-P(A\cup B),\qquad P(A'\cup B')=1-P(A\cap B)
+
+Q: At least one of $n$ independent events
+F: 1-\prod(1-p_i)
+
+Q: Exactly one of three independent events
+F: \sum p_1(1-p_2)(1-p_3)
+
+Q: Mutually exclusive and exhaustive
+F: P(A\cap B)=0;\qquad\sum P(E_i)=1
+
+Q: Sample space sizes
+F: n\ \text{coins}: 2^n;\quad n\ \text{dice}: 6^n;\quad\text{cards drawn } r \text{ from } 52: {}^{52}C_r
+
+## Conditional probability
+Q: Conditional with independent events
+F: P(A|B)=P(A)\iff A,B\ \text{independent}
+
+Q: Chain rule for three events
+F: P(A\cap B\cap C)=P(A)P(B|A)P(C|A\cap B)
+
+Q: Pairwise independent but not mutually independent
+F: P(A\cap B)=P(A)P(B)\ \text{for all pairs but } P(A\cap B\cap C)\ne P(A)P(B)P(C)
+
+Q: Bayes with two urns / machines (template)
+F: P(U_1|R)=\frac{P(U_1)P(R|U_1)}{P(U_1)P(R|U_1)+P(U_2)P(R|U_2)}
+
+Q: Truth-telling problems
+F: P(\text{event}|\text{reported})=\frac{p\,t}{p\,t+(1-p)(1-t)}\quad(t=\text{prob. of telling truth})
+
+## Random variables
+Q: Properties of expectation and variance
+F: E(X+Y)=E(X)+E(Y);\quad\operatorname{Var}(X+Y)=\operatorname{Var}X+\operatorname{Var}Y\ (\text{independent})
+
+Q: Probability distribution conditions
+F: p_i\ge0,\qquad\sum p_i=1
+
+Q: Binomial: probability of at least / at most
+F: P(X\ge1)=1-q^n;\qquad P(X\le k)=\sum_{r=0}^k{}^nC_rp^rq^{n-r}
+
+Q: Minimum number of trials for a target probability
+F: 1-q^n\ge\alpha\Rightarrow n\ge\frac{\ln(1-\alpha)}{\ln q}
+
+Q: Binomial given mean and variance
+F: q=\frac{\sigma^2}\mu,\quad p=1-q,\quad n=\frac\mu p
+
+Q: Expected value of a game
+F: E=\sum(\text{gain})\times(\text{probability});\ \text{fair game}: E=0
+
+## Geometric probability
+Q: Random point in a square / circle
+F: P=\frac{\text{area of favourable region}}{\text{total area}}
+
+Q: Two numbers chosen at random from $[0,1]$
+F: P(x+y<1)=\frac12,\quad P(|x-y|<a)=1-(1-a)^2
+
+## Common results
+Q: Probability of getting a sum on two dice (table)
+F: \text{sum }7: \tfrac16;\ \text{sum }6\ \text{or}\ 8: \tfrac5{36};\ \text{doublet}: \tfrac16;\ \text{sum}\ge10: \tfrac16
+
+Q: Coins: exactly $r$ heads in $n$ tosses
+F: \frac{{}^nC_r}{2^n}
+
+Q: Cards: useful counts
+F: 52\ \text{cards}: 4\ \text{suits},\ 13\ \text{each};\ 12\ \text{face cards};\ 4\ \text{aces};\ 26\ \text{red}
+
+Q: Selecting a matrix / polynomial with a property at random
+F: \text{count favourable cases by casework over the defining entries}
+
+Q: Probability of a leap year having 53 Sundays
+F: \frac27
+
+Q: Probability that the roots of a random quadratic are real
+F: \text{count } (a,b,c)\ \text{with } b^2\ge4ac,\ \text{divide by total}

@@ -1,0 +1,41 @@
+@ cd | Continuity & Differentiability | 12 | Calculus
+
+## If this type comes, solve like this
+Q: If a piecewise function is continuous at a point and you must find constants
+F: f(a^-)=f(a)=f(a^+)
+N: Evaluate each side's limit with standard limits/expansions ($\frac{\sin kx}x\to k$, $\frac{\ln(1+x)}x\to1$, rationalise roots). Equate. Two unknowns need two conditions (e.g. continuity at two joins, or continuity + differentiability).
+P: 03:2,3,10,14,15,16,17,20,23,24,31,32
+
+Q: If it asks the number of points where $f$ is not differentiable (with $|\ |$, $\max$, $\min$)
+F: |g(x)|\ \text{fails at simple zeros of } g;\ \ \max/\min\ \text{fails at crossings with different slopes}
+N: Sketch! Mark the corners: zeros of the inside of each modulus, joining points of pieces, crossing points of $\max/\min$. Check each: if slopes differ, count it. A modulus multiplied by a factor that vanishes there is smooth.
+H: Trap: $|x-1|\sin|x-1|$ is differentiable at $1$ (the factor kills the corner).
+P: 03:1,7,8,10,22,27
+
+Q: If $[\,]$ (greatest integer) is involved and it asks for discontinuities
+F: [g(x)]\ \text{jumps where } g(x)\ \text{crosses an integer}
+N: List integer values $g$ passes through in the interval; at a turning point where $g$ only touches an integer from above, there is no jump. Differences like $[\frac{x^2}2]-[\sqrt x]$: jumps may cancel — test both sides.
+P: 03:4,9,18,19,26,5,6
+
+Q: If it is a functional equation with differentiability ($f(x+y)=f(x)f(y)$, $f(x+y)=f(x)+f(y)+\ldots$)
+F: f'(x)=\lim_{h\to0}\frac{f(x+h)-f(x)}h\ \text{using the equation};\ \ \text{put } x=y=0\ \text{first}
+N: Typical results: $f(x)f'(y)+f'(x)f(y)$ gives $f=e^{x/2}$; $f(x+y)=f(x)+f(y)+axy$ gives a quadratic.
+P: 03:11,12,13,29,30,35,36,37,39
+
+Q: If it asks $\lim\frac{xf(a)-af(x)}{x-a}$ or a limit built from $f(a)$, $f'(a)$
+F: \text{add and subtract } af(a):\ \to f(a)-af'(a)
+P: 03:28,38
+
+Q: If higher derivatives must exist at $0$ for $x^n\sin\frac1x$-type pieces
+F: x^n\sin\frac1x:\ \text{differentiable } (n-1)\ \text{times roughly};\ \text{match the polynomial parts on both sides}
+P: 03:21
+
+Q: If $f$ is defined as a limit ($\lim_{n\to\infty}x^{2n}$ or $x^{2/\theta}$)
+F: |x|<1:\ x^{2n}\to0;\ \ |x|>1:\ \to\infty;\ \ x=\pm1:\ 1
+N: Write $f$ piecewise on $|x|<1$, $|x|>1$, $x=\pm1$, then check continuity at $\pm1$.
+P: 03:25
+
+Q: If it combines continuity with area/max-min/Rolle (multi-concept)
+F: \text{fix the constants from continuity/differentiability first, then do the second part}
+N: For "minimum number of roots of $f g''+\ldots$" use Rolle on even functions: zeros come in $\pm$ pairs.
+P: 03:33,34,40

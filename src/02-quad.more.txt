@@ -1,0 +1,86 @@
+@ quad | Quadratic Equations | 11 | Algebra
+
+## Roots
+Q: Roots in terms of each other: $\alpha=k\beta$
+F: \frac{(k+1)^2}{k}=\frac{b^2}{ac}
+
+Q: Roots in ratio $m:n$
+F: mnb^2=(m+n)^2ac
+
+Q: One root is the square of the other
+F: b^3+a^2c+ac^2=3abc
+
+Q: Roots differ by $1$
+F: b^2-4ac=a^2
+
+Q: Equal and opposite roots / reciprocal roots
+F: b=0\ (\alpha=-\beta);\qquad c=a\ (\alpha\beta=1)
+
+Q: Sum of reciprocals and squares of reciprocals
+F: \frac1\alpha+\frac1\beta=-\frac bc,\qquad\frac1{\alpha^2}+\frac1{\beta^2}=\frac{b^2-2ac}{c^2}
+
+Q: Higher symmetric sums
+F: \alpha^4-\beta^4=(\alpha+\beta)(\alpha-\beta)(\alpha^2+\beta^2),\qquad\frac\alpha\beta+\frac\beta\alpha=\frac{b^2-2ac}{ac}
+
+Q: Integer roots condition
+F: \text{integer roots}\Rightarrow D\ \text{perfect square and } -b\pm\sqrt D\ \text{divisible by } 2a
+
+Q: Root of $f(x)=0$ lies in an interval if values differ in sign
+F: f(p)f(q)<0\Rightarrow\text{an odd number of roots in }(p,q)
+
+## Graph and sign of the quadratic
+Q: Six graph shapes of $y=ax^2+bx+c$
+F: a>0:\ \text{opens up};\ D>0\ \text{cuts }x\text{-axis twice},\ D=0\ \text{touches},\ D<0\ \text{above axis}
+G: y=x**2-1 | y=x**2 | y=x**2+1 ; -2.5,2.5,-1.5,4
+
+Q: Maximum and minimum of $ax^2+bx+c$ with $x$ restricted
+F: x\in[p,q]:\ \text{extremes at } p,\ q\ \text{or the vertex}
+
+Q: Sign of $c$, $b$ from the graph
+F: c=f(0)\ (y\text{-intercept});\quad\text{vertex left of the }y\text{-axis}\iff ab>0
+
+Q: Quadratic in $\sin x$ / $e^x$ / $[x]$
+F: \text{put } t=\sin x\ (t\in[-1,1]),\ t=e^x\ (t>0),\ \text{solve with the restricted range}
+
+## Location of roots
+Q: Both roots of different quadratics interlace
+F: \text{roots of } f \text{ separate those of } g\iff f(\alpha_g)f(\beta_g)<0
+
+Q: Exactly one root greater than $k$
+F: af(k)<0\ (\text{or } f(k)=0 \text{ and other root} >k)
+
+Q: At least one root in $(k_1,k_2)$
+F: f(k_1)f(k_2)<0\ \ \text{or}\ \ (\text{both roots in } (k_1,k_2))
+
+Q: Roots both negative
+F: D\ge0,\quad-\frac ba<0,\quad\frac ca>0
+
+## Higher degree
+Q: Sums for cubic roots
+F: \alpha^2+\beta^2+\gamma^2=(\sum\alpha)^2-2\sum\alpha\beta,\qquad\sum\frac1\alpha=\frac{\sum\alpha\beta}{\alpha\beta\gamma}
+
+Q: Sum of cubes of cubic roots
+F: \sum\alpha^3=(\sum\alpha)^3-3\sum\alpha\sum\alpha\beta+3\alpha\beta\gamma
+
+Q: Roots in AP / GP for a cubic
+F: \text{AP: take } a-d,a,a+d\ (\text{so } a=-\tfrac b{3a_0});\qquad\text{GP: take } \tfrac ar,a,ar\ (a^3=-\tfrac d{a_0})
+
+Q: Reciprocal (palindromic) equations
+F: a_0=a_n,\ a_1=a_{n-1},\dots\Rightarrow\ \text{divide by } x^{n/2},\ \text{put } t=x+\tfrac1x
+
+Q: Number of real roots of a polynomial via derivative
+F: \text{between two roots of } f \text{ lies a root of } f'\ (\text{Rolle})
+
+Q: Complex roots of a real polynomial
+F: \text{come in conjugate pairs};\ \text{an odd-degree real polynomial has a real root}
+
+Q: Equations with modulus
+F: x^2-a|x|+b=0:\ \text{solve } t^2-at+b=0,\ t=|x|\ge0;\ \text{each positive } t \text{ gives two } x
+
+## Expressions in two variables
+Q: Quadratic form positive definite
+F: ax^2+2hxy+by^2>0\ \forall(x,y)\ne0\iff a>0,\ ab-h^2>0
+
+Q: Maximum/minimum of a rational expression in $x$
+F: y=\frac{x^2+bx+c}{x^2+px+q}:\ \text{range from } D\ge0\ \text{of } (1-y)x^2+(b-py)x+(c-qy)=0
+N: Check $y=1$ separately (equation becomes linear).

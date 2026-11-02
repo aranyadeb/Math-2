@@ -1,0 +1,65 @@
+@ lim | Limits | 11 | Calculus
+
+## Standard limits
+Q: More trig limits
+F: \lim_{x\to0}\frac{\sin ax}{\sin bx}=\frac ab,\qquad\lim_{x\to0}\frac{\tan x-\sin x}{x^3}=\frac12,\qquad\lim_{x\to0}\frac{x-\sin x}{x^3}=\frac16
+N: $\lim_{x\to0}\frac{\tan x-x}{x^3}=\frac13$; $\lim_{x\to0}\frac{1-\cos^n x}{x^2}=\frac n2$.
+
+Q: Limits with $e$
+F: \lim_{x\to0}\frac{e^x-1-x}{x^2}=\frac12,\qquad\lim_{x\to0}\frac{(1+x)^{1/x}-e}{x}=-\frac e2
+
+Q: Log limits
+F: \lim_{x\to0}\frac{\log_a(1+x)}x=\frac1{\ln a},\qquad\lim_{x\to0}\frac{\ln(1+x)-x}{x^2}=-\frac12
+
+Q: Inverse trig limits at infinity
+F: \lim_{x\to\infty}\tan^{-1}x=\frac\pi2,\qquad\lim_{x\to-\infty}\tan^{-1}x=-\frac\pi2,\qquad\lim_{x\to\infty}x\sin\frac1x=1
+
+Q: $1^\infty$ standard values
+F: \lim_{x\to\infty}\left(1+\frac ax\right)^{bx}=e^{ab},\qquad\lim_{x\to0}(\cos x)^{1/x^2}=e^{-1/2}
+
+Q: $0^0$ and $\infty^0$ forms
+F: \lim f^g=e^{\lim g\ln f};\qquad\lim_{x\to0^+}x^x=1
+
+## Methods
+Q: Factorisation and rationalisation
+F: \frac00\ \text{in algebraic form: cancel the common factor, or multiply by the conjugate}
+
+Q: Substitution $x=\frac1t$ for $x\to\infty$
+F: \lim_{x\to\infty}f(x)=\lim_{t\to0^+}f\left(\tfrac1t\right)
+
+Q: Left and right limits; existence
+F: \lim_{x\to a}f\ \text{exists}\iff\lim_{x\to a^-}f=\lim_{x\to a^+}f\ (\text{finite})
+
+Q: Limits involving $\{x\}$ and $\operatorname{sgn}$
+F: \lim_{x\to n^+}\{x\}=0,\quad\lim_{x\to n^-}\{x\}=1;\qquad\lim_{x\to0^\pm}\operatorname{sgn}x=\pm1
+
+Q: Limits with $|x|$ at 0
+F: \lim_{x\to0}\frac{|x|}x\ \text{does not exist};\qquad\lim_{x\to0^+}=1,\ \lim_{x\to0^-}=-1
+
+Q: Finding unknown constants from a finite limit
+F: \frac{P(x)}{Q(x)},\ Q(a)=0\ \text{and limit finite}\Rightarrow P(a)=0;\ \text{then use expansion}
+
+Q: Limit of $n$-th term / sequences
+F: \lim_{n\to\infty}x^n=0\ (|x|<1),\quad=1\ (x=1),\quad\text{does not exist } (x\le-1),\quad\infty\ (x>1)
+
+Q: Stolz / ratio type limit
+F: \lim_{n\to\infty}\frac{1^k+2^k+\cdots+n^k}{n^{k+1}}=\frac1{k+1}
+
+## Common results
+Q: Limits of polynomial-exponential races
+F: \lim_{x\to\infty}\frac{a^x}{x^n}=\infty\ (a>1);\qquad\lim_{x\to\infty}\frac{(\ln x)^n}{x}=0
+
+Q: Limits of $\frac{\sin x}{x}$ at infinity
+F: \lim_{x\to\infty}\frac{\sin x}x=0;\qquad\lim_{x\to\infty}\frac{[x]}x=1
+
+Q: Limit of $(a_1^x+\cdots+a_n^x)^{1/x}$
+F: x\to\infty:\ \max a_i;\qquad\lim_{x\to0}\left(\frac{a_1^x+\cdots+a_n^x}n\right)^{1/x}=\sqrt[n]{a_1\cdots a_n}
+
+Q: Limit with $\cos$ products
+F: \lim_{n\to\infty}\cos\frac x2\cos\frac x4\cdots\cos\frac x{2^n}=\frac{\sin x}x
+
+Q: Continuity-based limit evaluation
+F: f\ \text{continuous at } a\Rightarrow\lim_{x\to a}f(x)=f(a)
+
+Q: Limits of the type $\lim_{x\to a}\frac{f(x)-f(a)}{x-a}$
+F: =f'(a)\ \ (\text{recognise derivative definitions})

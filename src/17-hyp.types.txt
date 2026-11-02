@@ -1,0 +1,23 @@
+@ hyp | Hyperbola | 11 | Coordinate Geometry
+
+## If this type comes, solve like this
+Q: If foci, directrix, $e$, LR or focal distances are given
+F: b^2=a^2(e^2-1),\ \ \text{LR}=\frac{2b^2}a,\ \ |SP-S'P|=2a,\ \ SP\cdot S'P=e^2x^2-a^2
+N: For a vertical hyperbola (foci on $x=1$, etc.) swap roles of $x$ and $y$. Conjugate hyperbola: $\frac1{e_1^2}+\frac1{e_2^2}=1$.
+P: 22:1,2,5,6,8,9,13,14,16,17,21,22
+
+Q: If it shares foci/vertices with an ellipse
+F: \text{ellipse foci } (\pm ae,0)\ \text{with } a^2e^2=a^2-b^2;\ \ \text{hyperbola: } a^2e^2=a^2+b^2
+P: 22:3,4,7,10,11,18,19,20,26,15
+
+Q: If a line does not meet / touches the hyperbola
+F: c^2=a^2m^2-b^2\ \text{(tangent)};\ \text{no intersection: solve for } x,\ D<0
+P: 22:25,27,31,32,33
+
+Q: If rectangular hyperbola $xy=c^2$ points/chords
+F: (ct,\tfrac ct);\ \text{chord midpoint } (h,k)\Rightarrow\text{chord } \tfrac xh+\tfrac yk=2
+P: 22:28,29
+
+Q: If locus of a point of intersection / centroid
+F: \text{eliminate the parameter: } \sec^2-\tan^2=1\ \text{or } k\cdot\tfrac1k
+P: 22:12,30,23,24

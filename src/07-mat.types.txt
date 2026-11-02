@@ -1,0 +1,52 @@
+@ mat | Matrices | 12 | Algebra
+
+## If this type comes, solve like this
+Q: If it involves $|\operatorname{adj}A|$, $\operatorname{adj}(\operatorname{adj}A)$, $|kA|$, $|A^n|$
+F: |\operatorname{adj}A|=|A|^{n-1},\ \ |\operatorname{adj}(\operatorname{adj}A)|=|A|^{(n-1)^2},\ \ \operatorname{adj}(\operatorname{adj}A)=|A|^{n-2}A
+N: Reduce everything to a power of $|A|$, take logs/equate exponents. For $3\times3$: $|\operatorname{adj}^3A|=|A|^8$.
+H: Trap: $|kA|=k^n|A|$, not $k|A|$.
+P: 11:1,4,71,72,76,12
+
+Q: If a polynomial matrix equation is given and $A^n$ or $A^{-1}$ is asked
+F: \text{use the equation to reduce powers: } A^3=pA^2+qA+rI\ \Rightarrow\ A^5=\ldots
+N: Multiply the given identity by $A$ repeatedly and substitute back. For $A^{-1}$: multiply by $A^{-1}$ (Cayley–Hamilton: $A^2-(\operatorname{tr}A)A+|A|I=O$).
+P: 11:3,8,13,44,47,53,56,57,59
+
+Q: If $A^n$ of a triangular/nilpotent/rotation matrix is asked
+F: (I+N)^n=I+nN+\binom n2N^2\ (N^3=O);\qquad R(\theta)^n=R(n\theta)
+N: Upper-triangular with 1s on the diagonal: write $A=I+N$. $\begin{pmatrix}\cos&i\sin\\i\sin&\cos\end{pmatrix}^n$ behaves like $e^{in\theta}$.
+P: 11:5,6,11,45,46,48,49,50,51,52,9,54,55
+
+Q: If it uses symmetric/skew-symmetric properties
+F: A=P+Q,\ P=\frac{A+A^T}2,\ Q=\frac{A-A^T}2;\ \ (AB)^T=B^TA^T
+N: To decide symmetric/skew of a product: take its transpose and simplify using $A^T=A$, $B^T=-B$. $X^TAX=0\ \forall X$ ⇒ $A$ skew-symmetric.
+P: 11:7,18,19,22,17,26
+
+Q: If $A$ acting on given column vectors is known (find $A$ or $A$ times another vector)
+F: A[X_1\ X_2\ X_3]=[Y_1\ Y_2\ Y_3]\Rightarrow A=YX^{-1}
+N: Faster: write the target vector as a combination of the given $X_i$ and use linearity.
+P: 11:7,21,37,41
+
+Q: If $AA^T=I$ (orthogonal) with entries $a,b,c$ cyclic
+F: a^2+b^2+c^2=1,\ ab+bc+ca=0\Rightarrow(a+b+c)^2=1
+N: Then $a^3+b^3+c^3-3abc=(a+b+c)(1-0)$.
+P: 11:10,23
+
+Q: If it counts matrices with entries from a set satisfying a condition
+F: \text{symmetric } 3\times3:\ 6\ \text{free entries};\ \ \text{singular } 2\times2:\ ad=bc\ \text{casework}
+P: 11:17,24,25,9
+
+Q: If it is a determinant of a matrix in $x$ or a matrix with factorials / $[x]$
+F: \text{row/column operations to create zeros; take common factors out}
+N: For $p!,(p+1)!,\ldots$ take $p!$, $(p+1)!$, $(p+2)!$ out of rows, then simplify.
+P: 11:2,14,15,16,60,61,62,63,64,65,66,67,68,69,73,74,75,39
+
+Q: If $B$ is defined by $B(I-A)=I+A$ or $B=(I+A)^{-1}$
+F: B=(I+A)(I-A)^{-1}
+N: For skew $A$, $B$ is orthogonal; use $\operatorname{tr}$ and $|B|=\frac{|I+A|}{|I-A|}$.
+P: 11:30,31,58
+
+Q: If $AB=O$, $A^5=B^5$, $A^2+B=A^2B$ style abstract claims
+F: AB=O\ \text{with non-zero } A,B\Rightarrow|A|=|B|=0
+N: Manipulate: $A^3(A^2-B^2)=\ldots$; use invertibility to cancel.
+P: 11:32,38,42,27,43,20,28,29,33,34,35,36,40,70

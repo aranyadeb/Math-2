@@ -1,0 +1,64 @@
+@ dif | Differentiation | 12 | Calculus
+
+## Standard derivatives
+Q: Hyperbolic and other derivatives
+F: (\sinh x)'=\cosh x,\quad(\cosh x)'=\sinh x,\quad\frac d{dx}x^x=x^x(1+\ln x)
+
+Q: Derivatives of $\sqrt x$ and $\frac1x$
+F: \frac d{dx}\sqrt x=\frac1{2\sqrt x},\qquad\frac d{dx}\frac1x=-\frac1{x^2},\qquad\frac d{dx}\frac1{x^n}=-\frac n{x^{n+1}}
+
+Q: Derivative of $\log_{f(x)}g(x)$
+F: \frac d{dx}\frac{\ln g}{\ln f}=\frac{\frac{g'}g\ln f-\frac{f'}f\ln g}{(\ln f)^2}
+
+Q: Derivatives of $e^{ax}\sin bx$
+F: \frac d{dx}e^{ax}\sin bx=e^{ax}\sqrt{a^2+b^2}\sin\left(bx+\tan^{-1}\tfrac ba\right)
+N: $n$-th derivative: $(a^2+b^2)^{n/2}e^{ax}\sin\left(bx+n\tan^{-1}\frac ba\right)$.
+
+## Rules
+Q: Derivative of a product of $n$ functions
+F: \frac{(f_1f_2\cdots f_n)'}{f_1f_2\cdots f_n}=\sum\frac{f_i'}{f_i}
+
+Q: Second derivative of parametric curves (shortcut)
+F: \frac{d^2y}{dx^2}=\frac{\dot x\ddot y-\dot y\ddot x}{\dot x^3}
+
+Q: Second derivative of implicit curves
+F: y''=-\frac{F_{xx}F_y^2-2F_{xy}F_xF_y+F_{yy}F_x^2}{F_y^3}
+
+Q: Derivative at a point from a functional equation
+F: \text{put } y=0 \text{ or } y=x \text{ in the equation, then differentiate w.r.t. one variable}
+
+Q: Differentiation of functions in parametric trig form
+F: x=a\cos^3t,\ y=a\sin^3t\Rightarrow\frac{dy}{dx}=-\tan t
+
+Q: Derivative of $f(g(x))$ at a point from tables
+F: (f\circ g)'(a)=f'(g(a))\,g'(a)
+
+## n-th derivatives
+Q: n-th derivative of $x^m$
+F: \frac{d^n}{dx^n}x^m=\frac{m!}{(m-n)!}x^{m-n}\ (n\le m);\qquad\frac{d^n}{dx^n}x^n=n!
+
+Q: n-th derivative of $\cos(ax+b)$ and $a^x$
+F: a^n\cos\left(ax+b+\tfrac{n\pi}2\right);\qquad a^x(\ln a)^n
+
+Q: n-th derivative using partial fractions
+F: \frac1{x^2-a^2}=\frac1{2a}\left(\frac1{x-a}-\frac1{x+a}\right)\ \Rightarrow\ \text{differentiate each}
+
+## Common results
+Q: Derivative of inverse trig compositions (results)
+F: \frac d{dx}\sin^{-1}\frac{2x}{1+x^2}=\frac{2}{1+x^2}\ (|x|<1),\qquad\frac d{dx}\cos^{-1}\frac{1-x^2}{1+x^2}=\frac{2}{1+x^2}\ (x>0)
+
+Q: Derivative of $\tan^{-1}\frac{a+bx}{b-ax}$
+F: =\tan^{-1}\frac ab+\tan^{-1}x\ \Rightarrow\ \frac{1}{1+x^2}
+
+Q: Derivative of $\sin^{-1}(2x\sqrt{1-x^2})$
+F: \frac{2}{\sqrt{1-x^2}}\ \left(|x|<\tfrac1{\sqrt2}\right)
+
+Q: Derivative of $\tan^{-1}\sqrt{\frac{1-\cos x}{1+\cos x}}$
+F: \frac12\quad(0<x<\pi)
+
+Q: $\frac{dy}{dx}$ for $x^y=y^x$, $e^{x+y}=xy$ etc.
+F: x^y=y^x\Rightarrow\frac{dy}{dx}=\frac{y(y-x\ln y)}{x(x-y\ln x)}
+
+Q: $y=f(x)$ satisfies a DE — verify by differentiating
+F: \text{differentiate twice, eliminate the constants}
+N: E.g. $y=e^{m\sin^{-1}x}\Rightarrow(1-x^2)y''-xy'-m^2y=0$.

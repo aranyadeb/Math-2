@@ -1,0 +1,71 @@
+@ ell | Ellipse | 11 | Coordinate Geometry
+
+## Standard ellipse
+Q: Eccentricity from axes
+F: e=\sqrt{1-\frac{b^2}{a^2}}\quad(a>b)
+
+Q: Ellipse from focus–directrix
+F: SP=e\cdot PM,\ \ 0<e<1
+
+Q: Shifted ellipse
+F: \frac{(x-h)^2}{a^2}+\frac{(y-k)^2}{b^2}=1:\ \text{centre }(h,k),\ \text{foci }(h\pm ae,k)
+
+Q: Distance between foci and directrices
+F: 2ae\ \text{(foci)},\qquad\frac{2a}e\ \text{(directrices)}
+
+Q: Ends of latus rectum
+F: \left(\pm ae,\ \pm\frac{b^2}a\right)
+
+Q: Ellipse in general second-degree form
+F: h^2<ab\ \text{and}\ \Delta\ne0
+
+## Chords
+Q: Chord with eccentric angles and focal chord length
+F: \text{focal chord at angle } \theta \text{ with major axis}: \ \frac{2ab^2}{a^2\sin^2\theta+b^2\cos^2\theta}
+
+Q: Length of chord cut by $y=mx+c$
+F: \frac{2ab\sqrt{1+m^2}\sqrt{a^2m^2+b^2-c^2}}{a^2m^2+b^2}
+
+Q: Locus of midpoints of chords of given slope
+F: y=-\frac{b^2}{a^2m}x\ \ (\text{a diameter})
+
+## Tangents and normals
+Q: Tangents from an external point (slopes)
+F: (x_1^2-a^2)m^2-2x_1y_1m+(y_1^2-b^2)=0
+
+Q: Point of intersection of tangents at $\alpha$, $\beta$
+F: \left(\frac{a\cos\frac{\alpha+\beta}2}{\cos\frac{\alpha-\beta}2},\ \frac{b\sin\frac{\alpha+\beta}2}{\cos\frac{\alpha-\beta}2}\right)
+
+Q: Tangent intercepts on axes
+F: \frac{a^2}{x_1},\ \frac{b^2}{y_1};\qquad\text{min area of triangle with axes}=ab
+
+Q: Minimum length of tangent intercept between axes
+F: a+b
+
+Q: Normal intercept on major axis
+F: x=e^2x_1
+
+Q: Number of normals from a point
+F: \text{at most four};\ \text{from the centre: four (axes count)}
+
+Q: Common tangent of two ellipses / ellipse and circle
+F: \text{use } c^2=a^2m^2+b^2\ \text{for both and equate}
+
+## Common results
+Q: Auxiliary circle and eccentric angle relation
+F: \tan\phi=\frac ba\tan\theta\ \ (\phi=\text{angle of } P \text{ from centre},\ \theta=\text{eccentric angle})
+
+Q: Sum of squares of reciprocals of perpendicular semi-diameters
+F: \frac1{r_1^2}+\frac1{r_2^2}=\frac1{a^2}+\frac1{b^2}
+
+Q: Polar of a focus
+F: \text{the corresponding directrix}
+
+Q: Ellipse from a sliding ladder (trammel)
+F: \text{point dividing a rod of length } a+b \text{ sliding on axes traces } \frac{x^2}{a^2}+\frac{y^2}{b^2}=1
+
+Q: Area of the parallelogram formed by tangents at ends of conjugate diameters
+F: 4ab
+
+Q: Distance from centre to tangent
+F: p=\frac{ab}{\sqrt{a^2\sin^2\theta+b^2\cos^2\theta}}

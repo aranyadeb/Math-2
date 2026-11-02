@@ -1,0 +1,64 @@
+@ quad | Quadratic Equations | 11 | Algebra
+
+## If this type comes, solve like this
+Q: If it gives $\alpha^n+\beta^n$ (or $P_n$, $S_n$, $a_n$) and asks for a ratio/combination of high powers
+F: aS_{n+2}+bS_{n+1}+cS_n=0
+N: 1) Write the recurrence from the equation. 2) Rewrite the asked expression so it becomes $aS_{n+2}+bS_{n+1}$ etc. 3) It collapses to a multiple of one $S_k$. For $\alpha^n-\beta^n$ the same recurrence holds.
+H: Trap: don't expand powers; with given $P_{10},P_9,P_8$ you can read off $a,b,c$ directly.
+P: 01:1,17,28,31,33,53,3,56,21
+
+Q: If it asks for a new quadratic whose roots are a function of $\alpha,\beta$
+F: x^2-(\text{sum of new roots})x+(\text{product of new roots})=0
+N: 1) Get $\alpha+\beta$, $\alpha\beta$. 2) Express the new sum and product symmetrically. 3) For simple maps ($\frac1\alpha$, $k\alpha$, $\alpha+k$) just substitute $x\to\frac1x$, $\frac xk$, $x-k$ in the original.
+P: 01:2,7,8,19,32,24,30,50,55
+
+Q: If roots must lie in an interval, on one side of $k$, or both be positive
+F: D\ge0,\ \ af(k)\gtrless0,\ \ \text{vertex } -\tfrac b{2a}\ \text{vs } k
+N: Draw the parabola. Write three conditions: discriminant, sign of $af$ at the end points, position of the vertex. Exactly one root in $(p,q)$: $f(p)f(q)<0$. Intersect all conditions.
+H: Trap: leading coefficient may be negative or zero — check $a=0$ separately.
+P: 01:4,5,12,20,52,60
+
+Q: If two quadratics share a root
+F: \frac{\alpha^2}{b_1c_2-b_2c_1}=\frac{\alpha}{c_1a_2-c_2a_1}=\frac1{a_1b_2-a_2b_1}
+N: Fastest route in JEE: subtract the equations to kill $x^2$ and get the common root $\alpha$ linearly, substitute back. Then use Vieta in each equation for the other roots.
+P: 01:18,19,41,42,43,54
+
+Q: If the equation is in $e^x$, $a^x$, $(\sqrt3+\sqrt2)^x$ or $\tan^2x$ etc.
+F: t=e^x>0,\quad(\sqrt3+\sqrt2)^x\cdot(\sqrt3-\sqrt2)^x=1\Rightarrow t+\tfrac1t=k
+N: 1) Substitute $t$. 2) Solve the polynomial in $t$ (reciprocal equations: divide by $t^2$, put $u=t+\frac1t$). 3) Keep only $t$ in the allowed range ($t>0$). Count $x$ values.
+H: Trap: each valid $t$ gives one $x$ for $e^x$, but two for $x^2-4$ inside the exponent.
+P: 01:10,15,25,38,44,46,27,45,59,61,37
+
+Q: If it says "always positive / negative for all $x$" or "real roots" with a parameter
+F: ax^2+bx+c>0\ \forall x\iff a>0,\ D<0
+N: Write the conditions on the parameter, solve the inequalities, count integers if asked. For "equal roots", set $D=0$; note $x=1$ is often a root of $a(b-c)x^2+\cdots$ so roots are $1$ and $\frac{c}{a}\cdot\ldots$
+P: 01:11,22,47,40
+
+Q: If it asks for the range of $\frac{a_1x^2+b_1x+c_1}{a_2x^2+b_2x+c_2}$
+F: y\cdot(\text{den})=\text{num}\Rightarrow\text{quadratic in } x,\ D\ge0
+N: Treat $y$ as a parameter, require real $x$, solve the inequality in $y$; exclude $y$ values that come only from excluded $x$.
+P: 01:9
+
+Q: If roots must be integers / rational
+F: D\ \text{is a perfect square};\ \ \text{irrational roots come in conjugate pairs}
+N: For $x^2+4x-n=0$: $D=16+4n$ must be a perfect square → list $n$. For integer-root pairs use $\alpha+\beta$, $\alpha\beta$ factor pairs.
+P: 01:35,26,57,58
+
+Q: If the question is a cubic/symmetric value like $a^4+b^4+c^4$ from $\sum a$, $\sum ab$, $abc$
+F: p_k=e_1p_{k-1}-e_2p_{k-2}+e_3p_{k-3}
+N: Newton's identities: $p_1=e_1$, $p_2=e_1p_1-2e_2$, $p_3=e_1p_2-e_2p_1+3e_3$, $p_4=e_1p_3-e_2p_2+e_3p_1$.
+P: 01:34,36
+
+Q: If it is a log / surd / modulus equation that becomes quadratic
+F: \log_{(x+1)}(\ldots)\ \text{factor the argument};\ \ \sqrt x=t;\ \ |x|=t
+N: Factor arguments (e.g. $2x^2+7x+5=(x+1)(2x+5)$), use $\log_ab\cdot\log_ba=1$ to get $t+\frac2t$ forms; then check domain (base $>0$, $\ne1$).
+P: 01:14,6
+
+Q: If it is a continued fraction $a+\frac1{b+\frac1{a+\cdots}}$
+F: y=a+\frac1{b+\frac1y}\Rightarrow\text{quadratic in } y,\ \text{take the positive root}
+P: 01:39
+
+Q: Odd-ones (polynomial with shifted terms, functional root conditions)
+F: \text{expand sums with } \sum k,\ \sum k^2;\ \ \alpha\mapsto\alpha^2-2\ \text{map: test fixed points and 2-cycles}
+N: For "whenever $\alpha$ is a root so is $\alpha^2-2$": roots are fixed points of $x^2-2=x$ or a 2-cycle; list the pairs.
+P: 01:49,48,23,16,13,62,51,29

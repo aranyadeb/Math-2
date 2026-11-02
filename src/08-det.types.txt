@@ -1,0 +1,16 @@
+@ det | Determinants | 12 | Algebra
+
+## If this type comes, solve like this
+Q: If a $3\times3$ system with parameters must have infinitely many solutions
+F: \Delta=0\ \text{and}\ \Delta_x=\Delta_y=\Delta_z=0
+N: 1) $\Delta=0$ gives $\lambda$. 2) Then one of $\Delta_x$, $\Delta_y$, $\Delta_z$ $=0$ gives $\mu$. Quick check: the third equation must be a combination $p\,E_1+q\,E_2$ — find $p,q$ from two coefficients, then match the rest.
+P: 12:1,4
+
+Q: If the system must have no solution / a unique solution
+F: \text{unique}: \Delta\ne0;\qquad\text{none}: \Delta=0\ \text{and some } \Delta_i\ne0
+N: Find all $\lambda$ with $\Delta=0$, then test each one in a $\Delta_i$.
+P: 12:2,3
+
+Q: If $ax+by+c=0$ with $a,b,c$ in AP (or GP) — concurrent lines
+F: a-2b+c=0\Rightarrow\text{all lines pass through } (1,-2)
+P: 12:5

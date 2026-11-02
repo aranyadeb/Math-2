@@ -1,0 +1,48 @@
+@ ind | Indefinite Integration | 12 | Calculus
+
+## If this type comes, solve like this
+Q: If the answer form is given with unknown constants ($\alpha\ln|\ldots|+\beta\tan^{-1}\ldots$)
+F: \text{differentiate the given answer and match with the integrand}
+N: Often faster than integrating: compare coefficients after differentiating, or pick the right split of the numerator (Numerator $=A(\text{Den})+B(\text{Den})'$).
+P: 02:1,3,10,11,14,17
+
+Q: If the integrand is $\frac{x^2\pm1}{x^4+kx^2+1}$ or contains $\frac{x^2+1}x$
+F: \text{divide by } x^2,\ t=x\mp\frac1x
+P: 02:1
+
+Q: If $\sin$ and $\cos$ appear with fractional/negative powers adding to an even negative integer
+F: \sin^mx\cos^nx,\ m+n=-2k:\ \text{divide by } \cos^{m+n}x,\ t=\tan x\ (\text{or } \cot x)
+P: 02:9,16,7
+
+Q: If it is $\int\frac{dx}{(x-a)^p(x-b)^q}$ with $p+q=2$
+F: t=\frac{x-a}{x-b}\Rightarrow dt=\frac{(a-b)\,dx}{(x-b)^2}
+P: 02:6
+
+Q: If it has two different roots of $x$ like $x^{2/3}$, $x^{1/2}$
+F: x=t^{\text{LCM of denominators}}
+P: 02:5
+
+Q: If it is $\int e^x[f+f']$ or $\int[f+xf']$ in disguise
+F: \int e^x(f+f')=e^xf;\qquad\int\frac{x^2}{(x\sin x+\cos x)^2}:\ \text{write as }\frac{x}{\cos x}\cdot\frac{x\cos x}{(\ldots)^2}\ \text{and use parts}
+P: 02:13,2,18
+
+Q: If it is $\int x^n\sin x$ or $\int x^ne^x$
+F: \text{tabular integration by parts}
+P: 02:4
+
+Q: If it is $\int\frac{dx}{(ax^2+b)\sqrt{cx^2+d}}$ or $\frac1x\sqrt{\frac{1-x}{1+x}}$
+F: x=\frac1t\ \text{then } u^2=c+dt^2;\qquad x=\cos2\theta\ \text{for }\sqrt{\tfrac{1-x}{1+x}}
+P: 02:15,12
+
+Q: If it is $\int\frac{(\text{poly})}{\sqrt{\text{quadratic}}}$
+F: \text{write poly}=A\,(\text{quad})'\cdot x+\ldots;\ \text{use } \int\sqrt{Q},\ \int\frac{dx}{\sqrt Q}
+P: 02:14
+
+Q: If it has $\sqrt{1+x^2}+x$ powers
+F: t=\sqrt{1+x^2}+x\Rightarrow\frac1t=\sqrt{1+x^2}-x,\ dx=\frac{1}{2}\left(1+\frac1{t^2}\right)dt
+P: 02:19
+
+Q: If the integrand is a derivative of a quotient (rational with high powers)
+F: \frac{f'g-fg'}{g^2}\ \text{pattern: divide num and den by } x^{k}\ \text{to expose it}
+N: E.g. $\frac{7x^{10}+9x^8}{(1+x^2+2x^9)^2}$: divide by $x^{18}$, the denominator becomes $(x^{-9}+x^{-7}+2)^2$.
+P: 02:8

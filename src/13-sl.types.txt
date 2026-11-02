@@ -1,0 +1,50 @@
+@ sl | Straight Lines & Pair of Lines | 11 | Coordinate Geometry
+
+## If this type comes, solve like this
+Q: If the orthocentre/circumcentre/centroid/incentre is given or asked
+F: G=\tfrac{A+B+C}3,\ \ H=3G-2O;\ \ AH\perp BC\ \ (\text{slope product } -1)
+N: For orthocentre with two sides known: third vertex from altitudes ($AH\perp BC$, $BH\perp AC$). Right triangle: $H$ at the right-angle vertex, $O$ at the hypotenuse midpoint. Equilateral: $G=H=O=I$.
+P: 19:1,4,13,14,25,46,56,57,59,60,61,62,63,64,65,66,74,87
+
+Q: If an isosceles/equilateral triangle has a given base line and apex
+F: \text{foot of perpendicular from apex to base} = \text{midpoint of base};\ \ \text{equilateral: } h=\tfrac{\sqrt3}2a
+P: 19:2,62,63
+
+Q: If a light ray reflects off a line or axis
+F: \text{reflect the source in the mirror; reflected ray passes through the image}
+N: Image in $ax+by+c=0$: $\frac{x-x_1}a=\frac{y-y_1}b=\frac{-2(ax_1+by_1+c)}{a^2+b^2}$. Shortest path via a line: straight line to the image.
+P: 19:12,24,30,53,54,55,19
+
+Q: If it is a locus of a moving point (midpoint, centroid, rod with ends on lines)
+F: \text{let the point be } (h,k),\ \text{express conditions, eliminate the parameter}
+P: 19:5,67,68,69,40,3,39
+
+Q: If distance of a point from a line measured along a given direction
+F: (x_1+r\cos\theta,\ y_1+r\sin\theta)\ \text{substituted in the line}\Rightarrow r
+P: 19:11,44,43,6
+
+Q: If the family of lines $L_1+\lambda L_2=0$ or a line through a fixed point
+F: \text{fixed point: solve } L_1=0,\ L_2=0
+N: Lines $ax+by+c=0$ with a linear relation between $a,b,c$ all pass through one fixed point.
+P: 19:10,29,15,28
+
+Q: If area of triangle / region / lattice points inside a triangle
+F: \Delta=\tfrac12|x_1(y_2-y_3)+x_2(y_3-y_1)+x_3(y_1-y_2)|
+N: Lattice points strictly inside: count by rows, or Pick's theorem $A=I+\frac B2-1$.
+P: 19:9,17,32,33,34,36,8,85
+
+Q: If a parallelogram/square/rectangle from given sides and centre
+F: \text{diagonals bisect each other: } A+C=B+D
+P: 19:7,16,31,35,38,45,86,91
+
+Q: If angle bisectors / internal-external bisector or concurrency
+F: \frac{a_1x+b_1y+c_1}{\sqrt{a_1^2+b_1^2}}=\pm\frac{a_2x+b_2y+c_2}{\sqrt{a_2^2+b_2^2}};\ \ \text{concurrency: } \det=0
+P: 19:26,76,77,71,73,72,75,48,49,52,23
+
+Q: If a pair of lines / homogenisation / angle subtended at origin
+F: \text{homogenise the curve with } \frac{lx+my}{-n}=1;\ \ \perp\iff a+b=0
+P: 19:78,79,80,81,82,83,27,84
+
+Q: If points lie on the same side / region inequalities
+F: \text{same side}\iff L(P)L(Q)>0
+P: 19:22,49,50,51,18,20,21,37,41,42,47,58,70,88,89,90,92

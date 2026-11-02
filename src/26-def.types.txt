@@ -1,0 +1,62 @@
+@ def | Definite Integration | 12 | Calculus
+
+## If this type comes, solve like this
+Q: If the limits are symmetric ($-a$ to $a$) and the integrand looks ugly
+F: \int_{-a}^af(x)dx=\int_0^a[f(x)+f(-x)]dx;\qquad\frac{g(x)}{1+e^{h(x)}}\ \text{with } h \text{ odd}\Rightarrow\int_0^ag
+N: Pair $f(x)$ with $f(-x)$: $\frac1{1+e^{u}}+\frac1{1+e^{-u}}=1$. Odd parts vanish ($\ln(x+\sqrt{x^2+1})$ is odd).
+P: 14:6,9,22,5
+
+Q: If the integrand is $\frac{f(x)}{f(x)+f(a+b-x)}$ or has $\sin^n$ vs $\cos^n$
+F: \int_a^bf(x)dx=\int_a^bf(a+b-x)dx\ \Rightarrow\ 2I=\int_a^b1\,dx
+N: Also for $x\cdot g(\sin x)$ on $[0,\pi]$: $I=\frac\pi2\int g$. Then finish the remaining integral with $t=\tan^2x$ or $t=\sin^2x$.
+P: 14:3,7,17
+
+Q: If $[x]$, $\{x\}$, $\min/\max$ of greatest-integer pieces appear
+F: \text{split at points where the inside crosses integers; on each piece the integrand is simple}
+N: For $[x^2]$ on $[0,2.4]$: breaks at $1,\sqrt2,\sqrt3,2,\sqrt5$. For $\int\frac{[x]e^{[x]}}{e^{x-1}}$: sum over unit intervals → a GP.
+P: 14:4,8,16,5
+
+Q: If it is $\lim\sum\frac{1}{n}f\left(\frac kn\right)$ in disguise
+F: \lim_{n\to\infty}\frac1n\sum_{k=1}^nf\left(\frac kn\right)=\int_0^1f(x)dx
+N: Pull out $\frac1n$ and write the rest in $\frac kn$; e.g. $\frac{n^3}{(n^2+k^2)(n^2+3k^2)}=\frac1n\cdot\frac{1}{(1+x^2)(1+3x^2)}$.
+P: 14:2
+
+Q: If $f$ is defined by an integral equation ($f(x)=g(x)+\int_0^x\ldots$ or $+\int_a^b\ldots f(t)dt$)
+F: \text{variable limit: differentiate (Leibniz) to get a DE};\quad\text{constant limits: the integral is a constant } k
+P: 14:1,20,27,13
+
+Q: If a limit contains an integral with variable limit
+F: \frac{d}{dx}\int_a^{g(x)}h(t)dt=h(g(x))g'(x);\ \text{use L'Hôpital}
+P: 14:10
+
+Q: If integration by parts relates $\int xF'$, $\int x^2F''$
+F: \int_a^bxF'\,dx=[xF]_a^b-\int_a^bF\,dx
+P: 14:11,12
+
+Q: If it is $\int\frac{t^4+1}{t^6+1}$ or $\int\frac{\sqrt{x(\ldots)}}{\ldots}$ with hidden factoring
+F: t^6+1=(t^2+1)(t^4-t^2+1)\Rightarrow\frac{t^4+1}{t^6+1}=\frac1{t^2+1}+\frac{t^2}{t^6+1}
+P: 14:15,17,25
+
+Q: If it is a Beta-type $\int_0^1x^{m-1}(1-x)^{n-1}$
+F: I(m,n)=\frac{(m-1)!(n-1)!}{(m+n-1)!},\quad I(m,n)=I(n,m)
+P: 14:18
+
+Q: If it asks extrema/sign of $\int_{-1}^xg(t)dt$ with a factored $g$
+F: F'(x)=g(x):\ \text{sign changes only at odd-multiplicity zeros}
+P: 14:19
+
+Q: If it is $\int\frac{dx}{a+b\sin x+c\cos x}$ on $[0,\frac\pi2]$
+F: t=\tan\tfrac x2\Rightarrow\int_0^1\frac{2\,dt}{(a-c)t^2+2bt+(a+c)}
+P: 14:21
+
+Q: If reduction / recurrence of $\int\cot^nx$ or $\tan^nx$
+F: I_n+I_{n-2}=\frac{1}{n-1}\left[\ldots\right]\ \ (\text{use } \cot^2=\csc^2-1)
+P: 14:23
+
+Q: If bounds or a periodic-like relation $f(x)+f(x+k)=n$ are given
+F: f(x+2k)=f(x)\Rightarrow\text{period } 2k;\ \int_0^{2k}f=nk
+P: 14:24,26
+
+Q: If $\cot^{-1}$ of a quadratic is integrated
+F: \cot^{-1}(1-x+x^2)=\tan^{-1}x+\tan^{-1}(1-x)\ \Rightarrow\ \text{use King's rule}
+P: 14:28,14

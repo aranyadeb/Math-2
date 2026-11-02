@@ -1,0 +1,59 @@
+@ de | Differential Equations | 12 | Calculus
+
+## Basics
+Q: General vs particular solution
+F: \text{general: has } n \text{ arbitrary constants};\quad\text{particular: constants fixed by initial conditions}
+
+Q: DE of all circles / parabolas families (orders)
+F: \text{circles in a plane}: 3;\quad\text{circles through origin}: 2;\quad\text{parabolas with axis along } x\text{-axis}: 2
+
+Q: DE of all non-vertical lines
+F: \frac{d^2y}{dx^2}=0
+
+## First-order methods
+Q: Separable after substitution $y=vx$ examples
+F: x\,dy-y\,dx=\sqrt{x^2+y^2}\,dx\Rightarrow y+\sqrt{x^2+y^2}=cx^2
+
+Q: Equations of the form $\frac{dy}{dx}=\frac{a_1x+b_1y+c_1}{k(a_1x+b_1y)+c_2}$
+F: \text{put } v=a_1x+b_1y\ \text{(lines parallel)}
+
+Q: Standard integrating factors to remember
+F: P=\frac1x\Rightarrow\text{IF}=x;\quad P=-\frac1x\Rightarrow\frac1x;\quad P=\tan x\Rightarrow\sec x;\quad P=\cot x\Rightarrow\sin x
+N: $P=\frac{2x}{1+x^2}\Rightarrow 1+x^2$; $P=\frac{1}{x\ln x}\Rightarrow\ln x$.
+
+Q: Equations reducible to linear: $f'(y)\frac{dy}{dx}+Pf(y)=Q$
+F: \text{put } t=f(y)
+N: E.g. $\sec^2y\frac{dy}{dx}+P\tan y=Q$: $t=\tan y$.
+
+Q: Exact by inspection groupings
+F: x\,dx+y\,dy=\tfrac12d(x^2+y^2);\quad\frac{x\,dy-y\,dx}{y^2}... \to -d\left(\tfrac xy\right)\ \text{form};\quad\frac{dx+dy}{x+y}=d\ln(x+y)
+
+Q: Higher-degree first-order equations
+F: (y')^2-(x+y)y'+xy=0\Rightarrow(y'-x)(y'-y)=0\ \text{(solve each factor)}
+
+## Applications
+Q: Population / interest growth
+F: \frac{dP}{dt}=rP\Rightarrow P=P_0e^{rt};\qquad\text{doubling time}=\frac{\ln2}r
+
+Q: Newton's law of cooling
+F: T-T_s=(T_0-T_s)e^{-kt}
+
+Q: Curve whose tangent / normal has a property
+F: \text{write the property with } y'\ \text{and solve the DE}
+N: Subtangent constant $k$: $y=Ce^{x/k}$. Subnormal constant $k$: $y^2=2kx+C$.
+
+Q: Mixing / tank problems
+F: \frac{dQ}{dt}=(\text{rate in})-(\text{rate out})
+
+## Common results
+Q: Solution of $\frac{dy}{dx}=\frac{y}{x}$, $\frac{dy}{dx}=-\frac xy$, $\frac{dy}{dx}=\frac xy$
+F: y=cx;\qquad x^2+y^2=c;\qquad y^2-x^2=c
+
+Q: Solution of $\frac{dy}{dx}+y=e^{-x}$
+F: ye^x=x+C
+
+Q: Solution of $y'=e^{x-y}$ / $y'=e^{x+y}$
+F: e^y=e^x+C;\qquad -e^{-y}=e^x+C
+
+Q: Maximum / value of the solution at a point
+F: \text{solve fully, apply the initial condition, then evaluate or differentiate}

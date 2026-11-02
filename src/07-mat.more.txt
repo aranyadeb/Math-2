@@ -1,0 +1,81 @@
+@ mat | Matrices | 12 | Algebra
+
+## Algebra of matrices
+Q: Order and number of matrices
+F: m\times n\ \text{matrix has } mn\ \text{entries};\ \text{number of matrices with entries from a } k\text{-set}: k^{mn}
+
+Q: Types of matrices
+F: \text{row, column, square, diagonal, scalar } (kI),\ \text{identity},\ \text{zero},\ \text{upper/lower triangular}
+
+Q: Properties of matrix multiplication
+F: A(BC)=(AB)C,\quad A(B+C)=AB+AC,\quad AI=IA=A
+N: $(A+B)^2=A^2+AB+BA+B^2$; equals $A^2+2AB+B^2$ only if $AB=BA$.
+
+Q: Commuting matrices and binomial expansion
+F: AB=BA\Rightarrow(A+B)^n=\sum{}^nC_rA^{n-r}B^r
+
+Q: Powers of $I+N$ with $N$ nilpotent ($N^2=O$)
+F: (I+N)^n=I+nN
+N: E.g. $\begin{pmatrix}1&a\\0&1\end{pmatrix}^n=\begin{pmatrix}1&na\\0&1\end{pmatrix}$.
+
+Q: Powers of a diagonal matrix
+F: \operatorname{diag}(a,b,c)^n=\operatorname{diag}(a^n,b^n,c^n)
+
+Q: Transpose of a product of many
+F: (ABC)^T=C^TB^TA^T
+
+Q: Symmetric/skew facts
+F: AA^T,\ A^TA,\ A+A^T\ \text{symmetric};\quad A-A^T\ \text{skew};\quad B^TAB\ \text{is symmetric/skew if } A \text{ is}
+N: Product of two symmetric matrices is symmetric iff they commute.
+
+Q: Trace of transpose and of $A^TA$
+F: \operatorname{tr}(A^T)=\operatorname{tr}A,\qquad\operatorname{tr}(A^TA)=\sum_{i,j}a_{ij}^2
+
+## Special matrices
+Q: Periodic matrix
+F: A^{k+1}=A\ (\text{period } k)
+
+Q: Involutory matrix facts
+F: A^2=I\Rightarrow A^{-1}=A,\ |A|=\pm1,\ (I+A)(I-A)=O
+
+Q: Properties of orthogonal matrices
+F: \text{rows (and columns) are unit vectors, mutually perpendicular}
+
+Q: Elementary row operations and inverse
+F: [A\,|\,I]\ \xrightarrow{\text{row ops}}\ [I\,|\,A^{-1}]
+
+## Inverse
+Q: Inverse of a diagonal matrix
+F: \operatorname{diag}(a,b,c)^{-1}=\operatorname{diag}\left(\tfrac1a,\tfrac1b,\tfrac1c\right)
+
+Q: Inverse from a polynomial equation
+F: A^2-pA+qI=O\ (q\ne0)\Rightarrow A^{-1}=\frac{pI-A}q
+
+Q: Inverse of $kA$ and of $A^n$
+F: (kA)^{-1}=\frac1kA^{-1},\qquad(A^n)^{-1}=(A^{-1})^n
+
+Q: Adjoint of a 2×2 matrix
+F: \operatorname{adj}\begin{pmatrix}a&b\\c&d\end{pmatrix}=\begin{pmatrix}d&-b\\-c&a\end{pmatrix}
+
+Q: Adjoint facts
+F: \operatorname{adj}(A^T)=(\operatorname{adj}A)^T,\quad\operatorname{adj}(A^{-1})=(\operatorname{adj}A)^{-1},\quad\operatorname{adj}I=I
+
+## Systems and eigenvalues
+Q: Rank and consistency (for reference)
+F: \operatorname{rank}A=\operatorname{rank}[A|B]=n\ \text{unique};\ =r<n\ \text{infinite};\ \operatorname{rank}A\ne\operatorname{rank}[A|B]\ \text{none}
+
+Q: Eigenvalues of special matrices
+F: \text{symmetric (real): real};\quad\text{skew-symmetric: } 0 \text{ or purely imaginary};\quad\text{orthogonal: } |\lambda|=1
+
+Q: $A^n$ via Cayley–Hamilton (2×2)
+F: A^2=(\operatorname{tr}A)A-|A|I\ \Rightarrow\ \text{reduce } A^n \text{ to } pA+qI
+
+## Common results
+Q: Matrices with $A^2=A$ count / special forms
+F: \begin{pmatrix}a&b\\c&d\end{pmatrix}^2=\begin{pmatrix}a^2+bc&b(a+d)\\c(a+d)&d^2+bc\end{pmatrix}
+
+Q: Determinant of a matrix with integer entries and inverse integer
+F: A,A^{-1}\ \text{both integer}\Rightarrow|A|=\pm1
+
+Q: Trace of $A^2$ for 2×2
+F: \operatorname{tr}(A^2)=(\operatorname{tr}A)^2-2|A|

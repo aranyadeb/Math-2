@@ -1,0 +1,72 @@
+@ aod | Application of Derivatives | 12 | Calculus
+
+## Tangents and normals
+Q: Tangent parallel / perpendicular to axes
+F: \frac{dy}{dx}=0\ \text{(horizontal)};\qquad\frac{dx}{dy}=0\ \text{(vertical)}
+
+Q: Tangent from an external point to a curve
+F: y_0-f(a)=f'(a)(x_0-a)\ \text{solve for the point of contact } a
+
+Q: Common tangent to two curves
+F: f'(a)=g'(b)=\frac{f(a)-g(b)}{a-b}
+
+Q: Curves touching each other
+F: f(a)=g(a)\ \text{and}\ f'(a)=g'(a)
+
+Q: Approximation using differentials
+F: f(a+h)\approx f(a)+hf'(a);\qquad\text{percentage error in } y=x^n:\ n\times(\text{percentage error in } x)
+
+## Monotonicity
+Q: Monotonic on an interval — conditions on a parameter
+F: f'(x)\ge0\ \forall x\ \text{(with equality at isolated points)}\Rightarrow\text{use } D\le0 \text{ or min value}\ge0
+
+Q: Monotonicity of composite functions
+F: \text{inc}\circ\text{inc}=\text{inc},\ \text{dec}\circ\text{dec}=\text{inc},\ \text{inc}\circ\text{dec}=\text{dec}
+
+Q: Comparing numbers via monotonic functions
+F: \frac{\ln x}x\ \text{decreasing for } x>e\Rightarrow e^\pi>\pi^e,\ 2^{\sqrt2}<\ldots
+
+Q: Standard inequalities from monotonicity
+F: x-\frac{x^2}2<\ln(1+x)<x\ (x>0);\qquad\tan x>x+\frac{x^3}3\ \left(0<x<\tfrac\pi2\right);\qquad\sin x>\frac{2x}\pi\ \left(0<x<\tfrac\pi2\right)
+N: The last is Jordan's inequality.
+
+## Maxima and minima
+Q: Critical points
+F: f'(c)=0\ \text{or}\ f'(c)\ \text{does not exist}
+
+Q: Global extremum of a cubic on $\mathbb R$
+F: \text{none (cubic is unbounded)};\ \text{local max/min exist iff } f'=0\ \text{has distinct roots}
+
+Q: Maximum of product with constraint using derivative
+F: \text{express in one variable, differentiate, check sign change}
+
+Q: Distance from a point to a curve minimised
+F: \text{minimise } D^2=(x-a)^2+(f(x)-b)^2
+
+Q: Concavity and point of inflection condition (cubic)
+F: ax^3+bx^2+cx+d:\ \text{inflection at } x=-\frac b{3a}
+
+## Common results
+Q: Rectangle of max area inscribed in a semicircle
+F: \text{sides } r\sqrt2\times\frac r{\sqrt2},\ \text{area } r^2
+
+Q: Window / Norman window
+F: \text{rectangle + semicircle, perimeter } P:\ \text{max area when width}=\frac{2P}{\pi+4}
+
+Q: Box from a square sheet by cutting squares
+F: \text{side } a\Rightarrow\text{cut } x=\frac a6;\qquad\text{rectangular } a\times b:\ 12x^2-4(a+b)x+ab=0
+
+Q: Cone inscribed in a cone / cylinder in a cone
+F: \text{max volume cylinder in cone of height } h:\ \text{height }\frac h3
+
+Q: Triangle of max area with fixed perimeter / in a circle
+F: \text{equilateral}
+
+Q: Maximum of $f(x)=\frac{x}{\ln x}$ type — use derivative sign table
+F: \text{for products/quotients, take log first, then differentiate}
+
+Q: Number of real roots of $f(x)=0$ using extrema
+F: \text{if } f(\text{local max})\cdot f(\text{local min})<0\ \text{then three real roots (cubic)}
+
+Q: Rolle-type existence results
+F: f(a)=f(b)=0\Rightarrow f'(c)+\lambda f(c)=0\ \text{for some } c\ (\text{apply Rolle to } e^{\lambda x}f)

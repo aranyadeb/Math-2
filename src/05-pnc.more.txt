@@ -1,0 +1,99 @@
+@ pnc | Permutations & Combinations | 11 | Algebra
+
+## Basics
+Q: Fundamental principles of counting
+F: \text{AND (one after another)}\to\text{multiply};\qquad\text{OR (alternatives)}\to\text{add}
+
+Q: Permutations with some objects always included / excluded
+F: r\ \text{from } n,\ p\ \text{particular always included}:\ {}^{n-p}C_{r-p}\cdot r!;\quad\text{excluded}:\ {}^{n-p}P_r
+
+Q: Sum of ${}^nC_r$ over even/odd $r$
+F: \sum_{r\ \text{even}}{}^nC_r=\sum_{r\ \text{odd}}{}^nC_r=2^{n-1}
+
+Q: Number of ways to select at least $k$
+F: \sum_{r=k}^n{}^nC_r=2^n-\sum_{r=0}^{k-1}{}^nC_r
+
+## Arrangements
+Q: Words with letters in a fixed order
+F: \text{arrange all, divide by } k!\ \text{for each group of } k \text{ letters whose relative order is fixed}
+
+Q: Numbers formed from digits with repetition / without
+F: \text{no repetition, } n \text{ digits from } \{0..9\}:\ 9\cdot{}^9P_{n-1};\quad\text{with repetition}: 9\cdot10^{n-1}
+
+Q: Sum of all numbers formed by $n$ distinct non-zero digits (all used)
+F: (n-1)!\,(\text{sum of digits})\,(111\ldots1)_{n\ \text{ones}}
+N: If $0$ is among the digits: subtract the sum of numbers starting with $0$.
+
+Q: Divisibility rules in counting
+F: 3:\ \text{digit sum};\ 4:\ \text{last two digits};\ 5:\ \text{last } 0/5;\ 6:\ 2\ \&\ 3;\ 8:\ \text{last three};\ 9:\ \text{digit sum};\ 11:\ \text{alternating sum}
+
+Q: Circular arrangement with two particular together / apart
+F: \text{together}: 2!(n-2)!;\qquad\text{apart}: (n-1)!-2(n-2)!
+
+Q: Arrangement in a circle of men and women alternately
+F: n\ \text{men},\ n\ \text{women}:\ (n-1)!\,n!
+
+Q: Arrangements of $n$ objects with $r$ fixed in place
+F: (n-r)!
+
+Q: Permutations where no two identical letters are together
+F: \text{arrange the others, choose gaps: } {}^{(\text{gaps})}C_k
+
+## Selections
+Q: Selection of one or more from groups of different kinds
+F: \text{at least one from each of } k \text{ groups of sizes } n_i:\ \prod(2^{n_i}-1)
+
+Q: Number of even / odd divisors
+F: N=2^a\cdot M\ (M\ \text{odd}):\ \text{odd divisors}=\tau(M),\ \text{even}=a\,\tau(M)
+
+Q: Number of divisors divisible by $k$ / perfect-square divisors
+F: \text{square divisors of } p^aq^b:\ \left(\left[\tfrac a2\right]+1\right)\left(\left[\tfrac b2\right]+1\right)
+
+Q: Selection of $r$ from $n$ when $p$ are alike
+F: \text{split by how many of the alike items are chosen and add}
+
+## Distribution
+Q: $n$ identical items among $r$ persons, each getting at least $k$
+F: {}^{n-rk+r-1}C_{r-1}
+
+Q: Distinct items into identical boxes (none empty)
+F: S(n,r)=\frac1{r!}\sum_{k=0}^r(-1)^k\binom rk(r-k)^n\quad(\text{Stirling numbers of the 2nd kind})
+
+Q: Identical items into identical boxes
+F: \text{number of partitions of } n \text{ into } r \text{ parts (list them)}
+
+Q: Non-negative integer solutions with upper bounds
+F: x_1+\cdots+x_r=n,\ x_i\le m:\ \text{coefficient of } x^n \text{ in } \left(\frac{1-x^{m+1}}{1-x}\right)^r
+
+Q: Number of ways to divide $mn$ items into $m$ equal groups
+F: \frac{(mn)!}{(n!)^m\,m!};\qquad\text{distributed to } m \text{ people}: \frac{(mn)!}{(n!)^m}
+
+Q: Ways to choose $r$ non-consecutive from $n$ in a line
+F: {}^{n-r+1}C_r
+
+## Geometry counts
+Q: Number of triangles from vertices of an $n$-gon
+F: {}^nC_3;\ \text{with no side common: } {}^nC_3-n-n(n-4)=\frac{n(n-4)(n-5)}6
+N: Exactly one side common: $n(n-4)$; exactly two sides common: $n$.
+
+Q: Parallelograms from two sets of parallel lines
+F: m\ \text{and}\ n\ \text{parallel lines}:\ {}^mC_2\cdot{}^nC_2
+
+Q: Regions formed by $n$ lines in general position
+F: \frac{n(n+1)}2+1
+
+Q: Maximum points of intersection of $n$ circles and $m$ lines
+F: 2\,{}^nC_2+{}^mC_2+2mn
+
+## Common results
+Q: Number of squares on an $n\times n$ board
+F: \sum_{k=1}^nk^2=\frac{n(n+1)(2n+1)}6;\qquad\text{rectangles}=\left[\frac{n(n+1)}2\right]^2
+
+Q: Number of relations / binary operations
+F: \text{binary operations on an } n\text{-set}: n^{n^2};\ \text{commutative}: n^{\frac{n(n+1)}2}
+
+Q: Total number of handshakes / matches
+F: \text{each pair once}: {}^nC_2;\ \text{each pair twice (home/away)}: {}^nP_2
+
+Q: Exponent of $10$ in $n!$ (trailing zeros)
+F: \left[\frac n5\right]+\left[\frac n{25}\right]+\left[\frac n{125}\right]+\cdots

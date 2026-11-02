@@ -1,0 +1,94 @@
+@ tri | Properties & Solutions of Triangles | 11 | Trigonometry
+
+## Basic rules
+Q: Cosine rule in all three forms
+F: \cos B=\frac{c^2+a^2-b^2}{2ca},\qquad\cos C=\frac{a^2+b^2-c^2}{2ab}
+
+Q: Projection rule (all forms)
+F: b=c\cos A+a\cos C,\qquad c=a\cos B+b\cos A
+
+Q: Napier's analogy (other forms)
+F: \tan\frac{C-A}2=\frac{c-a}{c+a}\cot\frac B2,\qquad\tan\frac{A-B}2=\frac{a-b}{a+b}\cot\frac C2
+
+Q: Half-angle in terms of $\Delta$
+F: \sin\frac A2\cos\frac A2=\frac\Delta{bc},\qquad\cos^2\frac A2=\frac{s(s-a)}{bc}
+
+Q: $\tan\frac A2\tan\frac B2$
+F: \tan\frac A2\tan\frac B2=\frac{s-c}s;\qquad\frac{\tan\frac A2}{\tan\frac B2}=\frac{s-b}{s-a}
+
+Q: Angles in terms of sides via $\cot$
+F: \cot A=\frac{b^2+c^2-a^2}{4\Delta}
+
+## Area
+Q: Area using two angles and a side
+F: \Delta=\frac{a^2\sin B\sin C}{2\sin A}=2R^2\sin A\sin B\sin C
+
+Q: Area in terms of $r$ and angles
+F: \Delta=r^2\cot\frac A2\cot\frac B2\cot\frac C2
+
+Q: Area using $s$ and half-angles
+F: \Delta=s^2\tan\frac A2\tan\frac B2\tan\frac C2
+
+## Radii
+Q: Exradii in terms of $s$
+F: r_1=s\tan\frac A2,\quad r_2=s\tan\frac B2,\quad r_3=s\tan\frac C2
+
+Q: Inradius in terms of sides and half-angles
+F: r=(s-b)\tan\frac B2=(s-c)\tan\frac C2
+
+Q: Exradius products and sums
+F: r_1r_2r_3=rs^2,\qquad(r_1-r)(r_2-r)(r_3-r)=4Rr^2
+
+Q: Reciprocals of altitudes
+F: \frac1{h_a}+\frac1{h_b}+\frac1{h_c}=\frac1r,\qquad\frac1{r_1}+\frac1{r_2}=\frac2{h_c}
+
+Q: Altitude relations
+F: \frac1{r_1}=\frac1{h_b}+\frac1{h_c}-\frac1{h_a}
+
+## Centres and lengths
+Q: Distance between incentre and excentre
+F: II_1=a\sec\frac A2=4R\sin\frac A2,\qquad I_2I_3=4R\cos\frac A2
+
+Q: Distance between circumcentre and orthocentre
+F: OH^2=9R^2-(a^2+b^2+c^2)=R^2(1-8\cos A\cos B\cos C)
+
+Q: Distance of circumcentre from a side
+F: R\cos A\ (\text{from } BC)
+
+Q: Length of the external angle bisector
+F: \frac{2bc}{|b-c|}\sin\frac A2
+
+Q: Nine-point circle
+F: \text{radius}=\frac R2,\ \text{centre at midpoint of } OH
+
+Q: Angle between median and side / centroid distance
+F: AG=\frac23m_a,\qquad GA^2+GB^2+GC^2=\frac13(a^2+b^2+c^2)
+
+## Polygons and heights
+Q: Perimeter and area of a regular polygon inscribed in a circle of radius $r$
+F: \text{perimeter}=2nr\sin\frac\pi n,\qquad\text{area}=\frac n2r^2\sin\frac{2\pi}n
+
+Q: Polygon circumscribing a circle of radius $r$
+F: \text{perimeter}=2nr\tan\frac\pi n,\qquad\text{area}=nr^2\tan\frac\pi n
+
+Q: Angles of elevation from two points
+F: h=\frac{d\tan\alpha\tan\beta}{\tan\beta-\tan\alpha}\ (\text{same side, } \beta>\alpha)
+
+Q: Ptolemy's theorem (cyclic quadrilateral)
+F: AC\cdot BD=AB\cdot CD+AD\cdot BC
+
+## Common results
+Q: Type of triangle from sides
+F: a\cos A=b\cos B\Rightarrow\text{isosceles or right-angled};\qquad\frac{\cos A}{a}=\frac{\cos B}b=\frac{\cos C}c\Rightarrow\text{equilateral}
+
+Q: Sides in AP / angles in AP
+F: \text{angles in AP}\Rightarrow B=60^\circ;\qquad a,b,c\ \text{AP}\iff\cot\frac A2,\cot\frac B2,\cot\frac C2\ \text{AP}
+
+Q: Sum $a\cos A+b\cos B+c\cos C$
+F: a\cos A+b\cos B+c\cos C=4R\sin A\sin B\sin C
+
+Q: Sum $\sum a(b^2+c^2)\cos A$
+F: \sum a(b^2+c^2)\cos A=3abc
+
+Q: $r$, $R$, $s$ inequalities
+F: s\ge3\sqrt3\,r,\qquad R\ge2r,\qquad\Delta\le\frac{\sqrt3}{4}\left(\frac{a+b+c}3\right)^2

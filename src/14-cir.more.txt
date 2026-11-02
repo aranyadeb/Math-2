@@ -1,0 +1,96 @@
+@ cir | Circles | 11 | Coordinate Geometry
+
+## Equations
+Q: Condition for a general second-degree equation to be a circle
+F: a=b\ne0,\ h=0,\ g^2+f^2-c\ge0\ \ (\text{real circle})
+N: $g^2+f^2-c=0$: point circle; $<0$: imaginary circle.
+
+Q: Circle through origin / centre on axes
+F: c=0\ (\text{through origin});\quad f=0\ (\text{centre on } x\text{-axis});\quad g=0\ (\text{centre on } y\text{-axis})
+
+Q: Circle touching $x$-axis at origin / $y$-axis at origin
+F: x^2+y^2-2ky=0;\qquad x^2+y^2-2hx=0
+
+Q: Circle cutting chords of given length on axes
+F: \text{chord on }x\text{-axis}=2\sqrt{g^2-c}
+
+Q: Circumcircle of a triangle with given line sides
+F: L_1L_2+\lambda L_2L_3+\mu L_3L_1=0,\ \text{choose } \lambda,\mu \text{ to make it a circle}
+
+Q: Circle circumscribing a rectangle / square with given vertices
+F: \text{diameter form on a diagonal}
+
+Q: Incircle of a triangle with vertices on axes
+F: \text{triangle } (0,0),(a,0),(0,b):\ r=\frac{a+b-\sqrt{a^2+b^2}}2
+
+## Point and line with a circle
+Q: Maximum and minimum distance of a point from a circle
+F: |CP|+r,\qquad\big||CP|-r\big|
+
+Q: Length of the chord cut by a line
+F: 2\sqrt{r^2-d^2},\quad d=\frac{|ah+bk+c|}{\sqrt{a^2+b^2}}
+
+Q: Condition for a line to cut / touch / miss
+F: d<r\ \text{cut};\quad d=r\ \text{touch};\quad d>r\ \text{miss}
+
+Q: Point of contact of tangent $y=mx+c$ to $x^2+y^2=a^2$
+F: \left(\frac{-a^2m}c,\ \frac{a^2}c\right)
+
+Q: Tangents from an external point to $x^2+y^2=a^2$
+F: \text{slopes from } (x_1^2-a^2)m^2-2x_1y_1m+(y_1^2-a^2)=0
+
+Q: Equation of chord of contact and its length
+F: xx_1+yy_1=a^2;\qquad\text{length}=\frac{2r\sqrt{S_1}}{\sqrt{S_1+r^2}}
+
+Q: Normal to a circle through a point
+F: \text{line joining the point and the centre}
+
+Q: Locus of midpoints of chords of $x^2+y^2=a^2$ subtending $90°$ at centre
+F: x^2+y^2=\frac{a^2}2
+
+Q: Locus of midpoint of chords through a fixed point $(p,q)$
+F: x^2+y^2-px-qy=0\ \ (\text{circle } x^2+y^2=a^2)
+
+Q: Chord subtending angle $2\theta$ at centre
+F: \text{distance from centre}=r\cos\theta,\quad\text{chord}=2r\sin\theta
+
+Q: Tangent and normal at parametric point
+F: x\cos\theta+y\sin\theta=r;\qquad x\sin\theta-y\cos\theta=0
+
+## Two circles
+Q: Common tangents at the point of contact
+F: S_1-S_2=0\ \text{when circles touch}
+
+Q: Point of contact of touching circles
+F: \text{divides } C_1C_2 \text{ in ratio } r_1:r_2\ (\text{internally for external touch})
+
+Q: Equation of common chord and its length
+F: S_1-S_2=0;\qquad L=2\sqrt{r_1^2-p_1^2}
+
+Q: Circle through intersection of two circles
+F: S_1+\lambda S_2=0\ (\lambda\ne-1)
+
+Q: Circle bisecting the circumference of another
+F: \text{common chord passes through the centre of the bisected circle}
+
+Q: Coaxal system and limiting points
+F: x^2+y^2+2gx+c=0\ (g\ \text{varies}):\ \text{limiting points } (\pm\sqrt c,0)
+
+Q: Radical centre
+F: \text{solve } S_1=S_2=S_3;\ \text{it is the centre of the circle orthogonal to all three}
+
+## Common results
+Q: Locus of the vertex of a right angle on a fixed hypotenuse
+F: \text{circle on the hypotenuse as diameter}
+
+Q: Area of triangle formed by tangents from $(x_1,y_1)$ and chord of contact
+F: \frac{r\,(S_1)^{3/2}}{S_1+r^2}
+
+Q: Circle touching two lines and the condition on centre
+F: \text{centre on an angle bisector; radius = distance to either line}
+
+Q: Image / reflection of circle in a line
+F: \text{same radius, centre reflected}
+
+Q: Number of circles touching three given lines
+F: 4\ (\text{incircle and three excircles})

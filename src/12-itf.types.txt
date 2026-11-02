@@ -1,0 +1,41 @@
+@ itf | Inverse Trigonometric Functions | 12 | Trigonometry
+
+## If this type comes, solve like this
+Q: If it is $\sum\cot^{-1}(\text{quadratic in } n)$ or $\sum\tan^{-1}$ — a telescoping sum
+F: \cot^{-1}\frac{1+ab}{a-b}=\tan^{-1}a-\tan^{-1}b
+N: Write the term as $\tan^{-1}\frac{x_{n+1}-x_n}{1+x_nx_{n+1}}$ (e.g. $1+n(n+1)$ in the denominator ⇒ $\tan^{-1}(n+1)-\tan^{-1}n$). Sum telescopes; infinite sums tend to $\frac\pi2-\tan^{-1}(\text{first})$.
+P: 05:1,13,31
+
+Q: If it asks $\sin^{-1}(\sin\theta)$, $\cos^{-1}(\cos\theta)$, $\tan^{-1}(\tan\theta)$ for $\theta$ outside the principal range
+F: \sin^{-1}(\sin\theta)=\pi-\theta\ \left(\tfrac\pi2\le\theta\le\tfrac{3\pi}2\right),\ \ \theta-2\pi\ \ldots;\quad\cos^{-1}(\cos\theta)=2\pi-\theta\ (\pi\le\theta\le2\pi)
+N: Shift $\theta$ by multiples of $2\pi$ (or $\pi$ for tan) into the principal range, using the graph's saw-tooth/triangle shape.
+H: Trap: $\cos^{-1}(\cos(-5))=2\pi-5$, $\sin^{-1}(\sin6)=6-2\pi$, $\tan^{-1}(\tan12)=12-4\pi$.
+P: 05:7,21,30
+
+Q: If it asks the value of a trig function of a combination of inverse functions
+F: \text{convert each to one function using a right triangle, then use } \tan(A+B),\ \sin2A\ \ldots
+N: $2\cot^{-1}5=\tan^{-1}\frac{2\cdot\frac15}{1-\frac1{25}}$; $\cos^{-1}\frac45=\tan^{-1}\frac34$.
+P: 05:4,8,11,23,12,15,22
+
+Q: If it is an equation in inverse trig functions
+F: \tan^{-1}x+\cot^{-1}x=\tfrac\pi2,\ \ \sin^{-1}x+\cos^{-1}x=\tfrac\pi2;\ \ \text{take tan/sin/cos of both sides}
+N: 1) Reduce to one function. 2) Take a trig function of both sides. 3) Solve; reject roots that violate the principal ranges or the $xy<1$ condition of the $\tan^{-1}$ sum formula.
+P: 05:2,5,9,17,26,28,29,25
+
+Q: If it asks the domain of $\sin^{-1}(g(x))$ / $\cos^{-1}(g(x))$ with other terms
+F: -1\le g(x)\le1\ \ \text{(solve both inequalities)};\ \ \sec^{-1}:\ |g|\ge1
+P: 05:3,14,18,19,20
+
+Q: If it asks the range of $(\tan^{-1}x)^3+(\cot^{-1}x)^3$ or similar
+F: \text{put } t=\tan^{-1}x\in\left(-\tfrac\pi2,\tfrac\pi2\right),\ \cot^{-1}x=\tfrac\pi2-t
+N: Expand: a quadratic in $t$; find its range on the open interval.
+P: 05:6
+
+Q: If a $\sin^{-1}$ argument is $a\cos+b\sin$ form like $\frac{\sqrt3}2x+\frac12\sqrt{1-x^2}$
+F: x=\sin\theta\Rightarrow\sin\left(\theta+\tfrac\pi6\right)\Rightarrow\text{answer}=\tfrac\pi6+\sin^{-1}x\ \text{(within range)}
+P: 05:10
+
+Q: If inverse trig is mixed with calculus/series
+F: f'(x)=\tan^{-1}(\sec x+\tan x)=\frac\pi4+\frac x2\ \text{(simplify first)}
+N: Also: $\tan^{-1}a+\tan^{-1}b=\frac\pi4\Rightarrow(1+a)(1+b)=2$, so $\ln(1+a)+\ln(1+b)=\ln2$.
+P: 05:24,27,16

@@ -1,0 +1,32 @@
+@ lim | Limits | 11 | Calculus
+
+## If this type comes, solve like this
+Q: If a $\frac00$ limit has unknown constants and a finite value
+F: \text{expand numerator in powers of } x\ (\text{Maclaurin});\ \text{lower powers must cancel}
+N: Denominator order $k$ ⇒ coefficients of $x^0,\ldots,x^{k-1}$ in the numerator are zero; the $x^k$ coefficient gives the value.
+P: 23:1,13,16,26,36,48,29
+
+Q: If it is $1^\infty$ form
+F: \lim f^g=e^{\lim g(f-1)}
+P: 23:3,15,17,25,39,40,41,42
+
+Q: If trig/inverse trig compositions near $0$
+F: \sin u\approx u,\ \tan u\approx u,\ 1-\cos u\approx\tfrac{u^2}2\ (u\to0)
+N: Replace inner small quantities step by step; e.g. $\sin^2(\pi\cos^4x)=\sin^2(\pi(1-\cos^4x))$ and $1-\cos^4x\approx2x^2$.
+P: 23:9,10,11,12,19,35,37,38,20,47,27
+
+Q: If roots/radicals need rationalising
+F: \sqrt A-\sqrt B=\frac{A-B}{\sqrt A+\sqrt B};\ \ a^{1/3}-b^{1/3}=\frac{a-b}{a^{2/3}+a^{1/3}b^{1/3}+b^{2/3}}
+P: 23:2,8,18,11
+
+Q: If $[x]$, $\{x\}$ or $|x|$ is inside the limit
+F: \text{find left and right limits separately}
+P: 23:5,6,7,24,28,30,31,32
+
+Q: If a sum/product of powers as $x\to1$ or $n\to\infty$
+F: \lim_{x\to1}\frac{x^k-1}{x-1}=k;\ \ \lim\frac{\sum r^k}{n^{k+1}}=\frac1{k+1}
+P: 23:14,22,43,21
+
+Q: If series or $\tan^{-1}$ telescoping with a limit
+F: \text{write each term as a difference, sum, then take the limit}
+P: 23:4,23,44,45,46,33,34

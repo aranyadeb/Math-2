@@ -1,0 +1,103 @@
+@ cplx | Complex Numbers | 11 | Algebra
+
+## Basics
+Q: Equality of complex numbers
+F: a+ib=c+id\iff a=c,\ b=d
+N: Complex numbers cannot be ordered: $z_1>z_2$ has no meaning unless both are real.
+
+Q: Real and imaginary parts via conjugate
+F: \operatorname{Re}z=\frac{z+\bar z}2,\qquad\operatorname{Im}z=\frac{z-\bar z}{2i}
+
+Q: Argument in each quadrant
+F: \arg z=\theta,\ \pi-\theta,\ -\pi+\theta,\ -\theta\quad\text{(I, II, III, IV)},\ \ \theta=\tan^{-1}\left|\tfrac yx\right|
+
+Q: Argument of special numbers
+F: \arg(\text{positive real})=0,\ \arg(\text{negative real})=\pi,\ \arg(ki)=\tfrac\pi2\ (k>0),\ \arg 0\ \text{undefined}
+
+Q: Unimodular complex number
+F: |z|=1\iff\bar z=\frac1z\iff z=e^{i\theta}
+
+Q: Product of conjugate-pair sums
+F: |z_1+z_2|^2-|z_1-z_2|^2=4\operatorname{Re}(z_1\bar z_2)
+
+Q: $|z_1+z_2|=|z_1-z_2|$
+F: \iff\operatorname{Re}(z_1\bar z_2)=0\iff\frac{z_1}{z_2}\ \text{purely imaginary}
+
+Q: Useful modulus identity
+F: |1-\bar z_1z_2|^2-|z_1-z_2|^2=(1-|z_1|^2)(1-|z_2|^2)
+
+Q: Distance from origin of $\frac{z_1}{z_2}$ / argument of $z$ and $\bar z$
+F: \arg z+\arg\bar z=0,\qquad\arg(-z)=\arg z\pm\pi
+
+Q: Powers of $(1\pm i)$
+F: (1+i)^2=2i,\quad(1-i)^2=-2i,\quad\frac{1+i}{1-i}=i,\quad(1+i)^{4n}=(-4)^n
+
+Q: Polar form of $1\pm i$, $\sqrt3\pm i$
+F: 1+i=\sqrt2e^{i\pi/4},\qquad\sqrt3+i=2e^{i\pi/6},\qquad1+i\sqrt3=2e^{i\pi/3}
+
+## De Moivre and roots of unity
+Q: Expansion of $\cos n\theta$, $\sin n\theta$ via De Moivre
+F: \cos n\theta+i\sin n\theta=\sum{}^nC_r\cos^{n-r}\theta\,(i\sin\theta)^r
+
+Q: $z+\frac1z$ and $z^n+\frac1{z^n}$ on the unit circle
+F: z=e^{i\theta}:\ z+\frac1z=2\cos\theta,\qquad z^n+\frac1{z^n}=2\cos n\theta,\qquad z^n-\frac1{z^n}=2i\sin n\theta
+
+Q: Properties of $\omega$
+F: \omega^{3n}=1,\ \omega^{3n+1}=\omega,\ \omega^{3n+2}=\omega^2;\qquad\omega^2=\bar\omega=\frac1\omega
+N: $(1+\omega)^2=\omega$, $(1+\omega^2)=-\omega$, $(1-\omega)(1-\omega^2)=3$.
+
+Q: Fourth roots of unity
+F: 1,\ i,\ -1,\ -i
+N: Sum $0$, product $-1$.
+
+Q: Sum $1+z+\cdots+z^{n-1}$
+F: \frac{z^n-1}{z-1}\ (z\ne1)
+
+## Geometry with complex numbers
+Q: Triangle similarity condition
+F: \triangle z_1z_2z_3\sim\triangle w_1w_2w_3\iff\begin{vmatrix}z_1&w_1&1\\z_2&w_2&1\\z_3&w_3&1\end{vmatrix}=0
+
+Q: Orthocentre and circumcentre (circumcentre at origin)
+F: |z_1|=|z_2|=|z_3|\Rightarrow\text{orthocentre}=z_1+z_2+z_3
+
+Q: Vertices of a regular polygon
+F: z_k=z_0+(z_1-z_0)e^{i2\pi k/n}\quad(\text{centre } z_0)
+
+Q: Parallelogram condition
+F: z_1+z_3=z_2+z_4\ \ (\text{diagonals bisect})
+
+Q: Square / rhombus / rectangle checks
+F: \text{rhombus: } z_1+z_3=z_2+z_4,\ |z_1-z_2|=|z_2-z_3|;\quad\text{rectangle: }+\ |z_1-z_3|=|z_2-z_4|
+
+Q: Locus $|z-z_1|^2+|z-z_2|^2=k$
+F: \text{circle with centre }\frac{z_1+z_2}2,\ \text{if } k\ge\tfrac12|z_1-z_2|^2
+
+Q: Locus $\operatorname{Re}\frac{z-a}{z-b}=0$
+F: \text{circle on } ab \text{ as diameter (excluding } b)
+
+Q: Locus $\operatorname{Im}\frac{z-a}{z-b}=0$
+F: \text{line through } a \text{ and } b \text{ (excluding } b)
+
+Q: Distance between $z$ and a line with slope
+F: \text{complex slope of line through } z_1,z_2:\ \mu=\frac{z_1-z_2}{\bar z_1-\bar z_2}
+N: Parallel lines: $\mu_1=\mu_2$; perpendicular: $\mu_1+\mu_2=0$.
+
+Q: Minimum of $|z-z_1|+|z-z_2|$
+F: |z_1-z_2|,\ \text{attained on the segment } z_1z_2
+
+Q: Maximum of $|z_1+z_2+\dots|$ when each $|z_i|$ given
+F: |z_1+\cdots|\le|z_1|+\cdots;\qquad\min=\text{largest}-\text{sum of the rest}\ (\text{if positive, else } 0)
+
+## Common results
+Q: Sum $\sum$ of conjugate pairs
+F: z+\bar z\ \text{real},\quad z\bar z\ \text{real and}\ \ge0
+
+Q: Cube root of $-1$ and of $i$
+F: -1:\ -1,\ -\omega,\ -\omega^2;\qquad i:\ -i,\ \tfrac{\pm\sqrt3+i}{2}
+
+Q: Equation $z^2+|z|=0$ type
+F: \text{write } z=x+iy,\ \text{separate real and imaginary parts}
+
+Q: Equation $\bar z=z^n$ type
+F: |z|=|z|^n\Rightarrow|z|=0\ \text{or}\ 1;\ \text{then } e^{-i\theta}=e^{in\theta}
+N: Non-zero solutions: $n+1$ of them.

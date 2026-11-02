@@ -1,0 +1,65 @@
+@ aod | Application of Derivatives | 12 | Calculus
+
+## If this type comes, solve like this
+Q: If it asks the interval where $f$ is increasing / decreasing
+F: f'(x)>0\ \text{or}\ <0;\ \text{sign scheme of } f'
+N: Factor $f'$, mark zeros and points where $f'$ is undefined (e.g. $x^{2/3}$ at $0$), and read signs. Remember the domain (logs!).
+P: 08:1,5,6,11,16,17,18,19,20,21,22,24,28
+
+Q: If it asks the number of real roots of a polynomial/exponential equation
+F: \text{study } g(x)\ \text{with } g',\ \text{or substitute } t=e^x \text{ and count positive roots}
+N: Find local max/min values; roots = number of sign changes along the monotonic pieces. For $5x^3-15x-a=0$: three roots iff $a$ lies strictly between the local min and max values.
+P: 08:2,12,31,32,33
+
+Q: If it is a related-rates problem (sphere with coating, cone filling, cube)
+F: \frac{dV}{dt}=\frac{dV}{dr}\cdot\frac{dr}{dt};\ \ \text{cone: } V=\tfrac13\pi r^2h,\ \frac rh=\text{const}
+N: Write the volume/area in ONE variable using the geometry, then differentiate w.r.t. $t$.
+P: 08:3,14,15,09:7,45
+
+Q: If $g(x)=f(\phi(x))$ with $f''>0$ and it asks where $g$ increases
+F: g'(x)=f'(\phi)\phi';\ \ f''>0\Rightarrow f'\ \text{increasing}
+N: Compare the arguments: $f'(u)>f'(v)\iff u>v$.
+P: 08:8,27,29
+
+Q: If it asks $\frac{g(c)}{g'(c)}$ for an inverse function
+F: g=f^{-1}\Rightarrow g'(f(a))=\frac1{f'(a)}
+P: 08:9
+
+Q: If it asks where a cubic has local max/min or with given critical points
+F: f'(x)=0\ \text{at the critical points};\ \ f''<0\ \text{max},\ >0\ \text{min}
+N: Given critical points ⇒ write $f'(x)=k(x-p)(x-q)$ and integrate, or use $f'(p)=0$ equations for the coefficients.
+P: 09:1,2,8,9,12,24,25,26,27,33
+
+Q: If it asks absolute max/min on a closed interval
+F: \text{compare } f \text{ at end points and at critical points inside}
+N: With $|\ |$ or $[\ ]$: split the interval where the inside changes sign or crosses integers.
+P: 09:3,10,15,18,30,31,3
+
+Q: If it is a geometric optimisation (rectangle under a curve, wire into square+circle, cuboid+hemisphere)
+F: \text{express the target in one variable, set derivative } 0
+N: Use the constraint to eliminate the second variable. Standard: max area triangle in a circle is equilateral; max rectangle under $y=c-x^2$ gives $x$ from $c=3x^2$.
+P: 09:4,5,6,41,43
+
+Q: If it asks the closest point of a curve to a line
+F: \text{tangent to the curve parallel to the line: } f'(x)=m
+P: 09:22
+
+Q: If it asks the minimum area of triangle formed by a line through $(h,k)$ with the axes
+F: 2hk
+P: 09:23
+
+Q: If $f(x)=\max$ of a trig product like $\sin\frac x2\cos^3\frac x2$
+F: \text{put } t=\frac x2,\ \text{differentiate, or AM–GM on } \sin^2\cdot\cos^6
+P: 09:17,16,32,42
+
+Q: If the expression is $\left(\tfrac{a}{x}\right)^{x^2}$ or $x^{1/x}$
+F: \text{take ln, differentiate: } \ln f=x^2\ln\tfrac ax
+P: 09:19
+
+Q: If inequalities between functions are asked via monotonicity/convexity
+F: h=f-g,\ h(a)=0,\ h'>0\Rightarrow f>g
+P: 08:4,7,13,23,25,26,30,34,35
+
+Q: If it asks the number of critical points or extrema of an integral function
+F: F(x)=\int_0^{g(x)}h(t)\,dt\Rightarrow F'(x)=h(g(x))g'(x)
+P: 09:28,29,34,35,36,37,38,39,40,44,13,14,20,21,11,08:10,36

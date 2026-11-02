@@ -1,0 +1,58 @@
+@ stat | Statistics | 11 | Probability & Statistics
+
+## Central tendency
+Q: Median of ungrouped data
+F: n\ \text{odd}: \left(\tfrac{n+1}2\right)^\text{th}\ \text{value};\quad n\ \text{even}: \text{average of } \left(\tfrac n2\right)^\text{th} \text{ and } \left(\tfrac n2+1\right)^\text{th}
+
+Q: Mode of ungrouped data
+F: \text{most frequent value}
+
+Q: Weighted mean
+F: \bar x_w=\frac{\sum w_ix_i}{\sum w_i}
+
+Q: Effect of change of origin and scale on median and mode
+F: y=ax+b:\ \text{median}_y=a\,\text{median}_x+b,\ \text{mode}_y=a\,\text{mode}_x+b
+
+Q: Sum of deviations from the mean
+F: \sum(x_i-\bar x)=0
+
+Q: Least sum of squared deviations
+F: \sum(x_i-a)^2\ \text{is least when } a=\bar x
+
+## Dispersion
+Q: Range and quartile deviation
+F: \text{range}=\max-\min;\qquad\text{QD}=\frac{Q_3-Q_1}2
+
+Q: Mean deviation formulas
+F: \text{MD}(\bar x)=\frac1n\sum|x_i-\bar x|,\qquad\text{MD}(M)=\frac1n\sum|x_i-M|
+
+Q: Mean deviation of grouped data
+F: \text{MD}=\frac{\sum f_i|x_i-a|}{\sum f_i}
+
+Q: Variance of first n natural numbers / odd numbers
+F: \text{first } n \text{ natural}: \frac{n^2-1}{12};\qquad\text{first } n \text{ odd}: \frac{n^2-1}3
+
+Q: Variance in terms of sums
+F: \sigma^2=\frac{\sum x_i^2}n-\left(\frac{\sum x_i}n\right)^2
+
+Q: Variance of $a, a+d, \ldots$ (AP) and of $\{1,2,\ldots\}$ scaled
+F: \sigma=|d|\sqrt{\frac{n^2-1}{12}}
+
+Q: Mean and variance when one observation is added / removed
+F: \text{update } \sum x \text{ and } \sum x^2,\ \text{then recompute } \bar x,\ \sigma^2
+
+Q: Standard deviation of combined two groups (equal means)
+F: \sigma^2=\frac{n_1\sigma_1^2+n_2\sigma_2^2}{n_1+n_2}
+
+## Common results
+Q: Mean and variance from given $\sum(x_i-a)$ and $\sum(x_i-a)^2$
+F: \bar x=a+\frac{\sum(x_i-a)}n,\qquad\sigma^2=\frac{\sum(x_i-a)^2}n-\left(\frac{\sum(x_i-a)}n\right)^2
+
+Q: Finding two unknown observations from mean and variance
+F: x+y=\text{known},\ x^2+y^2=\text{known}\Rightarrow xy\ \text{then solve}
+
+Q: Relation between mean deviation and SD
+F: \text{MD}\le\sigma
+
+Q: SD of a set multiplied by $k$ / increased by $k$
+F: \sigma(kx)=|k|\sigma(x),\qquad\sigma(x+k)=\sigma(x)

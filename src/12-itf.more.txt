@@ -1,0 +1,76 @@
+@ itf | Inverse Trigonometric Functions | 12 | Trigonometry
+
+## Domains, ranges, graphs
+Q: Graphs of $\sec^{-1}x$ and $\csc^{-1}x$
+F: \sec^{-1}x\in[0,\tfrac\pi2)\cup(\tfrac\pi2,\pi],\qquad\csc^{-1}x\in[-\tfrac\pi2,0)\cup(0,\tfrac\pi2]
+G: y=acos(1/x) | y=asin(1/x) ; -5,5,-1.8,3.4
+
+Q: Graph of $\tan^{-1}(\tan x)$
+F: \tan^{-1}(\tan x)=x-n\pi\ \ \text{for } x\in\left(n\pi-\tfrac\pi2,\ n\pi+\tfrac\pi2\right)
+G: y=atan(tan(x)) ; -7,7,-2,2
+
+Q: $\cos^{-1}(\cos x)$ piecewise
+F: \cos^{-1}(\cos x)=\begin{cases}-x,&-\pi\le x\le0\\x,&0\le x\le\pi\\2\pi-x,&\pi\le x\le2\pi\end{cases}
+
+## Properties
+Q: Composition the other way
+F: \cos(\sin^{-1}x)=\sqrt{1-x^2},\quad\tan(\sin^{-1}x)=\frac x{\sqrt{1-x^2}},\quad\sin(\tan^{-1}x)=\frac x{\sqrt{1+x^2}},\quad\cos(\tan^{-1}x)=\frac1{\sqrt{1+x^2}}
+
+Q: Reciprocal for $\cos^{-1}$, $\sec^{-1}$
+F: \cos^{-1}\frac1x=\sec^{-1}x\ (|x|\ge1),\qquad\cot^{-1}\frac1x=\tan^{-1}x\ (x>0)
+
+Q: Negative of $\sec^{-1}$, $\csc^{-1}$
+F: \sec^{-1}(-x)=\pi-\sec^{-1}x,\qquad\csc^{-1}(-x)=-\csc^{-1}x
+
+Q: $\cot^{-1}x$ for negative $x$ in terms of $\tan^{-1}$
+F: \cot^{-1}x=\begin{cases}\tan^{-1}\frac1x,&x>0\\\pi+\tan^{-1}\frac1x,&x<0\end{cases}
+
+## Sum and difference
+Q: Difference of inverse sines
+F: \sin^{-1}x-\sin^{-1}y=\sin^{-1}\left(x\sqrt{1-y^2}-y\sqrt{1-x^2}\right)\quad(xy\ge0\ \text{or}\ x^2+y^2\le1)
+
+Q: Difference of inverse cosines
+F: \cos^{-1}x-\cos^{-1}y=\cos^{-1}\left(xy+\sqrt{1-x^2}\sqrt{1-y^2}\right)\quad(x\le y)
+
+Q: Sum of inverse cotangents
+F: \cot^{-1}x+\cot^{-1}y=\cot^{-1}\frac{xy-1}{x+y}\quad(x,y>0)
+
+Q: General $n$ inverse tangents
+F: \sum\tan^{-1}x_i=\tan^{-1}\frac{S_1-S_3+S_5-\cdots}{1-S_2+S_4-\cdots}
+N: $S_k$ = sum of products of the $x_i$ taken $k$ at a time.
+
+## Multiple angles
+Q: $2\tan^{-1}x$ outside $|x|\le1$
+F: 2\tan^{-1}x=\pi-\sin^{-1}\frac{2x}{1+x^2}\ (x>1),\qquad-\pi-\sin^{-1}\frac{2x}{1+x^2}\ (x<-1)
+
+Q: $2\sin^{-1}x$ outside the basic range
+F: 2\sin^{-1}x=\pi-\sin^{-1}\left(2x\sqrt{1-x^2}\right)\ \left(\tfrac1{\sqrt2}<x\le1\right)
+
+Q: $\cos^{-1}\frac{1-x^2}{1+x^2}$ for negative $x$
+F: \cos^{-1}\frac{1-x^2}{1+x^2}=-2\tan^{-1}x\quad(x\le0)
+
+## Conversions
+Q: $\cos^{-1}x$ in other forms
+F: \cos^{-1}x=\sin^{-1}\sqrt{1-x^2}=\tan^{-1}\frac{\sqrt{1-x^2}}x\quad(0<x\le1)
+
+Q: $\tan^{-1}x$ in other forms
+F: \tan^{-1}x=\sin^{-1}\frac x{\sqrt{1+x^2}}=\cos^{-1}\frac1{\sqrt{1+x^2}}\quad(x\ge0)
+
+## Common results
+Q: Standard simplifications
+F: \tan^{-1}\sqrt{\frac{1-\cos x}{1+\cos x}}=\frac x2\ (0<x<\pi),\qquad\tan^{-1}\frac{\cos x}{1+\sin x}=\frac\pi4-\frac x2
+
+Q: $\tan^{-1}\frac{\cos x-\sin x}{\cos x+\sin x}$
+F: =\frac\pi4-x\quad\left(-\tfrac\pi4<x<\tfrac{3\pi}4\right)
+
+Q: $\sin^{-1}\frac{2x}{1+x^2}+\cos^{-1}\frac{1-x^2}{1+x^2}$ type values
+F: 4\tan^{-1}x\ (0\le x\le1)
+
+Q: Solving inverse trig equations
+F: \text{take } \sin/\cos/\tan \text{ of both sides; check every root against the principal ranges}
+
+Q: Inverse trig inequalities
+F: \sin^{-1}x>\cos^{-1}x\iff x\in\left(\tfrac1{\sqrt2},1\right];\qquad\tan^{-1}x>\cot^{-1}x\iff x>1
+
+Q: Sum of the series $\sum\tan^{-1}\frac{2}{n^2}$ / $\sum\cot^{-1}(n^2+n+1)$
+F: \sum_{n=1}^\infty\cot^{-1}(n^2+n+1)=\frac\pi4,\qquad\sum_{n=1}^\infty\tan^{-1}\frac2{n^2}=\frac{3\pi}4

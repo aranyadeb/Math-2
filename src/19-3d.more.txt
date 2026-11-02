@@ -1,0 +1,89 @@
+@ 3d | Three-Dimensional Geometry | 12 | Vectors & 3D
+
+## Points and direction ratios
+Q: Centroid of triangle and tetrahedron in 3D
+F: \left(\frac{\sum x_i}3,\frac{\sum y_i}3,\frac{\sum z_i}3\right),\qquad\left(\frac{\sum x_i}4,\ldots\right)
+
+Q: Ratio in which a plane / coordinate plane divides a segment
+F: yz\text{-plane}:\ -\frac{x_1}{x_2};\qquad\text{plane } P:\ -\frac{P(x_1,y_1,z_1)}{P(x_2,y_2,z_2)}
+
+Q: Direction cosines of axes
+F: x\text{-axis}:(1,0,0),\ y\text{-axis}:(0,1,0),\ z\text{-axis}:(0,0,1)
+
+Q: Direction cosines of a line equally inclined to axes
+F: \pm\left(\tfrac1{\sqrt3},\tfrac1{\sqrt3},\tfrac1{\sqrt3}\right)
+
+Q: Angle between lines with direction cosines
+F: \cos\theta=l_1l_2+m_1m_2+n_1n_2,\qquad\sin^2\theta=\sum(m_1n_2-m_2n_1)^2
+
+Q: Line perpendicular to two lines
+F: \text{d.r.}=(b_1c_2-b_2c_1,\ c_1a_2-c_2a_1,\ a_1b_2-a_2b_1)
+
+## Lines
+Q: Point on a line at distance $r$
+F: (x_1+lr,\ y_1+mr,\ z_1+nr)\quad(l,m,n\ \text{direction cosines})
+
+Q: Point of intersection of two lines
+F: \text{equate general points } \vec a_1+\lambda\vec b_1=\vec a_2+\mu\vec b_2,\ \text{solve two equations, check the third}
+
+Q: Shortest distance in Cartesian form
+F: d=\frac{\left|\begin{vmatrix}x_2-x_1&y_2-y_1&z_2-z_1\\a_1&b_1&c_1\\a_2&b_2&c_2\end{vmatrix}\right|}{\sqrt{\sum(b_1c_2-b_2c_1)^2}}
+
+Q: Equation of the line of shortest distance
+F: \text{through the feet } P=\vec a_1+\lambda\vec b_1,\ Q=\vec a_2+\mu\vec b_2\ \text{with } \vec{PQ}\perp\vec b_1,\vec b_2
+
+Q: Image of a point in a line
+F: \text{foot } F\ \text{then image}=2F-P
+
+Q: Symmetric form from two planes (unsymmetric form)
+F: \text{direction}=\vec n_1\times\vec n_2,\ \text{point: set one coordinate } =0
+
+## Planes
+Q: Intercept form and normal form
+F: \frac xa+\frac yb+\frac zc=1;\qquad lx+my+nz=p
+
+Q: Plane through a point parallel to a given plane
+F: a(x-x_1)+b(y-y_1)+c(z-z_1)=0
+
+Q: Plane through a line and parallel to another line
+F: \text{normal}=\vec b_1\times\vec b_2;\ \text{passes through } \vec a_1
+
+Q: Plane containing two parallel lines
+F: \text{normal}=\vec b\times(\vec a_2-\vec a_1)
+
+Q: Plane perpendicular to a line through a point
+F: a(x-x_1)+b(y-y_1)+c(z-z_1)=0\ \text{with } (a,b,c)=\text{d.r. of the line}
+
+Q: Position of two points relative to a plane
+F: \text{same side}\iff P(x_1,y_1,z_1)\cdot P(x_2,y_2,z_2)>0
+
+Q: Point of intersection of a line and a plane
+F: \text{substitute the general point of the line in the plane, solve for } \lambda
+
+Q: Projection of a line on a plane
+F: \text{plane through the line perpendicular to the given plane, then intersect}
+
+Q: Line lies in a plane
+F: \vec b\cdot\vec n=0\ \text{and}\ \vec a\ \text{satisfies the plane}
+
+Q: Angle between planes using normals and acute angle bisector
+F: a_1a_2+b_1b_2+c_1c_2>0\ (d_1,d_2>0):\ +\ \text{sign gives the obtuse bisector}
+
+## Common results
+Q: Equation of planes through a point equally inclined to axes
+F: \pm x\pm y\pm z=k
+
+Q: Distance between skew lines via a common perpendicular plane
+F: \text{plane through one line parallel to the other; distance of a point of the other line from it}
+
+Q: Length of perpendicular from a point to the axes
+F: \text{from } x\text{-axis}:\ \sqrt{y_1^2+z_1^2}
+
+Q: Area of a triangle in 3D
+F: \frac12|\vec{AB}\times\vec{AC}|
+
+Q: Reflection of a plane in another plane
+F: \text{family } P_1+\lambda P_2=0 \text{ with the angle condition, or reflect three points}
+
+Q: Coordinates of foot of perpendicular from origin to plane
+F: \left(\frac{-ad}{a^2+b^2+c^2},\frac{-bd}{a^2+b^2+c^2},\frac{-cd}{a^2+b^2+c^2}\right)\ \ (\text{plane } ax+by+cz+d=0)

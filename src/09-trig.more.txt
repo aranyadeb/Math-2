@@ -1,0 +1,123 @@
+@ trig | Trigonometric Ratios & Identities | 11 | Trigonometry
+
+## Basics and graphs
+Q: Standard angle table
+F: \begin{array}{c|ccccc}\theta&0&\frac\pi6&\frac\pi4&\frac\pi3&\frac\pi2\\\hline\sin&0&\frac12&\frac1{\sqrt2}&\frac{\sqrt3}2&1\\\cos&1&\frac{\sqrt3}2&\frac1{\sqrt2}&\frac12&0\\\tan&0&\frac1{\sqrt3}&1&\sqrt3&\infty\end{array}
+
+Q: Ranges of the six functions
+F: \sin,\cos\in[-1,1];\quad\tan,\cot\in\mathbb R;\quad\sec,\csc\in(-\infty,-1]\cup[1,\infty)
+
+Q: Domains of the six functions
+F: \tan,\sec:\ x\ne(2n+1)\tfrac\pi2;\qquad\cot,\csc:\ x\ne n\pi
+
+Q: Even/odd nature
+F: \cos,\sec\ \text{even};\quad\sin,\tan,\cot,\csc\ \text{odd}
+
+Q: Values for $54°$, $72°$
+F: \sin54^\circ=\cos36^\circ=\frac{\sqrt5+1}4,\qquad\cos72^\circ=\sin18^\circ=\frac{\sqrt5-1}4
+
+Q: Values for $7.5°$
+F: \tan7\tfrac12^\circ=\sqrt6-\sqrt3+\sqrt2-2,\qquad\cot7\tfrac12^\circ=\sqrt6+\sqrt3+\sqrt2+2
+
+Q: Graph of $\sin x$ in degrees / periodicity table
+F: \sin(x+2\pi)=\sin x,\ \tan(x+\pi)=\tan x;\quad|\sin x|\ \text{period}\ \pi
+G: y=abs(sin(x)) | y=abs(cos(x)) ; -6.5,6.5,-0.3,1.4
+
+## Compound angles
+Q: $\sin(A+B+C)$ and $\cos(A+B+C)$
+F: \sin(A+B+C)=\sum\sin A\cos B\cos C-\sin A\sin B\sin C
+N: $\cos(A+B+C)=\cos A\cos B\cos C-\sum\cos A\sin B\sin C$.
+
+Q: $\tan(A+B)$ shortcuts with $45°$
+F: \tan\left(\frac\pi4+A\right)=\frac{1+\tan A}{1-\tan A}=\frac{\cos A+\sin A}{\cos A-\sin A}
+N: If $A+B=\frac\pi4$: $(1+\tan A)(1+\tan B)=2$. If $A+B=\frac{3\pi}4$: $(1-\tan A)(1-\tan B)=2$.
+
+Q: $\cos^2A-\sin^2B$ and $\sin^2A-\sin^2B$
+F: \sin^2A-\sin^2B=\sin(A+B)\sin(A-B),\qquad\cos^2A-\sin^2B=\cos(A+B)\cos(A-B)
+
+Q: $\tan A-\tan B$ and $\tan A+\tan B$
+F: \tan A\pm\tan B=\frac{\sin(A\pm B)}{\cos A\cos B}
+
+Q: $\cot A-\tan A$ and $\cot A+\tan A$
+F: \cot A-\tan A=2\cot2A,\qquad\cot A+\tan A=2\csc2A
+
+## Multiple and sub-multiple angles
+Q: $\sin 2A$, $\cos 2A$ in terms of $\tan A$
+F: \sin2A=\frac{2t}{1+t^2},\quad\cos2A=\frac{1-t^2}{1+t^2},\quad\tan2A=\frac{2t}{1-t^2},\ t=\tan A
+
+Q: $1\pm\cos$ and $1\pm\sin$
+F: 1+\cos2A=2\cos^2A,\quad1-\cos2A=2\sin^2A,\quad1\pm\sin2A=(\sin A\pm\cos A)^2
+
+Q: Cubes from triple angle
+F: \sin^3A=\frac{3\sin A-\sin3A}4,\qquad\cos^3A=\frac{3\cos A+\cos3A}4
+
+Q: Power reduction for fourth powers
+F: \sin^4A+\cos^4A=1-\tfrac12\sin^22A,\qquad\sin^6A+\cos^6A=1-\tfrac34\sin^22A
+
+Q: Half-angle sign choice
+F: \sin\frac A2=\pm\sqrt{\frac{1-\cos A}2},\ \text{sign from the quadrant of } \frac A2
+N: $\sin\frac A2+\cos\frac A2=\pm\sqrt{1+\sin A}$.
+
+Q: $\tan\frac A2$ in terms of $\tan A$
+F: \tan\frac A2=\frac{-1\pm\sqrt{1+\tan^2A}}{\tan A}
+
+Q: $\sin 4A$, $\cos 4A$
+F: \cos4A=8\cos^4A-8\cos^2A+1,\qquad\sin4A=4\sin A\cos A(1-2\sin^2A)
+
+## Sum–product
+Q: Sum of two sines equal to product forms
+F: \sin A+\cos A=\sqrt2\sin\left(A+\tfrac\pi4\right),\qquad\sin A-\cos A=\sqrt2\sin\left(A-\tfrac\pi4\right)
+
+Q: $\sqrt3\sin x+\cos x$ type
+F: \sqrt3\sin x+\cos x=2\sin\left(x+\tfrac\pi6\right),\qquad\sin x+\sqrt3\cos x=2\sin\left(x+\tfrac\pi3\right)
+
+## Series and products
+Q: Sum of cosines in AP
+F: \sum_{k=0}^{n-1}\cos(\alpha+k\beta)=\frac{\sin\frac{n\beta}2}{\sin\frac\beta2}\cos\left(\alpha+\frac{(n-1)\beta}2\right)
+
+Q: Sum $\cos\frac{\pi}{n}$-type
+F: \sum_{k=1}^{n-1}\cos\frac{2k\pi}n=-1,\qquad\sum_{k=1}^{n-1}\sin\frac{k\pi}n=\cot\frac\pi{2n}
+
+Q: Product of sines $\prod\sin\frac{k\pi}n$
+F: \prod_{k=1}^{n-1}\sin\frac{k\pi}n=\frac n{2^{n-1}}
+
+Q: Telescoping with $\tan$
+F: \tan A=\cot A-2\cot2A\ \Rightarrow\ \sum_{k=0}^{n-1}\frac1{2^k}\tan\frac x{2^k}=\frac1{2^{n-1}}\cot\frac x{2^{n-1}}-2\cot2x
+
+Q: Telescoping with $\csc 2A$
+F: \csc2A=\cot A-\cot2A
+
+## Range and maxima
+Q: Range of $a\sin^2x+b\sin x\cos x+c\cos^2x$
+F: \frac{a+c}2\pm\frac12\sqrt{(a-c)^2+b^2}
+
+Q: Range of $a\cos x+b\sin x+c$
+F: \left[c-\sqrt{a^2+b^2},\ c+\sqrt{a^2+b^2}\right]
+
+Q: Range of $\sin^nx+\cos^nx$
+F: \sin^2x+\cos^2x=1;\quad\sin^4x+\cos^4x\in\left[\tfrac12,1\right];\quad\sin^6x+\cos^6x\in\left[\tfrac14,1\right]
+
+Q: Maximum of $\sin A\sin B\sin C$ and $\cos A\cos B\cos C$ in a triangle
+F: \sin A\sin B\sin C\le\frac{3\sqrt3}8,\qquad\cos A\cos B\cos C\le\frac18
+
+Q: Bounds on sums in a triangle
+F: \sin A+\sin B+\sin C\le\frac{3\sqrt3}2,\quad\cos A+\cos B+\cos C\le\frac32,\quad\tan A+\tan B+\tan C\ge3\sqrt3\ (\text{acute})
+
+## Common results
+Q: Conditional identities (more), $A+B+C=\pi$
+F: \sin^2A+\sin^2B+\sin^2C=2+2\cos A\cos B\cos C
+
+Q: $\tan\frac A2$ sums, $A+B+C=\pi$
+F: \tan\frac A2\tan\frac B2+\tan\frac B2\tan\frac C2+\tan\frac C2\tan\frac A2=1
+
+Q: When $A+B+C=\frac\pi2$
+F: \tan A\tan B+\tan B\tan C+\tan C\tan A=1,\qquad\cot A+\cot B+\cot C=\cot A\cot B\cot C
+
+Q: Product $\cos A\cos2A\cdots$ special values
+F: \cos\frac\pi9\cos\frac{2\pi}9\cos\frac{4\pi}9=\frac18,\qquad\cos\frac{\pi}{15}\cos\frac{2\pi}{15}\cos\frac{4\pi}{15}\cos\frac{8\pi}{15}=-\frac1{16}
+
+Q: Sum $\sin^2$ over equally spaced angles
+F: \sum_{k=0}^{n-1}\sin^2\left(\theta+\frac{k\pi}n\right)=\frac n2\quad(n\ge2)
+
+Q: Elimination tricks
+F: x=a\cos\theta+b\sin\theta,\ y=a\sin\theta-b\cos\theta\Rightarrow x^2+y^2=a^2+b^2

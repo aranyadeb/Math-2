@@ -1,0 +1,67 @@
+@ cd | Continuity & Differentiability | 12 | Calculus
+
+## Continuity
+Q: Continuity on an interval
+F: \text{continuous on }[a,b]\iff\text{continuous on }(a,b),\ \lim_{x\to a^+}f=f(a),\ \lim_{x\to b^-}f=f(b)
+
+Q: Continuity of composite and inverse
+F: g\ \text{continuous at } a,\ f\ \text{continuous at } g(a)\Rightarrow f\circ g\ \text{continuous at } a
+
+Q: Continuous everywhere (standard list)
+F: \text{polynomials},\ \sin,\cos,\ e^x,\ |x|\ \text{continuous on }\mathbb R;\quad\ln x,\ \sqrt x,\ \tan x\ \text{on their domains}
+
+Q: Making a piecewise function continuous
+F: \text{equate the left limit, right limit and value at the joining point}
+
+Q: Extreme value theorem
+F: f\ \text{continuous on }[a,b]\Rightarrow f\ \text{attains a maximum and a minimum}
+
+Q: Discontinuities of $f(x)=[g(x)]$ in an interval
+F: \text{count integer values crossed by } g\ \text{(each crossing gives a jump)}
+
+## Differentiability
+Q: Left and right derivatives at a corner
+F: Lf'(a)=\lim_{h\to0^+}\frac{f(a-h)-f(a)}{-h},\qquad Rf'(a)=\lim_{h\to0^+}\frac{f(a+h)-f(a)}h
+
+Q: Differentiability of piecewise functions
+F: \text{continuous at the join and } f'(a^-)=f'(a^+)
+
+Q: Product with a non-differentiable function
+F: f(x)=(x-a)g(x),\ g\ \text{continuous at } a\Rightarrow f'(a)=g(a)
+N: $|x-a|\,g(x)$ is differentiable at $a$ iff $g(a)=0$.
+
+Q: Non-differentiable points of $|f(x)|$, $[f(x)]$, $\max$, $\min$
+F: |f|:\ \text{simple zeros of } f;\quad[f]:\ \text{all discontinuities};\quad\max/\min:\ \text{crossing points (corners)}
+
+Q: Number of non-differentiable points of $|x^2-3|x|+2|$ type
+F: \text{sketch } g(x)=x^2-3|x|+2,\ \text{reflect negative parts, count corners (including } x=0 \text{ if a corner)}
+G: y=abs(x**2-3*abs(x)+2) ; -4,4,-0.5,4
+
+Q: Differentiability of $f(x)=x^n|x|$ and $|x|^n$
+F: |x|^n\ \text{differentiable at } 0\ \text{for } n>1;\qquad x|x|\ \text{differentiable (once) at } 0
+
+## Mean value theorems
+Q: Rolle's theorem for polynomials
+F: \text{between two real roots of } P \text{ lies a root of } P'
+
+Q: LMVT for bounding
+F: |f(b)-f(a)|\le M|b-a|\ \text{if } |f'|\le M
+
+Q: Using LMVT to prove inequalities
+F: \frac{b-a}{b}<\ln\frac ba<\frac{b-a}a\quad(0<a<b)
+
+## Common results
+Q: Functional equation $f(x+y)=f(x)f(y)$ with $f'(0)=k$
+F: f(x)=e^{kx}
+
+Q: Functional equation $f(xy)=f(x)+f(y)$ with $f'(1)=k$
+F: f(x)=k\ln x
+
+Q: Functional equation $f\left(\frac{x+y}2\right)=\frac{f(x)+f(y)}2$
+F: f(x)=ax+b
+
+Q: Continuity of $f(x)=\frac{\sin x}{x}$ type (removable)
+F: \text{define } f(0)=\lim_{x\to0}f(x)=1\ \text{to remove the discontinuity}
+
+Q: Derivative of $|f(x)|$
+F: \frac d{dx}|f(x)|=\frac{f(x)}{|f(x)|}f'(x),\quad f(x)\ne0

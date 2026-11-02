@@ -1,0 +1,59 @@
+@ pnc | Permutations & Combinations | 11 | Algebra
+
+## If this type comes, solve like this
+Q: If it asks the rank of a word in dictionary order (or the word at a given rank)
+F: \text{rank}=1+\sum_{\text{positions}}(\#\text{smaller unused letters})\times\frac{(\text{remaining})!}{\text{repeats}!}
+N: Go left to right; at each position count words that start with a smaller available letter. Divide by factorials of repeated letters left.
+P: 16:1,58,64,66,65
+
+Q: If letters of a word with repeats are arranged with together / not together conditions
+F: \frac{n!}{p!q!\cdots};\ \ \text{not together}=\text{total}-\text{together}
+N: Gap method for "no two X together": arrange others, choose gaps for X.
+P: 16:2,18,57,61,62,97,11,63
+
+Q: If it selects letters from a word with repeated letters (selection, not arrangement)
+F: \text{case-split by pattern: all different / one pair / two pairs / \ldots}
+P: 16:3,57
+
+Q: If it counts numbers formed from digits with size or divisibility conditions
+F: \text{fix the leading digit(s) by cases};\ 3:\ \text{digit sum};\ 11:\ \text{alternating sum};\ 4:\ \text{last two digits}
+N: Split by the first digit relative to the bound (e.g. $>4321$). For divisibility by 11 with fixed digits, choose which digits go to odd/even places so the two sums differ by a multiple of 11.
+P: 16:4,5,6,12,13,19,20,21,32,33,40,41,44,55,59,31,42
+
+Q: If it counts digit-sum or digit-product conditions (sum of digits $=14$, product $=36$)
+F: x_1+\cdots+x_k=S,\ 0\le x_i\le9:\ \text{stars and bars minus overflow cases}
+N: For products, factor into digits ($36=4\cdot9=6\cdot6=2\cdot2\cdot9=\ldots$) and count arrangements of each multiset.
+P: 16:34,35,36,37,38,39,43,92
+
+Q: If it selects a committee/team with at-least conditions
+F: \sum(\text{cases})\ {}^aC_i\,{}^bC_j
+P: 16:7,8,9,15,50,51,24
+
+Q: If it distributes identical objects (integer solutions)
+F: x_1+\cdots+x_r=n,\ x_i\ge0:\ {}^{n+r-1}C_{r-1};\ \ \text{lower bounds: subtract first};\ \ \text{upper bounds: inclusion–exclusion}
+N: Distinct values ($x,y,z$ distinct): count all, subtract cases with equal values.
+P: 16:16,27,67,68,69,70,71,76,73
+
+Q: If it distributes distinct objects into boxes/groups (possibly identical boxes)
+F: \text{distinct into identical non-empty boxes: Stirling } S(n,k);\ \ \text{into distinct boxes: } k^n \text{ (onto via inclusion–exclusion)}
+P: 16:17,25,74,75,72
+
+Q: If geometry counting: triangles/lines from points on sides or a polygon
+F: {}^nC_3-\sum{}^{n_i}C_3\ \ (\text{remove collinear triples});\ \ \text{polygon triangles with no common side}: \frac{n(n-4)(n-5)}6
+P: 16:10,29,30,86,87,88,89
+
+Q: If it is a number-theory count (HCF, divisors of special form, $3^n\mid50!$)
+F: \text{Legendre: } \sum\left[\tfrac n{p^k}\right];\ \ \tau(N)=\prod(a_i+1)
+P: 16:22,23,43,45,46,93,47,48
+
+Q: If it involves subsets with sum/product conditions or no two consecutive
+F: \text{no two consecutive from } n:\ \text{Fibonacci } F_{n+2};\ \text{use residues mod } k \text{ for sums}
+P: 16:28,79,80,81,82,83,84
+
+Q: If it is circular seating or derangements
+F: (n-1)!;\ \ \text{girls not together at round table: } (b-1)!\cdot{}^bP_g;\ \ D_n=n!\sum\frac{(-1)^k}{k!}
+P: 16:85,91,52,53
+
+Q: If it is a factorial/${}^nP_r$ identity or a sum like $\sum k\cdot{}^kP_k$
+F: k\cdot k!=(k+1)!-k!;\quad{}^nC_m+2\,{}^nC_{m+1}+{}^nC_{m+2}={}^{n+2}C_{m+2}
+P: 16:14,49,96,26,54,56,60,77,78,90,94,95

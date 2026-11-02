@@ -1,0 +1,79 @@
+@ def | Definite Integration | 12 | Calculus
+
+## Properties
+Q: King's rule general use with sum
+F: I=\int_a^b\frac{f(x)}{f(x)+f(a+b-x)}dx=\frac{b-a}2
+
+Q: Integral over symmetric interval of $\frac{f(x)}{1+a^x}$
+F: \int_{-c}^c\frac{f(x)}{1+a^x}dx=\int_0^cf(x)\,dx\quad(f\ \text{even})
+
+Q: Integral of an odd function times even
+F: \int_{-a}^a(\text{odd})\,dx=0;\quad\text{e.g. }\int_{-1}^1x^3\cos x\,dx=0
+
+Q: Integral of periodic function over shifted period
+F: \int_a^{a+nT}f(x)\,dx=n\int_0^Tf(x)\,dx
+
+Q: Integrals of $|\sin x|$, $|\cos x|$
+F: \int_0^{n\pi}|\sin x|\,dx=2n,\qquad\int_0^{n\pi}|\cos x|\,dx=2n
+
+Q: Integral of $f$ and $f^{-1}$
+F: \int_0^af(x)\,dx+\int_0^{f(a)}f^{-1}(y)\,dy=af(a)\quad(f(0)=0,\ f\ \text{increasing})
+
+## Standard results
+Q: $\int_0^{\pi/2}\frac{dx}{a^2\cos^2x+b^2\sin^2x}$
+F: \frac\pi{2ab}
+
+Q: $\int_0^{\pi}\frac{x\,dx}{1+\sin x}$, $\int_0^\pi\frac{x\sin x}{1+\cos^2x}dx$
+F: \pi;\qquad\frac{\pi^2}4
+
+Q: $\int_0^{\pi/2}\frac{\sqrt{\sin x}}{\sqrt{\sin x}+\sqrt{\cos x}}dx$
+F: \frac\pi4
+
+Q: $\int_0^1\frac{\ln x}{1-x}dx$ and $\int_0^1\frac{\ln x}{1+x}dx$
+F: -\frac{\pi^2}6;\qquad-\frac{\pi^2}{12}
+
+Q: $\int_0^\infty\frac{\sin x}xdx$ and $\int_0^\infty\frac{dx}{1+x^2}$
+F: \frac\pi2;\qquad\frac\pi2
+
+Q: $\int_0^1x^m(1-x)^ndx$ (Beta)
+F: \frac{m!\,n!}{(m+n+1)!}
+
+Q: $\int_0^\pi\ln(1+\cos x)\,dx$ and $\int_0^\pi x\ln\sin x\,dx$
+F: -\pi\ln2;\qquad-\frac{\pi^2}2\ln2
+
+Q: Integrals of $e^{-x}$ with powers
+F: \int_0^\infty x^ne^{-ax}dx=\frac{n!}{a^{n+1}}
+
+Q: $\int_0^{2\pi}\sin^mx\cos^nx\,dx$
+F: 0\ \text{if } m \text{ or } n \text{ odd}
+
+Q: $\int_0^{\pi/2}\sin^n x\,dx$ recurrence
+F: I_n=\frac{n-1}nI_{n-2}
+
+Q: Integrals with $[x]$ and $\{x\}$ (more)
+F: \int_0^n\{x\}^2dx=\frac n3;\qquad\int_0^n x[x]\,dx=\frac{n(n-1)(4n+1)}{12}
+N: Split at the integers: on $[k,k+1)$, $[x]=k$.
+
+## Leibniz rule
+Q: Limit of an integral ratio
+F: \lim_{x\to0}\frac{\int_0^xf(t)dt}{x}=f(0)\quad(\text{L'Hôpital + Leibniz})
+
+Q: $F(x)=\int_0^xf(t)dt$ properties
+F: f\ \text{odd}\Rightarrow F\ \text{even};\quad f\ \text{even}\Rightarrow F\ \text{odd};\quad f\ \text{periodic with zero mean}\Rightarrow F\ \text{periodic}
+
+## Common results
+Q: Estimation with inequalities
+F: \frac2\pi x\le\sin x\le x\Rightarrow\int\ \text{bounds};\qquad\int_0^1e^{x^2}dx\in(1,e)
+
+Q: Integral equation $f(x)=g(x)+\int_a^b f(t)\,dt$
+F: \text{let } k=\int_a^bf(t)dt,\ \text{then } f=g+k;\ \text{integrate to find } k
+
+Q: Integral equation with variable limit
+F: f(x)=g(x)+\int_0^xf(t)dt\Rightarrow f'=g'+f\ \ (\text{linear DE})
+
+Q: Sum $\lim\sum\frac n{n^2+r^2}$ / $\lim\sum\frac1{\sqrt{n^2-r^2}}$
+F: \int_0^1\frac{dx}{1+x^2}=\frac\pi4;\qquad\int_0^1\frac{dx}{\sqrt{1-x^2}}=\frac\pi2
+
+Q: Limit of product as integral
+F: \lim_{n\to\infty}\left(\prod_{r=1}^n\left(1+\frac rn\right)\right)^{1/n}=\frac4e
+D: Take log: $\frac1n\sum\ln(1+\frac rn)\to\int_0^1\ln(1+x)dx=2\ln2-1$.

@@ -1,0 +1,75 @@
+@ bin | Binomial Theorem | 11 | Algebra
+
+## Expansion
+Q: $(x-a)^n$ expansion
+F: (x-a)^n=\sum_{r=0}^n(-1)^r\,{}^nC_r\,x^{n-r}a^r
+
+Q: Number of terms in $(x+a)^n+(x-a)^n$ and $(x+a)^n-(x-a)^n$
+F: n\ \text{even}:\ \tfrac n2+1\ \text{and}\ \tfrac n2;\qquad n\ \text{odd}:\ \tfrac{n+1}2\ \text{each}
+
+Q: $(x+a)^n+(x-a)^n$
+F: 2\left[{}^nC_0x^n+{}^nC_2x^{n-2}a^2+\cdots\right]
+
+Q: $r$-th term from the end
+F: T_r\ \text{from end}=T_{n-r+2}\ \text{from beginning}
+
+Q: Greatest coefficient
+F: n\ \text{even}:\ {}^nC_{n/2};\qquad n\ \text{odd}:\ {}^nC_{(n\pm1)/2}
+
+Q: Coefficient of $x^k$ in $(1+x)^m(1+x)^n$ type products
+F: \sum_r(\text{coeff of } x^r\text{ in first})(\text{coeff of } x^{k-r}\text{ in second})
+
+Q: Coefficient of $x^r$ in $(1+x+x^2+\cdots+x^n)$-type products
+F: \text{use } \frac{1-x^{n+1}}{1-x}\ \text{and expand } (1-x)^{-k}
+
+Q: Ratio of consecutive coefficients
+F: \frac{{}^nC_r}{{}^nC_{r-1}}=\frac{n-r+1}r
+N: Three consecutive coefficients in ratio $a:b:c$ → two equations in $n$, $r$.
+
+## Sums of coefficients
+Q: $\sum(r+1)C_r$
+F: \sum_{r=0}^n(r+1){}^nC_r=(n+2)2^{n-1}
+
+Q: $\sum(-1)^rrC_r$
+F: \sum_{r=0}^n(-1)^r\,r\,{}^nC_r=0\quad(n\ge2)
+
+Q: $\sum\frac{C_r}{r+2}$ and $\sum\frac{C_r}{(r+1)(r+2)}$
+F: \sum_{r=0}^n\frac{{}^nC_r}{(r+1)(r+2)}=\frac{2^{n+2}-n-3}{(n+1)(n+2)}
+
+Q: $\sum r\,C_r^2$
+F: \sum_{r=0}^nr\left({}^nC_r\right)^2=n\,{}^{2n-1}C_{n-1}
+
+Q: $\sum C_{3r}$ (every third coefficient)
+F: C_0+C_3+C_6+\cdots=\frac13\left(2^n+2\cos\frac{n\pi}3\right)
+
+Q: Sum $\sum_{r}{}^{r}C_k$ over upper index
+F: {}^kC_k+{}^{k+1}C_k+\cdots+{}^nC_k={}^{n+1}C_{k+1}
+
+Q: Sum of coefficients in $(ax+by)^n$
+F: (a+b)^n
+
+Q: Product of binomial coefficients
+F: C_0C_1\cdots C_n,\qquad\frac{C_1}{C_0}+2\frac{C_2}{C_1}+\cdots+n\frac{C_n}{C_{n-1}}=\frac{n(n+1)}2
+
+## General index
+Q: Expansions to remember
+F: (1+x)^{-1}=1-x+x^2-\cdots,\quad(1+x)^{-2}=1-2x+3x^2-\cdots,\quad(1-x)^{-3}=\sum\frac{(r+1)(r+2)}2x^r
+
+Q: $\sqrt{1+x}$ and $\frac1{\sqrt{1-4x}}$
+F: \sqrt{1+x}=1+\frac x2-\frac{x^2}8+\frac{x^3}{16}-\cdots,\qquad\frac1{\sqrt{1-4x}}=\sum{}^{2r}C_r\,x^r
+
+Q: Coefficient of $x^r$ in $(1-x)^{-n}$
+F: {}^{n+r-1}C_r
+
+## Common results
+Q: Remainder of $a^n$ divided by $b$
+F: \text{write } a^n=(kb\pm1)^m\cdot\ldots,\ \text{expand, keep the last terms}
+
+Q: Comparing large numbers
+F: (1.01)^{1000000}\ \text{vs } 10000:\ \text{use } (1+x)^n>1+nx
+
+Q: Number of rational terms in $(a^{1/p}+b^{1/q})^n$
+F: \text{count } r\ (0\le r\le n)\ \text{with } p\mid(n-r)\ \text{and } q\mid r
+
+Q: Last two digits of $3^{400}$ type
+F: 3^{400}=(10-1)^{200}\equiv1\pmod{100}

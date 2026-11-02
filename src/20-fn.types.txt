@@ -1,0 +1,62 @@
+@ fn | Sets, Relations & Functions | 11 | Calculus
+
+## If this type comes, solve like this
+Q: If a relation is defined on a small set and asks for the number of elements
+F: \text{list pairs systematically (fix } x,\ \text{count valid } y)
+N: Then for "minimum pairs to add to make it reflexive/symmetric/transitive/equivalence": add missing $(a,a)$, add reverses, then close under transitivity, in that order.
+P: 04:1,4,9,11,12,17,8
+
+Q: If it asks whether a relation is reflexive / symmetric / transitive / equivalence
+F: \text{test } (a,a),\ (a,b)\Rightarrow(b,a),\ (a,b),(b,c)\Rightarrow(a,c)
+N: For divisibility-type ($3x+\alpha y$ multiple of 7): reflexive gives $3+\alpha\equiv0$; then symmetry/transitivity follow. One counter-example is enough to say "not".
+P: 04:2,3,5,6,10,18
+
+Q: If it counts relations with properties (symmetric, reflexive and transitive, etc.)
+F: \text{symmetric: } 2^{\frac{n(n+1)}2};\ \text{reflexive: } 2^{n^2-n};\ \text{symmetric not reflexive: } 2^{\frac{n(n+1)}2}-2^{\frac{n(n-1)}2}
+P: 04:7,13,16,04:14,15,19
+
+Q: If it is a three-set survey with "at least/at most" numbers
+F: n(A\cup B\cup C)=\sum n(A)-\sum n(A\cap B)+n(A\cap B\cap C)
+N: Draw the Venn diagram with variables in each region; use the totals to bound the asked region.
+P: 30:1,3,7,8,30:2,4,5,6,9
+
+Q: If it asks the domain of a composite function
+F: \log:\ \text{arg}>0;\ \ \sin^{-1}/\cos^{-1}:\ |\text{arg}|\le1;\ \ \sqrt{\ }:\ \ge0;\ \ \text{den}\ne0
+N: Work from the outside in: e.g. $\log_3\log_5(7-\log_2(\cdot))$ needs $\log_5(\ldots)>0$ ⇒ $7-\log_2(\ldots)>1$.
+P: 10:1,2,6,15,20
+
+Q: If it asks the range of a rational function or trig expression
+F: y=\frac{\text{quad}}{\text{quad}}\Rightarrow D\ge0\ \text{in } x;\quad\text{trig: reduce to one function, use its range}
+P: 10:5,12,16,17,18,21,28,29,30,33,32
+
+Q: If it composes $f$ with itself ($f^n$) for a Möbius map
+F: f(x)=\frac{ax+b}{cx+d}\leftrightarrow\begin{pmatrix}a&b\\c&d\end{pmatrix},\ f^n\leftrightarrow M^n
+N: Compute matrix powers (or find a pattern after 2–3 steps).
+P: 10:4
+
+Q: If it counts functions with conditions (one-one, onto, $f(a)\ne1$, increasing)
+F: \text{onto } m\to n:\ \sum(-1)^k\binom nk(n-k)^m;\ \text{strictly increasing}: {}^nC_m
+N: Handle a restriction by complement (onto with $f(a)=1$ removed), or case-split on the restricted element.
+P: 10:9,7,37,44,45,46,47,48,49,50,52,53,54,55,56,22
+
+Q: If it asks one-one / onto / bijective
+F: \text{one-one: } f' \text{ of one sign or } f(a)=f(b)\Rightarrow a=b;\ \ \text{onto: range}=\text{codomain}
+P: 10:5,14,38,39,40,41,42,43,18
+
+Q: If it is a functional equation
+F: f(x+y)=f(x)f(y)\Rightarrow f(x)=a^x;\ \ f(x+y)=f(x)+f(y)\Rightarrow f(x)=kx;\ \ f(x+y)+f(x-y)=2f(x)f(y)\Rightarrow\cos
+N: Substitute $y=0$, $y=x$, $x\to\frac1{1-x}$ cycles (three substitutions for $f(x)+f(\frac1{1-x})$ type).
+P: 10:24,25,27,57,58,59,60,26,3,11
+
+Q: If it asks for a sum like $\sum f\left(\frac k n\right)$ with $f(x)+f(c-x)$ constant
+F: \text{pair } k \text{ with } n\cdot c-k
+P: 10:8
+
+Q: If it asks for an inverse function
+F: y=f(x)\Rightarrow\text{solve for } x;\ \ y=\frac{a^x-a^{-x}}{a^x+a^{-x}}\Rightarrow x=\frac1{2\ln a}\ln\frac{1+y}{1-y}
+P: 10:10,23
+
+Q: If it has $[x]$ or $\{x\}$ in an equation
+F: x=[x]+\{x\},\ \ 0\le\{x\}<1
+N: Put $[x]=n$, solve for $\{x\}$ and keep $0\le\{x\}<1$.
+P: 10:19,13,35,36,34,10:31,51,61,62,63,64,65,66

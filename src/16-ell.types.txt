@@ -1,0 +1,24 @@
+@ ell | Ellipse | 11 | Coordinate Geometry
+
+## If this type comes, solve like this
+Q: If two of $e$, latus rectum, focal distance, directrix distance are given
+F: b^2=a^2(1-e^2),\ \ \text{LR}=\frac{2b^2}a,\ \ \text{foci } 2ae,\ \ \text{directrices } \frac{2a}e
+N: Turn every given quantity into an equation in $a$, $e$ (or $a$, $b$) and solve. Shifted ellipses: complete squares first.
+P: 21:3,4,6,7,8,9,11,16
+
+Q: If a chord with a given midpoint is asked
+F: T=S_1:\ \frac{xx_1}{a^2}+\frac{yy_1}{b^2}=\frac{x_1^2}{a^2}+\frac{y_1^2}{b^2}
+N: Then solve with the ellipse for the endpoints; length $=|x_1-x_2|\sqrt{1+m^2}$.
+P: 21:1,23
+
+Q: If min/max of focal distances, triangle area, or point distances
+F: SP+S'P=2a;\ \ SP\cdot S'P=a^2-e^2x^2;\ \ \text{inscribed triangle max area } \tfrac{3\sqrt3}4ab
+P: 21:2,10,5
+
+Q: If tangency condition / point of contact
+F: y=mx+c\ \text{tangent}\iff c^2=a^2m^2+b^2
+P: 21:18,24,26
+
+Q: If two conics intersect / same eccentricity / circle inside an ellipse
+F: \text{subtract equations to get the curve through common points};\ \text{largest inscribed circle: nearest normal distance}
+P: 21:14,15,17,22,25,27,19,20,21,12,13

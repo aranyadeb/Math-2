@@ -1,0 +1,43 @@
+@ cplx | Complex Numbers | 11 | Algebra
+
+## If this type comes, solve like this
+Q: If an equation in $z$ and $\bar z$ is given (find solutions / $\sum|z|^2$)
+F: z=x+iy:\ \text{equate real and imaginary parts}
+N: Or take modulus of both sides first ($|\bar z|=|z|$) to get $|z|$, then argument.
+P: 26:1,24,21,38,69,95,46,47
+
+Q: If powers of $\omega$, $1\pm i$, $-1+i\sqrt3$ appear
+F: -1+i\sqrt3=2\omega,\ \ 1+i=\sqrt2e^{i\pi/4},\ \ \omega^3=1,\ 1+\omega+\omega^2=0
+N: Convert to polar form, apply De Moivre, reduce angles mod $2\pi$.
+P: 26:4,5,11,14,20,25,40,41,43,44,67,72,39,3
+
+Q: If a locus is described ($|z-a|=k|z-b|$, $\arg\frac{z-a}{z-b}=\theta$, $\operatorname{Re}/\operatorname{Im}$ conditions)
+F: |z-a|=|z-b|:\ \text{perpendicular bisector};\ \ \ne1\ \text{ratio: circle};\ \ \arg=\theta:\ \text{arc}
+N: Write $z=x+iy$ and simplify to a Cartesian circle/line when unsure.
+P: 26:7,9,15,16,23,29,36,54,77,78,79,80,81,82,83,84,85,86,87,61,55,56
+
+Q: If max/min of $|z-z_1|$ given $z$ on a circle / region
+F: \min/\max|z-z_1|=\big||z_1-c|\mp r\big|\ \ (c,r\ \text{of the circle})
+N: Geometric: draw the centre and the point; extremes lie on the line through them.
+P: 26:6,10,19,31,33,75,89,90,93,94,96,97,92,88,32
+
+Q: If area or region in the Argand plane
+F: \text{translate each condition into a disc/half-plane and find the intersection area}
+P: 26:17,18,30
+
+Q: If roots of a real polynomial are complex
+F: \text{conjugate pairs; use Vieta}
+P: 26:12,22,45,48,49,50,68,70,71
+
+Q: If rotation / geometry (triangle, square, vertices)
+F: \frac{z_3-z_1}{z_2-z_1}=\frac{|z_3-z_1|}{|z_2-z_1|}e^{i\theta};\ \ \text{equilateral: } \sum z_i^2=\sum z_iz_j
+P: 26:27,34,35,73,99,76
+
+Q: If a fraction is purely real / imaginary
+F: \frac{a}{b}\in\mathbb R\iff\frac ab=\overline{\left(\frac ab\right)}
+N: Multiply by the conjugate of the denominator and set the imaginary (or real) part to 0.
+P: 26:2,52,53,57,58,98,51,59,60
+
+Q: If $|z_1z_2|$, $\arg$ relations or product formulas
+F: |z_1z_2|=|z_1||z_2|,\ \ \arg(z_1z_2)=\arg z_1+\arg z_2;\ \ |(1+i)(1+2i)\cdots|^2=\prod(1+k^2)
+P: 26:8,13,28,37,42,62,63,64,65,66,74,26,91

@@ -1,0 +1,39 @@
+@ area | Area Under Curves | 12 | Calculus
+
+## If this type comes, solve like this
+Q: If the region is given as a set of inequalities $\{(x,y):\ldots\}$
+F: A=\int(\text{upper}-\text{lower})\,dx\ \ \text{or}\ \int(\text{right}-\text{left})\,dy
+N: 1) Sketch every boundary. 2) Find intersection points. 3) Decide vertical or horizontal strips (choose the one with a single formula on each side). 4) Split at kinks of $\min/\max$ or $|\ |$.
+P: 17:1,2,3,5,6,7,8,11,12,22,21,26
+
+Q: If two parabolas (or parabola and line) bound the region
+F: \text{area between } y^2=4ax \text{ and } x^2=4by:\ \tfrac{16ab}3;\ \ \text{parabola–chord}=\tfrac23\times\text{rectangle}
+P: 17:4,9,15,16
+
+Q: If $|f(x)|$ and a horizontal line bound the region ($y=|x^2-9|$, $y=3$)
+F: \text{use symmetry; split where } |f|=\text{line}\ \text{and where } f=0
+P: 17:10
+
+Q: If a line divides the area in a ratio
+F: \text{area above } y=\alpha=\text{half of total};\ \text{solve for } \alpha
+P: 17:9
+
+Q: If a tangent from an external point to a parabola bounds the region
+F: \text{find the contact point first (tangent condition), then integrate in } y
+P: 17:14
+
+Q: If a hyperbola or conic and its axes/chord bound the region
+F: \int\sqrt{x^2-a^2}\,dx=\tfrac x2\sqrt{x^2-a^2}-\tfrac{a^2}2\ln|x+\sqrt{x^2-a^2}|
+P: 17:13,23
+
+Q: If curves like $x(1+y^2)=1$, astroid, $4y^2=x^2(4-x)(x-2)$ appear
+F: \text{integrate w.r.t. } y\ (\tan^{-1})\ \text{or use symmetry/parametric form}
+P: 17:17,18,19
+
+Q: If $[\,]$ appears inside the integrand of the area
+F: \text{split where the inside crosses integers}
+P: 17:20,21
+
+Q: If a functional equation defines $f$ first
+F: f(x)+3f\left(\tfrac\pi2-x\right)=\sin x:\ \text{replace } x\to\tfrac\pi2-x,\ \text{solve two equations}
+P: 17:25,24

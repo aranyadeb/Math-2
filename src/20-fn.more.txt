@@ -1,0 +1,95 @@
+@ fn | Sets, Relations & Functions | 11 | Calculus
+
+## Sets and relations
+Q: Symmetric difference
+F: A\,\Delta\,B=(A-B)\cup(B-A)=(A\cup B)-(A\cap B)
+N: $n(A\Delta B)=n(A)+n(B)-2n(A\cap B)$.
+
+Q: Only A, exactly one, exactly two (three sets)
+F: \text{exactly one}=\sum n(A)-2\sum n(A\cap B)+3n(A\cap B\cap C)
+N: Exactly two $=\sum n(A\cap B)-3n(A\cap B\cap C)$.
+
+Q: Cartesian product
+F: n(A\times B)=n(A)\,n(B);\qquad A\times(B\cup C)=(A\times B)\cup(A\times C)
+
+Q: Equivalence relation counts
+F: \text{number of equivalence relations on an } n\text{-set}=\text{Bell number } B_n:\ 1,2,5,15,52
+N: Smallest equivalence relation containing given pairs: add reflexive, symmetric and transitive closures.
+
+Q: Number of reflexive and symmetric relations / antisymmetric
+F: \text{reflexive and symmetric}: 2^{\frac{n(n-1)}2};\qquad\text{antisymmetric}: 2^n\cdot3^{\frac{n(n-1)}2}
+
+Q: Inverse and composition of relations
+F: R^{-1}=\{(b,a):(a,b)\in R\};\qquad(S\circ R)^{-1}=R^{-1}\circ S^{-1}
+
+## Function basics
+Q: Number of many-one / into functions
+F: \text{many-one}=n^m-{}^nP_m;\qquad\text{into}=n^m-\text{onto}
+
+Q: Increasing functions from $\{1..m\}$ to $\{1..n\}$
+F: \text{strictly increasing}: {}^nC_m;\qquad\text{non-decreasing}: {}^{n+m-1}C_m
+
+Q: Even/odd properties of operations
+F: \text{even}\pm\text{even}=\text{even};\ \text{odd}\times\text{odd}=\text{even};\ \text{even}\times\text{odd}=\text{odd};\ f(\text{even})\ \text{even}
+
+Q: Derivative of even/odd
+F: f\ \text{even}\Rightarrow f'\ \text{odd};\qquad f\ \text{odd}\Rightarrow f'\ \text{even}
+
+Q: Period rules
+F: \text{period of } |f| \text{ can be half that of } f\ (|\sin x|:\pi);\quad\text{LCM of } \tfrac ab,\tfrac cd=\frac{\operatorname{LCM}(a,c)}{\operatorname{HCF}(b,d)}
+
+Q: Periods to memorise
+F: \sin x,\cos x:2\pi;\ \tan x:\pi;\ |\sin x|:\pi;\ \sin^4x+\cos^4x:\tfrac\pi2;\ \{x\}:1;\ \sin(\sin x):2\pi;\ \cos(\cos x):\pi
+
+Q: Composite function domain
+F: \operatorname{dom}(f\circ g)=\{x\in\operatorname{dom}g:\ g(x)\in\operatorname{dom}f\}
+
+Q: Identity and constant functions
+F: I(x)=x,\ \ f\circ I=I\circ f=f
+
+Q: Inverse of standard functions
+F: y=\frac{ax+b}{cx+d}\Rightarrow f^{-1}(x)=\frac{-dx+b}{cx-a}
+N: $f^{-1}=f$ iff $a+d=0$ (or $f$ is identity).
+
+Q: Self-inverse and involutions
+F: f(f(x))=x\ \ \text{e.g. } \tfrac1x,\ -x,\ a-x,\ \tfrac{ax+b}{cx-a}
+
+## Standard graphs
+Q: Graph of $y=x|x|$
+F: y=x|x|\ \text{is odd, increasing, differentiable}
+G: y=x*abs(x) ; -3,3,-4,4
+
+Q: Graph of $\ln|x|$ and $|\ln x|$
+F: \ln|x|\ \text{even};\quad|\ln x|\ \text{V-shaped at } x=1
+G: y=log(abs(x)) | y=abs(log(x)) ; -4,4,-3,3
+
+Q: Graph of $y=\frac{1}{1+x^2}$ and $\frac{x}{1+x^2}$
+F: \frac1{1+x^2}\in(0,1];\qquad\frac x{1+x^2}\in\left[-\tfrac12,\tfrac12\right]
+G: y=1/(1+x**2) | y=x/(1+x**2) ; -5,5,-0.8,1.2
+
+Q: Graph of $y=xe^{-x}$ and $y=\frac{\ln x}x$
+F: \max xe^{-x}=\tfrac1e\ (x=1);\qquad\max\frac{\ln x}x=\tfrac1e\ (x=e)
+G: y=x*exp(-x) | y=log(x)/x ; -1,8,-1.2,0.8
+
+Q: Graph of $x^{1/x}$ comparisons
+F: x^{1/x}\ \text{is greatest at } x=e;\ \ e^\pi>\pi^e
+
+Q: Hyperbolic functions (graphs)
+F: \sinh x=\frac{e^x-e^{-x}}2,\quad\cosh x=\frac{e^x+e^{-x}}2,\quad\cosh^2x-\sinh^2x=1
+G: y=sinh(x) | y=cosh(x) ; -3,3,-4,5
+
+## Common results
+Q: Range of $a\sin x+b\cos x$, $\frac{1}{\ldots}$, $\log$ compositions
+F: \text{find the range of the inner function, then push it through the outer one}
+
+Q: $f(x)+f(1-x)=1$ type sums
+F: f(x)=\frac{a^x}{a^x+\sqrt a}\Rightarrow f(x)+f(1-x)=1\ \Rightarrow\ \sum_{k=1}^{n-1}f\left(\tfrac kn\right)=\frac{n-1}2
+
+Q: Functional equation $f(x)+2f\left(\frac1x\right)=g(x)$
+F: \text{replace } x\to\frac1x,\ \text{solve the two equations}
+
+Q: Number of solutions of $f(x)=g(x)$ for periodic graphs
+F: \text{count intersections over one period, multiply, then fix the ends}
+
+Q: Fixed points
+F: f(x)=x\ \text{roots are where } y=f(x) \text{ meets } y=x

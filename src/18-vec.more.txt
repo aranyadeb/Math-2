@@ -1,0 +1,97 @@
+@ vec | Vectors | 12 | Vectors & 3D
+
+## Basics
+Q: Vector between two points
+F: \vec{AB}=\vec b-\vec a,\qquad|\vec{AB}|=\sqrt{(x_2-x_1)^2+(y_2-y_1)^2+(z_2-z_1)^2}
+
+Q: Types of vectors
+F: \text{zero, unit, collinear (parallel), coplanar, equal, negative, co-initial, free}
+
+Q: Linear combination and independence
+F: x\vec a+y\vec b+z\vec c=\vec0\ \text{only for } x=y=z=0\iff\text{non-coplanar}
+
+Q: Midpoint and centroid of a triangle
+F: \frac{\vec a+\vec b}2,\qquad\frac{\vec a+\vec b+\vec c}3
+
+Q: Incentre in vectors
+F: \frac{a\vec a+b\vec b+c\vec c}{a+b+c}
+
+Q: Angle a vector makes with axes
+F: \cos\alpha=\frac{x}{|\vec r|},\ \cos\beta=\frac y{|\vec r|},\ \cos\gamma=\frac z{|\vec r|}
+
+## Dot product
+Q: Angle between two vectors
+F: \cos\theta=\frac{\vec a\cdot\vec b}{|\vec a||\vec b|}
+
+Q: Component of $\vec a$ along and perpendicular to $\vec b$
+F: \vec a_\parallel=\frac{\vec a\cdot\vec b}{|\vec b|^2}\vec b,\qquad\vec a_\perp=\vec a-\vec a_\parallel
+
+Q: Cauchy–Schwarz for vectors
+F: |\vec a\cdot\vec b|\le|\vec a||\vec b|
+
+Q: Sum of squares of three vectors with equal magnitudes
+F: |\vec a+\vec b+\vec c|^2=\sum|\vec a|^2+2\sum\vec a\cdot\vec b
+
+Q: Unit vectors with $|\hat a+\hat b|$ known
+F: |\hat a+\hat b|=2\cos\frac\theta2,\qquad|\hat a-\hat b|=2\sin\frac\theta2
+
+## Cross product
+Q: Sine of angle between vectors
+F: \sin\theta=\frac{|\vec a\times\vec b|}{|\vec a||\vec b|}
+
+Q: Distributive and scalar properties
+F: \vec a\times(\vec b+\vec c)=\vec a\times\vec b+\vec a\times\vec c,\qquad(k\vec a)\times\vec b=k(\vec a\times\vec b)
+
+Q: Area of quadrilateral with diagonals $\vec d_1,\vec d_2$
+F: \frac12|\vec d_1\times\vec d_2|
+
+Q: Cross product of sum and difference
+F: (\vec a+\vec b)\times(\vec a-\vec b)=-2\,\vec a\times\vec b
+
+Q: Distance of a point from a line in vector form
+F: \frac{|(\vec p-\vec a)\times\vec b|}{|\vec b|}
+
+## Triple products
+Q: Scalar triple product with repeated vector
+F: [\vec a\ \vec a\ \vec b]=0
+
+Q: Linear property of STP
+F: [\vec a+\vec b\ \ \vec c\ \ \vec d]=[\vec a\ \vec c\ \vec d]+[\vec b\ \vec c\ \vec d]
+
+Q: STP of sums
+F: [\vec a+\vec b\ \ \vec b+\vec c\ \ \vec c+\vec a]=2[\vec a\ \vec b\ \vec c],\qquad[\vec a-\vec b\ \ \vec b-\vec c\ \ \vec c-\vec a]=0
+
+Q: Volume of tetrahedron with vertices $\vec a,\vec b,\vec c,\vec d$
+F: \frac16\left|[\vec b-\vec a\ \ \vec c-\vec a\ \ \vec d-\vec a]\right|
+
+Q: STP of unit vectors along the axes
+F: [\hat i\ \hat j\ \hat k]=1
+
+Q: Vector triple product sum identity (Jacobi)
+F: \vec a\times(\vec b\times\vec c)+\vec b\times(\vec c\times\vec a)+\vec c\times(\vec a\times\vec b)=\vec0
+
+Q: $\hat i\times(\vec a\times\hat i)+\cdots$
+F: \hat i\times(\vec a\times\hat i)+\hat j\times(\vec a\times\hat j)+\hat k\times(\vec a\times\hat k)=2\vec a
+
+Q: Sum of squares of cross products with axes
+F: |\vec a\times\hat i|^2+|\vec a\times\hat j|^2+|\vec a\times\hat k|^2=2|\vec a|^2
+
+## Common results
+Q: Vector perpendicular to $\vec a$ in the plane of $\vec a$, $\vec b$
+F: \vec a\times(\vec a\times\vec b)\ \ \text{or}\ \ \vec b-\frac{\vec a\cdot\vec b}{|\vec a|^2}\vec a
+
+Q: Vector of given magnitude along the bisector
+F: \lambda\left(\hat a+\hat b\right)
+
+Q: Coplanarity of four points
+F: [\vec b-\vec a\ \ \vec c-\vec a\ \ \vec d-\vec a]=0
+
+Q: Solving $\vec r\cdot\vec a=p$, $\vec r\times\vec b=\vec c$
+F: \vec r=\frac{p\,\vec b+\vec a\times\vec c}{\vec a\cdot\vec b}\quad(\text{needs } \vec a\cdot\vec b\ne0,\ \vec b\cdot\vec c=0)
+D: Cross $\vec a$ with $\vec r\times\vec b=\vec c$: $\vec a\times(\vec r\times\vec b)=(\vec a\cdot\vec b)\vec r-(\vec a\cdot\vec r)\vec b=\vec a\times\vec c$; put $\vec a\cdot\vec r=p$.
+
+Q: Angle between diagonals of a cube / faces
+F: \cos^{-1}\frac13\ (\text{body diagonals});\qquad\text{face diagonals on adjacent faces}: 60^\circ
+
+Q: Maximum of $\vec a\cdot\vec b$ and $|\vec a\times\vec b|$
+F: |\vec a||\vec b|\ \text{each (at } \theta=0 \text{ and } \tfrac\pi2)

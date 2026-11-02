@@ -1,0 +1,84 @@
+@ par | Parabola | 11 | Coordinate Geometry
+
+## Standard parabola
+Q: Parts of $x^2=4ay$
+F: \text{focus }(0,a),\ \text{directrix } y=-a,\ \text{axis } x=0,\ \text{LR}=4a
+
+Q: Parabola with general focus and directrix
+F: (x-\alpha)^2+(y-\beta)^2=\frac{(lx+my+n)^2}{l^2+m^2}
+
+Q: Position of a point w.r.t. $y^2=4ax$
+F: S_1=y_1^2-4ax_1:\ <0\ \text{inside},\ =0\ \text{on},\ >0\ \text{outside}
+
+Q: Parametric forms for other standard parabolas
+F: x^2=4ay:\ (2at,\ at^2);\qquad y^2=-4ax:\ (-at^2,\ 2at)
+
+Q: Vertex form $y=a(x-h)^2+k$
+F: \text{vertex }(h,k),\ \text{focus }\left(h,\ k+\tfrac1{4a}\right),\ \text{directrix } y=k-\tfrac1{4a}
+
+## Chords
+Q: Length of the chord joining $t_1,t_2$
+F: a|t_1-t_2|\sqrt{(t_1+t_2)^2+4}
+
+Q: Chord subtending a right angle at the vertex
+F: t_1t_2=-4;\ \text{such chords pass through } (4a,0)
+
+Q: Chord through a fixed point $(k,0)$ on the axis
+F: t_1t_2=-\frac ka
+
+Q: Chord of contact and pair of tangents
+F: yy_1=2a(x+x_1);\qquad(y^2-4ax)(y_1^2-4ax_1)=(yy_1-2a(x+x_1))^2
+
+Q: Locus of midpoints of focal chords
+F: y^2=2a(x-a)
+
+## Tangents
+Q: Tangent to $x^2=4ay$
+F: x=my+\frac am\ \ \text{or}\ \ y=mx-am^2
+
+Q: Angle between tangents at $t_1$, $t_2$
+F: \tan\theta=\left|\frac{t_1-t_2}{1+t_1t_2}\right|
+
+Q: Locus of intersection of tangents meeting at angle $\theta$
+F: y^2-4ax=(x+a)^2\tan^2\theta
+
+Q: Tangent intercepts
+F: \text{tangent at } P \text{ meets the axis at } (-x_1,0);\ SP=ST\ (\text{focus equidistant})
+
+Q: Common tangent of $y^2=4ax$ and $x^2=4by$
+F: a^{1/3}x+b^{1/3}y+a^{2/3}b^{2/3}=0
+
+Q: Common tangent of $y^2=4ax$ and $x^2+y^2=r^2$
+F: y=mx+\frac am,\ \ \frac{a^2}{m^2}=r^2(1+m^2)
+
+## Normals
+Q: Normal at $(x_1,y_1)$
+F: y-y_1=-\frac{y_1}{2a}(x-x_1)
+
+Q: Normal to $x^2=4ay$ in slope form
+F: y=mx+2a+\frac a{m^2}
+
+Q: Normal chord length
+F: \text{normal at } t:\ \frac{4a(1+t^2)^{3/2}}{t^2}
+
+Q: Minimum length of normal chord
+F: 6\sqrt3\,a\quad(t^2=2)
+
+Q: Feet of normals from $(h,k)$
+F: am^3+(2a-h)m+k=0;\quad\text{sum of slopes } 0,\ \ \sum m_1m_2=\frac{2a-h}a,\ \ m_1m_2m_3=-\frac ka
+
+## Common results
+Q: Circle on a focal chord as diameter
+F: \text{touches the directrix}
+
+Q: Circle on focal distance as diameter
+F: \text{touches the tangent at the vertex}
+
+Q: Reflected rays
+F: \text{rays parallel to the axis reflect through the focus}
+
+Q: Circle through the vertices of a triangle formed by three tangents
+F: \text{circumcircle of the triangle formed by three tangents passes through the focus}
+
+Q: Orthocentre of triangle formed by three tangents
+F: \text{lies on the directrix}

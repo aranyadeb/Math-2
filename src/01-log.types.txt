@@ -1,0 +1,37 @@
+@ log | Logarithms, Modulus & Inequalities | 11 | Algebra
+
+## If this type comes, solve like this
+Q: If an equation mixes $|x-a|$ terms or $x|x+a|$
+F: \text{split at the zeros of each modulus; solve a quadratic in each interval}
+N: 1) Mark critical points. 2) In each interval drop the bars with the right sign. 3) Solve and keep roots that lie inside that interval. For $|x-2|^2+|x-2|-2=0$ put $t=|x-2|\ge0$ directly.
+H: Trap: a root found in an interval must be checked against that interval.
+P: 00:1,2,5,6,10,14,18
+
+Q: If it asks $|f|=|g|+|h|$ or $|a+b|=|a|+|b|$ style
+F: |a|+|b|=|a+b|\iff ab\ge0;\qquad|a-b|=|a|+|b|\iff ab\le0
+N: Rewrite as $|u|+|v|=|u+v|$ with $u,v$ chosen so the identity applies; then solve $uv\ge0$ by the wavy curve.
+P: 00:3
+
+Q: If it is a log equation/inequality with variable base or argument
+F: \log_ab=\frac{\ln b}{\ln a};\ \ \log_{f}g>0\iff(f-1)(g-1)>0
+N: 1) Write the domain: argument $>0$, base $>0$, base $\ne1$. 2) Factor the arguments to make $\log_a b\cdot\log_b a=1$ appear; put $t=\log$. 3) Solve, then intersect with the domain.
+H: Trap: $\log_4(x-1)=\log_2(x-3)$ needs $x>3$; squared logs: $\log(x^2)=2\log|x|$.
+P: 00:4,7,9,16
+
+Q: If a rational expression must be negative/positive for all $x$
+F: \frac{P(x)}{Q(x)}<0\ \forall x,\ Q>0\ \forall x\Rightarrow P<0\ \forall x:\ a<0,\ D<0
+P: 00:8
+
+Q: If it is an exponential equation reducible to quadratic
+F: t=a^x>0
+N: $8^{2x}-16\cdot8^x+48=0$: $t^2-16t+48=0$; sum of $x$ = $\log_8(t_1t_2)$.
+P: 00:15,13
+
+Q: If it is a radical equation $\sqrt{A}+\sqrt{B}=\sqrt{C}$
+F: \text{find the domain first (all radicands} \ge0);\ \text{often } C=\ldots \text{ makes } A,B \text{ factor with a common term}
+N: Square once, isolate, square again, then check every root in the original.
+P: 00:17
+
+Q: If it is a continued fraction or a number-theory Diophantine pair
+F: y=a+\frac1{b+\frac1y};\qquad x^2-2^y=N:\ \text{check parity and small } y
+P: 00:11,19,12

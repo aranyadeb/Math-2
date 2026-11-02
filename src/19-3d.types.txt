@@ -1,0 +1,24 @@
+@ 3d | Three-Dimensional Geometry | 12 | Vectors & 3D
+
+## If this type comes, solve like this
+Q: If the image of a point in a line (or the foot of perpendicular) is asked
+F: \text{general point } P=\vec a+\lambda\vec b;\ (P-Q)\cdot\vec b=0\Rightarrow\lambda;\ \ \text{image}=2P-Q
+P: 29:2,18,28,51,21
+
+Q: If the shortest distance between two lines (possibly one given as two planes)
+F: d=\frac{|(\vec a_2-\vec a_1)\cdot(\vec b_1\times\vec b_2)|}{|\vec b_1\times\vec b_2|}
+N: For a line given by two planes, direction $=\vec n_1\times\vec n_2$, point by putting one coordinate $=0$. If the distance is given, solve for the parameter.
+P: 29:3,4,10,74,75,30
+
+Q: If lines intersect / are coplanar / perpendicular
+F: \text{intersect}\iff(\vec a_2-\vec a_1)\cdot(\vec b_1\times\vec b_2)=0;\ \ \perp\iff\vec b_1\cdot\vec b_2=0
+N: To find the intersection point equate general points and solve two coordinates, check the third.
+P: 29:20,29,76,13,19
+
+Q: If a line through a point makes equal angles with axes / is perpendicular to two lines
+F: \text{d.r.}\ (1,1,1);\ \ \perp\text{ to both: } \vec b_1\times\vec b_2
+P: 29:6,7,38
+
+Q: If direction cosines satisfy two equations ($l+m-n=0$, quadratic)
+F: \text{eliminate one variable, solve the quadratic in a ratio, get two sets of d.c.}
+P: 29:31,52

@@ -1,0 +1,53 @@
+@ treq | Trigonometric Equations | 11 | Trigonometry
+
+## General solutions
+Q: $\sin\theta=k$ written with principal value
+F: \theta=n\pi+(-1)^n\sin^{-1}k,\quad|k|\le1
+
+Q: $\cos\theta=k$ and $\tan\theta=k$ with principal value
+F: \theta=2n\pi\pm\cos^{-1}k\ (|k|\le1);\qquad\theta=n\pi+\tan^{-1}k
+
+Q: $\sin\theta=\cos\alpha$ type
+F: \sin\theta=\cos\alpha\Rightarrow\theta=n\pi+(-1)^n\left(\tfrac\pi2-\alpha\right)
+
+Q: $\sin\theta=-1$, $\cos\theta=0$ style special cases
+F: \sin\theta=-1\Rightarrow\theta=2n\pi-\tfrac\pi2;\qquad\tan\theta\ \text{undefined}\Rightarrow\theta=(2n+1)\tfrac\pi2
+
+Q: $\sin A=\sin B$ and $\cos A=\cos B$ in difference form
+F: \sin A=\sin B\iff\sin\tfrac{A-B}2\cos\tfrac{A+B}2=0;\qquad\cos A=\cos B\iff\sin\tfrac{A+B}2\sin\tfrac{A-B}2=0
+
+## Standard forms
+Q: Homogeneous equations in $\sin$ and $\cos$
+F: a\sin^2x+b\sin x\cos x+c\cos^2x=0:\ \text{divide by }\cos^2x\to a\tan^2x+b\tan x+c=0
+N: Check $\cos x=0$ separately when $a=0$.
+
+Q: Equations of the form $\sin mx=\sin nx$
+F: mx=k\pi+(-1)^knx
+
+Q: Sum-to-product method
+F: \sin x+\sin3x+\sin5x=0\to\text{pair outer terms: } 2\sin3x\cos2x+\sin3x=0
+
+Q: Equations with $\sin x\cos x$ product chains
+F: \text{multiply by } 2\sin x \text{ repeatedly: } 8\sin x\cos x\cos2x\cos4x=\sin8x
+
+Q: Solving using $t=\sin x-\cos x$
+F: \sin x\cos x=\frac{1-t^2}2,\ t\in[-\sqrt2,\sqrt2]
+
+## Common results
+Q: Number of solutions in an interval
+F: \text{list the general solution and count } n \text{ giving values in the interval}
+
+Q: Inequalities $\sin x>k$
+F: \sin x>k\ (|k|<1):\ x\in(2n\pi+\alpha,\ 2n\pi+\pi-\alpha),\ \alpha=\sin^{-1}k
+
+Q: Inequalities $\cos x>k$ and $\tan x>k$
+F: \cos x>k:\ x\in(2n\pi-\beta,\ 2n\pi+\beta),\ \beta=\cos^{-1}k;\qquad\tan x>k:\ x\in(n\pi+\gamma,\ n\pi+\tfrac\pi2)
+
+Q: Equations with $\sin^{2n}$ and bounds
+F: \sin^{2}x+\cos^{4}x\ \ldots\ \text{use } 0\le\sin^2x\le1\ \text{and compare extreme values}
+
+Q: Solving $a\sin x+b\cos x=c$ in an interval
+F: \text{number of solutions in } [0,2\pi):\ 2\ (|c|<R),\ 1\ (|c|=R),\ 0\ (|c|>R),\ R=\sqrt{a^2+b^2}
+
+Q: Equations involving $|\sin x|$ etc.
+F: |\sin x|=\sin x\iff\sin x\ge0;\ \text{split by quadrant}

@@ -1,0 +1,70 @@
+@ det | Determinants | 12 | Algebra
+
+## Evaluation
+Q: Sarrus rule (3×3)
+F: \Delta=a_1b_2c_3+b_1c_2a_3+c_1a_2b_3-c_1b_2a_3-a_1c_2b_3-b_1a_2c_3
+
+Q: Minor and cofactor sign pattern
+F: \begin{pmatrix}+&-&+\\-&+&-\\+&-&+\end{pmatrix}
+
+## Properties
+Q: Row of zeros / proportional rows
+F: \text{a zero row or two proportional rows}\Rightarrow\Delta=0
+
+Q: Scalar multiple of a determinant
+F: k\Delta\ \text{means multiply one row by } k;\qquad|kA|=k^n|A|
+
+Q: Splitting a determinant
+F: \begin{vmatrix}a_1+x_1&b_1&c_1\\a_2+x_2&b_2&c_2\\a_3+x_3&b_3&c_3\end{vmatrix}=\begin{vmatrix}a_1&b_1&c_1\\a_2&b_2&c_2\\a_3&b_3&c_3\end{vmatrix}+\begin{vmatrix}x_1&b_1&c_1\\x_2&b_2&c_2\\x_3&b_3&c_3\end{vmatrix}
+
+Q: Determinant as a polynomial in $x$
+F: \text{if each entry is a polynomial, }\Delta(x)\ \text{is a polynomial; compare degree and roots}
+
+Q: Integral of a determinant
+F: \int_a^b\Delta(x)\,dx:\ \text{integrate the one row/column that has } x\ (\text{others constant})
+
+## Standard determinants
+Q: Determinant with $1+a$ on the diagonal
+F: \begin{vmatrix}1+a&1&1\\1&1+b&1\\1&1&1+c\end{vmatrix}=abc\left(1+\tfrac1a+\tfrac1b+\tfrac1c\right)
+
+Q: Determinant with squares
+F: \begin{vmatrix}1&1&1\\a&b&c\\bc&ca&ab\end{vmatrix}=(a-b)(b-c)(c-a)
+
+Q: Determinant $\begin{vmatrix}a&b&c\\a^2&b^2&c^2\\a^3&b^3&c^3\end{vmatrix}$
+F: abc(a-b)(b-c)(c-a)
+
+Q: Circulant determinant ($b+c$ etc.)
+F: \begin{vmatrix}b+c&a&a\\b&c+a&b\\c&c&a+b\end{vmatrix}=4abc
+
+Q: Determinant with $(a+b+c)$ factor
+F: \begin{vmatrix}a-b-c&2a&2a\\2b&b-c-a&2b\\2c&2c&c-a-b\end{vmatrix}=(a+b+c)^3
+
+Q: Skew-symmetric 3×3
+F: \begin{vmatrix}0&a&b\\-a&0&c\\-b&-c&0\end{vmatrix}=0
+
+Q: Determinant with $\cos$ of differences
+F: \begin{vmatrix}\cos(A-P)&\cos(A-Q)&\cos(A-R)\\\cos(B-P)&\cos(B-Q)&\cos(B-R)\\\cos(C-P)&\cos(C-Q)&\cos(C-R)\end{vmatrix}=0
+N: Each row is a combination of the two vectors $(\cos P,\cos Q,\cos R)$ and $(\sin P,\sin Q,\sin R)$.
+
+## Applications
+Q: Condition for a homogeneous system to have non-trivial solutions
+F: \Delta=0
+
+Q: Collinearity using determinant
+F: \begin{vmatrix}x_1&y_1&1\\x_2&y_2&1\\x_3&y_3&1\end{vmatrix}=0
+
+Q: Equation of a line through two points
+F: \begin{vmatrix}x&y&1\\x_1&y_1&1\\x_2&y_2&1\end{vmatrix}=0
+
+Q: System $AX=B$ has infinitely many solutions
+F: \Delta=\Delta_x=\Delta_y=\Delta_z=0\ \text{and the equations are consistent}
+
+## Common results
+Q: Max value of a 3×3 determinant with entries $\pm1$ / $0,1$
+F: \pm1\ \text{entries}: \max=4;\qquad0,1\ \text{entries}: \max=2
+
+Q: Value of $\Delta$ when two rows become equal at $x=a$
+F: (x-a)\ \text{is a factor; if three rows equal at } x=a,\ (x-a)^2 \text{ is a factor}
+
+Q: Product of a determinant and its cofactor determinant
+F: |\operatorname{adj}A|=|A|^{2}\ \text{for } 3\times3

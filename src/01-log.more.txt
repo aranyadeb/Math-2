@@ -1,0 +1,105 @@
+@ log | Logarithms, Modulus & Inequalities | 11 | Algebra
+
+## Logarithm basics
+Q: Logs with the same base and argument swapped
+F: \log_ab=\frac1{\log_ba},\qquad\log_{1/a}\frac1b=\log_ab
+N: $\log_ab>0$ iff $a,b$ are on the same side of $1$.
+
+Q: Equality of logs
+F: \log_ax=\log_ay\iff x=y\quad(x,y>0)
+
+Q: Log inequality, base above 1
+F: a>1:\ \log_ax>k\iff x>a^k;\qquad\log_ax<k\iff0<x<a^k
+
+Q: Log inequality, base between 0 and 1
+F: 0<a<1:\ \log_ax>k\iff0<x<a^k;\qquad\log_ax<k\iff x>a^k
+
+Q: Log inequality with variable base
+F: \log_{f(x)}g(x)>0\iff(f-1)(g-1)>0,\ f>0,\ f\ne1,\ g>0
+
+Q: Common log values
+F: \log_{10}2\approx0.3010,\quad\log_{10}3\approx0.4771,\quad\log_{10}7\approx0.8451,\quad\ln2\approx0.693,\quad\ln10\approx2.303
+
+Q: Natural and common log link
+F: \ln x=2.303\log_{10}x,\qquad\log_{10}e\approx0.4343
+
+Q: Characteristic and mantissa
+F: \log_{10}N=\text{characteristic (integer)}+\text{mantissa}\in[0,1)
+N: Characteristic of $N>1$ = (digits before the decimal point) $-1$.
+
+Q: Exponential equation $a^{f(x)}=a^{g(x)}$
+F: a>0,\ a\ne1:\ f(x)=g(x)
+N: If the base is variable, also check base $=1$ and base $=-1$ cases with integer exponents.
+
+Q: Equation $x^{\log_a x}=k$
+F: \text{take }\log_a:\ (\log_ax)^2=\log_ak
+
+## Modulus
+Q: Modulus equations
+F: |f|=g\iff f=\pm g,\ g\ge0;\qquad|f|=|g|\iff f=\pm g
+
+Q: $|a|+|b|=|a+b|$ type
+F: |f|+|g|=|f+g|\iff fg\ge0;\qquad|f|+|g|=|f-g|\iff fg\le0
+
+Q: Graph of $|x-a|+|x-b|$
+F: \min=|a-b|\ \text{for } x\in[\min(a,b),\max(a,b)]
+G: y=abs(x+1)+abs(x-2) ; -4,5,-0.5,8
+
+Q: Sum of distances minimised
+F: \sum|x-a_i|\ \text{is least at the median of } a_i
+
+Q: Modulus inequality $|f|<|g|$
+F: |f|<|g|\iff f^2<g^2\iff(f-g)(f+g)<0
+
+## Greatest integer and fractional part
+Q: Equations with $[x]$
+F: [x]=n\iff x\in[n,n+1);\qquad[f(x)]=n\iff n\le f(x)<n+1
+
+Q: Inequalities with $[x]$
+F: [x]\ge n\iff x\ge n;\qquad[x]>n\iff x\ge n+1;\qquad[x]<n\iff x<n
+
+Q: Sum and product with $[x]$
+F: [x+y]\ge[x]+[y],\qquad[x]+[y]\le[x+y]\le[x]+[y]+1
+
+Q: Nearest integer and ceiling
+F: \lceil x\rceil=-[-x],\qquad\text{nearest integer}=\left[x+\tfrac12\right]
+
+Q: Range of $\{x\}$ equations
+F: \{x\}=k\ (0\le k<1)\Rightarrow x=n+k,\ n\in\mathbb Z
+
+## Mean inequalities
+Q: Rearrangement / Chebyshev
+F: a_1\le\cdots\le a_n,\ b_1\le\cdots\le b_n\Rightarrow n\sum a_ib_i\ge\left(\sum a_i\right)\left(\sum b_i\right)
+
+Q: Tchebychef for products with fixed sum
+F: x+y=k\ \text{fixed}\Rightarrow xy\ \text{is maximum when } x=y=\tfrac k2
+N: Fixed product $xy=p$: $x+y$ is minimum ($=2\sqrt p$) when $x=y$.
+
+Q: Maximum of $x^my^n$ with $x+y=k$
+F: x=\frac{mk}{m+n},\ y=\frac{nk}{m+n}\ \Rightarrow\ \max=\frac{m^mn^nk^{m+n}}{(m+n)^{m+n}}
+D: Apply AM–GM to $m$ copies of $\frac xm$ and $n$ copies of $\frac yn$.
+
+Q: Sum of squares bound
+F: a^2+b^2+c^2\ge ab+bc+ca
+N: Equality iff $a=b=c$. Also $(a+b+c)^2\ge3(ab+bc+ca)$.
+
+Q: AM–HM for reciprocals
+F: (a_1+\cdots+a_n)\left(\frac1{a_1}+\cdots+\frac1{a_n}\right)\ge n^2
+
+Q: Nesbitt-type and useful bounds
+F: \frac a{b+c}+\frac b{c+a}+\frac c{a+b}\ge\frac32\quad(a,b,c>0)
+
+Q: Bernoulli's inequality
+F: (1+x)^n\ge1+nx\quad(x>-1,\ n\ge1)
+
+Q: Weighted power of sums
+F: (a+b)^n\le2^{n-1}(a^n+b^n)\quad(a,b>0,\ n\ge1)
+
+## Wavy curve method
+Q: Rational inequality steps
+F: \frac{P(x)}{Q(x)}\ge0\iff P(x)Q(x)\ge0,\ Q(x)\ne0
+N: Never cross-multiply by an expression whose sign is unknown.
+
+Q: Irrational inequality $\sqrt{f}<g$
+F: \sqrt f<g\iff f\ge0,\ g>0,\ f<g^2
+N: $\sqrt f>g\iff(g<0,\ f\ge0)$ or $(g\ge0,\ f>g^2)$.

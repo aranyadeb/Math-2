@@ -1,0 +1,40 @@
+@ trig | Trigonometric Ratios & Identities | 11 | Trigonometry
+
+## If this type comes, solve like this
+Q: If a product like $\sin10^\circ\sin30^\circ\sin50^\circ\sin70^\circ$ or $\prod\sin\frac{k\pi}{22}$
+F: \sin\theta\sin(60^\circ-\theta)\sin(60^\circ+\theta)=\tfrac14\sin3\theta;\ \ \prod\cos2^k\theta=\frac{\sin2^n\theta}{2^n\sin\theta}
+N: Use complementary angles to turn sines into cosines of doubling angles, then the GP-product formula.
+P: 28:7,8,22,30
+
+Q: If $\cos^2A-\sin^2B$ or $\cos^2A-\cos A\cos B+\cos^2B$ with special angles
+F: \cos^2A-\sin^2B=\cos(A+B)\cos(A-B)
+P: 28:13,17,23,12
+
+Q: If $\cos(\alpha+\beta)$, $\sin(\alpha-\beta)$ given and $\tan2\alpha$ etc. asked
+F: 2\alpha=(\alpha+\beta)+(\alpha-\beta)
+P: 28:3
+
+Q: If the max/min of an expression in $\sin$, $\cos$
+F: a\sin x+b\cos x\in[-\sqrt{a^2+b^2},\sqrt{a^2+b^2}];\ \ \text{quadratic in } \sin x:\ \text{restrict } t\in[-1,1]
+P: 28:14,24,6,31
+
+Q: If it is a heights-and-distances problem
+F: \tan(\text{elevation})=\frac{\text{height}}{\text{horizontal distance}}
+N: Draw the figure, label distances with one variable, write two $\tan$ equations, eliminate. Reflection in a lake: image is as far below the surface as the object is above.
+P: 28:2,20,21,27,28,29,37
+
+Q: If a sum of $\sec$ products telescopes
+F: \sec A\sec B=\frac{\tan B-\tan A}{\sin(B-A)}
+P: 28:18
+
+Q: If $\tan$ of four related angles, $\tan(x+100)=\tan(x+50)\tan x\tan(x-50)$
+F: \text{write as } \frac{\tan(x+100)}{\tan(x-50)}=\tan(x+50)\tan x,\ \text{use componendo–dividendo}
+P: 28:10
+
+Q: If roots of a quadratic with $\sin^4+\cos^4$ coefficients must be real
+F: \sin^4+\cos^4=1-\tfrac12\sin^22\theta,\ \ \sin^6+\cos^6=1-\tfrac34\sin^22\theta
+P: 28:4
+
+Q: If a sum like $\cos\frac{2\pi}7+\cos\frac{4\pi}7+\cos\frac{6\pi}7$
+F: =-\tfrac12
+P: 28:32,34,33

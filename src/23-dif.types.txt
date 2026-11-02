@@ -1,0 +1,45 @@
+@ dif | Differentiation | 12 | Calculus
+
+## If this type comes, solve like this
+Q: If $y$ is an inverse-trig expression of a messy ratio
+F: \text{simplify first: } \frac{\sqrt3\cos x+\sin x}{\cos x-\sqrt3\sin x}=\tan\left(x+\tfrac\pi3\right)\ldots
+N: Substitute $x=\tan\theta$, $\sin\theta$, $\cos2\theta$ to collapse the inside to one angle, mind the interval, then differentiate the simple linear expression.
+P: 07:1,4,5,13,14
+
+Q: If $y\sqrt{1-x^2}+x\sqrt{1-y^2}=k$ (or similar symmetric implicit form)
+F: x=\sin A,\ y=\sin B\Rightarrow\sin(A+B)=k\Rightarrow A+B=\text{const}\Rightarrow\frac{dy}{dx}=-\frac{\sqrt{1-y^2}}{\sqrt{1-x^2}}
+P: 07:2
+
+Q: If it is an implicit curve and asks $y'$, $y''$ at a point
+F: \text{differentiate both sides w.r.t. } x,\ \text{put the point in before solving for } y'
+N: Find $y'$ at the point numerically, then differentiate again and substitute again for $y''$.
+P: 07:3,6,10
+
+Q: If $f(x)=x^3+x^2f'(1)+xf''(2)+f'''(3)$ type
+F: \text{let } f'(1)=a,\ f''(2)=b,\ f'''(3)=c;\ \text{differentiate, form three equations}
+P: 07:11,09:36
+
+Q: If $y=u^v$ or a product of many factors
+F: \ln y=v\ln u\Rightarrow\frac{y'}y=v'\ln u+\frac{vu'}u;\qquad\frac{y'}y=\sum\frac{f_i'}{f_i}
+N: For $(1+x)(1+x^2)\cdots(1+x^{16})$ multiply by $(1-x)$ first: $y=\frac{1-x^{32}}{1-x}$.
+P: 07:7,19,16
+
+Q: If it asks $\frac{d^2x}{dy^2}$ or parametric second derivative
+F: \frac{d^2x}{dy^2}=-\frac{y''}{(y')^3};\qquad\frac{d^2y}{dx^2}=\frac{d}{dt}\left(\frac{dy}{dx}\right)\frac{dt}{dx}
+P: 07:7,17
+
+Q: If a functional equation gives $f'$ ratios
+F: \text{put } y=0\ \text{or}\ x=0,\ \text{differentiate w.r.t. one variable}
+P: 07:12,18,21
+
+Q: If it asks to verify a DE like $(x^2-1)y''+\alpha xy'+\beta y=0$
+F: \text{find } y \text{ explicitly (e.g. } y^{1/4}=x+\sqrt{x^2-1}),\ \text{then } y'=\frac{4y}{\sqrt{x^2-1}}\ldots
+P: 07:10
+
+Q: If the function is a determinant in $x$
+F: \frac{d}{dx}\Delta=\text{differentiate one row at a time}
+P: 07:20
+
+Q: If chain rule through nested functions at a point
+F: (f\circ g)'(a)=f'(g(a))g'(a)
+P: 07:8,9,15,22,23

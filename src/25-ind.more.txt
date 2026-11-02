@@ -1,0 +1,97 @@
+@ ind | Indefinite Integration | 12 | Calculus
+
+## Standard integrals
+Q: Integrals of hyperbolic and exponential forms
+F: \int\sinh x\,dx=\cosh x,\quad\int\cosh x\,dx=\sinh x,\quad\int e^{ax+b}dx=\frac1ae^{ax+b}
+
+Q: Integrals of $\sec^3x$ and $\csc^3x$
+F: \int\sec^3x\,dx=\frac12\sec x\tan x+\frac12\ln|\sec x+\tan x|+C
+
+Q: Integrals of $\sin^2x$, $\cos^2x$, $\tan^2x$
+F: \int\sin^2x=\frac x2-\frac{\sin2x}4,\quad\int\cos^2x=\frac x2+\frac{\sin2x}4,\quad\int\tan^2x=\tan x-x
+
+Q: Integrals of $\sin^3x$, $\cos^3x$
+F: \int\sin^3x\,dx=-\cos x+\frac{\cos^3x}3+C,\qquad\int\cos^3x\,dx=\sin x-\frac{\sin^3x}3+C
+
+Q: Products of sines and cosines
+F: \int\sin mx\cos nx\,dx=-\frac{\cos(m+n)x}{2(m+n)}-\frac{\cos(m-n)x}{2(m-n)}\quad(m\ne n)
+
+Q: $\int\frac{dx}{x(x^n+1)}$
+F: \frac1n\ln\left|\frac{x^n}{x^n+1}\right|+C
+
+Q: $\int\frac{dx}{\sqrt{(x-a)(b-x)}}$ and $\int\frac{dx}{\sqrt{(x-a)(x-b)}}$
+F: 2\sin^{-1}\sqrt{\frac{x-a}{b-a}}+C;\qquad2\ln\left|\sqrt{x-a}+\sqrt{x-b}\right|+C
+
+## Techniques
+Q: By parts with a cyclic integral
+F: I=\int e^x\sin x\,dx\ \Rightarrow\ 2I=e^x(\sin x-\cos x)\ \Rightarrow\ I=\frac{e^x}2(\sin x-\cos x)
+
+Q: Integration by parts: tabular (repeated)
+F: \int x^ne^{ax}dx:\ \text{alternate signs of } u,u',u'',\ldots\ \text{times successive integrals of } e^{ax}
+
+Q: $\int e^x\frac{x-1}{x^2}dx$ type
+F: \int e^x\left(\frac1x-\frac1{x^2}\right)dx=\frac{e^x}x+C
+
+Q: $\int e^{x}\frac{1+\sin x}{1+\cos x}dx$
+F: e^x\tan\frac x2+C
+
+Q: $\int\frac{f'(x)}{f(x)\ln f(x)}dx$
+F: \ln|\ln f(x)|+C
+
+Q: Integral of $f'(x)g(x)+f(x)g'(x)$
+F: f(x)g(x)+C;\qquad\int\frac{f'g-fg'}{g^2}=\frac fg+C
+
+## Standard substitutions
+Q: $\int\frac{dx}{a+b\sin x}$ ($a^2>b^2$)
+F: \frac2{\sqrt{a^2-b^2}}\tan^{-1}\frac{a\tan\frac x2+b}{\sqrt{a^2-b^2}}+C
+
+Q: $\int\frac{dx}{a\sin x+b\cos x}$
+F: \frac1{\sqrt{a^2+b^2}}\ln\left|\tan\left(\frac x2+\frac\phi2\right)\right|+C,\quad\tan\phi=\frac ba
+
+Q: $\int\frac{dx}{a+b\cos^2x}$
+F: \text{divide by } \cos^2x,\ t=\tan x:\ \int\frac{dt}{at^2+(a+b)}
+
+Q: $\int\frac{P(x)}{Q(x)}$ with $\deg P\ge\deg Q$
+F: \text{divide first, then partial fractions}
+
+Q: $\int x^m(a+bx^n)^p dx$ (binomial differential)
+F: p\in\mathbb Z:\ \text{expand};\ \tfrac{m+1}n\in\mathbb Z:\ t^k=a+bx^n;\ \tfrac{m+1}n+p\in\mathbb Z:\ t^k=ax^{-n}+b
+
+Q: Integrals of the form $\int\frac{dx}{(x^2+a^2)^2}$
+F: \frac x{2a^2(x^2+a^2)}+\frac1{2a^3}\tan^{-1}\frac xa+C
+
+Q: $\int\sqrt{\tan x}\,dx$
+F: \frac1{\sqrt2}\tan^{-1}\frac{\tan x-1}{\sqrt{2\tan x}}+\frac1{2\sqrt2}\ln\left|\frac{\tan x-\sqrt{2\tan x}+1}{\tan x+\sqrt{2\tan x}+1}\right|+C
+
+Q: $\int\frac{dx}{x^4+1}$ and $\int\frac{x^2dx}{x^4+1}$
+F: \int\frac{x^2+1}{x^4+1}=\frac1{\sqrt2}\tan^{-1}\frac{x^2-1}{\sqrt2x},\qquad\int\frac{x^2-1}{x^4+1}=\frac1{2\sqrt2}\ln\left|\frac{x^2-\sqrt2x+1}{x^2+\sqrt2x+1}\right|
+N: Add or subtract and halve for the individual integrals.
+
+## Partial fractions
+Q: Repeated quadratic factor
+F: \frac{\cdots}{(x^2+bx+c)^2}=\frac{Ax+B}{x^2+bx+c}+\frac{Cx+D}{(x^2+bx+c)^2}
+
+Q: Trick for $\frac{1}{(x+a)(x+b)}$
+F: \frac1{(x+a)(x+b)}=\frac1{b-a}\left(\frac1{x+a}-\frac1{x+b}\right)
+
+Q: Substitution $x^2=t$ for even rational functions
+F: \frac{x^2}{(x^2+a^2)(x^2+b^2)}=\frac1{a^2-b^2}\left(\frac{a^2}{x^2+a^2}-\frac{b^2}{x^2+b^2}\right)
+
+## Common results
+Q: $\int\frac{dx}{\sin(x-a)\sin(x-b)}$
+F: \frac1{\sin(a-b)}\ln\left|\frac{\sin(x-a)}{\sin(x-b)}\right|+C
+
+Q: $\int\frac{\sin x}{\sin(x+a)}dx$
+F: x\cos a-\sin a\ln|\sin(x+a)|+C
+
+Q: $\int\frac{dx}{\cos(x-a)\cos(x-b)}$
+F: \frac1{\sin(a-b)}\ln\left|\frac{\cos(x-a)}{\cos(x-b)}\right|+C
+
+Q: $\int\frac{dx}{\sin x+\cos x}$
+F: \frac1{\sqrt2}\ln\left|\tan\left(\frac x2+\frac\pi8\right)\right|+C
+
+Q: $\int\frac{dx}{x^2\sqrt{a^2-x^2}}$, $\int\frac{dx}{(x^2+a^2)^{3/2}}$
+F: -\frac{\sqrt{a^2-x^2}}{a^2x}+C;\qquad\frac x{a^2\sqrt{x^2+a^2}}+C
+
+Q: $\int\ln(x+\sqrt{x^2+a^2})\,dx$
+F: x\ln\left(x+\sqrt{x^2+a^2}\right)-\sqrt{x^2+a^2}+C

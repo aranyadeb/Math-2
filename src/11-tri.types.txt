@@ -1,0 +1,26 @@
+@ tri | Properties & Solutions of Triangles | 11 | Trigonometry
+
+## If this type comes, solve like this
+Q: If $\frac{a+b}{p}=\frac{b+c}{q}=\frac{c+a}{r}$ is given
+F: a+b=pk,\ b+c=qk,\ c+a=rk\Rightarrow a+b+c=\tfrac{p+q+r}2k
+N: Solve for $a,b,c$ in terms of $k$, then use cosine rule for $\cos A$ etc., or $r=\frac\Delta s$, $R=\frac{abc}{4\Delta}$.
+P: 15:1,7
+
+Q: If sides are in GP / AP and existence is asked
+F: \text{triangle inequality: } a+b>c\ \text{for all three}
+N: For $5,5r,5r^2$: $1+r>r^2$ and $r+r^2>1$ ⇒ $\frac{\sqrt5-1}2<r<\frac{\sqrt5+1}2$.
+P: 15:2,5,13
+
+Q: If two sides and an angle (or $R$) are given and area/side is asked
+F: \frac a{\sin A}=2R,\ \ c^2=a^2+b^2-2ab\cos C,\ \ \Delta=\tfrac12ab\sin C
+N: Angles in AP ⇒ $B=60^\circ$. Use sine rule for the ratio $a:b$ to get angles.
+P: 15:3,4,6,8
+
+Q: If a trig condition on angles is given ($\cos A+2\cos B+\cos C=2$, ratios of $\sin$)
+F: \text{convert to sides: } \cos A=\frac{b^2+c^2-a^2}{2bc},\ \sin A=\frac a{2R};\ \text{or sum-to-product}
+N: $\cos A+\cos C=2(1-\cos B)$ ⇒ $2\cos\frac{A-C}2\sin\frac B2=4\sin^2\frac B2$ ⇒ $a+c=2b$.
+P: 15:9,10,14
+
+Q: If heights and angles of elevation in a triangular field
+F: h=d\tan\theta;\ \ \text{equal elevations from vertices}\Rightarrow\text{foot at circumcentre}
+P: 15:11,12
