@@ -1,26 +1,37 @@
-@ tri | Properties & Solutions of Triangles | 11 | Trigonometry
+@ tri | Properties of Triangles | 11 | Trigonometry
 
 ## If this type comes, solve like this
-Q: If $\frac{a+b}{p}=\frac{b+c}{q}=\frac{c+a}{r}$ is given
-F: a+b=pk,\ b+c=qk,\ c+a=rk\Rightarrow a+b+c=\tfrac{p+q+r}2k
-N: Solve for $a,b,c$ in terms of $k$, then use cosine rule for $\cos A$ etc., or $r=\frac\Delta s$, $R=\frac{abc}{4\Delta}$.
+Q: If $\frac{a+b}{p}=\frac{b+c}{q}=\frac{c+a}{r}$ is given and $r/R$ or a ratio of cosines is asked
+R: "$\frac{a+b}7=\frac{b+c}8=\frac{c+a}9$", "$\frac{b+c}{11}=\frac{c+a}{12}=\frac{a+b}{13}$".
+F: a+b=pk,\ b+c=qk,\ c+a=rk\Rightarrow a+b+c=\frac{(p+q+r)k}2
+S: Put each ratio equal to $k$. || Add the three to get $a+b+c$, then subtract each to get $a,b,c$ as multiples of $k$. || Use the cosine rule $\cos A=\frac{b^2+c^2-a^2}{2bc}$, or $\Delta$ (Heron), $r=\frac\Delta s$, $R=\frac{abc}{4\Delta}$. || $k$ cancels in any ratio.
+E: $\frac{a+b}7=\ldots$: $a+b+c=12k$, so $c=5k$, $a=4k$, $b=3k$ — a right triangle: $r=k$, $R=\frac52k$, $\frac rR=\frac25$.
 P: 15:1,7
 
-Q: If sides are in GP / AP and existence is asked
-F: \text{triangle inequality: } a+b>c\ \text{for all three}
-N: For $5,5r,5r^2$: $1+r>r^2$ and $r+r^2>1$ ⇒ $\frac{\sqrt5-1}2<r<\frac{\sqrt5+1}2$.
+Q: If sides are in GP or AP (or given as expressions) and existence or maximum area is asked
+R: "$5,5r,5r^2$ are sides; $r$ cannot be…", "reciprocals of the sides of a right triangle also form a right triangle", "sides $10+x^2,10+x^2,20-2x^2$; area maximum".
+F: \text{triangle inequality: } a+b>c\ \text{for every pair};\ \ \Delta=\sqrt{s(s-a)(s-b)(s-c)}
+S: Write all three triangle inequalities; with sides $1,r,r^2$ they give $\frac{\sqrt5-1}2<r<\frac{\sqrt5+1}2$. || For "reciprocals also right-angled", write Pythagoras for both and combine. || For maximum area, write $\Delta$ as a function of the variable (isosceles: base × height / 2), then differentiate.
+E: Sides $1,r,r^2$ ($r>1$): need $1+r>r^2$ ⇒ $r<\frac{1+\sqrt5}2\approx1.618$.
 P: 15:2,5,13
 
-Q: If two sides and an angle (or $R$) are given and area/side is asked
-F: \frac a{\sin A}=2R,\ \ c^2=a^2+b^2-2ab\cos C,\ \ \Delta=\tfrac12ab\sin C
-N: Angles in AP ⇒ $B=60^\circ$. Use sine rule for the ratio $a:b$ to get angles.
+Q: If two sides and an angle (or $R$) are given and the area or another side is asked
+R: "$AB=5$, $\angle B=\cos^{-1}\frac35$, $R=5$; area", "angles in AP and $a:b=1:\sqrt3$, $c=4$", "$x^2-c^2=y$ where $x$ and $y$ are sum and product of two sides".
+F: \frac a{\sin A}=\frac b{\sin B}=\frac c{\sin C}=2R,\quad c^2=a^2+b^2-2ab\cos C,\quad\Delta=\tfrac12ab\sin C
+S: Use the sine rule with $2R$ to find the other side(s) opposite known angles. || Use the cosine rule to find an angle from three sides, or a side from two sides and the included angle. || Angles in AP means $B=60^\circ$. || Area by $\frac12ab\sin C$.
+E: $(a+b)^2-c^2=ab\Rightarrow a^2+b^2-c^2=-ab\Rightarrow\cos C=-\frac12$, so $C=120^\circ$ and $R=\frac c{\sqrt3}$.
 P: 15:3,4,6,8
 
-Q: If a trig condition on angles is given ($\cos A+2\cos B+\cos C=2$, ratios of $\sin$)
-F: \text{convert to sides: } \cos A=\frac{b^2+c^2-a^2}{2bc},\ \sin A=\frac a{2R};\ \text{or sum-to-product}
-N: $\cos A+\cos C=2(1-\cos B)$ ⇒ $2\cos\frac{A-C}2\sin\frac B2=4\sin^2\frac B2$ ⇒ $a+c=2b$.
+Q: If a condition on the angles like $\cos A+2\cos B+\cos C=2$ or a ratio of sines is given
+R: "$\cos A+2\cos B+\cos C=2$ with $a=3$, $c=7$", "$\frac{\sin A}{\sin B}=\frac{\sin(A-C)}{\sin(C-B)}$", "$\cos2A+\cos2B+\cos2C$ is least".
+F: \cos A+\cos C=2\cos\frac{A+C}2\cos\frac{A-C}2,\ \ 1-\cos B=2\sin^2\frac B2,\ \ \sin(A+C)=\sin B
+S: Turn sums into products using $A+B+C=\pi$. || Convert the result into sides with the sine rule (e.g. it often gives $a+c=2b$, sides in AP). || For "least value", the extreme usually happens for an equilateral triangle; use that to get $R$, sides etc.
+E: $\cos A+\cos C=2(1-\cos B)$ ⇒ $\cos\frac{A-C}2=2\sin\frac B2$ ⇒ $a+c=2b$, so $b=5$.
 P: 15:9,10,14
 
-Q: If heights and angles of elevation in a triangular field
-F: h=d\tan\theta;\ \ \text{equal elevations from vertices}\Rightarrow\text{foot at circumcentre}
+Q: If a pole/lamp-post stands in a triangular field and angles of elevation are given
+R: "Lamp-post at the midpoint $D$ of $AC$ subtends $30^\circ$ at $B$", "pole with equal elevation $\frac\pi3$ from all three corners".
+F: \text{equal elevation from all corners}\Rightarrow\text{foot is the circumcentre};\ \ \text{median}: BD^2=\frac{2a^2+2c^2-b^2}4
+S: Find the horizontal distance from the foot of the pole to the observer (median length, or $R$ if the foot is the circumcentre). || Height $=$ distance $\times\tan(\text{elevation})$. || For "subtends an angle at B", the angle is at B between foot and top: $\tan30^\circ=\frac{h}{BD}$.
+E: $AB=7$, $BC=5$, $CA=6$: $BD^2=\frac{2\cdot49+2\cdot25-36}4=28$; $h=\frac{2\sqrt7}{\sqrt3}$.
 P: 15:11,12

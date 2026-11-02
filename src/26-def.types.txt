@@ -1,62 +1,104 @@
 @ def | Definite Integration | 12 | Calculus
 
 ## If this type comes, solve like this
-Q: If the limits are symmetric ($-a$ to $a$) and the integrand looks ugly
-F: \int_{-a}^af(x)dx=\int_0^a[f(x)+f(-x)]dx;\qquad\frac{g(x)}{1+e^{h(x)}}\ \text{with } h \text{ odd}\Rightarrow\int_0^ag
-N: Pair $f(x)$ with $f(-x)$: $\frac1{1+e^{u}}+\frac1{1+e^{-u}}=1$. Odd parts vanish ($\ln(x+\sqrt{x^2+1})$ is odd).
-P: 14:6,9,22,5
+Q: If the limits are symmetric ($-a$ to $a$) and the integrand looks ugly ($1+e^{\sin x}$, $1+\pi^x$, odd parts)
+R: "$\int_{-\pi/2}^{\pi/2}\frac{8\sqrt2\cos x}{(1+e^{\sin x})(1+\sin^4x)}dx$", "$\int_{-\pi/2}^{\pi/2}\left(\frac{x^2\cos x}{1+\pi^x}+\frac{1+\sin^2x}{1+e^{\sin x^{2023}}}\right)dx$", "$\int_{-1}^1\ln(x+\sqrt{x^2+1})dx$".
+F: \int_{-a}^af(x)dx=\int_0^a[f(x)+f(-x)]dx;\quad\frac1{1+e^{g}}+\frac1{1+e^{-g}}=1
+S: Replace the integral by $\int_0^a[f(x)+f(-x)]dx$. || Terms like $\frac1{1+e^{\text{odd}}}$ or $\frac1{1+\pi^x}$ pair up to 1. || Odd functions integrate to 0; even functions double. || Finish the simpler integral (often with $t=\sin x$).
+E: Pairing gives $\int_0^{\pi/2}\frac{8\sqrt2\cos x}{1+\sin^4x}dx=8\sqrt2\int_0^1\frac{dt}{1+t^4}=2\pi+2\ln(3+2\sqrt2)$; $\alpha^2+\beta^2=8$.
+P: 14:6,9,22
 
-Q: If the integrand is $\frac{f(x)}{f(x)+f(a+b-x)}$ or has $\sin^n$ vs $\cos^n$
-F: \int_a^bf(x)dx=\int_a^bf(a+b-x)dx\ \Rightarrow\ 2I=\int_a^b1\,dx
-N: Also for $x\cdot g(\sin x)$ on $[0,\pi]$: $I=\frac\pi2\int g$. Then finish the remaining integral with $t=\tan^2x$ or $t=\sin^2x$.
-P: 14:3,7,17
+Q: If the limits are not symmetric but the integrand has an odd part ($\ln(x+\sqrt{x^2+1})$ from $-1$ to $2$)
+R: "$\int_{-1}^2\ln(x+\sqrt{x^2+1})dx$".
+F: \int_{-1}^2=\int_{-1}^1+\int_1^2,\ \ \int\sinh^{-1}x\,dx=x\sinh^{-1}x-\sqrt{x^2+1}
+S: Split off the symmetric part; the odd part gives 0 there. || Integrate the remainder by parts.
+E: $\left[x\ln(x+\sqrt{x^2+1})-\sqrt{x^2+1}\right]_1^2=2\ln(2+\sqrt5)-\sqrt5-\ln(1+\sqrt2)+\sqrt2$.
+P: 14:14
 
-Q: If $[x]$, $\{x\}$, $\min/\max$ of greatest-integer pieces appear
-F: \text{split at points where the inside crosses integers; on each piece the integrand is simple}
-N: For $[x^2]$ on $[0,2.4]$: breaks at $1,\sqrt2,\sqrt3,2,\sqrt5$. For $\int\frac{[x]e^{[x]}}{e^{x-1}}$: sum over unit intervals → a GP.
+Q: If the integrand is $\frac{f(x)}{f(x)+f(a+b-x)}$, or $x$ times a function symmetric about the midpoint
+R: "$I=\int_0^{\pi/2}\frac{\sin^{3/2}x}{\sin^{3/2}x+\cos^{3/2}x}dx$; then $\int_0^{2I}\frac{x\sin x\cos x}{\sin^4x+\cos^4x}dx$", "$\int_{\pi/6}^{\pi/4}\frac{dx}{\sin2x(\tan^5x+\cot^5x)}$".
+F: \int_a^bf(x)dx=\int_a^bf(a+b-x)dx;\quad\int_0^a xg(x)dx=\frac a2\int_0^ag(x)dx\ \text{if } g(a-x)=g(x)
+S: Apply $x\to a+b-x$ and add to the original: the denominator cancels and you get $\frac{b-a}2$. || If $x$ multiplies a function symmetric about the midpoint, replace $x$ by $\frac a2$. || For $\tan^n+\cot^n$, put $t=\tan x$ and then $u=t^n$ type substitutions.
+E: $I=\frac\pi4$, so $2I=\frac\pi2$ and the second integral $=\frac\pi4\int_0^{\pi/2}\frac{\sin x\cos x}{\sin^4x+\cos^4x}dx=\frac\pi4\cdot\frac\pi4=\frac{\pi^2}{16}$.
+P: 14:3,7
+
+Q: If $[x]$, $\{x\}$, $[x^2]$ or a min/max of greatest-integer pieces appear
+R: "$\int_0^{2.4}[x^2]dx=\alpha+\beta\sqrt2+\gamma\sqrt3+\delta\sqrt5$", "$f=\min\{[x-1],\ldots,[x-10]\}$", "$\int_0^{10}\frac{[x]e^{[x]}}{e^{x-1}}dx$", "$\int_{-\pi/2}^{\pi/2}\frac{dx}{[x]+[\sin x]+4}$".
+F: \int_a^b[g(x)]dx=\sum_k k\cdot(\text{length where } [g]=k)
+S: Find the points where the inside crosses integers ($x^2=1,2,3,\ldots$ gives $1,\sqrt2,\sqrt3,\ldots$). || On each sub-interval the bracket is constant; write the integral as a sum of constant × length. || For $[x]$ times another function, integrate that function on each unit interval and sum the series.
+E: $[x^2]$ on $[0,2.4]$: $(\sqrt2-1)+2(\sqrt3-\sqrt2)+3(2-\sqrt3)+4(\sqrt5-2)+5(2.4-\sqrt5)=9-\sqrt2-\sqrt3-\sqrt5$; sum $6$.
 P: 14:4,8,16,5
 
-Q: If it is $\lim\sum\frac{1}{n}f\left(\frac kn\right)$ in disguise
+Q: If the limit of a sum $\sum\frac1nf\left(\frac kn\right)$ is in disguise
+R: "$\lim_{n\to\infty}\sum_{k=1}^n\frac{n^3}{(n^2+k^2)(n^2+3k^2)}$".
 F: \lim_{n\to\infty}\frac1n\sum_{k=1}^nf\left(\frac kn\right)=\int_0^1f(x)dx
-N: Pull out $\frac1n$ and write the rest in $\frac kn$; e.g. $\frac{n^3}{(n^2+k^2)(n^2+3k^2)}=\frac1n\cdot\frac{1}{(1+x^2)(1+3x^2)}$.
+S: Divide numerator and denominator by the right power of $n$ so a factor $\frac1n$ is left outside. || Replace $\frac kn$ by $x$ and $\frac1n\sum$ by $\int_0^1$. || Evaluate (partial fractions in $x^2$).
+E: $\int_0^1\frac{dx}{(1+x^2)(1+3x^2)}=\int_0^1\left(\frac{3/2}{1+3x^2}-\frac{1/2}{1+x^2}\right)dx=\frac{\pi}{2\sqrt3}-\frac\pi8$.
 P: 14:2
 
 Q: If $f$ is defined by an integral equation ($f(x)=g(x)+\int_0^x\ldots$ or $+\int_a^b\ldots f(t)dt$)
-F: \text{variable limit: differentiate (Leibniz) to get a DE};\quad\text{constant limits: the integral is a constant } k
+R: "$f(x)=x+\int_0^{\pi/2}\sin x\cos y\,f(y)dy$", "$f(x)=1-2x+\int_0^xe^{x-t}f(t)dt$", "$f(x)+\int_0^x(x-t)f'(t)dt=\ldots$", "$f=\int_0^x(5-|t-3|)dt$ for $x>4$".
+F: \int_a^b(\ldots)f(y)dy=k\ \text{(a constant)};\quad\frac d{dx}\int_0^xh(t)dt=h(x)
+S: Fixed limits: the integral is a constant $k$; write $f$ with $k$, substitute back to solve for $k$. || Variable limit: differentiate both sides to get a differential equation; use the value at $x=0$. || For $\int_0^x(x-t)g(t)dt$, write it as $x\int g-\int tg$ before differentiating.
+E: $f(x)=x+k\sin x$, $k=\int_0^{\pi/2}\cos y(y+k\sin y)dy=\frac\pi2-1+\frac k2$ ⇒ $k=\pi-2$.
 P: 14:1,20,27,13
 
-Q: If a limit contains an integral with variable limit
-F: \frac{d}{dx}\int_a^{g(x)}h(t)dt=h(g(x))g'(x);\ \text{use L'Hôpital}
+Q: If a limit contains an integral with a variable limit
+R: "$\lim_{x\to\pi/2}\frac{\int_{(\pi/2)^3}^{x^3}(\sin(2t^{1/3})+\cos t^{1/3})dt}{(x-\frac\pi2)^2}$".
+F: \frac d{dx}\int_a^{g(x)}h(t)dt=h(g(x))\,g'(x)
+S: Check it is $\frac00$. || Apply L'Hospital, differentiating the integral with the Leibniz rule. || Repeat if still $\frac00$.
+E: After two applications the limit is $\frac{3x^2(2\cos2x-\sin x)}{2}\Big|_{\pi/2}=-\frac{9\pi^2}8$.
 P: 14:10
 
-Q: If integration by parts relates $\int xF'$, $\int x^2F''$
-F: \int_a^bxF'\,dx=[xF]_a^b-\int_a^bF\,dx
+Q: If integration by parts relates $\int xF'$, $\int x^2F''$, or $P(x)$ is found from extrema and an integral
+R: "$F=xf$, $\int_0^2xF'(x)dx=6$, $\int_0^2x^2F''(x)dx=40$", "cubic $P$ vanishing at $-3$ with min at 1, max at $-1$, $\int_{-1}^1P=18$".
+F: \int_0^ax\,F'(x)dx=aF(a)-\int_0^aF(x)dx
+S: Integrate by parts to move derivatives off $F$. || Use $F(a)=af(a)$ and the given values. || For polynomials with known extrema, write $P'=k(x-1)(x+1)$, integrate, and use the conditions.
+E: $P=k(\frac{x^3}3-x)+6k$; $\int_{-1}^1P=12k=18\Rightarrow k=\frac32$.
 P: 14:11,12
 
-Q: If it is $\int\frac{t^4+1}{t^6+1}$ or $\int\frac{\sqrt{x(\ldots)}}{\ldots}$ with hidden factoring
-F: t^6+1=(t^2+1)(t^4-t^2+1)\Rightarrow\frac{t^4+1}{t^6+1}=\frac1{t^2+1}+\frac{t^2}{t^6+1}
+Q: If the integrand hides a factorisation ($\frac{t^4+1}{t^6+1}$, $\frac{\sqrt{x(x^2+x+1)}}{\sqrt{x+1}\sqrt{x^4+x^2+1}}$, conjugate surds)
+R: "$\int_1^2\frac{t^4+1}{t^6+1}dt$", "$\int_0^2\frac{\sqrt{x(x^2+x+1)}}{\sqrt{x+1}\sqrt{x^4+x^2+1}}dx$", "$4\int_0^1\frac{dx}{\sqrt{3+x^2}+\sqrt{1+x^2}}$".
+F: t^6+1=(t^2+1)(t^4-t^2+1),\ \ x^4+x^2+1=(x^2+x+1)(x^2-x+1)
+S: Factor the polynomials and cancel common factors. || Split $\frac{t^4+1}{t^6+1}=\frac1{t^2+1}+\frac{t^2}{t^6+1}$. || Rationalise sums of surds (multiply by the conjugate). || Integrate the simpler pieces.
+E: $\left[\tan^{-1}t+\frac13\tan^{-1}t^3\right]_1^2=\tan^{-1}2+\frac13\tan^{-1}8-\frac\pi3$.
 P: 14:15,17,25
 
-Q: If it is a Beta-type $\int_0^1x^{m-1}(1-x)^{n-1}$
-F: I(m,n)=\frac{(m-1)!(n-1)!}{(m+n-1)!},\quad I(m,n)=I(n,m)
+Q: If it is a Beta-type integral $\int_0^1x^{m-1}(1-x)^{n-1}dx$
+R: "$I(m,n)=\int_0^1x^{m-1}(1-x)^{n-1}dx$; $I(9,14)+I(10,13)$".
+F: I(m,n+1)+I(m+1,n)=I(m,n),\quad I(m,n)=\frac{(m-1)!(n-1)!}{(m+n-1)!}
+S: Add the integrands: $x^{m-1}(1-x)^{n-1}[(1-x)+x]$. || The sum collapses to $I(m,n)$ with smaller indices.
+E: $I(9,14)+I(10,13)=I(9,13)$.
 P: 14:18
 
-Q: If it asks extrema/sign of $\int_{-1}^xg(t)dt$ with a factored $g$
-F: F'(x)=g(x):\ \text{sign changes only at odd-multiplicity zeros}
+Q: If extrema or signs of $\int^x g(t)dt$ with a factored $g$ are asked
+R: "$f(x)=\int_{-1}^x(e^t-1)^{11}(2t-1)^5(t-2)^7(t-3)^{12}(2t-10)^{61}dt$; local max/min".
+F: f'(x)=g(x);\ \text{extremum only where } g \text{ changes sign (odd power factors)}
+S: $f'(x)=g(x)$. || Zeros with odd exponents ($0$, $\frac12$, $2$, $5$) are sign changes; even exponents ($3$) are not. || Make a sign chart and classify each as max or min.
 P: 14:19
 
-Q: If it is $\int\frac{dx}{a+b\sin x+c\cos x}$ on $[0,\frac\pi2]$
-F: t=\tan\tfrac x2\Rightarrow\int_0^1\frac{2\,dt}{(a-c)t^2+2bt+(a+c)}
+Q: If it is $\int_0^{\pi/2}\frac{dx}{a+b\sin x+c\cos x}$
+R: "$\int_0^{\pi/2}\frac{dx}{3+2\sin x+\cos x}$".
+F: t=\tan\frac x2:\ \sin x=\frac{2t}{1+t^2},\ \cos x=\frac{1-t^2}{1+t^2},\ dx=\frac{2dt}{1+t^2}
+S: Substitute $t=\tan\frac x2$; limits become $0$ to $1$. || Simplify to $\int\frac{dt}{\text{quadratic}}$ and complete the square.
+E: $\int_0^1\frac{dt}{t^2+2t+2}=\tan^{-1}2-\frac\pi4$.
 P: 14:21
 
-Q: If reduction / recurrence of $\int\cot^nx$ or $\tan^nx$
-F: I_n+I_{n-2}=\frac{1}{n-1}\left[\ldots\right]\ \ (\text{use } \cot^2=\csc^2-1)
+Q: If a reduction formula for $\int\cot^nx$ or $\tan^nx$ is used
+R: "$I_n=\int_{\pi/4}^{\pi/2}\cot^nx\,dx$; relation between $I_n$ and $I_{n-2}$".
+F: I_n+I_{n-2}=\frac1{n-1}\ \ (\text{for } \int_{\pi/4}^{\pi/2}\cot^n\ \text{or}\ \int_0^{\pi/4}\tan^n)
+S: Write $\cot^nx=\cot^{n-2}x(\csc^2x-1)$. || Integrate the $\cot^{n-2}x\csc^2x$ part directly. || Then $\frac1{I_n+I_{n-2}}$ form an AP in $n$.
 P: 14:23
 
-Q: If bounds or a periodic-like relation $f(x)+f(x+k)=n$ are given
-F: f(x+2k)=f(x)\Rightarrow\text{period } 2k;\ \int_0^{2k}f=nk
+Q: If bounds on $f$ are given, or $f(x)+f(x+k)=n$ (periodic-like)
+R: "$\frac13\le f\le1$ on $[0,1]$, $0\le f\le\frac12$ on $(1,3]$; bounds on $g(3)$", "$f(x)+f(x+k)=n$; compare $\int_0^{4nk}f$ and $\int_{-k}^{3k}f$".
+F: m(b-a)\le\int_a^bf\le M(b-a);\ \ f(x+2k)=f(x)\Rightarrow\int_0^{2k}f=nk
+S: For bounds, integrate the inequalities on each sub-interval and add. || From $f(x)+f(x+k)=n$, replace $x$ by $x+k$: $f$ has period $2k$, and $\int_a^{a+2k}f=nk$. || Count how many periods each integral covers.
 P: 14:24,26
 
-Q: If $\cot^{-1}$ of a quadratic is integrated
-F: \cot^{-1}(1-x+x^2)=\tan^{-1}x+\tan^{-1}(1-x)\ \Rightarrow\ \text{use King's rule}
-P: 14:28,14
+Q: If $\cot^{-1}$ (or $\tan^{-1}$) of a quadratic is integrated
+R: "$\int_0^14\cot^{-1}(1-2x+4x^2)dx=a\tan^{-1}2-b\ln5$".
+F: \cot^{-1}(1-x(1-x)\ldots):\ \tan^{-1}\frac1{1-2x(1-2x)}=\tan^{-1}2x+\tan^{-1}(1-2x)
+S: Write $\cot^{-1}u=\tan^{-1}\frac1u$ and split as $\tan^{-1}a+\tan^{-1}b$ with $a+b=1$, $1-ab=u$. || Use $x\to1-x$ symmetry: $\int_0^1\tan^{-1}(2x-1)dx=0$. || Integrate $\tan^{-1}2x$ by parts.
+E: $4\left(\tan^{-1}2-\frac14\ln5\right)=4\tan^{-1}2-\ln5$: $a=4$, $b=1$, $2a+b=9$.
+P: 14:28

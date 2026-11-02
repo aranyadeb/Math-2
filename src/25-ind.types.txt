@@ -1,48 +1,91 @@
 @ ind | Indefinite Integration | 12 | Calculus
 
 ## If this type comes, solve like this
-Q: If the answer form is given with unknown constants ($\alpha\ln|\ldots|+\beta\tan^{-1}\ldots$)
-F: \text{differentiate the given answer and match with the integrand}
-N: Often faster than integrating: compare coefficients after differentiating, or pick the right split of the numerator (Numerator $=A(\text{Den})+B(\text{Den})'$).
-P: 02:1,3,10,11,14,17
+Q: If the numerator is a combination of the denominator and its derivative ($\int\frac{ae^x+be^{-x}}{ce^x+de^{-x}}$, $\frac{a\sin x+b\cos x}{c\sin x+d\cos x}$)
+R: "$\int\frac{2e^x+3e^{-x}}{4e^x+7e^{-x}}dx=\frac1{14}(ux+v\ln(4e^x+7e^{-x}))$".
+F: \text{Num}=A\cdot\text{Den}+B\cdot\text{Den}'\ \Rightarrow\ \int=Ax+B\ln|\text{Den}|
+S: Write the numerator as $A(\text{denominator})+B(\text{derivative of denominator})$. || Compare coefficients of $e^x$ and $e^{-x}$ (or $\sin$, $\cos$) to get $A$, $B$. || The integral is $Ax+B\ln|\text{Den}|+C$. || Match with the given form.
+E: $4A+4B=2$, $7A-7B=3$ ⇒ $A=\frac{13}{28}$, $B=\frac1{28}$, so $u=\frac{13}2$, $v=\frac12$, $u+v=7$.
+P: 02:17
 
-Q: If the integrand is $\frac{x^2\pm1}{x^4+kx^2+1}$ or contains $\frac{x^2+1}x$
-F: \text{divide by } x^2,\ t=x\mp\frac1x
+Q: If the integrand has $\frac{x^2\pm1}{x^4+kx^2+1}$ or $\tan^{-1}\frac{x^2+1}x$ (divide by $x^2$)
+R: "$\int\frac{(x^2-1)+\tan^{-1}\frac{x^2+1}x}{(x^4+3x^2+1)\tan^{-1}\frac{x^2+1}x}dx$".
+F: \frac{x^2-1}{x^4+kx^2+1}=\frac{1-\frac1{x^2}}{(x+\frac1x)^2+k-2},\quad\frac{x^2+1}{x^4+kx^2+1}=\frac{1+\frac1{x^2}}{(x-\frac1x)^2+k+2}
+S: Split the integrand into simpler fractions. || Divide numerator and denominator by $x^2$. || For $x^2-1$ put $t=x+\frac1x$; for $x^2+1$ put $t=x-\frac1x$. || Note $\frac d{dx}\tan^{-1}(x+\frac1x)=\frac{x^2-1}{x^4+3x^2+1}$, so the first piece is $\int\frac{dT}T=\ln T$. || Write $1=\frac12[(x^2+1)-(x^2-1)]$ to split a plain $\frac1{x^4+kx^2+1}$.
+E: First piece: $\ln\left(\tan^{-1}\frac{x^2+1}x\right)$; the remaining $\int\frac{dx}{x^4+3x^2+1}$ splits into $\frac1{2\sqrt5}\tan^{-1}\frac{x-1/x}{\sqrt5}-\frac12\tan^{-1}(x+\frac1x)$.
 P: 02:1
 
-Q: If $\sin$ and $\cos$ appear with fractional/negative powers adding to an even negative integer
-F: \sin^mx\cos^nx,\ m+n=-2k:\ \text{divide by } \cos^{m+n}x,\ t=\tan x\ (\text{or } \cot x)
-P: 02:9,16,7
+Q: If $\sin$ and $\cos$ appear with powers whose sum is a negative even integer (or $\sin^3+\cos^3$ in the denominator)
+R: "$\int\sin^{-11/2}x\cos^{-5/2}x\,dx$", "$\int\frac{\sin^{3/2}x+\cos^{3/2}x}{\sqrt{\sin^3x\cos^3x\sin(x-\theta)}}$", "$\int\frac{\sin x}{\sin^3x+\cos^3x}dx$", "$\int\frac{d\theta}{\cos^2\theta(\tan2\theta+\sec2\theta)}$".
+F: \sin^mx\cos^nx,\ m+n=-2k:\ \text{divide by } \cos^{2k}x,\ \text{put } t=\tan x
+S: Divide numerator and denominator by $\cos^{|m+n|}x$ so everything is in $\tan x$ and $\sec^2x$. || Put $t=\tan x$, $dt=\sec^2xdx$; use $\sec^2x=1+t^2$ for leftover powers. || Integrate the resulting rational/power function (partial fractions for $\frac t{t^3+1}$). || Return to $\tan x$ (or $\cot x$).
+E: $\cos^2\theta(\tan2\theta+\sec2\theta)=\cos^2\theta\frac{1+\tan\theta}{1-\tan\theta}$, so $\int\frac{1-t}{1+t}dt=-t+2\ln|1+t|$: $(\lambda,f)=(-1,1+\tan\theta)$.
+P: 02:9,16,3,10
+
+Q: If the integrand is $\frac{\cos x}{\sin^3x(1+\sin^6x)^{2/3}}$ type (take out the highest power)
+R: A power of $(1+t^n)$ times a power of $t$, after $t=\sin x$.
+F: \int\frac{dt}{t^{n+1}(1+t^n)^{p}}:\ \text{write } (1+t^n)=t^n(1+t^{-n}),\ u=1+t^{-n}
+S: Put $t=\sin x$. || Take the highest power of $t$ out of the bracket. || Substitute $u=1+t^{-n}$; $du=-nt^{-n-1}dt$. || Integrate the power of $u$ and return.
+E: $-\frac16\int u^{-2/3}du=-\frac12(1+\sin^{-6}x)^{1/3}=-\frac{(1+\sin^6x)^{1/3}}{2\sin^2x}$: $\lambda=3$, $\lambda f(\frac\pi3)=-2$.
+P: 02:7
 
 Q: If it is $\int\frac{dx}{(x-a)^p(x-b)^q}$ with $p+q=2$
-F: t=\frac{x-a}{x-b}\Rightarrow dt=\frac{(a-b)\,dx}{(x-b)^2}
+R: "$\int\frac{dx}{(x-11)^{11/13}(x+15)^{15/13}}$".
+F: t=\frac{x-a}{x-b},\quad dt=\frac{a-b}{(x-b)^2}\cdot(-1)\,dx\ \ \left(\frac{b-a}{(x-b)^2}dx\right)
+S: Divide inside to write the integrand as $\frac1{(x-b)^2}\left(\frac{x-a}{x-b}\right)^{-p}$. || Put $t=\frac{x-a}{x-b}$. || Integrate the power of $t$.
+E: $dt=\frac{26}{(x+15)^2}dx$: $\frac1{26}\int t^{-11/13}dt=\frac14t^{2/13}$.
 P: 02:6
 
-Q: If it has two different roots of $x$ like $x^{2/3}$, $x^{1/2}$
-F: x=t^{\text{LCM of denominators}}
+Q: If two different roots of $x$ appear ($x^{2/3}$ and $x^{1/2}$)
+R: "$\int\frac{dx}{x^{2/3}+2x^{1/2}}$, $f(0)=-26+24\ln2$".
+F: x=t^{\operatorname{lcm}},\ \text{here } t=x^{1/6}
+S: Put $x=t^L$ with $L$ the lcm of the root orders. || All powers become integers; simplify. || Divide polynomials and integrate. || Use the given value to fix $C$.
+E: $6\int\frac{t^2}{t+2}dt=3t^2-12t+24\ln(t+2)+C$; $C=-26$; $f(1)=-35+24\ln3$, so $a+b=-11$.
 P: 02:5
 
-Q: If it is $\int e^x[f+f']$ or $\int[f+xf']$ in disguise
-F: \int e^x(f+f')=e^xf;\qquad\int\frac{x^2}{(x\sin x+\cos x)^2}:\ \text{write as }\frac{x}{\cos x}\cdot\frac{x\cos x}{(\ldots)^2}\ \text{and use parts}
+Q: If the integrand is $e^x[f+f']$ or $[xf'+f]$ in disguise
+R: "$\int\left(\frac x{x\sin x+\cos x}\right)^2dx$", "$\int\frac{1-\sin(\ln t)}{1-\cos(\ln t)}dt$", "$\int\left((\frac xe)^{2x}+(\frac ex)^{2x}\right)\ln x\,dx$".
+F: \int e^x[f(x)+f'(x)]dx=e^xf(x)+C,\ \ \frac d{dx}\left(\frac xe\right)^{2x}=2\ln x\left(\frac xe\right)^{2x}
+S: Look for a substitution that produces $e^u$ (e.g. $t=e^u$ when $\ln t$ appears). || Split the remaining factor into $f+f'$: for half angles, $\frac{1-\sin u}{1-\cos u}=\frac12\csc^2\frac u2-\cot\frac u2$. || Read off $e^uf(u)$. || For $(\frac xe)^{2x}$, differentiate it directly — it already gives $\ln x$.
+E: $\int e^u\left(\frac12\csc^2\frac u2-\cot\frac u2\right)du=-e^u\cot\frac u2$; with $f(e^{\pi/2})=-e^{\pi/2}$, $\alpha=-\cot\frac\pi8=-(1+\sqrt2)$.
 P: 02:13,2,18
 
-Q: If it is $\int x^n\sin x$ or $\int x^ne^x$
-F: \text{tabular integration by parts}
+Q: If it is $\int x^n\sin x$ or $\int x^ne^x$ (repeated parts)
+R: "$\int x^3\sin x\,dx=g(x)+C$; $8(g(\frac\pi2)+g'(\frac\pi2))$".
+F: \int x^3\sin x=-x^3\cos x+3x^2\sin x+6x\cos x-6\sin x;\quad g'=\text{integrand}
+S: Use the tabular (DI) method: differentiate $x^n$ down to 0, integrate $\sin x$ repeatedly, alternate signs. || Note $g'(x)$ is just the integrand. || Substitute the point.
+E: $g(\frac\pi2)=\frac{3\pi^2}4-6$, $g'(\frac\pi2)=\frac{\pi^3}8$: $8(\ldots)=\pi^3+6\pi^2-48$, $\alpha+\beta-\gamma=55$.
 P: 02:4
 
 Q: If it is $\int\frac{dx}{(ax^2+b)\sqrt{cx^2+d}}$ or $\frac1x\sqrt{\frac{1-x}{1+x}}$
-F: x=\frac1t\ \text{then } u^2=c+dt^2;\qquad x=\cos2\theta\ \text{for }\sqrt{\tfrac{1-x}{1+x}}
+R: "$\int\frac{dx}{(3+4x^2)\sqrt{4-3x^2}}$", "$\int\frac1x\sqrt{\frac{1-x}{1+x}}dx$, $g(1)=0$".
+F: \text{put } x=\frac1t\ \text{(then } u=\sqrt{ct^2... }\text{)};\quad\sqrt{\frac{1-x}{1+x}}=\frac{1-x}{\sqrt{1-x^2}}
+S: For $(ax^2+b)\sqrt{cx^2+d}$: put $x=\frac1t$, then $u^2=dt^2+c$ — it reduces to $\int\frac{du}{\text{quadratic}}$. || For $\sqrt{\frac{1-x}{1+x}}$: rationalise to $\frac{1-x}{\sqrt{1-x^2}}$, split into $\int\frac{dx}{x\sqrt{1-x^2}}-\int\frac{dx}{\sqrt{1-x^2}}$. || Use the given value to fix the constant.
 P: 02:15,12
 
-Q: If it is $\int\frac{(\text{poly})}{\sqrt{\text{quadratic}}}$
-F: \text{write poly}=A\,(\text{quad})'\cdot x+\ldots;\ \text{use } \int\sqrt{Q},\ \int\frac{dx}{\sqrt Q}
+Q: If it is $\int\frac{\text{polynomial}}{\sqrt{\text{quadratic}}}$
+R: "$\int\frac{2x^2+5x+9}{\sqrt{x^2+x+1}}dx=x\sqrt{x^2+x+1}+\alpha\sqrt{x^2+x+1}+\beta\ln|x+\frac12+\sqrt{x^2+x+1}|$".
+F: \int\frac{P(x)}{\sqrt Q}dx=(\text{poly of degree one less})\sqrt Q+\lambda\int\frac{dx}{\sqrt Q}
+S: Assume the answer form with unknown coefficients. || Differentiate both sides and multiply by $\sqrt Q$. || Compare coefficients to find them.
 P: 02:14
 
-Q: If it has $\sqrt{1+x^2}+x$ powers
-F: t=\sqrt{1+x^2}+x\Rightarrow\frac1t=\sqrt{1+x^2}-x,\ dx=\frac{1}{2}\left(1+\frac1{t^2}\right)dt
+Q: If $\int\frac{dx}{(x^2+x+1)^2}$ (repeated quadratic factor) appears
+R: "$\int\frac{dx}{(x^2+x+1)^2}=a\tan^{-1}\frac{2x+1}{\sqrt3}+b\frac{2x+1}{x^2+x+1}$".
+F: \int\frac{dx}{(x^2+k^2)^2}=\frac{x}{2k^2(x^2+k^2)}+\frac1{2k^3}\tan^{-1}\frac xk
+S: Complete the square: $(x+\frac12)^2+\frac34$. || Use the reduction formula (or $x+\frac12=\frac{\sqrt3}2\tan\theta$). || Compare with the given form.
+E: $a=\frac4{3\sqrt3}$, $b=\frac13$.
+P: 02:11
+
+Q: If the integrand has powers of $\sqrt{1+x^2}+x$
+R: "$\int\frac{(\sqrt{1+x^2}+x)^{10}}{(\sqrt{1+x^2}-x)^9}dx$".
+F: t=\sqrt{1+x^2}+x,\ \ \frac1t=\sqrt{1+x^2}-x,\ \ dx=\frac12\left(1+\frac1{t^2}\right)dt
+S: Put $t=\sqrt{1+x^2}+x$; then $\sqrt{1+x^2}-x=\frac1t$, so the integrand is $t^{19}$. || $x=\frac12(t-\frac1t)$ gives $dx$. || Integrate the powers of $t$ and rewrite.
+E: $\frac12\int(t^{19}+t^{17})dt=\frac{t^{20}}{40}+\frac{t^{18}}{36}$.
 P: 02:19
 
-Q: If the integrand is a derivative of a quotient (rational with high powers)
-F: \frac{f'g-fg'}{g^2}\ \text{pattern: divide num and den by } x^{k}\ \text{to expose it}
-N: E.g. $\frac{7x^{10}+9x^8}{(1+x^2+2x^9)^2}$: divide by $x^{18}$, the denominator becomes $(x^{-9}+x^{-7}+2)^2$.
+Q: If the integrand is the derivative of a quotient (high powers over a squared polynomial)
+R: "$\int\frac{7x^{10}+9x^8}{(1+x^2+2x^9)^2}dx$".
+F: \int\frac{-u'}{u^2}dx=\frac1u
+S: Divide numerator and denominator by the power that makes the denominator $(\ldots+\text{const})^2$ (here $x^{18}$). || The numerator becomes minus the derivative of the new bracket. || Answer $\frac1u$, then simplify back.
+E: $u=x^{-9}+x^{-7}+2$, integral $\frac1u=\frac{x^9}{1+x^2+2x^9}$; $f(1)=\frac14$ ✓.
 P: 02:8

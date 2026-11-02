@@ -1,23 +1,52 @@
 @ treq | Trigonometric Equations | 11 | Trigonometry
 
 ## If this type comes, solve like this
-Q: If it asks the number of solutions in an interval
-F: \text{reduce to } \sin x=k,\ \cos x=k,\ \tan x=k;\ \text{count over the interval (or by graphs)}
-N: Use the general solution and list $n$; or sketch both sides and count intersections. Exclude points where the original is undefined.
-P: 28:1,5,9,11,15,16,26,35
+Q: If the equation is a quadratic in one trig function and the number of solutions in an interval is asked
+R: "$\sqrt3\csc^2\theta-2(\sqrt3-1)\csc\theta-4=0$ in $[-\frac{7\pi}6,\frac{4\pi}3]$", "$81^{\sin^2x}+81^{\cos^2x}=30$ in $[0,\pi]$", "$\sin x(\sin x+\cos x)=a$, $a\in\mathbb Z$".
+F: \sin x=k:\ x=n\pi+(-1)^n\alpha;\quad\cos x=k:\ x=2n\pi\pm\alpha;\quad\tan x=k:\ x=n\pi+\alpha
+S: Put $t=$ the trig function (or $t=81^{\sin^2x}$) and solve the quadratic. || Reject values outside the range ($|\sin|\le1$, $|\csc|\ge1$, $t>0$). || For each valid value, list the angles in the given interval — draw a quick graph or unit circle over the whole interval, including negative angles. || Count (or add) them, and remove excluded points.
+E: Roots $\csc\theta=2$ or $-\frac2{\sqrt3}$: $\sin\theta=\frac12$ gives $-\frac{7\pi}6,\frac\pi6,\frac{5\pi}6$; $\sin\theta=-\frac{\sqrt3}2$ gives $-\frac{2\pi}3,-\frac\pi3,\frac{4\pi}3$. Total 6.
+H: Trap: the endpoints of a closed interval often give a solution.
+P: 28:1,15,11
 
-Q: If a parameter must make the equation solvable
-F: \cos2x+a\sin x=\ldots\Rightarrow\text{quadratic in } t=\sin x,\ t\in[-1,1]\ \text{must have a root}
+Q: If the equation can be simplified (product-to-sum) to a single simple equation like $\cos3x=\frac12$
+R: "$2\cos x\big(4\sin(\frac\pi4+x)\sin(\frac\pi4-x)-1\big)=1$", "$\frac{\cos x}{1+\sin x}=|\tan2x|$", "$\tan\theta(1+\sqrt5\tan2\theta)=\sqrt5-\tan2\theta$".
+F: 2\sin A\sin B=\cos(A-B)-\cos(A+B),\ \ 2\cos A\cos B=\cos(A+B)+\cos(A-B),\ \ \frac{\cos x}{1+\sin x}=\tan\left(\frac\pi4-\frac x2\right)
+S: Use product-to-sum or compound-angle formulas to collapse the expression. || Aim for one function of one multiple angle ($\cos3x$, $\tan3\theta$). || Write the general solution, then pick solutions in the interval. || Remove points where the original expression is undefined.
+E: $4\sin(\frac\pi4+x)\sin(\frac\pi4-x)=2\cos2x$, so the equation becomes $2\cos3x=1$: $x=\frac\pi9,\frac{5\pi}9,\frac{7\pi}9$; $n=3$, $S=\frac{13\pi}9$.
+P: 28:9,26,35
+
+Q: If the two sides of the equation are bounded in opposite directions, or a line meets a trig graph
+R: "$1+\sin^4x=\cos^23x$", "$2x+3\tan x=\pi$ on $[-2\pi,2\pi]$".
+F: \text{LHS}\ge1\ \text{and RHS}\le1\Rightarrow\text{both}=1
+S: For bounded sides, find the range of each side; equality forces both to the common bound. || Solve the two conditions together. || For transcendental equations, rewrite as $\tan x=\frac{\pi-2x}3$, sketch both graphs on the interval and count intersections branch by branch.
+E: $1+\sin^4x=\cos^23x$ ⇒ $\sin x=0$ and $\cos^23x=1$ ⇒ $x=k\pi$; in $[-\frac{5\pi}2,\frac{5\pi}2]$: 5 solutions.
+P: 28:5,16
+
+Q: If a parameter must be chosen so that the equation has a solution
+R: "Set of $a$ such that $\cos2x+a\sin x=2a-7$ has a solution", "values of $\lambda$ for which $\cos^22x-2\sin^4x-2\cos^2x=\lambda$".
+F: \lambda=g(t),\ t\in[\text{range}]\Rightarrow\lambda\in\text{range of } g
+S: Write everything in one function $t$ ($\sin x$ or $\cos2x$). || Either factorise to isolate $t$ in terms of the parameter and demand $t$ in its range, or write the parameter as a function of $t$ and find that function's range. || The answer is that range.
+E: $2\sin^2x-a\sin x+2a-8=0\Rightarrow(\sin x-2)(2\sin x+4-a)=0\Rightarrow\sin x=\frac{a-4}2\in[-1,1]\Rightarrow a\in[2,6]$.
 P: 28:6,24
 
-Q: If $a\cos\theta+b\sin\theta=c$ in a restricted interval
-F: \text{square carefully or use } \cos(\theta-\phi)=\frac c{\sqrt{a^2+b^2}};\ \text{pick the root in range}
+Q: If $a\cos\theta+b\sin\theta=c$ is to be solved in a restricted interval
+R: "$\theta\in[0,\frac\pi4]$ is a solution of $4\cos\theta-3\sin\theta=1$; find $\cos\theta$".
+F: a\cos\theta+b\sin\theta=\sqrt{a^2+b^2}\cos(\theta-\varphi)
+S: Either write it as $R\cos(\theta-\varphi)=c$, or isolate $\sin\theta$ and square to get a quadratic in $\cos\theta$. || Solve the quadratic. || Use the interval to pick the right root (e.g. $\cos\theta\ge\frac1{\sqrt2}$ on $[0,\frac\pi4]$).
+E: $(4c-1)^2=9(1-c^2)\Rightarrow25c^2-8c-8=0\Rightarrow c=\frac{4+6\sqrt6}{25}$.
 P: 28:19
 
-Q: If $\log_{\cos x}$ or exponents with $\sin^2x$
-F: \log_{\cos x}\cot x=\frac{\ln\cot x}{\ln\cos x};\ \ 81^{\sin^2x}+81^{\cos^2x}=30\Rightarrow t+\tfrac{81}t=30
+Q: If the equation has $\log_{\cos x}$, $\log_{\sin x}$ or trig functions in exponents
+R: "$\log_{\cos x}\cot x+4\log_{\sin x}\tan x=1$", "$81^{\sin^2x}+81^{\cos^2x}=30$".
+F: \log_ab=\frac{\ln b}{\ln a};\quad a^{\sin^2x}\cdot a^{\cos^2x}=a
+S: Change all logs to natural logs; put $u=\frac{\ln\sin x}{\ln\cos x}$. || Solve the equation in $u$. || Convert back to a relation like $\sin x=\cos^2x$ and solve. || For exponents, use the product $t\cdot\frac at$ and solve the quadratic in $t$.
+E: $u+\frac4u=4\Rightarrow u=2\Rightarrow\sin x=\cos^2x\Rightarrow\sin x=\frac{-1+\sqrt5}2$.
 P: 28:25,15
 
-Q: If a trig inequality is asked
-F: \text{solve the equality, then test signs between consecutive roots}
+Q: If a trig inequality must be solved
+R: "All $\theta\in[0,2\pi]$ with $\sin2\theta+\tan2\theta>0$".
+F: \sin2\theta+\tan2\theta=\tan2\theta(1+\cos2\theta)
+S: Factor the expression. || Find where each factor is positive/negative (sign chart on the interval). || Remove points where it is undefined.
+E: $1+\cos2\theta\ge0$ always, so we need $\tan2\theta>0$ (and $\cos2\theta\ne-1$).
 P: 28:36

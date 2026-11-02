@@ -1,23 +1,94 @@
-@ vec | Vectors | 12 | Vectors & 3D
+@ vec | Vector Algebra | 12 | Vectors & 3D
 
 ## If this type comes, solve like this
-Q: If a vector $\vec c$ is defined by cross/dot conditions ($\vec c\times\vec b=\vec a\times\vec b$, $\vec c\cdot\vec a=k$)
-F: \vec c\times\vec b=\vec a\times\vec b\Rightarrow\vec c=\vec a+\lambda\vec b;\ \ \text{find } \lambda \text{ from the dot condition}
-N: For $\vec a\times\vec c=\vec b$ type: cross both sides with $\vec a$ and use BAC–CAB.
-P: 29:1,5,17,25,26,27,47,48,49,55,68
+Q: If $\vec c$ satisfies a cross-product equation like $\vec c\times\vec b=\vec a\times\vec b$ plus a dot condition
+R: "$\vec c\times\vec b=\vec a\times\vec b$ and $\vec c\cdot\vec a=0$", "$(\vec a+\vec b+\vec c)\times\vec c=\vec0$", "$\vec c\times\vec u=\vec u\times\vec d$", "$(\vec a+\vec b)\times\vec c=2(\vec a\times\vec b)+\ldots$".
+F: \vec p\times\vec b=\vec0\ (\vec b\ne\vec0)\iff\vec p=\lambda\vec b
+S: Move everything to one side and factor: $(\vec c-\vec a)\times\vec b=\vec0$. || Conclude $\vec c=\vec a+\lambda\vec b$ (one unknown scalar instead of three components). || Use the dot condition to find $\lambda$. || If the equation has no common factor, write $\vec c=(x,y,z)$, expand and compare components.
+E: $\vec c\times\vec b=\vec a\times\vec b$, $\vec c\cdot\vec a=0$ ⇒ $\vec c=\vec a+\lambda\vec b$ with $|\vec a|^2+\lambda\,\vec a\cdot\vec b=0$.
+P: 29:1,5,48,68
 
-Q: If magnitudes and a dot product are given and $|\vec a+t\vec b|$ etc. asked
-F: |\vec u|^2=\vec u\cdot\vec u;\ \ |\vec a\times\vec b|^2=|\vec a|^2|\vec b|^2-(\vec a\cdot\vec b)^2
-P: 29:8,14,16,22,45,62,65,66,67,70,71
+Q: If $\vec x$ lies in the plane of $\vec a$ and $\vec b$ and satisfies dot/magnitude conditions
+R: "$\vec x$ in the plane of $\vec a,\vec b$ and perpendicular to $\vec u$", "$\vec c$ coplanar with $\vec a,\vec b$, $\vec a\cdot\vec c=7$, $\vec b\perp\vec c$", "$\vec d$ of magnitude 2 in the yz-plane".
+F: \vec x=\lambda\vec a+\mu\vec b\quad\text{or}\quad\vec x=t\,\vec u\times(\vec a\times\vec b)
+S: Write $\vec x=\lambda\vec a+\mu\vec b$. || Each dot condition gives one linear equation in $\lambda,\mu$. || A magnitude condition fixes the remaining scale. || If $\vec x\perp\vec u$ and in the plane of $\vec a,\vec b$, then $\vec x\parallel\vec u\times(\vec a\times\vec b)$.
+P: 29:26,27,17,47
 
-Q: If projection or angle between vectors is asked
-F: \text{proj}_{\vec a}\vec b=\frac{\vec a\cdot\vec b}{|\vec a|^2}\vec a;\ \ \cos\theta=\frac{\vec a\cdot\vec b}{|\vec a||\vec b|}
-P: 29:9,35,36,37,42,43,54,59,41
+Q: If $\vec a\times\vec b=\vec c$ and $\vec b\times\vec c=\vec a$ type cyclic relations or collinearity conditions are given
+R: "$\vec a\times\vec b=\vec c$, $\vec b\times\vec c=\vec a$, $|\vec a|=2$", "$\vec a+5\vec b\parallel\vec c$ and $\vec b+6\vec c\parallel\vec a$", "$\vec a\times\vec b=\vec c$ and $\vec a\cdot\vec b=1$".
+F: \vec a\times\vec b=\vec c\Rightarrow\vec c\perp\vec a,\ \vec c\perp\vec b;\quad\vec b=\frac{\vec c\times\vec a+(\vec a\cdot\vec b)\vec a}{|\vec a|^2}
+S: From cross relations, the vectors are mutually perpendicular; take magnitudes to get $|\vec a|\,|\vec b|=|\vec c|$ etc. || For "$\vec a\times\vec b=\vec c$, $\vec a\cdot\vec b=k$", solve $\vec b$ with the formula (cross both sides with $\vec a$). || For collinearity, write $\vec a+5\vec b=\lambda\vec c$, $\vec b+6\vec c=\mu\vec a$ and compare coefficients of the independent vectors $\vec b,\vec c$.
+P: 29:25,49,55
 
-Q: If coplanarity / scalar triple product / volume
-F: [\vec a\ \vec b\ \vec c]=0\ \text{(coplanar)};\ \ V=|[\vec a\ \vec b\ \vec c]|;\ \ [\vec a\times\vec b\ \ \vec b\times\vec c\ \ \vec c\times\vec a]=[\vec a\vec b\vec c]^2
-P: 29:11,12,15,46,50,72,73,77,78
+Q: If magnitudes and dot products are given and $|\vec a\pm\vec b|$, an angle, or a max value is asked
+R: "$|\vec a|=1$, $|\vec b|=4$, $\vec a\cdot\vec b=2$; angle between $\vec b$ and $2\vec a\times\vec b-3\vec b$", "$(\vec a+3\vec b)\perp(7\vec a-5\vec b)$…", "max of $3|3\vec a+2\vec b|+4|3\vec a-2\vec b|$".
+F: |\vec a\pm\vec b|^2=|\vec a|^2+|\vec b|^2\pm2\vec a\cdot\vec b,\quad|\vec a\times\vec b|^2=|\vec a|^2|\vec b|^2-(\vec a\cdot\vec b)^2
+S: Square the magnitude you need and expand with dot products. || $\vec a\times\vec b$ is perpendicular to both, so its dot with them is 0. || Perpendicularity gives equations in $|\vec a|^2,|\vec b|^2,\vec a\cdot\vec b$; solve them. || For max of $p|\vec u|+q|\vec v|$ with $|\vec u|^2+|\vec v|^2$ fixed, use Cauchy–Schwarz.
+E: $\vec b\cdot\vec c=-48$, $|\vec c|^2=4\cdot12+9\cdot16=192$ ⇒ $\cos\theta=\frac{-48}{4\cdot8\sqrt3}=-\frac{\sqrt3}2$, $\theta=150^\circ$.
+P: 29:8,16,22,14,66
 
-Q: If triangle area/medians/position vectors in 3D
-F: \text{area}=\tfrac12|\vec{AB}\times\vec{AC}|;\ \ \text{centroid}=\tfrac{\vec a+\vec b+\vec c}3
-P: 29:23,24,32,33,34,39,40,44,56,57,58,61,64,63,60,53,29:69
+Q: If the sides of a triangle are vectors with given lengths and a projection or dot product is asked
+R: "$|BC|=8$, $|CA|=7$, $|AB|=10$; projection of $\vec{AB}$ on $\vec{AC}$", "$\vec a+\vec b+\vec c=\vec0$ with given magnitudes".
+F: \vec a+\vec b+\vec c=\vec0\Rightarrow\vec a\cdot\vec b=\frac{|\vec c|^2-|\vec a|^2-|\vec b|^2}2
+S: Write the closing relation $\vec{BC}+\vec{CA}+\vec{AB}=\vec0$. || Square a rearranged version to get each dot product. || Projection of $\vec{AB}$ on $\vec{AC}$ $=\frac{\vec{AB}\cdot\vec{AC}}{|AC|}$ (cosine rule in vector form).
+E: $\vec{AB}\cdot\vec{AC}=\frac{100+49-64}2=\frac{85}2$; projection $=\frac{85}{14}$.
+P: 29:45,62,67
+
+Q: If three vectors are mutually perpendicular with equal magnitudes, or coplanar at equal angles
+R: "$\vec a,\vec b,\vec c$ mutually perpendicular, same magnitude, and $\vec a\times\{(\vec r-\vec b)\times\vec a\}+\ldots=\vec0$", "coplanar concurrent vectors at equal angles ($120^\circ$)", "$(x\vec a+y\vec b)\perp(6y\vec a-18x\vec b)$ for all $x,y$".
+F: \vec a\times(\vec p\times\vec a)=|\vec a|^2\vec p-(\vec a\cdot\vec p)\vec a
+S: Expand the triple cross products with the BAC–CAB rule. || Use $\vec a\cdot\vec b=0$ etc. and equal magnitudes $k$. || Collect terms to solve for $\vec r$ (often $\vec r=\frac{\vec a+\vec b+\vec c}2$). || "For all $x,y$" means each coefficient of $x^2$, $xy$, $y^2$ must vanish.
+P: 29:70,71,65
+
+Q: If the projection of one vector on another is asked
+R: "Projection of $\vec b-2\vec a$ on $\vec a\times\ldots$", "$\vec c$ = projection vector of $\vec b$ on $\vec a$ and $|\vec a+\vec c|=7$", "vector making equal angles with the axes with given projection".
+F: \text{scalar projection of }\vec b\text{ on }\vec a=\frac{\vec a\cdot\vec b}{|\vec a|},\quad\text{projection vector}=\frac{\vec a\cdot\vec b}{|\vec a|^2}\vec a
+S: Find the unknown components from the given conditions first (e.g. compare $\vec a\times\vec b$ componentwise). || Apply the projection formula. || "Equal angles with the axes" means components are equal: $\vec a=k(1,1,1)$.
+E: $\vec c=\frac{\lambda+8}9\vec a$, $|\vec a+\vec c|=3\left(1+\frac{\lambda+8}9\right)=7\Rightarrow\lambda=4$.
+P: 29:9,35,54
+
+Q: If a vector must make given angles with other vectors, or an angle must be obtuse for all $t$
+R: "Unit vector at $60^\circ$ with $2\hat i+2\hat j-\hat k$ and $45^\circ$ with $\hat i-\hat k$", "$\hat a\perp\vec b,\vec c$ and at angle $\cos^{-1}(-\frac13)$ with…", "obtuse for all $t\in\mathbb R$".
+F: \vec u\cdot\vec v=|\vec u||\vec v|\cos\theta;\ \ \text{obtuse for all } t\iff\vec a\cdot\vec b<0\ \forall t
+S: Write the unknown unit vector $(x,y,z)$ with $x^2+y^2+z^2=1$. || Each angle condition is a linear equation in $x,y,z$. || Solve the two linear equations and the unit condition. || For "obtuse for all $t$", $\vec a\cdot\vec b$ is a quadratic in $t$: need leading coefficient $<0$ and $D<0$.
+E: $\alpha t^2+6\alpha t-12<0\ \forall t$ ⇒ $\alpha<0$ and $36\alpha^2+48\alpha<0$ ⇒ $\alpha\in(-\frac43,0)$.
+P: 29:36,37,42,43
+
+Q: If a 2D vector is rotated about the origin
+R: "$\vec v_2=2\hat i+(p+1)\hat j$ is obtained by rotating $\vec v_1=\sqrt3p\hat i+\hat j$ by $\theta$", "rotate $\sqrt3\hat i+\hat j$ by $45^\circ$".
+F: |\vec v_1|=|\vec v_2|;\ \ (x,y)\to(x\cos\theta-y\sin\theta,\ x\sin\theta+y\cos\theta)
+S: Rotation keeps the length: equate magnitudes to find the parameter. || The angle from $\cos\theta=\frac{\vec v_1\cdot\vec v_2}{|\vec v_1|^2}$, or apply the rotation formula directly.
+P: 29:41,59
+
+Q: If coplanarity is tested (scalar triple product zero) for vectors or points
+R: "$\vec a,\vec b,\vec c$ coplanar; find $\lambda$", "four points $(1,5,35)$, $(7,5,5)$, … coplanar", "$\vec c$ coplanar with $\vec a,\vec b$, $\vec a\cdot\vec c=5$, $\vec b\perp\vec c$".
+F: [\vec a\ \vec b\ \vec c]=\begin{vmatrix}a_1&a_2&a_3\\b_1&b_2&b_3\\c_1&c_2&c_3\end{vmatrix}=0
+S: For vectors, set the determinant of components to zero. || For four points $A,B,C,D$, use $[\vec{AB}\ \vec{AC}\ \vec{AD}]=0$. || Solve for the parameter; discard values making two vectors equal/parallel if the question needs "non-collinear".
+E: $\begin{vmatrix}1&2&4\\1&\lambda&4\\2&4&\lambda^2-1\end{vmatrix}=(\lambda-2)(\lambda^2-9)=0$; $\lambda=2$ makes $\vec b=\vec a$, so $\lambda=\pm3$.
+P: 29:11,12,15,46,50
+
+Q: If a volume (parallelepiped or tetrahedron) is asked
+R: "Volume $V$ with edges $\vec a,\vec b,\vec c$; volume with edges $\vec a+\vec b$, $\vec b+\vec c$, …", "local max of $\vec a\cdot(\vec b\times\vec c)$", "altitude of a tetrahedron", "edges $AB,AC,AD$ mutually perpendicular with face areas 5, 6, 7".
+F: V_{\text{par}}=|[\vec a\ \vec b\ \vec c]|,\ \ V_{\text{tet}}=\tfrac16|[\vec{AB}\ \vec{AC}\ \vec{AD}]|,\ \ [\vec a+\vec b\ \ \vec b+\vec c\ \ \vec c+\vec a]=2[\vec a\ \vec b\ \vec c]
+S: Express the new edges as combinations of $\vec a,\vec b,\vec c$; the new triple product is the determinant of the coefficient matrix times $[\vec a\ \vec b\ \vec c]$. || Altitude from $D$ = $\frac{3V}{\text{area of }ABC}$. || For a right-corner tetrahedron, the far face area satisfies $\Delta^2=\Delta_1^2+\Delta_2^2+\Delta_3^2$.
+E: Face areas 5, 6, 7 at a right corner: far face $=\sqrt{25+36+49}=\sqrt{110}$.
+P: 29:72,73,77,78
+
+Q: If the area of a triangle/parallelogram is found with position vectors
+R: "$\vec{AB}$, $\vec{CB}$, $\vec{CA}$ given with unknown components and area given", "sides of a triangle given as vectors", "area of the parallelogram on $\vec a$ and $\vec c$".
+F: \text{area of }\triangle=\tfrac12|\vec{AB}\times\vec{AC}|,\quad\text{parallelogram}=|\vec a\times\vec b|,\ \ \text{on diagonals}=\tfrac12|\vec d_1\times\vec d_2|
+S: Use $\vec{AB}=\vec{AC}+\vec{CB}$ to find unknown components. || Compute the cross product and its magnitude. || Use the area condition to solve for the parameter.
+P: 29:23,24,56,34
+
+Q: If a point divides a segment, lies on an angle bisector, or is a centroid (position vectors)
+R: "$P$ divides $AB$ in $\lambda:1$", "internal bisector of $\angle AOB$ meets $AB$ at $C$", "centroid $G$ of $ABC$; $\cos\angle GOA$", "$E,F$ mid-points of the diagonals".
+F: \text{internal division: }\frac{m\vec b+n\vec a}{m+n};\ \ \text{bisector from O divides } AB \text{ in } OA:OB
+S: Write the point with the section formula. || For a bisector, the ratio is the ratio of the adjacent side lengths. || Centroid $=\frac{\vec a+\vec b+\vec c}3$. || Then compute the asked angle/length with dot products.
+E: $OA=3$, $OB=6$: $C$ divides $AB$ in $1:2$, $C=\frac{2A+B}3=(2,\frac83,2)$.
+P: 29:32,33,40,57,58,39
+
+Q: Mixed vector facts (rhombus diagonals, $\tan\theta_k$ vectors, inequalities between components, point equidistant from three points)
+R: Rhombus with given opposite vertices, $\sum|\vec a_k|^2$, "$\max|a_i|\le|\vec a|\le3\max|a_i|$", statements to check.
+F: \text{rhombus: diagonals bisect each other at right angles}
+S: Translate geometry into vector conditions (perpendicular → dot zero; midpoint; equal distances). || Compute with components. || For statement questions, test each claim separately with a quick calculation or counterexample.
+P: 29:44,61,64,63,60,53,69

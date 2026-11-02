@@ -1,61 +1,89 @@
 @ seq | Sequences & Series | 11 | Algebra
 
 ## If this type comes, solve like this
-Q: If AP data is given (terms, sums) and another term/sum is asked
-F: a_n=a+(n-1)d,\quad S_n=\frac n2[2a+(n-1)d],\quad a_n=S_n-S_{n-1}
-N: Turn every condition into equations in $a,d$ (2 unknowns ⇒ 2 conditions). If $S_n=An^2+Bn$: $d=2A$, $a=A+B$. Odd/even-term sums: odd terms form an AP with difference $2d$.
+Q: If AP information (some terms or sums) is given and another term or sum is asked
+R: "$a_5=27$ and $S-2T=75$", "$S_4=16$, $S_6=-48$, find $S_{10}$", "sum of first $n$ terms is $3n^2+5n$".
+F: a_n=a+(n-1)d,\quad S_n=\frac n2\big(2a+(n-1)d\big),\quad a_n=S_n-S_{n-1}
+S: Write every condition as an equation in $a$ and $d$. || Two conditions → solve the two linear equations. || If $S_n=An^2+Bn$ is given, read off $d=2A$ and $a=A+B$ directly. || Sums of only odd-positioned terms form an AP with difference $2d$. || Compute the asked quantity.
+E: $S_4=16$, $S_6=-48$: $2(2a+3d)=16$, $3(2a+5d)=-48$ ⇒ $2a+3d=8$, $2a+5d=-16$ ⇒ $d=-12$, $a=22$; $S_{10}=5(44-108)=-320$.
 P: 13:9,10,11,12,20,21,24,26,27,28,29,39,42,47,52,54,55,57,58,65,67,91,127,129,150,152,4,111
 
-Q: If GP data is given
-F: a_n=ar^{n-1},\quad S_n=\frac{a(r^n-1)}{r-1},\quad S_\infty=\frac a{1-r}
-N: Divide two conditions to get $r$ ($\frac{a_3+a_4}{a_1+a_2}=r^2$). Products of terms equidistant from ends are equal. Squares of a GP form a GP with ratio $r^2$.
-P: 13:3,7,13,14,15,35,40,68,70,72,73,76,131,132,14,18
+Q: If GP information is given and a term, sum or ratio is asked
+R: "$a_1+a_2=4$, $a_3+a_4=16$", "sum of infinite GP is 15 and of squares is 150", "$a_3a_5=729$".
+F: a_n=ar^{n-1},\quad S_n=\frac{a(r^n-1)}{r-1},\quad S_\infty=\frac a{1-r}\ (|r|<1)
+S: Write each condition in $a$ and $r$. || Divide one condition by another to remove $a$ and get $r$ (e.g. $\frac{a_3+a_4}{a_1+a_2}=r^2$). || Back-substitute for $a$. || Remember: products of terms equidistant from the ends are equal; squares of a GP form a GP with ratio $r^2$.
+E: $\frac a{1-r}=15$, $\frac{a^2}{1-r^2}=150$. Divide: $\frac{a}{1+r}=10$. So $15(1-r)=10(1+r)\Rightarrow r=\frac15$, $a=12$.
+P: 13:3,7,13,14,15,35,40,68,70,72,73,76,131,132,18
 
-Q: If terms are in AP and also related by GP (mixed conditions)
-F: b^2=ac\ (\text{GP}),\quad2b=a+c\ (\text{AP}),\quad b=\frac{2ac}{a+c}\ (\text{HP})
-N: Take convenient terms ($a-d,a,a+d$ or $\frac ar,a,ar$), substitute the second condition.
+Q: If numbers are in AP and also satisfy a GP/HP condition (mixed)
+R: "$a,b,c$ in AP and $a+1,b,c+3$ in GP", "2nd, 8th and 44th terms of an AP are in GP", "roots form a GP".
+F: \text{AP}: 2b=a+c;\quad\text{GP}: b^2=ac;\quad\text{HP}: b=\frac{2ac}{a+c}
+S: Choose symmetric forms: AP as $a-d,a,a+d$; GP as $\frac ar,a,ar$. || Use the given sum/product to fix the middle term quickly. || Apply the second condition to get the other unknown. || Check which solution fits extra conditions (increasing, $a>10$, non-constant).
+E: 2nd, 8th, 44th terms of an AP in GP: $(a+7d)^2=(a+d)(a+43d)\Rightarrow49d^2+14ad=44ad+43d^2\Rightarrow d=5a$; common ratio $\frac{a+7d}{a+d}=\frac{36a}{6a}=6$.
 P: 13:6,16,36,48,50,51,53,56,61,63,71,74,75,133,135,137,86,138,139,79,87,134
 
-Q: If the series is AGP ($\sum n x^n$, $\frac{n^2}{7^n}$, $\sum r\cdot3^r$)
+Q: If the series is arithmetico-geometric (numerator in AP or quadratic, denominator a power)
+R: Terms like $2+\frac6{7}+\frac{12}{7^2}+\frac{20}{7^3}+\cdots$, $1+2\cdot3+3\cdot3^2+\cdots$, $\sum k(1+x)^k$.
 F: S-rS\ \text{repeatedly};\quad\sum_{n\ge1}nx^{n-1}=\frac1{(1-x)^2}
-N: For quadratic numerators ($2,6,12,20,\ldots$ over $7^n$) do $S-rS$ twice. Finite: $\sum_{k=1}^nk\,r^{k-1}=\frac{1-(n+1)r^n+nr^{n+1}}{(1-r)^2}$.
+S: Write $S$, then $rS$ shifted by one place. || Subtract: the differences of the numerators appear. || If those differences are still not constant (quadratic numerators), repeat once more. || Sum the resulting GP.
+E: $S=1+2x+3x^2+\cdots$ ($|x|<1$): $S-xS=1+x+x^2+\cdots=\frac1{1-x}$ ⇒ $S=\frac1{(1-x)^2}$.
 P: 13:2,37,41,46,82,83,84,81,22,98
 
-Q: If the $n$-th term must be found from differences (5, 11, 19, 29, …)
-F: \text{first differences AP}\Rightarrow T_n=an^2+bn+c;\quad\text{differences GP}\Rightarrow T_n=ar^n+bn+c
-N: Fit with $T_1,T_2,T_3$, then sum with $\sum n^2$, $\sum n$.
+Q: If the $n$-th term is not given but the terms are like $5,11,19,29,41,\ldots$
+R: Neither AP nor GP; successive differences form an AP ($6,8,10,\ldots$) or a GP.
+F: \text{differences in AP}\Rightarrow T_n=an^2+bn+c;\quad\text{differences in GP}\Rightarrow T_n=ar^n+bn+c
+S: Write the first differences (and second differences if needed). || Assume the right form for $T_n$. || Fit $a,b,c$ using $T_1,T_2,T_3$. || Sum with $\sum n^2=\frac{n(n+1)(2n+1)}6$, $\sum n=\frac{n(n+1)}2$.
+E: $5,11,19,29$: differences $6,8,10$ ⇒ $T_n=n^2+3n+1$; check $T_1=5$ ✓.
 P: 13:17,108,95,142,156,149,146,145,105,112,107,155
 
-Q: If the term is $\frac{n}{n^4+n^2+1}$ or $\frac{4n}{4+3n^2+n^4}$ or $\frac{n}{1+4n^4}$
-F: \frac{n}{n^4+n^2+1}=\frac12\left(\frac1{n^2-n+1}-\frac1{n^2+n+1}\right)
-N: Factor $n^4+n^2+1=(n^2+n+1)(n^2-n+1)$; $4n^4+1=(2n^2+2n+1)(2n^2-2n+1)$; telescope.
+Q: If the general term is $\frac{n}{n^4+n^2+1}$, $\frac{4n}{n^4+3n^2+4}$ or $\frac{n}{4n^4+1}$
+R: A degree-4 denominator that is a "sum of squares" type and the numerator is $n$ (times a constant).
+F: n^4+n^2+1=(n^2+n+1)(n^2-n+1);\quad4n^4+1=(2n^2+2n+1)(2n^2-2n+1)
+S: Factor the quartic into two quadratics that differ by a multiple of $n$. || Write the term as $\frac12\left(\frac1{\text{small}}-\frac1{\text{big}}\right)$. || The "big" factor at $n$ equals the "small" factor at $n+1$, so the sum telescopes. || Keep the first small and the last big term.
+E: $\sum_{n=1}^{10}\frac n{n^4+n^2+1}=\frac12\left(1-\frac1{111}\right)=\frac{55}{111}$.
 P: 13:31,44,45,94,96,106,154
 
-Q: If the term is a product reciprocal $\frac1{n(n+1)(n+2)}$ or $\frac1{(a+(n-1)d)(a+nd)}$
-F: \frac1{r(r+1)(r+2)}=\frac12\left(\frac1{r(r+1)}-\frac1{(r+1)(r+2)}\right)
+Q: If the general term is a reciprocal of a product of consecutive factors
+R: $\frac1{n(n+1)(n+2)}$, $\frac1{(1+(r-1)d)(1+rd)}$, $\frac{2n+1}{n^2(n+1)^2}$.
+F: \frac1{r(r+1)}=\frac1r-\frac1{r+1},\qquad\frac1{r(r+1)(r+2)}=\frac12\left(\frac1{r(r+1)}-\frac1{(r+1)(r+2)}\right)
+S: Write the term as a difference of two similar fractions (last factor minus first factor in the numerator). || Sum: everything cancels except the ends. || Divide by the constant you introduced.
+E: $\sum_{r=1}^{n}\frac{2r+1}{r^2(r+1)^2}=\sum\left(\frac1{r^2}-\frac1{(r+1)^2}\right)=1-\frac1{(n+1)^2}$.
 P: 13:102,104,119,153,125,30,97,67,122,101
 
-Q: If sums of powers / $\sum S_k$ are asked
-F: \sum n=\frac{n(n+1)}2,\ \sum n^2=\frac{n(n+1)(2n+1)}6,\ \sum n^3=\left[\frac{n(n+1)}2\right]^2
-N: Write $T_n$ as a polynomial in $n$ and sum term by term. Ratios like $\frac{\sum k(k+1)^2}{\sum k^2(k+1)}$: compute each.
+Q: If sums of powers or nested sums are asked
+R: $\sum k^3$, $\sum_{j}S_j$ with $S_k=\frac{1+2+\cdots+k}k$, $\sum\sum\min(i,j)$, ratios like $\frac{\sum k(k+1)^2}{\sum k^2(k+1)}$.
+F: \sum n=\frac{n(n+1)}2,\quad\sum n^2=\frac{n(n+1)(2n+1)}6,\quad\sum n^3=\left[\frac{n(n+1)}2\right]^2
+S: Simplify the general term into a polynomial in $n$. || Split and use the three standard sums. || Simplify the final polynomial.
+E: $S_k=\frac{k+1}2$, so $\sum_{k=1}^{10}S_k^2=\frac14\sum_{k=2}^{11}k^2=\frac14(506-1)=\frac{505}4$.
 P: 13:5,8,12,19,38,148,109,115,103,126
 
-Q: If it is a sequence by recurrence ($a_{n+2}=pa_{n+1}+qa_n$, …)
-F: \text{characteristic roots, or compute a few terms and spot the pattern / telescope}
+Q: If the sequence is defined by a recurrence
+R: $a_{n+2}=2a_{n+1}+a_n$, $2a_{n+2}=5a_{n+1}-3a_n$, $a_{n+1}=\frac12a_n+\ldots$.
+F: a_{n+2}=pa_{n+1}+qa_n\Rightarrow a_n=A\lambda_1^n+B\lambda_2^n\ (\lambda^2=p\lambda+q)
+S: For linear recurrences, solve $\lambda^2=p\lambda+q$ and write $a_n$ in closed form (fit $A,B$ from $a_0,a_1$). || For sums $\sum\frac{a_n}{k^n}$, multiply the recurrence by $\frac1{k^n}$ and sum both sides. || Otherwise, compute a few terms and look for a telescoping pattern.
 P: 13:89,93,116,118,120,123
 
-Q: If it asks the min of an expression with a fixed product or sum
-F: \text{AM–GM: split into equal parts, e.g. } 3x+2y=x+x+x+y+y
+Q: If you must find the minimum of an expression with a fixed product, or fixed sum
+R: "$x^3y^2=2^{15}$, least value of $3x+2y$", "minimum of $\frac{5x^2}2+\frac\alpha{x^5}$", "min of $2^{\sin x}+2^{\cos x}$".
+F: \text{AM}\ge\text{GM}:\ \frac{a_1+\cdots+a_n}n\ge\sqrt[n]{a_1\cdots a_n}
+S: Split the sum into equal parts that match the powers in the product: $3x+2y=x+x+x+y+y$. || Apply AM–GM to those parts. || The product of the parts is a known constant. || Equality holds when all parts are equal; check it is possible.
+E: $3x+2y\ge5\sqrt[5]{x^3y^2}=5\cdot2^3=40$, equality at $x=y=8$.
 P: 13:43,88,140,147,151,141
 
 Q: If infinite GPs of trig powers are involved
-F: \sum\cos^{2n}\theta=\frac1{\sin^2\theta},\quad\sum(-1)^n\tan^{2n}\theta=\cos^2\theta
+R: $\sum\cos^{2n}\theta$, $\sum(-1)^n\tan^{2n}\theta$, $\sum\cos^{2n}\theta\sin^{2n}\phi$.
+F: \sum_{n\ge0}r^n=\frac1{1-r}:\ \sum\cos^{2n}\theta=\frac1{\sin^2\theta},\ \sum(-1)^n\tan^{2n}\theta=\cos^2\theta
+S: Identify the common ratio and check $|r|<1$ in the given interval. || Write each sum as $\frac1{1-r}$. || Relate the sums ($x$, $y$, $z$) using identities.
 P: 13:49,77,23,80,136
 
-Q: If it counts/ sums numbers with divisibility conditions
-F: |A\cup B|=|A|+|B|-|A\cap B|;\ \ \text{sum of multiples of } k \text{ in a range is an AP}
+Q: If it counts or sums numbers with divisibility conditions
+R: "neither a multiple of 3 nor of 4 in $[100,700]$", "HCF$(\alpha,24)=1$", "common terms of two APs".
+F: |A\cup B|=|A|+|B|-|A\cap B|;\quad\text{common terms of two APs form an AP with } d=\operatorname{lcm}(d_1,d_2)
+S: Count multiples with $\left[\frac Nk\right]$ differences. || Use inclusion–exclusion. || Sums of multiples form APs: use $\frac n2(\text{first}+\text{last})$. || For common terms, find the first common term and step by the LCM.
 P: 13:1,113,128,33,59,130,64
 
-Q: Grid/arrangement and other special series
-F: \text{row } k \text{ ends at } \frac{k(k+1)}2;\ \ \sum_{i,j}\min(i,j)+\max(i,j)=\sum(i+j)
+Q: Special series (grids, rows, mixed patterns)
+R: Numbers arranged in rows, $[\sqrt1]+[\sqrt2]+\cdots$, alternating squares, "sets $\{3\},\{6,9,12\},\ldots$".
+F: \text{row } k \text{ ends at } \frac{k(k+1)}2;\quad\left[\sqrt n\right]=k\ \text{for } k^2\le n<(k+1)^2
+S: Find how many terms are in each block/row. || Write the first and last term of a block. || Sum each block as an AP and then sum over blocks.
 P: 13:60,99,100,110,114,117,124,143,144,62,66,69,78,85,90,92,121,25,32,34

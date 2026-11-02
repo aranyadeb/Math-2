@@ -1,16 +1,24 @@
-@ det | Determinants | 12 | Algebra
+@ det | Determinants & Linear Systems | 12 | Algebra
 
 ## If this type comes, solve like this
 Q: If a $3\times3$ system with parameters must have infinitely many solutions
-F: \Delta=0\ \text{and}\ \Delta_x=\Delta_y=\Delta_z=0
-N: 1) $\Delta=0$ gives $\lambda$. 2) Then one of $\Delta_x$, $\Delta_y$, $\Delta_z$ $=0$ gives $\mu$. Quick check: the third equation must be a combination $p\,E_1+q\,E_2$ — find $p,q$ from two coefficients, then match the rest.
+R: "The system $x+5y-z=1$, $4x+3y-3z=7$, $24x+y+\lambda z=\mu$ has infinitely many solutions; find $\lambda,\mu$".
+F: \text{infinitely many}\iff D=0\ \text{and}\ D_x=D_y=D_z=0
+S: Set the coefficient determinant $D=0$; this gives the parameter in the coefficients ($\lambda$). || Find the constant-side parameter ($\mu$) from $D_x=0$ (or $D_y$, $D_z$). || Faster: write the third equation as $p\cdot$(first) $+\,q\cdot$(second); find $p,q$ from two columns, then read $\lambda$ and $\mu$. || If integer solutions are asked, write the general solution with one free variable and impose the conditions.
+E: $p+4q=24$, $5p+3q=1$ ⇒ $p=-4$, $q=7$. Then $\lambda=-p-3q=-17$ and $\mu=p+7q=45$.
+H: Trap: $D=0$ alone does not guarantee infinitely many solutions — it may be inconsistent.
 P: 12:1,4
 
-Q: If the system must have no solution / a unique solution
-F: \text{unique}: \Delta\ne0;\qquad\text{none}: \Delta=0\ \text{and some } \Delta_i\ne0
-N: Find all $\lambda$ with $\Delta=0$, then test each one in a $\Delta_i$.
+Q: If the system must have no solution (or a unique solution)
+R: "Set of $\lambda$ for which the system has no solution", "unique solution for all $\lambda$ except…".
+F: \text{unique}\iff D\ne0;\qquad\text{no solution}\iff D=0\ \text{and some } D_i\ne0
+S: Compute $D$ as a polynomial in the parameter and find its roots. || For each root, test consistency: compute one $D_i$, or combine the equations to see a contradiction like $x+y+z=6$ and $x+y+z=4$. || Roots that give a contradiction → no solution; roots with all $D_i=0$ → infinitely many (for these simple systems). || Unique solution for all other values.
+E: $2x-y+2z=2$, $x-2y+\lambda z=-4$, $x+\lambda y+z=4$: $D=-2\lambda^2+\lambda+1=0\Rightarrow\lambda=1,-\frac12$. At $\lambda=1$: (first − second) gives $x+y+z=6$, contradicting the third. Both roots give no solution.
 P: 12:2,3
 
-Q: If $ax+by+c=0$ with $a,b,c$ in AP (or GP) — concurrent lines
-F: a-2b+c=0\Rightarrow\text{all lines pass through } (1,-2)
+Q: If lines $ax+by+c=0$ have $a,b,c$ in AP (or another linear relation), so they are concurrent
+R: "For any three consecutive terms $a,b,c$ of an AP, the lines $ax+by+c=0$ are concurrent at $P$".
+F: a-2b+c=0\Rightarrow ax+by+c=0 \text{ passes through } (1,-2)
+S: Write the relation as $a\cdot1+b\cdot(-2)+c=0$. || Compare with $ax+by+c=0$: the fixed point is $(x,y)=(1,-2)$. || Use that point in the rest of the problem (system of equations, distance…).
+E: AP: $2b=a+c$ ⇒ every such line passes through $P(1,-2)$.
 P: 12:5

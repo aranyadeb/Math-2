@@ -1,36 +1,85 @@
 @ de | Differential Equations | 12 | Calculus
 
 ## If this type comes, solve like this
-Q: If it is linear in $y$ (or in $x$) after rearranging
-F: \frac{dy}{dx}+Py=Q\Rightarrow y\,e^{\int P}=\int Qe^{\int P}dx+C
-N: Divide by the coefficient of $dy$. If $x$ and $y$ swap roles (e.g. $(\ln\cos y)^2\cos y\,dx-\ldots dy$), write $\frac{dx}{dy}+Px=Q$. Recognise $f'(y)\frac{dy}{dx}+Pf(y)=Q$ ⇒ put $t=f(y)$ (e.g. $t=\frac1{\ln\cos x}$).
-P: 25:1,3,5,8,10,9,7
+Q: If the equation is linear in $y$ after rearranging ($\frac{dy}{dx}+P(x)y=Q(x)$)
+R: "$\cos x(3\sin x+\cos x+3)dy=(1+y\sin x(3\sin x+\cos x+3))dx$", "$(x-x^3)dy=(y+yx^2-3x^4)dx$", a long fraction multiplying $y$ that simplifies.
+F: \frac{dy}{dx}+Py=Q\ \Rightarrow\ y\cdot e^{\int P}=\int Q\,e^{\int P}dx+C
+S: Divide to get the form $\frac{dy}{dx}+P(x)y=Q(x)$ (coefficient of $\frac{dy}{dx}$ equal to 1). || Find the integrating factor $e^{\int Pdx}$ (simplify $P$ with partial fractions or by spotting a derivative). || Multiply and integrate: $y\cdot\text{IF}=\int Q\cdot\text{IF}\,dx+C$. || Use the initial condition for $C$, then evaluate.
+E: First example: $\frac{dy}{dx}-y\tan x=\frac{\sec x}{3\sin x+\cos x+3}$, IF $=\cos x$, so $y\cos x=\int\frac{dx}{3\sin x+\cos x+3}$.
+P: 25:1,3,10
 
-Q: If variables separate (possibly after partial fractions)
-F: \int\frac{dy}{g(y)}=\int f(x)\,dx
-N: $(x^2-4)dy=(y^2-3y)dx$: $\frac{dy}{y(y-3)}=\frac{dx}{x^2-4}$, both sides by partial fractions.
-P: 25:2,26
+Q: If the equation is linear in $x$ (or in $\frac1{\ln\cos x}$) rather than in $y$
+R: "$(\ln\cos y)^2\cos y\,dx-(1+3x\ln\cos y)\sin y\,dy=0$, solution $x=x(y)$", "$\cos x(\ln\cos x)^2dy+(\sin x-3y\sin x\ln\cos x)dx=0$".
+F: \frac{dx}{dy}+P(y)x=Q(y)
+S: If $x$ appears only to the first power, treat $x$ as the dependent variable and write $\frac{dx}{dy}+P(y)x=Q(y)$. || Integrating factor $e^{\int P(y)dy}$ (here a power of $\ln\cos y$). || Solve and use the given point.
+P: 25:5,8
 
-Q: If it is homogeneous ($\frac{dy}{dx}=F(\frac yx)$)
-F: y=vx\Rightarrow v+x\frac{dv}{dx}=F(v)
-P: 25:6,12,13,17,28,23
+Q: If $f'=af+b$, or an integral equation reduces to a linear DE
+R: "$f'(x)=3f(x)+\alpha$, $f(0)=1$, $\lim_{x\to-\infty}f=7$", "$F(x)=e^{-x}\int_3^x(3t^2+2t+4F'(t))dt$".
+F: f'=af+b\Rightarrow f=\left(f(0)+\frac ba\right)e^{ax}-\frac ba
+S: For integral equations, multiply out the factor and differentiate both sides to get a DE. || Solve the linear DE. || Use the given value and limit to fix constants.
+E: $f=(1+\frac\alpha3)e^{3x}-\frac\alpha3$; limit at $-\infty$ gives $\alpha=-21$; $9f(-\ln3)=9\left(7-\frac6{27}\right)=61$.
+P: 25:9,7
 
-Q: If it is Bernoulli or contains $(x+y)$ / $(y+1)$ combinations
-F: \frac{dy}{dx}+Py=Qy^n\Rightarrow z=y^{1-n};\ \ \text{put } v=x+y\ \text{or } v=y+1
-P: 25:4,11,26
+Q: If the variables separate (possibly after partial fractions)
+R: "$(x^2-4)dy-(y^2-3y)dx=0$", "$\frac{dy}{dx}=\ldots$ with a product of a function of $x$ and a function of $y$".
+F: \int\frac{dy}{g(y)}=\int f(x)dx+C
+S: Bring all $y$ terms to one side and all $x$ terms to the other. || Use partial fractions: $\frac1{y(y-3)}=\frac13\left(\frac1{y-3}-\frac1y\right)$. || Integrate both sides; use the initial condition. || Solve for $y$ (watch the sign of the modulus from the initial point).
+E: $\frac13\ln\left|\frac{y-3}y\right|=\frac14\ln\left|\frac{x-2}{x+2}\right|+C$.
+P: 25:2
 
-Q: If geometry of tangents/normals gives the DE (intercepts, slopes)
-F: \text{tangent meets } y\text{-axis at } y-xy';\ \ x\text{-axis at } x-\tfrac y{y'}
+Q: If the equation is homogeneous ($\frac{dy}{dx}=F(\frac yx)$)
+R: "$(3y^2-5x^2)y\,dx+2x(x^2-y^2)dy=0$", "$x\tan\frac yx\,dy=(y\tan\frac yx-x)dx$", "$x\,dy-y\,dx=\sqrt{x^2-y^2}dx$", "$2xy\frac{dy}{dx}=y^2-x^2$".
+F: y=vx\Rightarrow\frac{dy}{dx}=v+x\frac{dv}{dx};\quad x\,dy-y\,dx=x^2d\left(\frac yx\right)
+S: Check that every term has the same total degree. || Put $y=vx$ and simplify: you get $x\frac{dv}{dx}=G(v)$. || Separate: $\int\frac{dv}{G(v)}=\int\frac{dx}x$. || Put $v=\frac yx$ back and use the initial condition. || Shortcut: $x\,dy-y\,dx$ means $d(\frac yx)$.
+E: $\frac{x\,dy-y\,dx}{x^2}=\frac{\sqrt{1-(y/x)^2}}xdx$ ⇒ $\sin^{-1}\frac yx=\ln x$ ⇒ $y=x\sin(\ln x)$.
+P: 25:6,12,13,17
+
+Q: If it is homogeneous only after shifting the origin ($\frac{dy}{dx}=\frac{x+y-2}{x-y}$) or with $(x+2)$, $(y+1)$ blocks
+R: "$\frac{dy}{dx}=\frac{x+y-2}{x-y}$ through $(2,1)$", "$\left((x+2)e^{\frac{y+1}{x+2}}+(y+1)\right)dx=(x+2)dy$".
+F: X=x-h,\ Y=y-k\ \text{where the two lines meet}
+S: Solve the numerator and denominator lines simultaneously to get $(h,k)$. || Shift: $X=x-h$, $Y=y-k$; the equation becomes homogeneous. || Put $Y=vX$ and solve. || Shift back.
+E: $x+y-2=0$, $x-y=0$ meet at $(1,1)$: $\frac{dY}{dX}=\frac{X+Y}{X-Y}$ ⇒ $\tan^{-1}\frac YX=\frac12\ln(X^2+Y^2)+C$.
+P: 25:23,28
+
+Q: If it is a Bernoulli equation ($\frac{dy}{dx}+Py=Qy^n$)
+R: "$\frac{dy}{dx}=(y+1)\big((y+1)e^{x^2/2}-x\big)$", a power of $y$ (or of $y+1$) on the right.
+F: w=y^{1-n}\Rightarrow\frac{dw}{dx}+(1-n)Pw=(1-n)Q
+S: Put $u=y+1$ if needed so it is $\frac{du}{dx}+Pu=Qu^n$. || Substitute $w=u^{1-n}$: the equation becomes linear in $w$. || Solve the linear equation, go back to $y$.
+E: $u=y+1$, $w=\frac1u$: $\frac{dw}{dx}-xw=-e^{x^2/2}$, so $we^{-x^2/2}=-x+C$.
+P: 25:4
+
+Q: If the equation contains $(x+y)$ or $(x+y+c)$ as a block
+R: "$\frac{dy}{dx}=2x(x+y)^3-x(x+y)-1$", "$(x+y+2)^2dx=dy$".
+F: v=x+y+c\Rightarrow\frac{dv}{dx}=1+\frac{dy}{dx}
+S: Put $v$ = the block; then $\frac{dv}{dx}=1+\frac{dy}{dx}$. || The equation becomes separable or Bernoulli in $v$. || Solve and substitute back.
+E: $\frac{dv}{dx}=2xv^3-xv$; with $w=v^{-2}$: $w=2-e^{x^2}$, so $(x+y)^2=\frac1{2-\sqrt e}$ at $x=\frac1{\sqrt2}$.
+P: 25:11,26
+
+Q: If tangent/normal geometry or an area condition gives the DE
+R: "Tangent at $P$ meets the axes at $A$, $B$ with $P$ the midpoint", "slope of the tangent at $(x,y)$ is given", "area under $y=f(x)$ from 0 to $a$ is $e^{-a}+4a^2+a-1$".
+F: \text{tangent: } Y-y=y'(X-x);\ \text{x-intercept } x-\frac y{y'},\ \text{y-intercept } y-xy';\ \ \frac d{da}\int_0^af=f(a)
+S: Write the tangent (or normal) line at a general point $(x,y)$. || Express the given geometric condition (intercepts, distances, midpoint) as an equation in $x,y,y'$. || For area conditions, differentiate with respect to the upper limit. || Solve the DE with the given point.
+E: Area condition ⇒ $f(x)=-e^{-x}+8x+1$, so $y'=e^{-x}+8=8x+9-y$.
 P: 25:16,21,24
 
-Q: If order/degree or forming the DE of a family
-F: \text{order}=\#\text{arbitrary constants};\ \text{eliminate them by differentiating}
+Q: If the order and degree, or the DE of a family of curves, is asked
+R: "Degree − order for $y^2=a(x+\frac{\sqrt a}2)$", "DE of circles through the origin with centre on $y=x$", "parabolas with axis parallel to the y-axis and given latus rectum".
+F: \text{order}=\text{number of independent constants};\ \ \text{degree: power of the highest derivative after removing radicals}
+S: Count the arbitrary constants: that is the order. || Differentiate as many times and eliminate the constants. || Clear fractional powers of derivatives; the highest derivative's power is the degree.
+E: $a=2yy'$ ⇒ $(y^2-2xyy')^2=2y^3y'^3$: order 1, degree 3, difference 2.
 P: 25:18,22,25
 
-Q: If growth/cooling application
-F: \frac{dT}{dt}=-k(T-T_s)
+Q: If it is Newton's cooling or a growth/decay application
+R: "$\frac{dT}{dt}=-K(T-80)$, $T(0)=160$".
+F: T-T_s=(T_0-T_s)e^{-Kt}
+S: Separate: $\frac{dT}{T-T_s}=-Kdt$. || Use the given readings to find $K$. || Answer the time or temperature asked.
+E: $T=80+80e^{-Kt}$.
 P: 25:19
 
-Q: If an integral/limit equation defines the function
-F: \text{differentiate both sides (Leibniz) to get a DE}
+Q: If an integral equation or a special condition defines the function (solve by differentiating)
+R: "$\int_0^x\sqrt{1-(y')^2}dt=\int_0^xy\,dt$", "$f''=f$, $f$ odd, $f'(0)=3$", "$\cos(\frac12\cos^{-1}e^{-x})dx=\sqrt{e^{2x}-1}dy$", "$f$ defined by a limit", "parametric $x(t)$, $y(t)$; $\frac{1+y'^2}{y''}$".
+F: \frac d{dx}\int_0^xg(t)dt=g(x);\ \ f''=f\Rightarrow f=A\cosh x+B\sinh x;\ \ \cos\left(\tfrac12\cos^{-1}u\right)=\sqrt{\tfrac{1+u}2}
+S: Differentiate integral equations to get a DE. || Solve it with the conditions (oddness kills the $\cosh$ part). || Simplify trig of inverse trig first. || For limit definitions, the limit is a derivative; it gives a DE.
+E: $\sqrt{1-y'^2}=y\Rightarrow y=\sin x$ up to $\frac\pi2$, then $y=1$; at $x=2$: $y''+y+1=2$. And $f=3\sinh x$ gives $9f(\ln3)=36$.
 P: 25:14,15,20,27,29

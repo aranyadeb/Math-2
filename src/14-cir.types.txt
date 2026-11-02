@@ -1,42 +1,131 @@
 @ cir | Circles | 11 | Coordinate Geometry
 
 ## If this type comes, solve like this
-Q: If a circle touches the axes / a line at a given point
-F: \text{touches both axes: } (x\mp r)^2+(y\mp r)^2=r^2;\ \ \text{touches } L \text{ at } P:\ (x-x_1)^2+(y-y_1)^2+\lambda L=0
-P: 24:1,3,6,27,28,29,43
+Q: If a circle touches both coordinate axes
+R: "Circle of radius 3 in the third quadrant touching both axes", "two circles touching the axes cut an intercept 2 on $x+y=2$", "circle touches the axes at $A$, $B$ and passes through $P(\alpha,\beta)$".
+F: (x\mp r)^2+(y\mp r)^2=r^2\quad(\text{centre }(\pm r,\pm r)\text{ by quadrant})
+S: Write the centre as $(r,r)$ (first quadrant; change signs for other quadrants). || Use the extra condition: passes through a point → a quadratic in $r$ (two circles); cuts a chord of length $2\ell$ on a line → $r^2=\ell^2+d^2$ with $d$ the distance from centre to line. || Solve for $r$; both roots are usually needed.
+E: Chord 2 on $x+y=2$: $r^2=1+\frac{(2r-2)^2}2\Rightarrow r^2-4r+3=0$, $r=1,3$; $r_1^2+r_2^2-r_1r_2=7$.
+P: 24:1,28,29
 
-Q: If two circles: position, common tangents, range of $r$ for intersection
-F: |r_1-r_2|<d<r_1+r_2\ (\text{2 points});\ \ \text{tangents } 4,3,2,1,0 \text{ by } d \text{ vs } r_1\pm r_2
-P: 24:2,14,15,23,11
+Q: If a circle touches one axis at a given point and cuts an intercept on the other axis
+R: "Touches the x-axis 3 units from the origin and has intercept $6\sqrt3$ on the y-axis", "touches the x-axis at $(a,0)$ and cuts intercept $b$ on the y-axis".
+F: \text{touches x-axis at }(a,0):\ \text{centre }(a,\pm r);\quad\text{y-intercept}=2\sqrt{f^2-c}=2\sqrt{r^2-a^2}
+S: Touching the x-axis at $(a,0)$ puts the centre at $(a,r)$ or $(a,-r)$ (above/below the axis). || Intercept on the other axis: $2\sqrt{r^2-a^2}$. || Solve for $r$, then write the equation (expand to compare with $x^2+y^2+2gx+2fy+c=0$ if asked).
+E: Centre $(3,r)$: $2\sqrt{r^2-9}=6\sqrt3\Rightarrow r=6$; circle $(x-3)^2+(y-6)^2=36$.
+P: 24:3,27
 
-Q: If the angle of intersection or orthogonality is given
-F: \cos\theta=\frac{r_1^2+r_2^2-d^2}{2r_1r_2};\ \ \text{orthogonal: } 2g_1g_2+2f_1f_2=c_1+c_2
-P: 24:24,25
+Q: If a circle touches a given line at a given point (or touches two lines and passes through a point)
+R: "$C$ touches $x=2y$ at $(2,1)$ and the common chord with $C_1$ is a diameter of $C_1$", "touches $L_2$ at a point and centre on $L_1$", "touches $x+y=3$ and $x-y=3$ and passes through $(-9,4)$".
+F: (x-x_1)^2+(y-y_1)^2+\lambda L=0\ \ (\text{all circles touching } L=0 \text{ at }(x_1,y_1))
+S: Write the family: point circle at the contact point $+\lambda\cdot$(tangent line). || Use the second condition to find $\lambda$ (passes through a point, common chord through a centre, centre on a line). || For two tangent lines through a point: the centre lies on an angle bisector; set distance to each line $=r$ and the distance to the given point $=r$.
+E: Family $x^2+y^2-4x-2y+5+\lambda(x-2y)=0$; common chord with $C_1$ through $(0,-1)$ gives $\lambda=-7$; radius $\frac{7\sqrt5}2$, diameter $7\sqrt5$.
+P: 24:6,43,4
 
-Q: If a diameter of one circle is a chord of another / common chord
-F: \text{centre of the first lies on the common chord } S_1-S_2=0;\ \ \text{or } R^2=r^2+d^2
-P: 24:5,4,10,48,49
+Q: If two circles are compared: number of common tangents, touching, or range of $r$ for two intersection points
+R: "Number of common tangents to the two circles", "values of $r$ for which the circles meet at two points", "the circles touch internally at $P$".
+F: d>r_1+r_2:4,\ d=r_1+r_2:3,\ |r_1-r_2|<d<r_1+r_2:2,\ d=|r_1-r_2|:1,\ d<|r_1-r_2|:0
+S: Find both centres and radii ($r^2=g^2+f^2-c$). || Compute the distance $d$ between centres. || Compare $d$ with $r_1+r_2$ and $|r_1-r_2|$. || The point of contact divides $C_1C_2$ in the ratio $r_1:r_2$ (internally for external touching, externally for internal touching).
+E: Centres $(9,7.5)$, $(3,3)$; $r_1=2.5$, $r_2=5$, $d=7.5=r_1+r_2$: they touch externally, so 3 common tangents.
+P: 24:2,14,25
 
-Q: If tangents from a point / chord of contact / quadrilateral area
-F: L=\sqrt{S_1};\ \ \text{chord of contact } T=0;\ \ \text{area}=rL
-P: 24:12,22,40,41,42
+Q: If a line must separate two circles (circles on opposite sides)
+R: "$3x+4y-\lambda=0$ such that the two circles are on its opposite sides".
+F: L(C_1)\cdot L(C_2)<0,\ \ \frac{|L(C_i)|}{\sqrt{a^2+b^2}}\ge r_i
+S: The centres must be on opposite sides: product of $L$ values negative. || The line must not cut either circle: distance from each centre $\ge$ its radius. || Intersect all the conditions on $\lambda$.
+E: Centres $(1,1)$, $r=1$ and $(9,1)$, $r=2$: $|7-\lambda|\ge5$, $|31-\lambda|\ge10$, opposite signs ⇒ $\lambda\in[12,21]$.
+P: 24:11
 
-Q: If image of a circle / reflection / rolling the circle
-F: \text{reflect the centre; radius unchanged}
-P: 24:7,51,57
+Q: If two circles cut orthogonally, or the angle between them is given
+R: "Circles of radii 5 and 12 intersect at $90^\circ$; length of the common chord".
+F: \text{orthogonal}\iff d^2=r_1^2+r_2^2\iff2g_1g_2+2f_1f_2=c_1+c_2;\quad\text{common chord}=\frac{2r_1r_2}{\sqrt{r_1^2+r_2^2}}
+S: Use the orthogonality condition to relate the circles. || The common chord is twice the altitude of the right triangle $C_1PC_2$. || For a general angle $\theta$: $\cos\theta=\frac{r_1^2+r_2^2-d^2}{2r_1r_2}$.
+E: Common chord $=\frac{2\cdot5\cdot12}{13}=\frac{120}{13}$ cm.
+P: 24:24
 
-Q: If a locus (midpoints of chords, Apollonius $PA=kPB$, moving segment)
-F: \text{midpoint chords through } (p,q):\ T=S_1\ \text{through the point};\ \ PA=kPB\ (k\ne1)\Rightarrow\text{circle}
-P: 24:13,16,17,52,47
+Q: If a diameter of one circle is a chord of another, or the common chord is used
+R: "A diameter of $x^2+y^2-10x+4y+13=0$ is a chord of $C$ with given centre", "common chord of $C_1$ and $C_2$ meets the y-axis at…", "$PQ$ the intersection points; area of $C_1PC_2Q$".
+F: \text{common chord}: S_1-S_2=0;\ \ \text{diameter of } S_1 \text{ is a chord of } S:\ R^2=r_1^2+|CC_1|^2
+S: Common chord: subtract the two equations (with $x^2,y^2$ coefficients equal to 1). || If a diameter of $S_1$ is a chord of $S$, the centre of $S_1$ is the midpoint of that chord, so $R^2=r_1^2+(\text{distance between centres})^2$. || The common chord is perpendicular to the line of centres.
+E: $S_1$: centre $(5,-2)$, $r_1=4$; $C$ centre $(3,2)$: $R^2=16+20=36$, $R=6$.
+P: 24:5,49,15,23
 
-Q: If points are concyclic or a circle through 3 points
-F: \text{general circle through 3 points; check the 4th}
-P: 24:8,9,30,31,32,33
+Q: If the length of a chord (or a chord with a given midpoint) is asked
+R: "Chord with mid-point $(1,2)$", "$x+y=2$ cuts the circle at $P,Q$", "perpendicular bisector of $AB$ meets the circle at $C,D$", "$P$ on $C$ with $PQ=PR$".
+F: \text{chord}=2\sqrt{r^2-d^2};\quad\text{chord with midpoint } M:\ T=S_1
+S: Find the centre and radius. || Distance $d$ from the centre to the chord (or to the midpoint $M$). || Chord length $=2\sqrt{r^2-d^2}$. || The perpendicular bisector of any chord passes through the centre; a point equidistant from $Q$ and $R$ lies on it.
+E: Centre $(2,-4)$, $r^2=40$; $d^2$ to $(1,2)$ is $37$ ⇒ chord $2\sqrt3$.
+P: 24:10,48,42,40
 
-Q: If a figure is inscribed in a circle (square, rectangle, equilateral triangle)
-F: \text{diagonal}=\text{diameter};\ \ \text{equilateral: } R=\tfrac a{\sqrt3}
-P: 24:18,19,34,36,37
+Q: If tangents from an external point, the chord of contact, or the area of the tangent triangle is asked
+R: "Tangents at $A,B$ meet at the origin; area of $OAB$", "tangents touching at $A,B$ with $\angle AOB=\frac\pi3$".
+F: L=\sqrt{S_1},\ \ \text{chord of contact } T=0,\ \ \text{area of }\triangle PAB=\frac{rL^3}{r^2+L^2}
+S: Tangent length from $P$: $L=\sqrt{S_1}$. || Chord of contact: $T=0$ ($xx_1+yy_1+g(x+x_1)+f(y+y_1)+c=0$). || Area of the triangle formed by the two tangents and the chord of contact: $\frac{rL^3}{r^2+L^2}$. || Angle between tangents: $\tan\frac\theta2=\frac rL$.
+E: $x^2+y^2-4x+3=0$: $r=1$, $L=\sqrt3$ ⇒ area $=\frac{3\sqrt3}4$.
+P: 24:12,22
 
-Q: Mixed (max/min distance, circle in a quadrant, DE of circles)
-F: \text{max/min distance from } P: |CP|\pm r;\ \ \text{inside 4th quadrant: } |g|>r,\ |f|>r
-P: 24:20,21,26,35,38,39,44,45,46,50,53,54,55,56
+Q: If the image of a circle in a line, or a circle "rolled" along a tangent, is asked
+R: "Image of $x^2+y^2-2x+4y-4=0$ in $2x-3y+5=0$", "roll the circle 4 units along the tangent at $(3,2)$", "$x-y+1=0$ is the perpendicular bisector of $PQ$".
+F: \text{reflect only the centre; radius unchanged}
+S: Reflect the centre in the line (image formula). || Keep the same radius. || Rolling along a tangent moves the centre parallel to the tangent by the given distance. || If a line is the perpendicular bisector of $PQ$, then $Q$ is the image of $P$ — so the image of the circle meets the other line at $Q$.
+E: Centre $(1,-2)$ reflects to $(-3,4)$; radius 3.
+P: 24:7,51,41
+
+Q: If the locus of midpoints of chords (or of the foot of a perpendicular) is asked
+R: "Mid-points of chords of $x^2+(y-1)^2=1$ drawn from the origin", "chord $AB$ subtends a right angle at the origin; foot of perpendicular", "foot of perpendicular from $O$ on $AB$ where the circle passes through $O$".
+F: \text{midpoint } M \text{ of a chord through } P:\ CM\perp PM\Rightarrow M \text{ lies on the circle with diameter } CP
+S: Let the midpoint be $(h,k)$. || Use $CM\perp$ (chord): the chord through a fixed point $P$ gives the circle on diameter $CP$. || For "chord subtends $90^\circ$ at $O$", use $OM^2+CM^2=r^2$-type relations ($MA=MB=MO$). || Replace $(h,k)$ by $(x,y)$.
+E: Chords from $O$ of the circle with centre $(0,1)$: locus $x^2+y^2-y=0$; it meets $x+y=1$ at $(0,1)$, $(\frac12,\frac12)$, so $PQ=\frac1{\sqrt2}$.
+P: 24:13,52,33
+
+Q: If $PA=k\,PB$ (Apollonius) or a segment of fixed length moves with ends on a circle
+R: "Distance from $(5,0)$ is thrice the distance from $(-5,0)$", "segment $AB$ of length $\lambda$ with ends on a circle; locus of a dividing point".
+F: PA=kPB\ (k\ne1)\Rightarrow\text{circle};\quad\text{fixed chord length} \Rightarrow \text{its points move on concentric circles}
+S: Square the distance condition and simplify; read centre and radius. || For a chord of fixed length, the distance of its midpoint from the centre is fixed, and so is the distance of any dividing point (use Apollonius/Stewart).
+E: $(x-5)^2+y^2=9[(x+5)^2+y^2]\Rightarrow x^2+y^2+\frac{25}2x+25=0$, $r^2=\frac{525}4$.
+P: 24:16,17
+
+Q: If chords drawn from a point on the circle are bisected by a line
+R: "$x+y=0$ bisects two distinct chords drawn from $P$ on the circle; values of $a^2$".
+F: \text{midpoint } (t,-t):\ T=S_1;\ \ \text{two distinct midpoints}\Rightarrow D>0
+S: Let the midpoint on the line be $(t,-t)$. || The chord with that midpoint passes through $P$: substitute $P$ into $T=S_1$. || This is a quadratic in $t$; two distinct chords need two distinct real $t$: $D>0$.
+P: 24:47
+
+Q: If the circle passes through given points (concyclic points, circle through the origin and intercepts)
+R: "$(4,6),(-1,5),(0,0),(k,3k)$ lie on a circle", "circle through $A$, $B$ (axis intercepts) and $O$", "circle through $O$ with centre at the intersection of two perpendicular lines".
+F: \text{circle through } O,(a,0),(0,b):\ x^2+y^2-ax-by=0
+S: Through the origin: $c=0$, so $x^2+y^2+2gx+2fy=0$. || Substitute the other points to get $g,f$. || Put the fourth point to find the unknown. || When $OA\perp OB$, $AB$ is a diameter.
+E: Circle through $O,(4,6),(-1,5)$: $x^2+y^2-4x-6y=0$, $r^2=13$; $(k,3k)$ gives $k=\frac{11}5$; $10k+r^2=35$.
+P: 24:8,31,32,30
+
+Q: If a square, rectangle or equilateral triangle is inscribed in a circle (or a circle in a triangle)
+R: "Square inscribed in the circle with one side parallel to $y=x+3$", "rectangle with side $(1,2)$–$(3,6)$ inscribed, diameter $2x-y+4=0$", "equilateral triangle inscribed with area $27\sqrt3$", "incentre of $OAB$".
+F: \text{square: diagonal}=2r;\ \ \text{equilateral: side}=r\sqrt3;\ \ \sum|P_i|^2=n(|C|^2+r^2)\ \text{for a regular } n\text{-gon}
+S: The centre of the circle is the centre of the inscribed figure. || Use diagonal $=$ diameter (rectangle/square), side $=r\sqrt3$ (equilateral). || For a rectangle with a known side, the centre lies on the perpendicular bisector of that side and on the given diameter. || Incentre of a right triangle with legs $a,b$: $r=\frac{a+b-c}2$.
+E: Centre $(5,3)$, $r=2$: $\sum(x_i^2+y_i^2)=4(34+4)=152$.
+P: 24:18,19,34,36,37,9,57
+
+Q: If the circle must lie in a quadrant, or a point must be inside, or the radius has a range
+R: "$4x^2+4y^2-12x+8y+k=0$ lies inside the fourth quadrant and $(1,-\frac13)$ is on or inside", "radius $r\in(0,5]$ for $x^2+y^2+px+(1-p)y+5=0$".
+F: \text{inside a quadrant}\iff r<|\text{centre}_x|,\ r<|\text{centre}_y|;\ \ P\text{ inside}\iff S(P)<0
+S: Divide so the $x^2$ coefficient is 1; find centre and $r^2$. || Demand $r^2>0$. || To stay inside a quadrant, $r$ must be less than the distance to both axes. || Point on/inside: $S(P)\le0$. || Intersect the conditions.
+E: Centre $(\frac32,-1)$, $r^2=\frac{13-k}4$: need $r<1$ ⇒ $k>9$, and $S(1,-\frac13)\le0$ ⇒ $k\le\frac{92}9$.
+P: 24:20,38
+
+Q: If the maximum/minimum distance from a point (or line) to a circle is asked
+R: "Shortest distance of $(11,6)$ from the circle", "maximum of $\alpha\beta$ for perpendiculars from the ends of a diameter", "$PA^2+PB^2$ maximum for $P$ on a circle".
+F: \text{point at distance } d \text{ from the centre}:\ \min=|d-r|,\ \max=d+r
+S: Find the centre and radius (from the DE if the circle is given that way). || Compute $d$ from the external point to the centre. || Answer $|d-r|$ or $d+r$. || For expressions in a point on the circle, use $P=(h+r\cos\theta,k+r\sin\theta)$ and maximise.
+P: 24:21,39,54,50
+
+Q: If given lines are normals to the circle (pass through the centre) or tangents fix the radius
+R: "$y+2x=\ldots$ and $2y+x=\ldots$ are normals; a third line is tangent", "$OC\perp CP$ and $OC\perp CQ$".
+F: \text{normals meet at the centre};\ \ r=\text{distance from centre to a tangent}
+S: Intersect the normals to get the centre. || Radius $=$ perpendicular distance from the centre to the tangent. || Use perpendicularity conditions with the centre for the remaining parts.
+P: 24:46,26
+
+Q: Mixed circle problems with figures, parameters on the circle, or several circles
+R: Points $(2\cos\alpha,2\sin\alpha)$ with $\alpha-\beta=\frac\pi2$, chords of $C_1$ along $y=2x$, a figure with $OA=1$, $OB=13$, four circles M, N, O, P.
+F: \text{parametric point } (h+r\cos\theta,\ k+r\sin\theta);\ \ \text{angle in a semicircle}=90^\circ
+S: Use the parametric form for points on a circle. || Use angle in a semicircle, perpendicular from the centre bisects the chord, and power of a point. || Work out the asked length/area in coordinates.
+P: 24:35,44,45,53,55,56

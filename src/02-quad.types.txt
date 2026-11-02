@@ -1,64 +1,89 @@
 @ quad | Quadratic Equations | 11 | Algebra
 
 ## If this type comes, solve like this
-Q: If it gives $\alpha^n+\beta^n$ (or $P_n$, $S_n$, $a_n$) and asks for a ratio/combination of high powers
-F: aS_{n+2}+bS_{n+1}+cS_n=0
-N: 1) Write the recurrence from the equation. 2) Rewrite the asked expression so it becomes $aS_{n+2}+bS_{n+1}$ etc. 3) It collapses to a multiple of one $S_k$. For $\alpha^n-\beta^n$ the same recurrence holds.
-H: Trap: don't expand powers; with given $P_{10},P_9,P_8$ you can read off $a,b,c$ directly.
+Q: If the question gives $\alpha^n+\beta^n$ (called $P_n$, $S_n$ or $a_n$) and asks for a ratio or combination of very high powers
+R: You see $P_n=\alpha^n+\beta^n$ (or $\alpha^n-\beta^n$) with big indices like $P_{10}, P_{17}, a_{2024}$, and an expression such as $\frac{P_{17}P_{20}+kP_{17}P_{19}}{\ldots}$.
+F: \alpha,\beta\text{ roots of }ax^2+bx+c=0\ \Rightarrow\ aS_{n+2}+bS_{n+1}+cS_n=0
+S: Write the quadratic whose roots are $\alpha,\beta$. || Multiply $a\alpha^2+b\alpha+c=0$ by $\alpha^n$ and the same for $\beta$; adding gives the recurrence $aS_{n+2}+bS_{n+1}+cS_n=0$. || Look at the asked expression: group terms so they look like $aS_{n+2}+bS_{n+1}$ — that equals $-cS_n$. || Everything collapses to a simple multiple of one $S_k$; cancel and finish.
+E: $\alpha,\beta$ roots of $x^2-x-1=0$, so $S_{n+2}=S_{n+1}+S_n$. Then $\frac{S_{10}-S_9}{S_8}=\frac{S_8}{S_8}=1$.
+N: If $P_{10},P_9,P_8$ are given numerically, the recurrence $P_{10}=pP_9+qP_8$ tells you $p,q$, i.e. the quadratic itself.
+H: Trap: do not try to expand $\alpha^{20}$; and for $\alpha^n-\beta^n$ the same recurrence still holds.
 P: 01:1,17,28,31,33,53,3,56,21
 
-Q: If it asks for a new quadratic whose roots are a function of $\alpha,\beta$
-F: x^2-(\text{sum of new roots})x+(\text{product of new roots})=0
-N: 1) Get $\alpha+\beta$, $\alpha\beta$. 2) Express the new sum and product symmetrically. 3) For simple maps ($\frac1\alpha$, $k\alpha$, $\alpha+k$) just substitute $x\to\frac1x$, $\frac xk$, $x-k$ in the original.
+Q: If it asks you to form a new quadratic whose roots are some function of $\alpha$ and $\beta$
+R: "Find the equation whose roots are $\frac1\alpha,\frac1\beta$" or "$\alpha^4+\beta^4$ and $\frac{1}{10}(\alpha^6+\beta^6)$" or "$\frac{3\alpha}{\beta}$ and $\frac{4\alpha}{\gamma}$".
+F: x^2-(\text{sum of new roots})\,x+(\text{product of new roots})=0
+S: From the given equation write $\alpha+\beta=-\frac ba$ and $\alpha\beta=\frac ca$. || Express the sum and the product of the new roots in terms of $\alpha+\beta$ and $\alpha\beta$ (use $\alpha^2+\beta^2=(\alpha+\beta)^2-2\alpha\beta$ etc.). || Write $x^2-(\text{sum})x+\text{product}=0$. || Shortcut for simple maps: roots $\frac1\alpha$ → replace $x$ by $\frac1x$; roots $k\alpha$ → replace $x$ by $\frac xk$; roots $\alpha+k$ → replace $x$ by $x-k$.
+E: $x^2-3x+2=0$ has roots $1,2$. Roots doubled: replace $x\to\frac x2$: $\frac{x^2}4-\frac{3x}2+2=0\Rightarrow x^2-6x+8=0$ (roots $2,4$ ✓).
 P: 01:2,7,8,19,32,24,30,50,55
 
-Q: If roots must lie in an interval, on one side of $k$, or both be positive
-F: D\ge0,\ \ af(k)\gtrless0,\ \ \text{vertex } -\tfrac b{2a}\ \text{vs } k
-N: Draw the parabola. Write three conditions: discriminant, sign of $af$ at the end points, position of the vertex. Exactly one root in $(p,q)$: $f(p)f(q)<0$. Intersect all conditions.
-H: Trap: leading coefficient may be negative or zero — check $a=0$ separately.
+Q: If the roots must lie in an interval, both be greater/less than a number, or have the same sign
+R: Phrases like "both roots lie in $[1,5]$", "one root in $(0,2)$ and the other in $(2,3)$", "both roots positive", "$k$ lies between the roots".
+F: \text{Conditions use } D,\ \ af(k),\ \ \text{vertex } x=-\tfrac b{2a}
+S: Sketch the parabola $y=f(x)$ (opening up if $a>0$). || Both roots in $(p,q)$: $D\ge0$, $af(p)>0$, $af(q)>0$, $p<-\frac b{2a}<q$. || One root in $(p,q)$ only: $f(p)\,f(q)<0$. || $k$ between the roots: $af(k)<0$ (no need to check $D$). || Both positive: $D\ge0$, sum $>0$, product $>0$. || Intersect all conditions and count the allowed parameter values.
+E: Roots of $x^2-mx+4=0$ both in $[1,5]$: $D=m^2-16\ge0$, $f(1)=5-m\ge0$, $f(5)=29-5m\ge0$, $1\le\frac m2\le5$ ⇒ $m\in[4,5]$.
+H: Trap: if the leading coefficient contains the parameter, multiply by $a$ (use $af(k)$), and check the case $a=0$ separately.
 P: 01:4,5,12,20,52,60
 
-Q: If two quadratics share a root
-F: \frac{\alpha^2}{b_1c_2-b_2c_1}=\frac{\alpha}{c_1a_2-c_2a_1}=\frac1{a_1b_2-a_2b_1}
-N: Fastest route in JEE: subtract the equations to kill $x^2$ and get the common root $\alpha$ linearly, substitute back. Then use Vieta in each equation for the other roots.
+Q: If two quadratics have a common root
+R: Two equations are given, with sentences like "$\alpha,\beta$ are roots of the first and $\alpha,\gamma$ are roots of the second".
+F: \text{Common root: subtract the equations (after equalising the } x^2 \text{ coefficients)}
+S: Make the $x^2$ coefficients equal and subtract: the $x^2$ terms cancel, giving a linear equation that gives the common root $\alpha$. || Put $\alpha$ back in one equation to get the parameter. || Use sum/product of roots in each equation to get the other roots $\beta$, $\gamma$. || Answer the asked combination.
+E: $x^2-x+2\lambda=0$ and $3x^2-10x+27\lambda=0$ share $\alpha$. $3\times$first − second: $7x-21\lambda=0\Rightarrow\alpha=3\lambda$; put in the first: $9\lambda^2-3\lambda+2\lambda=0\Rightarrow\lambda=\frac19$.
+H: Trap: "both roots common" means the coefficients are proportional — a different condition.
 P: 01:18,19,41,42,43,54
 
-Q: If the equation is in $e^x$, $a^x$, $(\sqrt3+\sqrt2)^x$ or $\tan^2x$ etc.
-F: t=e^x>0,\quad(\sqrt3+\sqrt2)^x\cdot(\sqrt3-\sqrt2)^x=1\Rightarrow t+\tfrac1t=k
-N: 1) Substitute $t$. 2) Solve the polynomial in $t$ (reciprocal equations: divide by $t^2$, put $u=t+\frac1t$). 3) Keep only $t$ in the allowed range ($t>0$). Count $x$ values.
-H: Trap: each valid $t$ gives one $x$ for $e^x$, but two for $x^2-4$ inside the exponent.
+Q: If the equation is in $e^x$, $a^x$, $(\sqrt3+\sqrt2)^x$, $9^{\tan^2x}$ etc. and asks for the number or sum of real solutions
+R: Exponentials with the same base appear in powers like $e^{4x},e^{3x},e^{2x},e^x$, or pairs whose product is $1$ like $(\sqrt3+\sqrt2)^x$ and $(\sqrt3-\sqrt2)^x$.
+F: t=e^x>0;\qquad(\sqrt3+\sqrt2)(\sqrt3-\sqrt2)=1\Rightarrow t+\tfrac1t
+S: Substitute $t=a^x$ (always $t>0$). || If the polynomial in $t$ is palindromic (coefficients read the same both ways), divide by $t^2$ and put $u=t+\frac1t$ ($u\ge2$ for $t>0$). || Solve for $u$, then $t$; keep only positive $t$. || Each valid $t$ gives exactly one $x=\ln t$; count them (or add the $x$'s: $x_1+x_2=\ln(t_1t_2)$).
+E: $(\sqrt3+\sqrt2)^x+(\sqrt3-\sqrt2)^x=10$: $t+\frac1t=10\Rightarrow t=5\pm2\sqrt6=(\sqrt3\pm\sqrt2)^2$, so $x=\pm2$: two solutions.
+H: Trap: when the exponent is $x^2-4$ instead of $x$, each value of the exponent gives two values of $x$.
 P: 01:10,15,25,38,44,46,27,45,59,61,37
 
-Q: If it says "always positive / negative for all $x$" or "real roots" with a parameter
-F: ax^2+bx+c>0\ \forall x\iff a>0,\ D<0
-N: Write the conditions on the parameter, solve the inequalities, count integers if asked. For "equal roots", set $D=0$; note $x=1$ is often a root of $a(b-c)x^2+\cdots$ so roots are $1$ and $\frac{c}{a}\cdot\ldots$
+Q: If a quadratic expression with a parameter must be always positive, or must have real/equal roots
+R: "is positive for all $x\in\mathbb R$", "has equal roots", "has real roots", with the parameter inside the coefficients.
+F: ax^2+bx+c>0\ \forall x\iff a>0,\ D<0;\qquad\text{equal roots}\iff D=0
+S: Identify $a,b,c$ in terms of the parameter. || Write the needed conditions on $a$ and $D$. || Solve the inequalities and intersect. || Count integer values if asked; check $a=0$ separately (then it is linear).
+E: $(1+2m)x^2-2(1+3m)x+4(1+m)>0\ \forall x$: need $1+2m>0$ and $4(1+3m)^2-16(1+2m)(1+m)<0\Rightarrow m^2-6m-3<0$.
+N: For $a(b-c)x^2+b(c-a)x+c(a-b)=0$, $x=1$ is always a root (coefficients add to 0). Equal roots then means both roots are 1.
 P: 01:11,22,47,40
 
-Q: If it asks for the range of $\frac{a_1x^2+b_1x+c_1}{a_2x^2+b_2x+c_2}$
-F: y\cdot(\text{den})=\text{num}\Rightarrow\text{quadratic in } x,\ D\ge0
-N: Treat $y$ as a parameter, require real $x$, solve the inequality in $y$; exclude $y$ values that come only from excluded $x$.
+Q: If it asks the range of $y=\frac{a_1x^2+b_1x+c_1}{a_2x^2+b_2x+c_2}$
+R: A function defined as a ratio of two quadratics, and "range of $f$ is…".
+F: y(a_2x^2+b_2x+c_2)=a_1x^2+b_1x+c_1\ \Rightarrow\ D\ge0
+S: Put $y=f(x)$ and cross-multiply. || Collect as a quadratic in $x$: $(a_2y-a_1)x^2+(b_2y-b_1)x+(c_2y-c_1)=0$. || For real $x$ need discriminant $\ge0$; solve this inequality in $y$. || Check $y$ values that would need an excluded $x$ (zeros of the denominator) and the case where the $x^2$ coefficient vanishes.
 P: 01:9
 
-Q: If roots must be integers / rational
-F: D\ \text{is a perfect square};\ \ \text{irrational roots come in conjugate pairs}
-N: For $x^2+4x-n=0$: $D=16+4n$ must be a perfect square → list $n$. For integer-root pairs use $\alpha+\beta$, $\alpha\beta$ factor pairs.
+Q: If the roots must be integers or rational numbers
+R: "integral roots", "rational roots", "$\alpha,\beta\in\mathbb N$", or "if $2-\sqrt3$ is a root and $p,q\in\mathbb Q$".
+F: \text{rational roots}\iff D\ \text{is a perfect square};\quad\text{irrational roots come in pairs } p\pm\sqrt q
+S: For integer/rational roots, write $D$ and demand it be a perfect square; list the possibilities. || For a root like $2-\sqrt3$ with rational coefficients, the other root is $2+\sqrt3$; use sum and product. || For natural-number roots with a given sum, list factor pairs of the product.
+E: $x^2+4x-n=0$ has integer roots iff $16+4n$ is a perfect square, i.e. $n+4$ is a perfect square.
 P: 01:35,26,57,58
 
-Q: If the question is a cubic/symmetric value like $a^4+b^4+c^4$ from $\sum a$, $\sum ab$, $abc$
-F: p_k=e_1p_{k-1}-e_2p_{k-2}+e_3p_{k-3}
-N: Newton's identities: $p_1=e_1$, $p_2=e_1p_1-2e_2$, $p_3=e_1p_2-e_2p_1+3e_3$, $p_4=e_1p_3-e_2p_2+e_3p_1$.
+Q: If it asks a symmetric value like $a^4+b^4+c^4$ from $a+b+c$, $ab+bc+ca$, $abc$ (cubic roots)
+R: Three numbers (or three roots of a cubic) and the values of their elementary sums are given.
+F: p_1=e_1,\ p_2=e_1p_1-2e_2,\ p_3=e_1p_2-e_2p_1+3e_3,\ p_4=e_1p_3-e_2p_2+e_3p_1
+S: Write $e_1=a+b+c$, $e_2=ab+bc+ca$, $e_3=abc$. || Compute $p_1,p_2,p_3,p_4$ (power sums) one after the other with Newton's identities. || Substitute the numbers.
+E: $e_1=1,e_2=2,e_3=3$: $p_2=1-4=-3$, $p_3=-3-2+9=4$, $p_4=4+6+3=13$.
 P: 01:34,36
 
-Q: If it is a log / surd / modulus equation that becomes quadratic
-F: \log_{(x+1)}(\ldots)\ \text{factor the argument};\ \ \sqrt x=t;\ \ |x|=t
-N: Factor arguments (e.g. $2x^2+7x+5=(x+1)(2x+5)$), use $\log_ab\cdot\log_ba=1$ to get $t+\frac2t$ forms; then check domain (base $>0$, $\ne1$).
+Q: If a log, surd or modulus equation turns into a quadratic
+R: Logs with swapped bases ($\log_{(x+1)}\ldots$ and $\log_{(2x+5)}\ldots$), or $\sqrt x$ with $x$, or $|\sqrt x-3|$.
+F: \log_ab\cdot\log_ba=1;\qquad t=\sqrt x\ \text{or}\ t=|x|
+S: Factor the log arguments so the same two bases appear. || Put $t=\log_ab$; the other log becomes $\frac1t$; solve the quadratic in $t$. || For surds, put $t=\sqrt x\ge0$. || Check the domain at the end.
 P: 01:14,6
 
-Q: If it is a continued fraction $a+\frac1{b+\frac1{a+\cdots}}$
-F: y=a+\frac1{b+\frac1y}\Rightarrow\text{quadratic in } y,\ \text{take the positive root}
+Q: If the value of an infinite continued fraction is asked
+R: An expression like $4+\frac1{5+\frac1{4+\frac1{5+\cdots}}}$.
+F: y=a+\frac1{b+\frac1y}
+S: Call the whole value $y$. || After one full period ($a$, then $b$) the pattern repeats, so the tail equals $y$. || Simplify to a quadratic in $y$ and take the positive root.
+E: $y=4+\frac1{5+\frac1y}=4+\frac{y}{5y+1}\Rightarrow5y^2-20y-4=0\Rightarrow y=2+\frac{2\sqrt{30}}5$.
 P: 01:39
 
-Q: Odd-ones (polynomial with shifted terms, functional root conditions)
-F: \text{expand sums with } \sum k,\ \sum k^2;\ \ \alpha\mapsto\alpha^2-2\ \text{map: test fixed points and 2-cycles}
-N: For "whenever $\alpha$ is a root so is $\alpha^2-2$": roots are fixed points of $x^2-2=x$ or a 2-cycle; list the pairs.
+Q: Less common forms (shifted sums, root maps, polynomial composition)
+R: Equations built from sums like $x(x+2)+(x+1)(x+3)+\cdots$, or "whenever $\alpha$ is a root so is $\alpha^2-2$", or $(x^2-9x+11)^2-(x-4)(x-5)=3$.
+F: \text{use } \sum k,\ \sum k^2;\ \ \text{substitute a common block } u
+S: Expand sums using $\sum k=\frac{n(n+1)}2$ and $\sum k^2$ to get an ordinary quadratic. || For root maps, roots must be fixed points of the map or form a 2-cycle; list the cases. || For composite forms, put $u=$ the repeated block and solve in $u$ first.
 P: 01:49,48,23,16,13,62,51,29

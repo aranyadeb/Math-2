@@ -1,59 +1,240 @@
 @ pnc | Permutations & Combinations | 11 | Algebra
 
 ## If this type comes, solve like this
-Q: If it asks the rank of a word in dictionary order (or the word at a given rank)
-F: \text{rank}=1+\sum_{\text{positions}}(\#\text{smaller unused letters})\times\frac{(\text{remaining})!}{\text{repeats}!}
-N: Go left to right; at each position count words that start with a smaller available letter. Divide by factorials of repeated letters left.
-P: 16:1,58,64,66,65
+Q: If it asks the rank (serial number) of a word in dictionary order, or the word at a given rank
+R: "All letters of PUBLIC are arranged as in a dictionary; find the serial number of PUBLIC", or "the 50th word".
+F: \text{rank}=1+\sum(\text{letters smaller than the current one, still unused})\times(\text{remaining places})!
+S: Write the letters in alphabetical order. || For the first place, count the unused letters smaller than the word's first letter; each one starts $(n-1)!$ words. || Fix the actual first letter and repeat for the second place with $(n-2)!$, and so on. || Add everything and add $1$ for the word itself. || With repeated letters, each block is $\frac{(\text{remaining})!}{\text{repeats}!}$ instead of a plain factorial. || For "the $k$-th word", subtract block sizes from $k$ until you land inside a block.
+E: PUBLIC (B,C,I,L,P,U): B,C,I,L first → $4\cdot120=480$; P then B,C,I,L before U → $4\cdot24=96$; PUB; then C,I before L → $2\cdot2=4$; then C before I → $1$. Rank $=480+96+4+1+1=582$.
+H: Trap: forgetting the final "+1", and using letters that have already been used.
+P: 16:1,58,64
 
-Q: If letters of a word with repeats are arranged with together / not together conditions
-F: \frac{n!}{p!q!\cdots};\ \ \text{not together}=\text{total}-\text{together}
-N: Gap method for "no two X together": arrange others, choose gaps for X.
-P: 16:2,18,57,61,62,97,11,63
+Q: If numbers formed from given digits are written in increasing/decreasing order and the $k$-th number is asked
+R: "Six-digit numbers $x_1<x_2<\cdots<x_6$ arranged in increasing order; the 72nd number", "five-digit numbers from 1,2,3,5,7 in descending order; serial number of 35337".
+F: \text{numbers with strictly increasing digits from a set of } m \text{ digits}:\ \binom{m}{r}
+S: Count how many numbers start with the smallest possible first digit (a block). || Move to the next first digit until the cumulative count passes $k$. || Inside that block fix the second digit the same way. || Continue digit by digit; with repetition allowed each block has size (choices)$^{\text{places left}}$.
+E: Strictly increasing six digits from $1$–$9$: those starting with $1$ are $\binom86=28$, with $2$: $\binom76=7$… so cumulative counts tell you the first digit of the 72nd number.
+P: 16:65,66
 
-Q: If it selects letters from a word with repeated letters (selection, not arrangement)
-F: \text{case-split by pattern: all different / one pair / two pairs / \ldots}
-P: 16:3,57
+Q: If letters of a word must be arranged with some letters together or not together
+R: "MATHEMATICS such that C and S do not come together", "girls stand together, boys stand together", "all girls not together".
+F: \text{together: tie them as one unit};\quad\text{not together}=\text{total}-\text{together}
+S: Count the total arrangements, dividing by $p!q!\ldots$ for repeated letters. || For "together", glue the required letters into one block; arrange the block with the others, then multiply by the internal arrangements of the block. || "Not together" (for two items, or "all not together") = total − together. || "No two together" is different: use the gap method (arrange the others first, choose gaps).
+E: MATHEMATICS has M,A,T twice. Total $\frac{11!}{2!2!2!}$, CS together $\frac{10!\cdot2}{8}$. Not together $=\frac{11!-2\cdot10!}{8}=\frac{9\cdot10!}8=(6!)\cdot5670$.
+H: Trap: "all girls not together" ≠ "no two girls together".
+P: 16:2,61,62
 
-Q: If it counts numbers formed from digits with size or divisibility conditions
-F: \text{fix the leading digit(s) by cases};\ 3:\ \text{digit sum};\ 11:\ \text{alternating sum};\ 4:\ \text{last two digits}
-N: Split by the first digit relative to the bound (e.g. $>4321$). For divisibility by 11 with fixed digits, choose which digits go to odd/even places so the two sums differ by a multiple of 11.
-P: 16:4,5,6,12,13,19,20,21,32,33,40,41,44,55,59,31,42
+Q: If letters or digits with repeats are arranged with position rules (odd digits in even places, number must be odd)
+R: "Digits 1,1,2,2,2,2,3,4,4: odd digits occupy even places", "seven-digit odd numbers using 1,2,2,2,3,3,5", "sequences of 0,1,2 with exactly five 1s".
+F: \frac{n!}{p!\,q!\,r!}\ \text{(arrangements of } n \text{ objects with } p,q,r \text{ alike)}
+S: First fill the restricted positions (e.g. the even places, or the units place for "odd"). || Arrange the restricted items there, dividing by factorials of their repeats. || Arrange the remaining items in the remaining positions, again dividing by repeats. || Multiply; if the restricted place can take different digits, add the cases.
+E: Sequences of 10 terms with five 1s, three 2s and two 0s: $\frac{10!}{5!\,3!\,2!}=2520$.
+P: 16:18,11,63,73
 
-Q: If it counts digit-sum or digit-product conditions (sum of digits $=14$, product $=36$)
-F: x_1+\cdots+x_k=S,\ 0\le x_i\le9:\ \text{stars and bars minus overflow cases}
-N: For products, factor into digits ($36=4\cdot9=6\cdot6=2\cdot2\cdot9=\ldots$) and count arrangements of each multiset.
-P: 16:34,35,36,37,38,39,43,92
+Q: If $r$ letters are taken from a word with repeated letters and arranged (or only selected)
+R: "Words of 4 letters from DISTRIBUTION", "five alphabets chosen from MATHEMATICS", "6-letter words from MATHS where each letter used appears at least twice".
+F: \text{split into cases by the pattern of repeats: all different / one pair / two pairs / triple …}
+S: List the distinct letters and how many copies of each are available. || Make the pattern cases (for 4 letters: $abcd$, $aabc$, $aabb$, $aaab$, $aaaa$). || For each case: choose which letters fill the pattern, then (for words) multiply by $\frac{r!}{\text{repeats}!}$. || Add the cases. For pure selection, do not multiply by the arrangements.
+E: DISTRIBUTION (I×3, T×2, 7 others; 9 distinct): $abcd$: ${}^9P_4=3024$; $aabc$: $2\binom82\frac{4!}{2!}=672$; $aabb$: $\frac{4!}{2!2!}=6$; $aaab$: $8\cdot4=32$. Total $3734$.
+P: 16:57,97,3
 
-Q: If it selects a committee/team with at-least conditions
-F: \sum(\text{cases})\ {}^aC_i\,{}^bC_j
-P: 16:7,8,9,15,50,51,24
+Q: If it selects from objects of which some are identical and the rest are distinct
+R: "10 objects chosen from 31 objects, 10 identical and 21 distinct".
+F: \sum_{k=0}^{r}\binom{n}{k}\ \ (\text{choose } k \text{ distinct, fill the rest with identical ones})
+S: Let $k$ be the number of distinct objects chosen; the remaining $r-k$ are identical (only one way). || Sum $\binom nk$ over all allowed $k$. || Use symmetry $\binom nk=\binom n{n-k}$ to recognise half of $2^n$.
+E: $\sum_{k=0}^{10}\binom{21}{k}=\frac{2^{21}}2=2^{20}$.
+P: 16:78
 
-Q: If it distributes identical objects (integer solutions)
-F: x_1+\cdots+x_r=n,\ x_i\ge0:\ {}^{n+r-1}C_{r-1};\ \ \text{lower bounds: subtract first};\ \ \text{upper bounds: inclusion–exclusion}
-N: Distinct values ($x,y,z$ distinct): count all, subtract cases with equal values.
-P: 16:16,27,67,68,69,70,71,76,73
+Q: If it counts numbers greater/less than a given number or lying between two numbers
+R: "Four-digit numbers strictly greater than 4321 from 0,1,2,3,4,5 with repetition", "greater than 5000 and less than 9000", "greater than 50000 with first+last digit condition".
+F: \text{fix digits from the left: first digit larger, or equal and then the next digit larger …}
+S: Compare with the boundary number from the leftmost digit. || Case 1: first digit bigger than the boundary's first digit → remaining places free. || Case 2: first digit equal → go to the second digit and repeat. || Continue to the last digit; check whether the boundary itself is counted. || Combine with any divisibility condition at the end.
+E: $>4321$ from $\{0,\ldots,5\}$: first 5: $216$; 44__, 45__: $72$; 433_,434_,435_: $18$; 4322–4325: $4$. Total $310$.
+P: 16:4,12,33
 
-Q: If it distributes distinct objects into boxes/groups (possibly identical boxes)
-F: \text{distinct into identical non-empty boxes: Stirling } S(n,k);\ \ \text{into distinct boxes: } k^n \text{ (onto via inclusion–exclusion)}
-P: 16:17,25,74,75,72
+Q: If numbers must be divisible by 3, 4, 5, 11 or 15 (using given digits)
+R: "4-digit numbers from 1,2,3,5 divisible by 15", "7-digit multiples of 11 using 1,2,3,4,5,7,9", "6-digit palindromes divisible by 55", "3-digit numbers from 1,3,5,8 divisible by 3".
+F: 3\mid N\iff 3\mid\text{digit sum};\ 4: \text{last two digits};\ 11: (\text{odd-place sum})-(\text{even-place sum})\equiv0
+S: Translate the divisibility rule into a condition on the digits. || For 3: work with residues mod 3 of the available digits and count the ordered tuples whose residues add to 0. || For 11: split the digits into the odd-place group and even-place group with the required difference; arrange each group. || For 5: fix the last digit (0 or 5). || Multiply/add the cases.
+E: Digits 1,3,5,8 have residues 1,0,2,2. Three-digit strings with residue sum 0: $(0,0,0)$:1, $(1,1,1)$:1, $(2,2,2)$:$2^3=8$, $(0,1,2)$ arrangements: $6\cdot2=12$. Total $22$.
+P: 16:5,13,41,42,44
 
-Q: If geometry counting: triangles/lines from points on sides or a polygon
-F: {}^nC_3-\sum{}^{n_i}C_3\ \ (\text{remove collinear triples});\ \ \text{polygon triangles with no common side}: \frac{n(n-4)(n-5)}6
-P: 16:10,29,30,86,87,88,89
+Q: If it counts numbers divisible by $a$ or $b$ (or not divisible by $c$)
+R: "3-digit numbers divisible by 2 or 3 but not by 7", "4-digit numbers $\le2800$ divisible by 3 or by 11".
+F: |A\cup B|=|A|+|B|-|A\cap B|,\quad \#\{\text{multiples of } k \text{ in } [m,n]\}=\left\lfloor\frac nk\right\rfloor-\left\lfloor\frac{m-1}k\right\rfloor
+S: Count multiples of each number in the range with the floor formula. || Apply inclusion–exclusion with LCMs for the intersections. || For "but not by 7", subtract the numbers that are in the union and also multiples of 7 (again by inclusion–exclusion with $14, 21, 42$).
+E: 3-digit, by 2 or 3: $450+300-150=600$; of these divisible by 7: $64+43-21=86$. Answer $514$.
+P: 16:6,21
 
-Q: If it is a number-theory count (HCF, divisors of special form, $3^n\mid50!$)
-F: \text{Legendre: } \sum\left[\tfrac n{p^k}\right];\ \ \tau(N)=\prod(a_i+1)
-P: 16:22,23,43,45,46,93,47,48
+Q: If it asks the sum of all numbers formed by arranging given digits
+R: "Sum of all four-digit numbers formed using all the digits 2,1,2,3".
+F: \text{Sum}=(\text{sum of each place})\times111\ldots1
+S: Count the total arrangements. || Find how many times each digit appears in a given place (by symmetry it is the same for every place). || Place sum $=\sum(\text{digit}\times\text{its frequency})$. || Multiply by $1111$ (as many 1s as digits).
+E: 2,1,2,3: $12$ arrangements; in each place 2 appears 6 times, 1 and 3 three times each. Place sum $=12+3+9=24$; total $24\times1111=26664$.
+P: 16:20
 
-Q: If it involves subsets with sum/product conditions or no two consecutive
-F: \text{no two consecutive from } n:\ \text{Fibonacci } F_{n+2};\ \text{use residues mod } k \text{ for sums}
-P: 16:28,79,80,81,82,83,84
+Q: If it counts numbers with a repeated digit, a fixed digit at a place, or how often a digit is written
+R: "Three-digit numbers with one digit repeated exactly twice", "five-digit numbers with distinct digits and 2 at the tens place", "how many times is 2 written from 1 to 1000", "seven-digit numbers whose digit sum is even".
+F: \text{fill the restricted place first; the first digit} \ne0
+S: Fill the most restricted place first (the first digit cannot be 0). || For "exactly one digit repeated twice": choose the repeated digit, the other digits, then arrange with $\frac{n!}{2!}$, and remove arrangements starting with 0. || For "how often a digit is written", count place by place: each place shows the digit in $\frac1{10}$ of the numbers. || For parity of digit sum, the last digit can always be chosen to fix the parity: half the choices work.
+E: Digit 2 from 1 to 999: each of 3 places shows 2 in 100 numbers → $300$ (1000 adds none).
+P: 16:31,32,40,59,55
 
-Q: If it is circular seating or derangements
-F: (n-1)!;\ \ \text{girls not together at round table: } (b-1)!\cdot{}^bP_g;\ \ D_n=n!\sum\frac{(-1)^k}{k!}
-P: 16:85,91,52,53
+Q: If the sum of digits (or another digit relation) is fixed
+R: "3-digit numbers with digit sum 10", "integers between 100 and 1000 with digit sum 14", "3-digit odd numbers whose digit sum is a multiple of 7", "ATM pin with greatest digit 7 and first two digits adding to the last two".
+F: a+b+c=s,\ 1\le a\le9,\ 0\le b,c\le9:\ \text{stars and bars, then remove cases with a digit} >9
+S: Write the digits as unknowns with their ranges (first digit $\ge1$). || Shift the first digit ($a'=a-1$) so all start at 0. || Count with stars and bars $\binom{s+k-1}{k-1}$. || Subtract cases where some digit exceeds 9 (inclusion–exclusion). || For extra conditions (odd number, relation between digits), split into cases on the restricted digit.
+E: $a+b+c=10$: $a'+b+c=9$ gives $\binom{11}2=55$; remove $a'=9$ (i.e. $a=10$): $54$.
+P: 16:19,35,37,38,92,39
 
-Q: If it is a factorial/${}^nP_r$ identity or a sum like $\sum k\cdot{}^kP_k$
-F: k\cdot k!=(k+1)!-k!;\quad{}^nC_m+2\,{}^nC_{m+1}+{}^nC_{m+2}={}^{n+2}C_{m+2}
-P: 16:14,49,96,26,54,56,60,77,78,90,94,95
+Q: If the product of digits is fixed
+R: "5-digit numbers with product of digits 36", "5-digit numbers with product of digits 20".
+F: \text{list the multisets of digits with that product, then arrange each with } \frac{n!}{\text{repeats}!}
+S: Factorise the product into primes. || List all ways to write it as a product of $n$ digits from 1–9 (fill with 1s). || For each multiset count arrangements $\frac{n!}{p!q!\ldots}$. || Add.
+E: 3-digit numbers with product 6: $\{1,1,6\}$: 3 ways, $\{1,2,3\}$: 6 ways → $9$.
+P: 16:34,36
+
+Q: If a committee or team is chosen with "at least", "exactly" or "two people refuse to be together" conditions
+R: "Team of 2 girls and 3 boys where boys A and B refuse to be together", "at least 4 batsmen and 4 bowlers", "4 men and 4 women from two groups".
+F: \text{at least}:\ \text{add the separate cases (or total} - \text{none)};\ \ \text{A, B not together} = \text{total}-\text{both chosen}
+S: List the possible compositions that satisfy the conditions. || For each composition multiply the $\binom{n}{r}$ for each category. || For "two persons not together" subtract the selections that contain both. || Add over the cases.
+E: 5 girls, 7 boys: $\binom52\left[\binom73-\binom51\right]=10\cdot30=300$.
+H: Trap: "at least one boy" counted as "choose one boy, then any others" over-counts.
+P: 16:7,9,15,50
+
+Q: If balls are drawn with "at least $k$ of each colour", or questions are attempted with section limits
+R: "8 balls from 5 blue, 6 yellow, 4 red with at least two of each colour", "20 questions in 3 sections, attempt 15 with at least 4 from each", marks/score counting.
+F: \sum_{\text{cases}}\binom{n_1}{a}\binom{n_2}{b}\binom{n_3}{c},\quad a+b+c=r
+S: List every $(a,b,c)$ with $a+b+c=r$ that satisfies the lower and upper limits. || For each, multiply the binomial coefficients. || Add. || For scores: write correct/wrong/unattempted counts with an equation for the total marks and count each case.
+E: $(2,2,4),(2,3,3),(2,4,2),(3,2,3),(3,3,2),(4,2,2)$ give $150+800+900+600+1200+450=4100$.
+P: 16:8,51,24
+
+Q: If identical objects are distributed with lower bounds (each gets at least …)
+R: "21 identical apples among 3 children, each at least 2", "16 oranges to 4 children, each at least one", "$x+y+z=21$, $x\ge1,y\ge3,z\ge4$".
+F: x_1+\cdots+x_r=n,\ x_i\ge0:\ \binom{n+r-1}{r-1};\qquad x_i\ge1:\ \binom{n-1}{r-1}
+S: Give each person the minimum first; subtract from $n$. || The rest is a free distribution: $\binom{n'+r-1}{r-1}$. || Read whether objects are identical (stars and bars) or distinct (use powers/surjections instead).
+E: $x+y+z=21$, $x\ge1,y\ge3,z\ge4$: $x'+y'+z'=13$ → $\binom{15}2=105$.
+P: 16:16,68,70
+
+Q: If identical objects are distributed with upper bounds, or dice-sum counts
+R: "30 candies with $4\le C_2\le7$ and $2\le C_3\le6$", "number of ways to get a sum 16 on throwing a die four times".
+F: \text{count}=\text{free}-\sum(\text{one exceeds})+\sum(\text{two exceed})-\cdots\ \ \text{or coefficient of } x^n \text{ in } \prod(1+x+\cdots+x^{u_i})
+S: Shift lower bounds to 0. || Count without upper bounds. || Subtract cases where a variable exceeds its maximum (substitute $y=x-(u+1)$). || Add back double overlaps. || Or, for small cases, expand the generating function.
+E: Four dice, sum 16: $y_i=x_i-1\in[0,5]$, $\sum y_i=12$: $\binom{15}3-4\binom93+6\binom33=455-336+6=125$.
+P: 16:67,69
+
+Q: If the equation is unusual: weighted ($x+2y+3z=n$), distinct values, or a product $xyz=N$
+R: "$x+2y+3z=42$, $x,y,z\ge0$", "distinct non-negative $x,y,z$ with $x+y+z=15$", "positive integral solutions of $xyz=24$".
+F: xyz=p^aq^b:\ \binom{a+2}{2}\binom{b+2}{2}\ \text{ordered solutions}
+S: Weighted: fix the variable with the biggest weight, count the rest for each value, add. || Distinct: count all solutions, remove those with two equal, remove the all-equal case properly (then divide by $3!$ if unordered). || Product: distribute each prime's exponent among the variables by stars and bars and multiply.
+E: $xyz=24=2^3\cdot3$: $\binom52\cdot\binom31=10\cdot3=30$.
+P: 16:27,71,76
+
+Q: If distinct objects go into distinct boxes with none empty (or persons exit at floors)
+R: "Four different books into three different bags, no bag empty", "students divided into groups A, B, C each non-empty, $|C|\le3$", "persons exit a lift at floors".
+F: \text{onto maps } n\to r:\ \sum_{k=0}^{r}(-1)^k\binom rk(r-k)^n
+S: Without restriction each object has $r$ choices: $r^n$. || Remove distributions with some box empty using inclusion–exclusion. || For extra size limits, add the cases by sizes (choose who goes to the small box first).
+E: $3^4-3\cdot2^4+3\cdot1^4=81-48+3=36$.
+P: 16:74,75,25
+
+Q: If objects go into identical (indistinguishable) boxes
+R: "Five different employees into four indistinguishable offices", "8 identical books on 4 identical shelves".
+F: \text{distinct into identical: list the group sizes};\ \text{identical into identical: list the partitions of } n
+S: Distinct objects: list the size patterns (5 = 5, 4+1, 3+2, 3+1+1, …) up to the number of boxes; count each as $\frac{n!}{\prod a_i!\prod(\text{equal sizes})!}$. || Identical objects: just list the partitions of $n$ into at most $r$ parts.
+E: 5 employees, ≤4 offices: $1+15+25+10=51$.
+P: 16:17,72
+
+Q: If triangles/lines are formed from points on the sides of a triangle or on two lines
+R: "Sides AB, BC, CA have 3, 5, 6 interior points; number of triangles", "12 points on $L_1$, 9 points on $L_2$ plus O".
+F: \binom{N}{3}-\sum\binom{n_i}{3}\ \ (\text{remove collinear triples})
+S: Count all triples from all points. || Subtract triples taken from the same side/line (they are collinear). || Include or exclude the vertices/intersection point as the question says.
+E: $\binom{14}3-\binom33-\binom53-\binom63=364-1-10-20=333$.
+P: 16:10,29,88,87
+
+Q: If it counts triangles/diagonals in a polygon, or among points with some collinear
+R: "12 points with 5 collinear", "triangles from an octagon with no side common", "$p_{n+1}-p_n=66$".
+F: \text{diagonals}=\frac{n(n-3)}2,\quad\text{no side common}=\frac{n(n-4)(n-5)}6
+S: Total triangles $\binom n3$. || With $k$ collinear points subtract $\binom k3$ (and for lines subtract $\binom k2-1$). || For "no side common with the polygon" use the formula or subtract triangles with 1 or 2 polygon sides.
+E: Octagon: $\frac{8\cdot4\cdot3}6=16$.
+P: 16:30,86,89
+
+Q: If it asks the number (or type) of divisors, or the power of a prime in $n!$
+R: "Odd divisors of $2^x3^y5^z$", "divisors of the form $4n+1$", "largest $n$ with $3^n\mid50!$".
+F: N=\prod p_i^{a_i}:\ d(N)=\prod(a_i+1);\qquad\text{power of } p \text{ in } n!=\sum\left\lfloor\frac n{p^k}\right\rfloor
+S: Factorise $N$ into primes. || For all divisors multiply $(a_i+1)$; for odd divisors drop the factor of 2; for even divisors use $a_1$ instead of $a_1+1$. || For "$4n+1$" type, track residues mod 4 of each prime power. || For $n!$, add the floors until they become 0.
+E: $3^n\mid50!$: $16+5+1=22$.
+P: 16:45,46,93
+
+Q: If it counts or sums numbers with an HCF/GCD condition
+R: "Sum of $n$ with $100<n<200$ and $\gcd(91,n)>1$", "pairs of 2-digit numbers with gcd 6", "4-digit numbers whose gcd with 54 is 2".
+F: \gcd(N,n)>1\iff n \text{ shares a prime factor with } N
+S: Factorise the given number. || Translate the gcd condition into "multiple of" / "not a multiple of" conditions. || Count or sum with inclusion–exclusion over those primes.
+E: $91=7\cdot13$: multiples of 7 sum $2107$, of 13 sum $1196$, of 91: $182$; answer $2107+1196-182=3121$.
+P: 16:22,23,43
+
+Q: If it counts pairs whose sum leaves a given remainder
+R: "$x,y$ distinct in $1..25$ with $x+y$ divisible by 5", "$a$ even, $b$ odd with $a+b\equiv2\pmod{23}$".
+F: \text{group the numbers by remainder; pair class } r \text{ with class } (m-r)
+S: Sort the numbers into remainder classes and count each class. || List which pairs of classes give the required remainder. || Multiply class sizes (careful: same class with distinct numbers gives $k(k-1)$ ordered). || Add.
+E: Classes of size 5: $(0,0)$: $20$, $(1,4)$: $50$, $(2,3)$: $50$ → $120$ ordered pairs.
+P: 16:47,48
+
+Q: If it counts subsets whose sum or product has a property
+R: "Non-empty subsets of $\{1,2,3,4,5,6,9\}$ whose sum is not a multiple of 3", "subsets with at least 2 elements and even product".
+F: \text{even product} = \text{all} - \text{subsets of odd numbers only}
+S: Split the set by residue (mod 3) or by parity. || Elements of residue 0 (or the irrelevant ones) can be included freely: factor $2^k$. || Count the combinations of the other classes that give the required residue. || Use complement counting where it is simpler.
+E: Residues: 0:{3,6,9}, 1:{1,4}, 2:{2,5}. Choices from classes 1 and 2 with sum ≡0: $1+4+1=6$; times $2^3$ = 48. Not multiple of 3: $128-48=80$.
+P: 16:28,80
+
+Q: If subsets must have no two consecutive numbers
+R: "$S_n$ = subsets of $\{1,\ldots,n\}$ with no two consecutive numbers".
+F: \#\{k\text{-subsets, no two consecutive}\}=\binom{n-k+1}{k};\quad\text{all such subsets}=F_{n+2}
+S: For a fixed size $k$, use $\binom{n-k+1}{k}$ (gap method). || Sum over $k$, or use the recurrence $a_n=a_{n-1}+a_{n-2}$.
+E: $n=5$: $1+5+6+1=13$.
+P: 16:81
+
+Q: If it counts ordered pairs, polynomials or relation elements with a divisibility condition
+R: "$6^m+9^n$ multiple of 5", "$x^3+ax^2+bx+c$ divisible by $x^2+2$", "pairs from primes and their products with $x\mid y$".
+F: \text{reduce to a condition on remainders/parity, then count}
+S: Find the cycle of last digits (or residues) for each expression. || Translate into a condition on $m,n$ (e.g. parity). || Count pairs that satisfy it. || For polynomial divisibility, divide and set the remainder to zero; count the parameter values.
+P: 16:79,82,83,84
+
+Q: If people sit around a round table with conditions
+R: "5 girls and 7 boys around a table, no two girls together".
+F: (n-1)!\ \text{for } n \text{ around a table};\quad\text{gap method: } (b-1)!\cdot{}^bP_g
+S: Seat one group first around the table: $(b-1)!$. || This creates $b$ gaps. || Place the other group in the gaps: ${}^bP_g$.
+E: $6!\cdot{}^7P_5=720\cdot2520=1814400$.
+P: 16:85
+
+Q: If nobody gets his own seat/letter/hat (derangements)
+R: "None of the students sits on the allotted seat".
+F: D_n=n!\left(1-\frac1{1!}+\frac1{2!}-\cdots+\frac{(-1)^n}{n!}\right);\ D_1=0,D_2=1,D_3=2,D_4=9,D_5=44
+S: For "none correct" use $D_n$. || For "exactly $k$ correct": $\binom nk D_{n-k}$.
+E: $D_5=44$.
+P: 16:91
+
+Q: If it counts matches in a tournament or ways to win a series
+R: "Mixed doubles where no couple plays in a match: 840 matches", "first to win 5 games wins the series".
+F: \text{series won in game } k:\ \binom{k-1}{4}\ (\text{last game won})
+S: For matches, pick the men's pair and women's pair and arrange so no couple plays together. || For series, fix the last game as the winning game; distribute the other wins and losses among the earlier games. || Sum over the possible lengths of the series.
+P: 16:52,53
+
+Q: If it is an identity with ${}^nP_r$, ${}^nC_r$ or factorials
+R: "$1\cdot{}^1P_1+2\cdot{}^2P_2+\cdots+15\cdot{}^{15}P_{15}$", "${}^{n-1}P_3:{}^nP_4=1:8$", "compare $\frac{(4!)!}{(4!)^{3!}}$ and $\frac{(5!)!}{(5!)^{4!}}$".
+F: k\cdot k!=(k+1)!-k!,\quad{}^nP_r=\frac{n!}{(n-r)!},\quad\binom nr+\binom n{r+1}=\binom{n+1}{r+1}
+S: Write ${}^kP_k=k!$ and use $k\cdot k!=(k+1)!-k!$ to telescope. || Convert ratios of $P$'s and $C$'s to factorials and cancel. || Use Pascal's rule twice for $\binom nm+2\binom n{m+1}+\binom n{m+2}=\binom{n+2}{m+2}$. || Interpret $\frac{(mn)!}{(m!)^n}$ as the number of ways to split $mn$ objects into $n$ labelled groups (so it is an integer).
+E: $\sum_{k=1}^{15}k\cdot k!=16!-1$.
+P: 16:14,49,96
+
+Q: If it counts sequences, passwords or functions
+R: "Functions $\{1..100\}\to\{0,1\}$ assigning 1 to exactly one number $\le98$", "passwords of length 6–8 with conditions", "five letters chosen and written in alphabetical order with middle letter M".
+F: \text{functions } A\to B:\ |B|^{|A|};\ \text{arranged in a fixed order} \Rightarrow \text{just choose}
+S: Decide what is free and what is fixed for each position/element. || Multiply the choices. || When the order is forced (increasing, alphabetical), only the selection matters: use $\binom nr$. || Use complements for "at least one".
+E: Middle letter M: choose 2 from A–L and 2 from N–Z: $\binom{12}2\binom{13}2=66\cdot78=5148$.
+P: 16:26,54,56,60,77
+
+Q: Puzzle-type counts (balls in a triangle, letters in a figure, crashing computers)
+R: A story problem where the counting rule must be set up first.
+F: \text{model the story as a sum or an equation, then solve}
+S: Translate the story into a formula (triangular numbers $\frac{n(n+1)}2$, boxes per row, work = machines × days). || Solve the resulting equation. || For figures, count row by row with "no row empty" by complements.
+P: 16:90,94,95

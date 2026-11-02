@@ -1,24 +1,82 @@
 @ ell | Ellipse | 11 | Coordinate Geometry
 
 ## If this type comes, solve like this
-Q: If two of $e$, latus rectum, focal distance, directrix distance are given
-F: b^2=a^2(1-e^2),\ \ \text{LR}=\frac{2b^2}a,\ \ \text{foci } 2ae,\ \ \text{directrices } \frac{2a}e
-N: Turn every given quantity into an equation in $a$, $e$ (or $a$, $b$) and solve. Shifted ellipses: complete squares first.
-P: 21:3,4,6,7,8,9,11,16
+Q: If two of: eccentricity, latus rectum, distance between foci, distance between directrices are given
+R: "Distance between foci 6 and between directrices 12; latus rectum", "LR $=30$ and $e$ is the max of a function", "foci $(\pm5,0)$ and LR $\sqrt{50}$", "$\triangle S'BS$ right-angled at $B$".
+F: b^2=a^2(1-e^2),\ \ \text{foci } (\pm ae,0),\ \ \text{directrices } x=\pm\frac ae,\ \ \text{LR}=\frac{2b^2}a
+S: Translate each given fact into an equation in $a$, $b$, $e$ (foci distance $2ae$, directrices $\frac{2a}e$, LR $\frac{2b^2}a$). || Solve for $a$ and $e$ (often by multiplying or dividing two equations). || Get $b^2=a^2(1-e^2)$. || Answer what is asked. || Right angle at the end of the minor axis means $b=ae$, i.e. $e=\frac1{\sqrt2}$. || If the major axis is along y, swap the roles of $a$ and $b$.
+E: $ae=3$, $\frac ae=6$ ⇒ $a^2=18$, $e^2=\frac12$, $b^2=9$; LR $=\frac{18}{\sqrt{18}}=3\sqrt2$.
+H: Trap: for a vertical major axis (focus $(0,5\sqrt3)$), $b>a$ and $b^2e^2=b^2-a^2$.
+P: 21:3,4,6,9,11
 
-Q: If a chord with a given midpoint is asked
+Q: If the ellipse is not in standard form (shifted), or a focus/point gives the ellipse
+R: "$x^2+4y^2+2x+8y-\lambda=0$ has LR 4", "focus $S(4,0)$, $e=\frac45$, $P(3,\alpha)$ on $E$; area of $POS$", "passes through $(\sqrt{\frac32},1)$ with $e=\frac1{\sqrt3}$".
+F: \frac{(x-h)^2}{a^2}+\frac{(y-k)^2}{b^2}=1\ \text{(complete the squares)}
+S: Complete the squares in $x$ and $y$; divide to get 1 on the right. || Read $a^2$, $b^2$ (they depend on the parameter) and the centre. || Use the given property (LR, focus, point) to find the parameter. || A point on the ellipse: substitute to get the missing coordinate.
+E: $(x+1)^2+4(y+1)^2=\lambda+5$: $a^2=\lambda+5$, $b^2=\frac{\lambda+5}4$; LR $=\frac{2b^2}a=\frac{\sqrt{\lambda+5}}2=4\Rightarrow\lambda=59$, major axis $l=16$.
+P: 21:8,7,16
+
+Q: If the chord with a given midpoint is asked
+R: "Length of the chord of $\frac{x^2}4+\frac{y^2}2=1$ whose mid-point is $(1,\frac12)$".
 F: T=S_1:\ \frac{xx_1}{a^2}+\frac{yy_1}{b^2}=\frac{x_1^2}{a^2}+\frac{y_1^2}{b^2}
-N: Then solve with the ellipse for the endpoints; length $=|x_1-x_2|\sqrt{1+m^2}$.
-P: 21:1,23
+S: Write the chord as $T=S_1$ using the midpoint. || Solve with the ellipse to get a quadratic in $x$. || Length $=|x_1-x_2|\sqrt{1+m^2}$.
+E: $x+y=\frac32$; then $3x^2-6x+\frac12=0$, $|x_1-x_2|=\frac{\sqrt{30}}3$, length $\frac{2\sqrt{15}}3$.
+P: 21:1
 
-Q: If min/max of focal distances, triangle area, or point distances
-F: SP+S'P=2a;\ \ SP\cdot S'P=a^2-e^2x^2;\ \ \text{inscribed triangle max area } \tfrac{3\sqrt3}4ab
+Q: If a chord subtends an angle at the centre (homogenisation) or perpendicular diameters are used
+R: "$y-x=1$ meets $\frac{x^2}2+y^2=1$ at $A,B$; angle $AOB$", "$PQ\perp RS$ through the origin; $\frac1{OP^2}+\frac1{OR^2}$".
+F: \frac1{OP^2}+\frac1{OQ^2}=\frac1{a^2}+\frac1{b^2}\ \ (OP\perp OQ)
+S: Homogenise the ellipse with the line ($\frac{y-x}1=1$) to get the pair $OA$, $OB$. || Use $\tan\theta=\frac{2\sqrt{h^2-ab}}{|a+b|}$. || For perpendicular radii use the reciprocal-sum identity.
+P: 21:23,26
+
+Q: If the product of focal distances, or max/min of a related quantity, is asked
+R: "$\min(SP\cdot S'P)+\max(SP\cdot S'P)$", "max area of a triangle with one vertex at the end of the major axis", "$P$ on the ellipse and $Q$ on the auxiliary circle".
+F: SP=a-ex,\ S'P=a+ex,\ SP+S'P=2a;\ \ P=(a\cos\theta,b\sin\theta)
+S: Write $SP\cdot S'P=a^2-e^2x^2$; it ranges from $b^2$ (at $x=\pm a$) to $a^2$ (at $x=0$). || For areas, use parametric points $(a\cos\theta,b\sin\theta)$ and maximise. || The auxiliary-circle point above $P$ is $(a\cos\theta,a\sin\theta)$.
+E: $a^2=18$, $b^2=9$: max $18$, min $9$, sum $27$.
 P: 21:2,10,5
 
-Q: If tangency condition / point of contact
-F: y=mx+c\ \text{tangent}\iff c^2=a^2m^2+b^2
-P: 21:18,24,26
+Q: If a line touches the ellipse (tangent condition / point of contact / focal distance at that point)
+R: "$\alpha x+4y=\sqrt7$ touches $3x^2+4y^2=1$ at $P$", "line through $P(\sqrt5,\sqrt5)$ with $PA\cdot PB$ maximum".
+F: y=mx+c\ \text{tangent}\iff c^2=a^2m^2+b^2;\ \ \text{point of contact } \left(-\frac{a^2m}c,\frac{b^2}c\right)
+S: Write the line as $y=mx+c$ and the ellipse in standard form. || Use $c^2=a^2m^2+b^2$ to find the parameter. || Point of contact from the formula. || Focal distances $a\pm ex$. || For $PA\cdot PB$ along a line through $P$, use the parametric line $(x_1+r\cos\theta,y_1+r\sin\theta)$ and the product of roots in $r$.
+P: 21:18,24
 
-Q: If two conics intersect / same eccentricity / circle inside an ellipse
-F: \text{subtract equations to get the curve through common points};\ \text{largest inscribed circle: nearest normal distance}
-P: 21:14,15,17,22,25,27,19,20,21,12,13
+Q: If ellipses share the same eccentricity, or a sequence of ellipses is built
+R: "$E_1$, $E_2$ have eccentricity $\frac1{\sqrt3}$ and product of LRs given", "ellipses $E_i$ with same centre and $e$, minor axis of $E_{i+1}$ = major of $E_i$".
+F: \frac{b^2}{a^2}=1-e^2\ \text{is fixed for all of them}
+S: Use the fixed ratio $\frac ba=\sqrt{1-e^2}$ to relate the axes. || A chain of ellipses gives a GP of axes. || Sum the GP if an infinite sum of areas or lengths is asked.
+P: 21:14,27
+
+Q: If two conics intersect and the intersection points lie on a circle or curve
+R: "Intersections of $x^2+y^2=4b$ and $\frac{x^2}{16}+\frac{y^2}{b^2}=1$ lie on $y^2=3x^2$", "intersections of two ellipses lie on a circle".
+F: S_1+\lambda S_2=0\ \text{passes through all intersection points}
+S: Take a combination $\lambda S_1+\mu S_2$ that makes the $x^2$ and $y^2$ coefficients equal (and no $xy$ term): that is the circle. || Read its centre and radius. || If the points lie on a given curve, substitute the curve into one conic.
+E: $2S_1+S_2$: $6x^2+6y^2-32x-36y+81=0$; centre $(\frac83,3)$, $r^2=\frac{47}{18}$; $ab+18r^2=55$.
+P: 21:15,22
+
+Q: If the largest circle with a given centre fits inside an ellipse
+R: "Largest circle centred at $(2,0)$ inscribed in $\frac{x^2}{36}+\frac{y^2}{16}=1$".
+F: r^2=\min_\theta\big[(a\cos\theta-h)^2+b^2\sin^2\theta\big]
+S: Distance squared from $(h,0)$ to $(a\cos\theta,b\sin\theta)$ is a quadratic in $\cos\theta$. || Minimise it over $\cos\theta\in[-1,1]$. || That minimum is $r^2$.
+E: $(6c-2)^2+16(1-c^2)=20c^2-24c+20$, minimum at $c=\frac35$: $r^2=\frac{64}5$.
+P: 21:17
+
+Q: If the locus of the centre of a circle touching two given circles is asked
+R: "Variable circle touches $S_1$ internally and $S_2$ externally".
+F: |CC_1|+|CC_2|=r_1+r_2\ \Rightarrow\ \text{ellipse with foci } C_1,C_2
+S: Write $|CC_1|=r_1-r$ (internal) and $|CC_2|=r_2+r$ (external). || Add: the sum is constant, so the locus is an ellipse with foci at the two centres and $2a=r_1+r_2$. || Get $b^2=a^2-c^2$ and test points.
+E: $|CO|=3-r$, $|CA|=1+r$: sum $4$; foci $(0,0)$, $(2,0)$: $\frac{(x-1)^2}4+\frac{y^2}3=1$.
+P: 21:19
+
+Q: If a common tangent of a circle and ellipses, or an ellipse built from another figure (directrix, focus) is used
+R: "$x+y=3$ touches the circle and the two ellipses", "the reflected ray is the directrix of an ellipse", "focal chord of a parabola is also a focal chord of the ellipse", "ellipse passes through the focus of a parabola".
+F: \text{tangent to } \frac{x^2}{a^2}+\frac{y^2}{b^2}=1:\ c^2=a^2m^2+b^2;\ \ \text{directrix } x=\frac ae
+S: Find the other figure first (tangent point, reflected ray, focus of the parabola). || Translate into a condition on $a,b,e$. || Solve with the remaining given facts.
+P: 21:25,12,13,21
+
+Q: If lattice points in the intersection of an ellipse region and a circle region are counted
+R: "$S=\{(x,y)\in\mathbb N^2:9(x-3)^2+16(y-4)^2\le144\}$, $T$ a disc; $n(S\cap T)$".
+F: \text{check each integer } x \text{ in range, list the allowed integer } y
+S: Find the range of $x$ for each region. || For each integer $x$, find the $y$-range from both inequalities. || Count the integer $y$ in the overlap and add.
+P: 21:20

@@ -1,38 +1,102 @@
 @ bin | Binomial Theorem | 11 | Algebra
 
 ## If this type comes, solve like this
-Q: If it asks the term independent of $x$ / a given power of $x$
-F: T_{r+1}={}^nC_r\,(\text{first})^{n-r}(\text{second})^r;\ \ \text{set the power of } x\text{ equal to the target}
-N: Write the power of $x$ in $T_{r+1}$ as a linear function of $r$, solve, check $r$ is an integer in $[0,n]$. With a polynomial multiplier $(1+2x-3x^3)(\ldots)^9$, add contributions for each multiplier term.
-P: 18:1,3,4,7,13,14,15,16,29,30,23,10,39,40
+Q: If it asks the term independent of $x$ (or the coefficient of a given power) in one expansion $(ax^p+bx^{-q})^n$
+R: One bracket raised to a power, with $x$ to positive powers in one part and negative powers in the other; "constant term", "coefficient of $x^{10}$".
+F: T_{r+1}=\binom nr(ax^p)^{n-r}(bx^{-q})^r,\quad\text{power of } x=p(n-r)-qr
+S: Write the general term $T_{r+1}$ with the signs and constants kept. || Collect the power of $x$: $p(n-r)-qr$. || Set it equal to the required power (0 for the constant term) and solve for $r$. || $r$ must be an integer between 0 and $n$; otherwise that term does not exist. || Substitute $r$ and simplify the coefficient.
+E: $\left(3x^2-\frac1{2x^5}\right)^7$: power $2(7-r)-5r=0\Rightarrow r=2$. Term $=\binom72 3^5\frac14=\frac{5103}4=1275.75$.
+H: Trap: forgetting the $(-1)^r$ and the constant raised to the power $r$.
+P: 18:16,29,4,3,13
 
-Q: If it asks the coefficient in a product of expansions
-F: [x^k]\,(A(x)B(x))=\sum_ra_rb_{k-r}
-N: Simplify first: $(1+x)(1-x)^{10}(1+x+x^2)^9=(1-x)(1-x^3)^9\cdot\ldots$; $(1-x)^{101}(1+x+x^2)^{100}=(1-x)(1-x^3)^{100}$.
-P: 18:5,6,21,11,22
+Q: If a parameter ($n$, $k$ or $\alpha$) must be chosen so that a certain term exists or has a given coefficient
+R: "Smallest $n$ such that the coefficient of $x$ in $(x^2+\frac1{x^3})^n$ is ${}^nC_{23}$", "smallest $\alpha$ with a term $\beta x^{-\alpha}$", "number of $k$ for which the constant term is $2^8\cdot$odd".
+F: \binom nr=\binom n{r'}\iff r=r'\ \text{or}\ r+r'=n
+S: Write the power of $x$ in the general term as a linear expression in $r$ and $n$. || Put the condition on the power and on the coefficient. || Remember $\binom nr=\binom n{n-r}$ gives a second case. || Solve each case; keep only integer $r$ with $0\le r\le n$ and pick the smallest/largest as asked.
+E: Power $2(n-r)-3r=1$. Case $r=23$: $n=58$. Case $n-r=23$: $3n=114$, $n=38$. Smallest $n=38$.
+P: 18:14,15,30,7
 
-Q: If coefficients of consecutive terms are in a ratio / AP / GP
-F: \frac{{}^nC_r}{{}^nC_{r-1}}=\frac{n-r+1}r
-N: Two ratios ⇒ two linear equations in $n$ and $r$. AP: $2\,{}^nC_r={}^nC_{r-1}+{}^nC_{r+1}$.
-P: 18:2,20,26,28,42,18,25,19
+Q: If the bracket must be simplified first (algebraic fractions, surds) before expanding
+R: Expressions like $\left(\frac{x+1}{x^{2/3}-x^{1/3}+1}-\frac{x-1}{x-\sqrt x}\right)^{10}$ or $(x+\sqrt{x^3-1})^5+(x-\sqrt{x^3-1})^5$.
+F: a^3+b^3=(a+b)(a^2-ab+b^2),\quad(a+b)^n+(a-b)^n=2\sum_{r\ \text{even}}\binom nr a^{n-r}b^r
+S: Factorise numerators as sums/differences of cubes or squares and cancel. || The bracket becomes a simple two-term expression. || For $(a+b)^n\pm(a-b)^n$, the odd (or even) terms cancel and the others double. || Then use the general term as usual.
+E: The first bracket simplifies to $x^{1/3}-x^{-1/2}$. In the 10th power: $\frac{10-r}3=\frac r2\Rightarrow r=4$, term $\binom{10}4=210$.
+P: 18:23,12
 
-Q: If it counts rational/integral terms in $(a^{1/p}+b^{1/q})^n$
-F: \text{need } p\mid(n-r)\ \text{and } q\mid r\ \Rightarrow\ r \text{ in an AP; count it}
-N: Irrational terms $=(n+1)-$rational terms.
+Q: If a term containing $x^{\log x}$ or $3^{\log_3(\ldots)}$ is given numerically and $x$ is asked
+R: "The fourth term of $(x+x^{\log_2x})^7$ is $4480$", "ninth term of $\{3^{\log_3\sqrt{25^{x-1}+7}}+\ldots\}^{10}$ is 180".
+F: a^{\log_ab}=b;\quad\text{put } t=\log_2x
+S: Write the asked term using $T_{r+1}$. || Simplify $a^{\log_a(\ldots)}$ to the inside. || Take logs, or put $t=\log_2x$, to get a polynomial equation. || Solve and check the domain ($x\in\mathbb N$, positive bases).
+E: $35x^{4+3t}=4480\Rightarrow x^{4+3t}=2^7$; with $x=2^t$: $3t^2+4t-7=0\Rightarrow t=1$, $x=2$.
+P: 18:10,39,40
+
+Q: If it asks the coefficient in a product of two or more expansions
+R: "$(1+2x-3x^3)\left(\frac32x^2-\frac1{3x}\right)^9$", "$(ax^2+bx+c)(1-2x)^{26}$", "$(1-x)^{101}(x^2+x+1)^{100}$".
+F: [x^k]\,P(x)\,Q(x)=\sum_j[x^j]P\cdot[x^{k-j}]Q
+S: Expand the short factor fully (it has only a few terms). || For each of its terms, find which power is needed from the long factor. || Add the contributions. || Look for simplifications: $(1-x)(1+x+x^2)=1-x^3$, $(1-x)(1+x)=1-x^2$.
+E: $[x^2](1+x)(1-x)^4=\binom42+1\cdot(-\binom41)=6-4=2$.
+H: Trap: with $(1-x)^{101}(1+x+x^2)^{100}$, first combine to $(1-x)(1-x^3)^{100}$.
+P: 18:1,5,6,21
+
+Q: If the expression is a sum of many binomial expansions
+R: "$(5+x)^{500}+x(5+x)^{499}+\cdots+x^{500}$", "$(1+x)+2(1+x)^2+\cdots+100(1+x)^{100}$".
+F: \sum_{k=0}^{n}a^{n-k}b^k=\frac{a^{n+1}-b^{n+1}}{a-b}
+S: Recognise a GP (or arithmetico-geometric series) in the expansions. || Sum it in closed form. || Read the coefficient from the closed form.
+E: $\sum x^k(5+x)^{500-k}=\frac{(5+x)^{501}-x^{501}}5$, so $[x^{101}]=\binom{501}{101}5^{399}$.
+P: 18:11,22
+
+Q: If consecutive binomial coefficients are in a given ratio
+R: "Coefficients of 3rd, 4th, 5th terms are in the ratio $12:8:3$", "${}^nC_{r-1}=28$, ${}^nC_r=56$, ${}^nC_{r+1}=70$", "$2A=5B$ for the 30th and 12th terms".
+F: \frac{\binom nr}{\binom n{r-1}}=\frac{n-r+1}{r}
+S: Write each ratio of consecutive coefficients with the formula. || This gives two linear equations in $n$ and $r$. || Solve. || If the expansion has constants ($x$ and $\frac a{x^2}$), include them in the term ratios.
+E: $\frac{56}{28}=\frac{n-r+1}r$, $\frac{70}{56}=\frac{n-r}{r+1}$ ⇒ $n+1=3r$ and $4n=9r+5$ ⇒ $r=3$, $n=8$.
+P: 18:2,26,25,19
+
+Q: If coefficients of consecutive terms are in AP or GP
+R: "Coefficients of the 5th, 6th and 7th terms of $(1+x)^{m}$ are in AP", "coefficients of $x,x^2,x^3$ of $(1+x^2)^2(1+x)^n$ in AP", "three consecutive coefficients of $(a+b)^{12}$ in GP".
+F: \binom n{r-1}+\binom n{r+1}=2\binom nr\iff n^2-(4r+1)n+4r^2-2=0
+S: Write the AP condition $2b=a+c$ (or GP $b^2=ac$). || Divide by the middle coefficient and use the ratio formula. || Solve the quadratic in $n$. || For GP: consecutive binomial coefficients can never be in GP (check it gives no valid $r$).
+E: $\binom m4,\binom m5,\binom m6$ in AP ⇒ $m=7$ or $14$.
+P: 18:20,28,42,18
+
+Q: If it counts rational or integral terms, or adds the rational terms
+R: "$\left(7^{1/2}+11^{1/6}\right)^{824}$: number of integral terms", "sum of rational terms of $(2^{1/5}+5^{1/3})^{15}$", "irrational terms of $(3^{1/4}+5^{1/8})^{60}$".
+F: T_{r+1}=\binom nr a^{\frac{n-r}p}b^{\frac rq}\ \text{rational}\iff p\mid(n-r)\ \text{and}\ q\mid r
+S: Write both exponents in terms of $r$. || Demand both are integers: congruence conditions on $r$. || Count the $r$ in $0..n$ satisfying both (an AP). || Irrational terms $=(n+1)-$rational terms. || For "sum of rational terms", list them and add.
+E: $(2^{1/5}+5^{1/3})^{15}$: need $5\mid15-r$ and $3\mid r$ ⇒ $r=0,15$. Sum $=2^3+5^5=3133$.
 P: 18:8,9,31,32,33
 
-Q: If it compares $k$-th term from the start and from the end
-F: T_k\ \text{from end of }(a+b)^n=T_k\ \text{of }(b+a)^n
+Q: If it compares the $k$-th term from the beginning and the $k$-th term from the end
+R: "Ratio of 5th term from the beginning to the 5th term from the end is $\sqrt[4]6:1$".
+F: \frac{T_k\ (\text{start})}{T_k\ (\text{end})}=\left(\frac ab\right)^{n-2k+2}
+S: Write $T_k$ from the start: $\binom n{k-1}a^{n-k+1}b^{k-1}$. || The $k$-th from the end is the $k$-th from the start of $(b+a)^n$. || The binomial coefficients cancel; the ratio is a power of $\frac ab$. || Equate exponents and solve for $n$.
+E: $a=2^{1/3}$, $b=3^{-1/3}$, $k=15$: $6^{(n-28)/3}=\frac16\Rightarrow n=25$, ${}^{25}C_3=2300$.
 P: 18:17,34
 
-Q: If it asks the greatest term or the maximum of the constant term over a parameter
-F: \frac{T_{r+1}}{T_r}\ge1;\ \ \text{constant term as function of } x\ \text{or } \theta\ \text{then maximise}
-P: 18:24,35,36,37,38
+Q: If it asks the greatest coefficient or the numerically greatest term
+R: "Sum of coefficients is 4096; greatest coefficient", "9th term of $(3+6x)^n$ is greatest at $x=\frac32$".
+F: \text{greatest coefficient of } (1+x)^n=\binom n{\lfloor n/2\rfloor};\quad\frac{T_{r+1}}{T_r}=\frac{n-r+1}r\cdot\left|\frac ba\right|\ge1
+S: For the greatest coefficient find $n$, then take the middle coefficient (two equal middles if $n$ odd). || For the greatest term, write $\frac{T_{r+1}}{T_r}$ and solve $\ge1$; the largest $r$ that satisfies it gives the greatest term $T_{r+1}$.
+E: $2^n=4096\Rightarrow n=12$; greatest coefficient $\binom{12}6=924$.
+P: 18:27,36
 
-Q: If it uses sums of coefficients
-F: \text{put } x=1,\ -1,\ \omega,\ i;\ \ \text{mean of coefficients}=\frac{2^n}{n+1}
-P: 18:27,41,44,12,45
+Q: If the constant term depends on another variable and its maximum/minimum is asked
+R: "Maximum of the term independent of $t$ in $\left(tx^{1/5}+\frac{(1-x)^{1/10}}t\right)^{10}$, $x\in(0,1)$", terms with $\sin\alpha,\cos\alpha$.
+F: \text{find the constant term as a function } g(x) \text{ or } g(\theta), \text{ then maximise}
+S: Find the term independent of the main variable as usual. || It is now a function of the other variable. || Maximise/minimise with calculus, AM–GM or $\sin2\theta\le1$. || Multiply by the binomial coefficient.
+E: Term $=\binom{10}5x\sqrt{1-x}$; $x\sqrt{1-x}$ is greatest at $x=\frac23$: value $\frac2{3\sqrt3}$.
+P: 18:24,35,37,38
 
-Q: If it gives terms $T_2,T_3,T_4$ numerically
+Q: If sums of coefficients or alternating/odd-index sums are needed
+R: "Arithmetic mean of all coefficients of $(x+y)^{2n-3}$ is 16", "$1+\sum(-3)^{r-1}\binom{12}{2r-1}$", "$(1-x^3)^{10}=\sum a_rx^r(1-x)^{30-2r}$".
+F: \sum\binom nr=2^n,\ \sum_{\text{odd } r}\binom nr=2^{n-1},\ (1+i\sqrt3)^n=2^ne^{in\pi/3}
+S: Put $x=1$ for the sum of all coefficients, $x=-1$ for the alternating sum. || For $\sum(-3)^k\binom n{2k+1}$-type sums, use $(1+i\sqrt3)^n$ and take the imaginary part. || For identities like $(1-x^3)^{10}=\sum a_rx^r(1-x)^{30-2r}$, rewrite $1-x^3=(1-x)^3+3x(1-x)$ and expand.
+E: AM $=\frac{2^{2n-3}}{2n-2}=16\Rightarrow n=5$.
+P: 18:41,44,45
+
+Q: If three consecutive terms are given as numbers and $x,y,n$ are asked
+R: "Second, third and fourth terms of $(x+y)^n$ are 135, 30, $\frac{10}3$".
 F: \frac{T_{r+1}}{T_r}=\frac{n-r+1}r\cdot\frac yx
+S: Form $\frac{T_3}{T_2}$ and $\frac{T_4}{T_3}$. || Divide them to remove $\frac yx$; solve for $n$. || Get $\frac yx$, then $x$ and $y$ from one term.
+E: $\frac{n-1}2\cdot\frac yx=\frac29$, $\frac{n-2}3\cdot\frac yx=\frac19$ ⇒ $n=5$, $\frac yx=\frac19$, $x=3$, $y=\frac13$.
 P: 18:43

@@ -1,43 +1,63 @@
 @ cplx | Complex Numbers | 11 | Algebra
 
 ## If this type comes, solve like this
-Q: If an equation in $z$ and $\bar z$ is given (find solutions / $\sum|z|^2$)
-F: z=x+iy:\ \text{equate real and imaginary parts}
-N: Or take modulus of both sides first ($|\bar z|=|z|$) to get $|z|$, then argument.
+Q: If an equation contains both $z$ and $\bar z$ (or $|z|$) and asks for the solutions or $\sum|z|^2$
+R: Something like $\bar z=iz^2+z^2-z$, $|z|+z=3+i$, $z^2+4z-(1+12i)=0$.
+F: z=x+iy,\quad\bar z=x-iy,\quad|z|^2=x^2+y^2
+S: Put $z=x+iy$ in the equation. || Separate real and imaginary parts and set each side equal: two real equations in $x,y$. || Solve the two equations (often one factorises, e.g. $y(2x+1)=0$). || Compute what is asked ($|z|^2$, sum of solutions…). || Shortcut: when $|z|$ appears with $z$, the imaginary part fixes $y$ immediately.
+E: $|z|+z=3+i$: imaginary part gives $y=1$; real part $\sqrt{x^2+1}+x=3\Rightarrow x^2+1=(3-x)^2\Rightarrow x=\frac43$, so $|z|=\frac53$.
 P: 26:1,24,21,38,69,95,46,47
 
-Q: If powers of $\omega$, $1\pm i$, $-1+i\sqrt3$ appear
-F: -1+i\sqrt3=2\omega,\ \ 1+i=\sqrt2e^{i\pi/4},\ \ \omega^3=1,\ 1+\omega+\omega^2=0
-N: Convert to polar form, apply De Moivre, reduce angles mod $2\pi$.
+Q: If high powers of $\omega$, $i$, $1\pm i$, $-1\pm i\sqrt3$ or $\frac{1+i}{1-i}$ appear
+R: Expressions like $\left(\frac{-1+i\sqrt3}{1-i}\right)^{30}$, $(1+\omega)^7$, $\sum\left(x^k+\frac1{x^k}\right)^4$ with $x^2+x+1=0$.
+F: -1+i\sqrt3=2\omega,\ 1+i=\sqrt2e^{i\pi/4},\ \frac{1+i}{1-i}=i,\ \omega^3=1,\ 1+\omega+\omega^2=0
+S: Recognise the building blocks: $-1+i\sqrt3=2\omega$, $-1-i\sqrt3=2\omega^2$, $1\pm i=\sqrt2e^{\pm i\pi/4}$. || Write each number in polar form $re^{i\theta}$. || Apply De Moivre: $(re^{i\theta})^n=r^ne^{in\theta}$. || Reduce the angle modulo $2\pi$ (or the power of $\omega$ modulo 3, of $i$ modulo 4). || Simplify using $1+\omega+\omega^2=0$.
+E: $(1+\omega)^7=(-\omega^2)^7=-\omega^{14}=-\omega^2=1+\omega$.
 P: 26:4,5,11,14,20,25,40,41,43,44,67,72,39,3
 
-Q: If a locus is described ($|z-a|=k|z-b|$, $\arg\frac{z-a}{z-b}=\theta$, $\operatorname{Re}/\operatorname{Im}$ conditions)
-F: |z-a|=|z-b|:\ \text{perpendicular bisector};\ \ \ne1\ \text{ratio: circle};\ \ \arg=\theta:\ \text{arc}
-N: Write $z=x+iy$ and simplify to a Cartesian circle/line when unsure.
+Q: If a locus is described and you must identify it (line, circle, arc) or use it
+R: Conditions such as $|z-a|=|z-b|$, $\left|\frac{z-a}{z-b}\right|=k$, $\arg\frac{z-a}{z-b}=\theta$, $\operatorname{Re}\frac{z-a}{z-b}=0$, or $\frac{z-i}{z+i}$ purely real.
+F: |z-a|=|z-b|:\ \text{perp. bisector};\ \ \left|\tfrac{z-a}{z-b}\right|=k\ne1:\ \text{circle};\ \ \arg\tfrac{z-a}{z-b}=\theta:\ \text{arc through } a,b
+S: First try to recognise the standard locus from the shape of the condition. || If unsure, put $z=x+iy$ and simplify to a Cartesian equation. || For a circle, read centre and radius; for an arc, the chord $ab$ subtends angle $\theta$. || Then answer the question (intersection with another curve, a distance, a value).
+E: $\operatorname{Re}\frac{z-1}{z+1}=0$ ⇒ $\angle$ at $z$ is $90^\circ$ ⇒ circle with diameter from $-1$ to $1$: $|z|=1$ (excluding $z=-1$).
 P: 26:7,9,15,16,23,29,36,54,77,78,79,80,81,82,83,84,85,86,87,61,55,56
 
-Q: If max/min of $|z-z_1|$ given $z$ on a circle / region
-F: \min/\max|z-z_1|=\big||z_1-c|\mp r\big|\ \ (c,r\ \text{of the circle})
-N: Geometric: draw the centre and the point; extremes lie on the line through them.
+Q: If it asks the maximum or minimum of $|z-z_1|$ (or $|az+b|$) when $z$ lies on a circle or in a region
+R: "$|z-2-2i|\le1$, find max of $|3iz+6|$", or "$z$ on $|z|=r$ and $|z-3-4i|=5$".
+F: z\ \text{on circle centre } c,\ \text{radius } r:\ \ |z-z_1|_{\min/\max}=\big||z_1-c|\mp r\big|
+S: Turn the expression into a distance: $|3iz+6|=3|z-2i|$ = $3\times$ distance from $2i$. || Find the centre $c$ and radius $r$ of the region. || Distance from the point to the centre is $d=|z_1-c|$. || Maximum $=d+r$; minimum $=|d-r|$ (or $0$ if the point lies inside a disc). || The extreme point lies on the line through $c$ and $z_1$.
+E: $|z-3|=2$; max $|z+1|$ = distance from $-1$ to $3$ plus radius $=4+2=6$.
 P: 26:6,10,19,31,33,75,89,90,93,94,96,97,92,88,32
 
-Q: If area or region in the Argand plane
-F: \text{translate each condition into a disc/half-plane and find the intersection area}
+Q: If it asks the area of a region in the Argand plane defined by several conditions
+R: Inequalities like $|z-1|\le2$, $(z+\bar z)+i(z-\bar z)\le2$, $\operatorname{Im}z\ge0$.
+F: z+\bar z=2x,\quad z-\bar z=2iy
+S: Convert every condition to $x,y$ (discs, half-planes). || Sketch them and shade the intersection. || Compute the area with sectors and triangles.
 P: 26:17,18,30
 
-Q: If roots of a real polynomial are complex
-F: \text{conjugate pairs; use Vieta}
+Q: If a real polynomial has a complex root, or complex roots with a condition
+R: "$\alpha=1$, $\beta=1+i\sqrt2$ are roots of $x^3+ax^2+bx+c$", or roots of $x^2+\sqrt6x+3=0$ raised to powers.
+F: \text{real coefficients}\Rightarrow\text{complex roots come in conjugate pairs}
+S: Add the conjugate of every given complex root to the list of roots. || Use Vieta (sum, sum of products, product) to get the coefficients. || For powers of roots, write roots in polar form and use De Moivre.
 P: 26:12,22,45,48,49,50,68,70,71
 
-Q: If rotation / geometry (triangle, square, vertices)
-F: \frac{z_3-z_1}{z_2-z_1}=\frac{|z_3-z_1|}{|z_2-z_1|}e^{i\theta};\ \ \text{equilateral: } \sum z_i^2=\sum z_iz_j
+Q: If it is geometry with rotation: square, equilateral triangle, right angle at a point
+R: "rotate $z_1$ through a right angle", "$OAB$ is an equilateral triangle", "vertices of a square".
+F: \frac{z_3-z_1}{z_2-z_1}=\frac{|z_3-z_1|}{|z_2-z_1|}e^{i\theta};\qquad\text{equilateral}: z_1^2+z_2^2+z_3^2=z_1z_2+z_2z_3+z_3z_1
+S: To rotate $z$ about $z_0$ by $\theta$ (anticlockwise): $z'-z_0=(z-z_0)e^{i\theta}$; by $90^\circ$ multiply by $i$. || For a triangle condition, write the rotation from one side to another. || Solve for the unknown vertex, then answer.
+E: Rotate $5+4i$ by $90^\circ$ anticlockwise about origin: $i(5+4i)=-4+5i$.
 P: 26:27,34,35,73,99,76
 
-Q: If a fraction is purely real / imaginary
-F: \frac{a}{b}\in\mathbb R\iff\frac ab=\overline{\left(\frac ab\right)}
-N: Multiply by the conjugate of the denominator and set the imaginary (or real) part to 0.
+Q: If a complex fraction must be purely real or purely imaginary
+R: "$\frac{3+i\sin\theta}{4-i\cos\theta}$ is real", "$\frac{1-i\sin\alpha}{1+2i\sin\alpha}$ is purely imaginary".
+F: \frac pq\ \text{real}\iff\operatorname{Im}\left(p\,\bar q\right)=0;\quad\text{purely imaginary}\iff\operatorname{Re}(p\bar q)=0
+S: Multiply numerator and denominator by the conjugate of the denominator. || The denominator becomes real; look at the numerator. || Set its imaginary part (for "real") or real part (for "imaginary") to zero. || Solve the resulting trig/algebraic equation.
+E: $\frac{3+i\sin\theta}{4-i\cos\theta}$ real: $(3+i\sin\theta)(4+i\cos\theta)$ has imaginary part $3\cos\theta+4\sin\theta=0\Rightarrow\tan\theta=-\frac34$.
 P: 26:2,52,53,57,58,98,51,59,60
 
-Q: If $|z_1z_2|$, $\arg$ relations or product formulas
-F: |z_1z_2|=|z_1||z_2|,\ \ \arg(z_1z_2)=\arg z_1+\arg z_2;\ \ |(1+i)(1+2i)\cdots|^2=\prod(1+k^2)
+Q: If it uses modulus/argument rules of products and quotients
+R: "$|z\omega|=1$ and $\arg z-\arg\omega=\frac{3\pi}2$", "$|(1+i)(1+2i)\cdots(1+ni)|^2=44200$".
+F: |z_1z_2|=|z_1||z_2|,\ \arg(z_1z_2)=\arg z_1+\arg z_2,\ \ \arg\frac{z_1}{z_2}=\arg z_1-\arg z_2
+S: Replace moduli of products by products of moduli. || Convert argument conditions to $z=re^{i\theta}$ forms. || Simplify and compute.
+E: $|(1+i)(1+2i)\cdots(1+ni)|^2=\prod(1+k^2)$; $2\cdot5\cdot10\cdot17\cdot26=44200$ ⇒ $n=5$.
 P: 26:8,13,28,37,42,62,63,64,65,66,74,26,91

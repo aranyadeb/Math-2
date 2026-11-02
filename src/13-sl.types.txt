@@ -1,50 +1,167 @@
-@ sl | Straight Lines & Pair of Lines | 11 | Coordinate Geometry
+@ sl | Straight Lines | 11 | Coordinate Geometry
 
 ## If this type comes, solve like this
-Q: If the orthocentre/circumcentre/centroid/incentre is given or asked
-F: G=\tfrac{A+B+C}3,\ \ H=3G-2O;\ \ AH\perp BC\ \ (\text{slope product } -1)
-N: For orthocentre with two sides known: third vertex from altitudes ($AH\perp BC$, $BH\perp AC$). Right triangle: $H$ at the right-angle vertex, $O$ at the hypotenuse midpoint. Equilateral: $G=H=O=I$.
-P: 19:1,4,13,14,25,46,56,57,59,60,61,62,63,64,65,66,74,87
+Q: If the orthocentre is given (or asked) together with sides or vertices
+R: "Two sides are $3x-2y+6=0$, $4x+5y-20=0$ and the orthocentre is $(1,1)$; find the third side", "two vertices and the orthocentre given, find $C$", "orthocentre of $(1,2),(2,3),(3,1)$".
+F: AH\perp BC,\ BH\perp CA,\ CH\perp AB\quad(\text{slopes: } m_1m_2=-1)
+S: Find the vertex where two known sides meet. || The altitude from that vertex passes through $H$, so $BC\perp AH$: this fixes the slope of the third side. || Get a second condition from another altitude: $BH\perp AC$ gives $B$ on its known side. || To compute $H$ from three vertices, intersect two altitudes. || Right-angled triangle: $H$ is the right-angle vertex.
+E: For $(1,2),(2,3),(3,1)$: altitudes $x+y=4$ and $x-2y+3=0$ meet at $H(\frac53,\frac73)$, so $\alpha+4\beta=11$, $4\alpha+\beta=9$: $x^2-20x+99=0$.
+P: 19:1,13,25,56,57,58,74
 
-Q: If an isosceles/equilateral triangle has a given base line and apex
-F: \text{foot of perpendicular from apex to base} = \text{midpoint of base};\ \ \text{equilateral: } h=\tfrac{\sqrt3}2a
-P: 19:2,62,63
+Q: If the circumcentre is given (or asked)
+R: "$(5,\frac a4)$ is the circumcentre of $A(a,-2)$, $B(a,6)$, $C(\frac a4,-2)$", "perpendicular bisector of $PR$ is $2x-y+2=0$", "circumcentre of $\triangle ABC$ at the origin".
+F: OA=OB=OC;\ \text{right angle at } A\Rightarrow\text{circumcentre}=\text{midpoint of the hypotenuse}
+S: Check first for a right angle (a vertical and a horizontal side meeting): then the circumcentre is the midpoint of the hypotenuse. || Otherwise equate distances $OA^2=OB^2=OC^2$, or intersect two perpendicular bisectors. || A given perpendicular bisector of $PR$ means the image of $P$ in that line is $R$.
+E: $AB$ vertical and $AC$ horizontal ⇒ right angle at $A$; midpoint of $BC$ is $(\frac{5a}8,2)=(5,\frac a4)$ ⇒ $a=8$.
+P: 19:4,59,60,61,87,89
 
-Q: If a light ray reflects off a line or axis
-F: \text{reflect the source in the mirror; reflected ray passes through the image}
-N: Image in $ax+by+c=0$: $\frac{x-x_1}a=\frac{y-y_1}b=\frac{-2(ax_1+by_1+c)}{a^2+b^2}$. Shortest path via a line: straight line to the image.
-P: 19:12,24,30,53,54,55,19
+Q: If centroid, circumcentre, orthocentre or incentre are linked, or the incentre is asked
+R: "$A(a,b)$, $B(3,4)$, $(-6,-8)$ are the centroid, circumcentre and orthocentre", "mid-points of the sides are given; find the incentre", centroid with vertices in AP.
+F: G=\frac{2O+H}3\ (\text{Euler line}),\quad I=\frac{aA+bB+cC}{a+b+c}
+S: $O$, $G$, $H$ are collinear and $G$ divides $OH$ in the ratio $1:2$, i.e. $G=\frac{2O+H}3$. || From mid-points $D,E,F$, the vertices are $E+F-D$, $F+D-E$, $D+E-F$. || For the incentre, compute the side lengths opposite each vertex and use the weighted average. || For the centroid, average the vertices.
+E: Mid-points $(\frac52,7),(\frac52,3),(4,5)$ give vertices $(1,5),(4,9),(4,1)$ with opposite sides $8,5,5$: $I=(\frac83,5)$, $3h+k=13$.
+P: 19:14,46,64,65,66
 
-Q: If it is a locus of a moving point (midpoint, centroid, rod with ends on lines)
-F: \text{let the point be } (h,k),\ \text{express conditions, eliminate the parameter}
-P: 19:5,67,68,69,40,3,39
+Q: If an equilateral or isosceles triangle has a known base line and apex (or lies between parallel lines)
+R: "Equilateral triangle with $P(3,5)$ and $QR$ along $x+y=4$", "isosceles with vertex $A(6,1)$ and base $2x+y=4$", "$B,C$ symmetric about the origin on $y+x=0$".
+F: \text{equilateral: } G=H=O \text{ on the altitude},\ AG=\tfrac23\,AM,\ \text{side}=\frac{2}{\sqrt3}\times\text{height}
+S: Drop the perpendicular from the apex to the base: get the foot $M$ and the height $h$. || Isosceles: $M$ is the midpoint of the base. || Equilateral: centroid (= orthocentre) $=\frac{A+2M}3$; side $=\frac{2h}{\sqrt3}$. || Base vertices are at distance $\frac{\text{side}}2$ from $M$ along the base line.
+E: Foot of $(3,5)$ on $x+y=4$ is $M(1,3)$; $H=\frac{(3,5)+2(1,3)}3=(\frac53,\frac{11}3)$, $9(\alpha+\beta)=48$.
+P: 19:2,62,63,21,47,48
 
-Q: If distance of a point from a line measured along a given direction
-F: (x_1+r\cos\theta,\ y_1+r\sin\theta)\ \text{substituted in the line}\Rightarrow r
-P: 19:11,44,43,6
+Q: If a light ray reflects off a line (mirror)
+R: "Ray from $P(2,3)$ reflects at $A$ on the x-axis and passes through $Q(5,4)$", "ray from origin at $30^\circ$ reflects in $x+y=1$", "man walks from $P$, touches the x-axis, reaches $Q$".
+F: \text{reflected ray passes through the image of the source};\ \ \text{image of }(x_1,y_1)\text{ in } ax+by+c=0:\ \frac{x-x_1}a=\frac{y-y_1}b=\frac{-2(ax_1+by_1+c)}{a^2+b^2}
+S: Reflect the source point in the mirror. || The reflected ray is the line through the image and the target point (or through the point of incidence). || The point of incidence is where that line meets the mirror. || "Shortest path touching a line" uses the same idea: path length $=$ distance from image to target.
+E: Image of $P(2,3)$ in the x-axis is $(2,-3)$; the line to $Q(5,4)$ has slope $\frac73$ and meets the axis at $A(\frac{23}7,0)$.
+P: 19:12,24,30,53,54,55,85
 
-Q: If the family of lines $L_1+\lambda L_2=0$ or a line through a fixed point
-F: \text{fixed point: solve } L_1=0,\ L_2=0
-N: Lines $ax+by+c=0$ with a linear relation between $a,b,c$ all pass through one fixed point.
+Q: If the locus of a moving point (centroid, midpoint, dividing point) is asked
+R: "$P$ moves on $2x-3y+4=0$; locus of the centroid of $PQR$", "rod of length 8 with ends on two lines", "midpoints of the intercepts of $x\cos\theta+y\sin\theta=7$".
+F: \text{write the moving point in a parameter; set } (h,k) \text{ and eliminate}
+S: Let the required point be $(h,k)$. || Express $h,k$ in terms of the moving point's coordinates (or a parameter $\theta$, $t$). || Use the condition the moving point satisfies (lies on a line, rod length fixed) to eliminate the parameter. || Replace $(h,k)$ by $(x,y)$.
+E: $h=\frac{x+4}3$, $k=\frac{y+2}3$ with $2x-3y+4=0$ ⇒ $6h-9k+2=0$, a line parallel to the given one.
+P: 19:5,68,69,40
+
+Q: If the locus comes from a condition on intercepts, perimeter or a perpendicular
+R: "Perimeter of $\triangle AOP$ is 4", "AM of reciprocals of intercepts is $\frac14$ (line passes through a fixed point)", "perpendicular from $O$ makes angle $\frac\pi6$".
+F: \frac xa+\frac yb=1;\ \ \frac1a+\frac1b=\frac12\Rightarrow\text{line passes through }(2,2)
+S: Write the line in intercept form $\frac xa+\frac yb=1$ or normal form $x\cos\alpha+y\sin\alpha=p$. || A linear condition on $\frac1a,\frac1b$ means the line passes through a fixed point. || For perimeter conditions, $PA+PO=\text{const}$ is an ellipse with foci $A,O$.
+E: Perimeter 4 with $OA=1$ ⇒ $PO+PA=3$: ellipse with foci $O$ and $A$, $2a=3$.
+P: 19:67,3,39
+
+Q: If the distance of a point from a line is measured along a given direction, or a point at a given distance along a line is needed
+R: "Distance of $(2,3)$ from $2x-3y+28=0$ measured parallel to $\sqrt3x-y+1=0$", "$AB=\frac{\sqrt{29}}3$ with $B$ on $x-y-2=0$", "lines from $P(2,3)$ meeting $x+y=6$ at distance $\sqrt{\frac23}$".
+F: (x,y)=(x_1+r\cos\theta,\ y_1+r\sin\theta)\ \ (\text{parametric form})
+S: Find the direction angle $\theta$ from the slope ($\tan\theta=m$). || Write the general point at distance $r$: $(x_1+r\cos\theta,y_1+r\sin\theta)$. || Substitute into the target line and solve for $r$; $|r|$ is the required distance. || If $r$ is known and $\theta$ unknown, the same equation gives $\theta$.
+E: $\theta=60^\circ$: $2(2+\frac r2)-3(3+\frac{\sqrt3r}2)+28=0\Rightarrow r=\frac{46}{3\sqrt3-2}=4+6\sqrt3$.
+P: 19:11,6,20
+
+Q: If a line is rotated about a point through an angle
+R: "Line through $A(9,0)$ at $30^\circ$ is rotated $15^\circ$ clockwise about $A$", "rotated through $\frac\alpha2$ about $P(a,0)$".
+F: \text{new inclination}=\theta\mp\varphi,\ \ y-y_0=\tan(\text{new angle})(x-x_0)
+S: Clockwise rotation decreases the inclination, anticlockwise increases it. || The point of rotation stays on the line. || Write the new line by point–slope form; use $\tan15^\circ=2-\sqrt3$ etc.
+E: New inclination $15^\circ$: $y=(2-\sqrt3)(x-9)$.
+P: 19:43,44
+
+Q: If a family $L_1+\lambda L_2=0$ or a line through a fixed point is involved
+R: "$x(3\lambda+1)+y(7\lambda+2)=17\lambda+5$ all pass through $P$", "line through the intersection of $4x+3y-1=0$ and $3x+4y-1=0$", "variable line through $(4,-9)$".
+F: L_1+\lambda L_2=0\ \text{passes through } L_1\cap L_2;\ \ \text{farthest from } O:\ \perp OP
+S: Separate the terms with $\lambda$: $(x+2y-5)+\lambda(3x+7y-17)=0$. || Solve both brackets $=0$ to get the fixed point $P$. || The member farthest from a point $Q$ is perpendicular to $PQ$. || For min/max with a variable slope, write intercepts in $m$ and use AM–GM.
+E: Fixed point $P(1,2)$; farthest from the origin: $x+2y=5$.
 P: 19:10,29,15,28
 
-Q: If area of triangle / region / lattice points inside a triangle
-F: \Delta=\tfrac12|x_1(y_2-y_3)+x_2(y_3-y_1)+x_3(y_1-y_2)|
-N: Lattice points strictly inside: count by rows, or Pick's theorem $A=I+\frac B2-1$.
-P: 19:9,17,32,33,34,36,8,85
+Q: If the area of a triangle or region with coordinates is used
+R: "Area of $\triangle ABC=4$, find $\alpha$", "$P$ above $AB$ with area 10: locus", "mid-points of sides are intersections of three lines", "maximum area of a parallelogram inscribed in a triangle".
+F: \Delta=\tfrac12\left|x_1(y_2-y_3)+x_2(y_3-y_1)+x_3(y_1-y_2)\right|;\ \ \text{medial triangle area}=\tfrac14\Delta
+S: Use the determinant/shoelace formula with the modulus. || A fixed area with a fixed base means the point lies on a line parallel to the base. || Ratios of areas with the same height equal ratios of bases ($\frac{BP}{BC}$). || Mid-point triangle has $\frac14$ the area; inscribed parallelogram at most $\frac12$ the area.
+E: Three lines give the mid-points; area of $ABC$ $=4\times$ area of the triangle formed by the three lines.
+P: 19:17,32,33,34,36,35
 
-Q: If a parallelogram/square/rectangle from given sides and centre
+Q: If lattice (integer) points inside a triangle are counted
+R: "Points $(a,b)$ strictly inside the triangle formed by the axes and $3x+4y=60$, $a$ integer, $b$ a multiple of $a$", "triangles with vertex $O$ and two vertices on the axes with integer coordinates".
+F: \text{for each integer } x=k,\ \text{count integers } y \text{ with } 0<y<\frac{60-3k}4
+S: Fix the integer $x$-coordinate $k$ one at a time. || Find the range of $y$ inside the triangle for that $k$ (strict inequalities). || Count the allowed $y$ (with the extra condition like "multiple of $k$"). || Add over $k$.
+P: 19:9,8
+
+Q: If a parallelogram is built from two sides and the centre (or a diagonal)
+R: "Two sides along $x+y=3$ and $x-y+3=0$; diagonals meet at $(2,4)$", "$A$ and $C$ lie on $3y=2x+1$", "one diagonal $AC$ given".
 F: \text{diagonals bisect each other: } A+C=B+D
-P: 19:7,16,31,35,38,45,86,91
+S: Intersect the two given sides: one vertex $A$. || The opposite vertex $C=2\times(\text{centre})-A$. || The other two sides pass through $C$ parallel to the given sides. || Use $A+C=B+D$ when vertices lie on given lines.
+E: Sides meet at $A(0,3)$; centre $(2,4)$ ⇒ $C(4,5)$.
+P: 19:7,16,31,86
 
-Q: If angle bisectors / internal-external bisector or concurrency
-F: \frac{a_1x+b_1y+c_1}{\sqrt{a_1^2+b_1^2}}=\pm\frac{a_2x+b_2y+c_2}{\sqrt{a_2^2+b_2^2}};\ \ \text{concurrency: } \det=0
-P: 19:26,76,77,71,73,72,75,48,49,52,23
+Q: If a square or rectangle is placed with given diagonals, slopes or inside another rectangle
+R: "Square $OABC$ with diagonals $(\sqrt3+1)x+(\sqrt3-1)y=0$…", "rectangle $2\times4$ inscribed in rectangle PQRS", "slopes $m_1,m_2$ of adjacent sides of a square".
+F: \text{square: diagonals equal, perpendicular, bisect each other, at } 45^\circ \text{ to the sides}
+S: Use the angle between side and diagonal ($45^\circ$) to get the side's inclination. || Adjacent sides are perpendicular: $m_1m_2=-1$. || For an inscribed rectangle tilted at $\theta$, the outer sides are $2\cos\theta+4\sin\theta$ and $2\sin\theta+4\cos\theta$.
+P: 19:38,45,91
 
-Q: If a pair of lines / homogenisation / angle subtended at origin
-F: \text{homogenise the curve with } \frac{lx+my}{-n}=1;\ \ \perp\iff a+b=0
-P: 19:78,79,80,81,82,83,27,84
+Q: If an angle bisector of a triangle (or between two lines) is needed
+R: "Bisector of $\angle ABC$ for $A(1,0)$, $B(2,-1)$, $C(\frac73,\frac43)$", "$y=x$ bisects angle $B$ and $2AB=BC$", "point at unit distance from both lines".
+F: \frac{a_1x+b_1y+c_1}{\sqrt{a_1^2+b_1^2}}=\pm\frac{a_2x+b_2y+c_2}{\sqrt{a_2^2+b_2^2}};\ \ \text{internal bisector direction}=\hat u+\hat v
+S: For a vertex bisector, add the unit vectors along the two sides from that vertex; the bisector has that direction. || For bisectors of two lines, use the $\pm$ formula; pick the sign using a point (e.g. origin) or the angle (acute/obtuse). || The image of one side's point in the bisector lies on the other side. || The bisector divides the opposite side in the ratio of the adjacent sides.
+E: Unit vectors from $B$: $\frac{(-1,1)}{\sqrt2}$ and $\frac{(1,7)}{5\sqrt2}$; sum $\propto(-1,3)$ ⇒ bisector $3x+y=5$, $\alpha^2+\beta^2=10$.
+P: 19:26,76,77,75
 
-Q: If points lie on the same side / region inequalities
-F: \text{same side}\iff L(P)L(Q)>0
-P: 19:22,49,50,51,18,20,21,37,41,42,47,58,70,88,89,90,92
+Q: If lines are concurrent or fail to form a triangle
+R: "$3x-4y-\alpha=0$, $8x-11y-33=0$, $2x-3y+\lambda=0$ are concurrent", "values of $\alpha$ for which three lines do not form a triangle", "system has infinitely many solutions".
+F: \text{concurrent}\iff\begin{vmatrix}a_1&b_1&c_1\\a_2&b_2&c_2\\a_3&b_3&c_3\end{vmatrix}=0
+S: No triangle means: two lines parallel (equal slopes), or all three concurrent. || For parallel cases, compare slopes with each of the other lines. || For concurrency, put the intersection of two lines into the third (or use the determinant). || Collect all the parameter values.
+E: Parallel cases $\alpha=-4,4$; concurrent at $(-\frac56,\frac43)$ gives $\alpha=\frac45$; $p=32.64$, answer 32.
+P: 19:71,73,72
+
+Q: If distances between parallel lines or perpendicular distances are used
+R: "$2x-y+3=0$ is at distance $\frac1{\sqrt5}$ from $4x-2y+\alpha=0$", "lines parallel to $4x-3y+2=0$ at distance $\frac35$ from the origin", "$p,q$ perpendiculars from the origin".
+F: d=\frac{|c_1-c_2|}{\sqrt{a^2+b^2}}\ \text{(same } a,b\text{)},\qquad p=\frac{|ax_1+by_1+c|}{\sqrt{a^2+b^2}}
+S: Make the $x,y$ coefficients identical (divide one equation). || Apply the formula; the modulus gives two values. || Add all values if "sum of all possible values" is asked.
+E: $|3-\frac\alpha2|=1\Rightarrow\alpha=4,8$; $|3-\frac\beta3|=2\Rightarrow\beta=3,15$; sum $30$.
+P: 19:52,23,88
+
+Q: If the angle bisectors of a pair of lines $ax^2+2hxy+by^2=0$ (or a locus equidistant from two lines) are asked
+R: "Pair of angle bisectors of $x^2-4xy-5y^2=0$", "locus equidistant from $x+2y+7=0$ and $2x-y+8=0$ is $x^2-y^2+2hxy+\ldots$".
+F: \frac{x^2-y^2}{a-b}=\frac{xy}h
+S: Read $a$, $h$ (half the $xy$ coefficient), $b$. || Substitute in the formula. || For lines not through the origin, square the bisector equation $\frac{L_1}{|n_1|}=\pm\frac{L_2}{|n_2|}$ to get the combined equation.
+E: $a=1$, $h=-2$, $b=-5$: $\frac{x^2-y^2}6=\frac{xy}{-2}\Rightarrow x^2+3xy-y^2=0$.
+P: 19:78,79,80
+
+Q: If the angle subtended at the origin by the chord of a curve cut by a line is asked (homogenisation)
+R: "$x^2+2y^2=2$ meets $x+y=1$ at $P,Q$; angle $POQ$", "angle subtended at the vertex of $4y=3x^2$ by $AB$".
+F: \text{make the curve homogeneous using } \left(\frac{\text{line}}{\text{constant}}\right)=1;\ \ \tan\theta=\frac{2\sqrt{h^2-ab}}{|a+b|}
+S: Write the line as $\frac{x+y}{1}=1$ (an expression equal to 1). || Multiply every lower-degree term of the curve by the right power of that expression. || You get $ax^2+2hxy+by^2=0$: the pair $OP$, $OQ$. || Use the angle formula; $a+b=0$ means a right angle.
+E: $x^2+2y^2=2(x+y)^2\Rightarrow x^2+4xy=0$.
+P: 19:81,82,83
+
+Q: If a segment subtends a given angle at the origin, or lines from the origin form a special triangle
+R: "Segment from $(5,2)$ to $(2,a)$ subtends $\frac\pi4$ at the origin", "points on $y=2$ with $\angle AOB=\frac\pi4$", "isosceles right triangle $OPQ$ with $PQ$ on $3x+4y=12$".
+F: \tan\theta=\left|\frac{m_1-m_2}{1+m_1m_2}\right|
+S: Write the slopes of $OA$ and $OB$. || Apply the angle formula with $\pm$. || Solve each case. || For an isosceles right triangle at $O$, the two lines make $45^\circ$ with the perpendicular from $O$ to the given line.
+E: $\frac{a/2-2/5}{1+a/5}=\pm1\Rightarrow a=\frac{14}3$ or $-\frac67$; product $4$.
+P: 19:27,19,84
+
+Q: If points must lie on the same side of a line or inside a region
+R: "$(1,2)$ and $(\sin\theta,\cos\theta)$ on the same side of $x+y=1$", "$(a^2,a+1)$ in the region between two lines containing the origin", "region $|x-y|\le2$, $|x+y|\le2$".
+F: \text{same side}\iff L(P)\cdot L(Q)>0
+S: Substitute both points into $L(x,y)=ax+by+c$. || Same side: same sign; opposite sides: opposite signs. || For a region containing the origin, the point must give the same sign as the origin for each boundary. || Draw $|x\pm y|\le k$ regions: they are squares rotated by $45^\circ$.
+E: $L(1,2)=2>0$; need $\sin\theta+\cos\theta>1$ ⇒ $\theta\in(0,\frac\pi2)$.
+P: 19:22,49,50,51
+
+Q: If the intersection point must have integer coordinates
+R: "Number of integral $m$ such that the abscissa of the intersection of $3x+4y=9$ and $y=mx+1$ is an integer".
+F: x=\frac{p}{q(m)}\in\mathbb Z\iff q(m)\mid p
+S: Solve for the intersection. || The denominator must divide the numerator: list divisors $\pm1,\pm p$. || Keep the integer $m$.
+E: $x=\frac5{3+4m}$; $3+4m\in\{\pm1,\pm5\}$ ⇒ integer $m=-1,-2$: two values.
+P: 19:18
+
+Q: If lines trisect a segment, or bisect an area, or a point divides a segment
+R: "Portion of $4x+5y=20$ in the first quadrant is trisected by $L_1,L_2$ through the origin", "line $\perp$ to $3x+y+6=0$ divides the rectangle into equal areas", "half-lines $x-\sqrt3|y|=\alpha$".
+F: \text{section formula: } \left(\frac{mx_2+nx_1}{m+n},\frac{my_2+ny_1}{m+n}\right);\ \ \text{a line through the centre halves a rectangle}
+S: Find the endpoints of the segment and the trisection points with the section formula. || Lines through the origin have slopes $\frac yx$ of those points. || Any line through the centre of a rectangle divides its area equally.
+E: Trisection points $(\frac{10}3,\frac43)$, $(\frac53,\frac83)$: slopes $\frac25,\frac85$, $\tan\theta=\frac{30}{41}$.
+P: 19:42,41,37,92
+
+Q: If a point undergoes successive transformations, or sides are shifted inward
+R: "Reflection about $y=x$, then translation by 2 units, then rotation by $\frac\pi4$", "shift each side of the triangle one unit inwards".
+F: \text{reflection in } y=x:(a,b)\to(b,a);\ \text{rotation by }\theta:\ (x\cos\theta-y\sin\theta,\ x\sin\theta+y\cos\theta)
+S: Apply the transformations one at a time, in order. || For an inward shift, the new side is parallel at distance 1, on the same side as the opposite vertex (check the sign with that vertex).
+P: 19:90,70

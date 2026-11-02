@@ -1,40 +1,99 @@
 @ trig | Trigonometric Ratios & Identities | 11 | Trigonometry
 
 ## If this type comes, solve like this
-Q: If a product like $\sin10^\circ\sin30^\circ\sin50^\circ\sin70^\circ$ or $\prod\sin\frac{k\pi}{22}$
-F: \sin\theta\sin(60^\circ-\theta)\sin(60^\circ+\theta)=\tfrac14\sin3\theta;\ \ \prod\cos2^k\theta=\frac{\sin2^n\theta}{2^n\sin\theta}
-N: Use complementary angles to turn sines into cosines of doubling angles, then the GP-product formula.
-P: 28:7,8,22,30
+Q: If a product of sines at special angles is asked ($\sin10^\circ\sin30^\circ\sin50^\circ\sin70^\circ$, $\prod\sin\frac{k\pi}{22}$)
+R: Angles like $10^\circ,50^\circ,70^\circ$ (i.e. $\theta,60^\circ-\theta,60^\circ+\theta$), or odd multiples $\frac{\pi}{2n},\frac{3\pi}{2n},\ldots$
+F: \sin\theta\sin(60^\circ-\theta)\sin(60^\circ+\theta)=\tfrac14\sin3\theta,\quad\cos\theta\cos(60^\circ-\theta)\cos(60^\circ+\theta)=\tfrac14\cos3\theta
+S: Look for the triple $\theta,60^\circ-\theta,60^\circ+\theta$ among the angles. || Replace the triple by $\frac14\sin3\theta$ (or $\frac14\cos3\theta$). || Use complementary angles ($\sin(90^\circ-x)=\cos x$) to turn sines into cosines of doubling angles when needed. || Multiply by the remaining known values ($\sin30^\circ=\frac12$).
+E: $\sin10^\circ\sin50^\circ\sin70^\circ=\frac14\sin30^\circ=\frac18$, so with $\sin30^\circ$ the product is $\frac1{16}$.
+P: 28:7,8
 
-Q: If $\cos^2A-\sin^2B$ or $\cos^2A-\cos A\cos B+\cos^2B$ with special angles
-F: \cos^2A-\sin^2B=\cos(A+B)\cos(A-B)
-P: 28:13,17,23,12
+Q: If cosines with doubling angles appear ($\cos20^\circ\cos40^\circ\cos80^\circ$, $(4\cos^2\theta-1)$ products)
+R: Each angle is twice the previous one, or factors like $4\cos^2 9^\circ-1$, $4\cos^2 27^\circ-1$ (angle tripling).
+F: \cos A\cos2A\cdots\cos2^{n-1}A=\frac{\sin2^nA}{2^n\sin A},\qquad4\cos^2\theta-1=\frac{\sin3\theta}{\sin\theta}
+S: Multiply and divide by $\sin A$; use $2\sin x\cos x=\sin2x$ repeatedly. || For $4\cos^2\theta-1$, write it as $\frac{\sin3\theta}{\sin\theta}$; with tripling angles the product telescopes. || Reduce the final angle mod $360^\circ$.
+E: $\prod(4\cos^2\theta-1)$ for $9^\circ,27^\circ,81^\circ,243^\circ$ $=\frac{\sin729^\circ}{\sin9^\circ}=1$, so $36\times1=36$.
+P: 28:22,30
 
-Q: If $\cos(\alpha+\beta)$, $\sin(\alpha-\beta)$ given and $\tan2\alpha$ etc. asked
-F: 2\alpha=(\alpha+\beta)+(\alpha-\beta)
-P: 28:3
+Q: If expressions like $\cos^2A-\sin^2B$ or $\cos^2A-\cos A\cos B+\cos^2B$ appear with special angles
+R: "$\frac{\cos^248^\circ-\sin^212^\circ}{\sin^224^\circ-\sin^26^\circ}$", "$\cos^210^\circ-\cos10^\circ\cos50^\circ+\cos^250^\circ$".
+F: \cos^2A-\sin^2B=\cos(A+B)\cos(A-B),\quad\sin^2A-\sin^2B=\sin(A+B)\sin(A-B)
+S: Apply the difference-of-squares identity so the angles become sums and differences. || Usually you get $60^\circ,36^\circ,30^\circ,18^\circ$: use $\cos36^\circ=\frac{\sqrt5+1}4$, $\sin18^\circ=\frac{\sqrt5-1}4$. || For mixed forms, convert squares with $\cos^2x=\frac{1+\cos2x}2$ and products with $2\cos A\cos B=\cos(A+B)+\cos(A-B)$.
+E: $\frac{\cos60^\circ\cos36^\circ}{\sin30^\circ\sin18^\circ}=\frac{\sqrt5+1}{\sqrt5-1}=\frac{3+\sqrt5}2$, so $\alpha+\beta=4$.
+P: 28:13,17
 
-Q: If the max/min of an expression in $\sin$, $\cos$
-F: a\sin x+b\cos x\in[-\sqrt{a^2+b^2},\sqrt{a^2+b^2}];\ \ \text{quadratic in } \sin x:\ \text{restrict } t\in[-1,1]
-P: 28:14,24,6,31
+Q: If a value at a non-standard angle ($\cot\frac\pi{24}$, $\tan7\tfrac12^\circ$) is asked
+R: Angles that are halves of $15^\circ$, $45^\circ$, $30^\circ$.
+F: \cot\frac\theta2=\csc\theta+\cot\theta,\quad\tan\frac\theta2=\csc\theta-\cot\theta
+S: Write the angle as half of a known angle. || Use the half-angle formula with the known values at $\theta$ ($\csc15^\circ=\sqrt6+\sqrt2$, $\cot15^\circ=2+\sqrt3$).
+E: $\cot\frac\pi{24}=\csc15^\circ+\cot15^\circ=\sqrt2+\sqrt3+2+\sqrt6$.
+P: 28:23
 
-Q: If it is a heights-and-distances problem
-F: \tan(\text{elevation})=\frac{\text{height}}{\text{horizontal distance}}
-N: Draw the figure, label distances with one variable, write two $\tan$ equations, eliminate. Reflection in a lake: image is as far below the surface as the object is above.
-P: 28:2,20,21,27,28,29,37
+Q: If $\cot\theta$ (or $\cos(\alpha+\beta)$, $\sin(\alpha-\beta)$) is given and a combination with multiple angles is asked
+R: "$\cot\theta=-\frac1{2\sqrt2}$; find $\sin\frac{15\theta}2(\cos8\theta+\sin8\theta)+\cos\frac{15\theta}2(\cos8\theta-\sin8\theta)$", "$\cos(\alpha+\beta)=-\frac1{10}$, $\sin(\alpha-\beta)=\frac38$; $\tan2\alpha$".
+F: 2\alpha=(\alpha+\beta)+(\alpha-\beta);\quad\sin A\cos B+\cos A\sin B=\sin(A+B)
+S: First combine the long expression with compound-angle formulas; it usually collapses to one sine or cosine (e.g. $\sin\frac{\theta}2+\cos\frac\theta2$ type). || Find the needed basic ratio from the given one, choosing signs from the quadrant. || For $\tan2\alpha$, use $\tan\big((\alpha+\beta)+(\alpha-\beta)\big)$ with both tangents found from the given values.
+E: Regroup: $\left[\sin\frac{15\theta}2\cos8\theta-\cos\frac{15\theta}2\sin8\theta\right]+\left[\cos\frac{15\theta}2\cos8\theta+\sin\frac{15\theta}2\sin8\theta\right]=\cos\frac\theta2-\sin\frac\theta2$; then use $\cos\theta=-\frac13$ (Q2).
+P: 28:12,3
 
-Q: If a sum of $\sec$ products telescopes
+Q: If the max/min of an expression like $8^{2\sin3x}\cdot4^{4\cos3x}$ or $a\sin x+b\cos x$ is asked
+R: Exponents or expressions combining $\sin$ and $\cos$ of the same angle.
+F: -\sqrt{a^2+b^2}\le a\sin x+b\cos x\le\sqrt{a^2+b^2}
+S: Bring everything to one base: $8^{2\sin3x}4^{4\cos3x}=2^{6\sin3x+8\cos3x}$. || The exponent ranges between $\pm\sqrt{6^2+8^2}=\pm10$. || Max $=2^{10}$, min $=2^{-10}$; continue with the rest of the question.
+E: $\alpha=2^{10}$, $\beta=2^{-10}$; roots $\alpha^{1/5}=4$, $\beta^{1/5}=\frac14$.
+P: 28:14
+
+Q: If an equation like $\cos x+\cos y-\cos(x+y)=\frac32$ fixes the angles (equality case)
+R: A symmetric expression set equal to its maximum or minimum value.
+F: \cos x+\cos y-\cos(x+y)\le\frac32\ \text{with equality iff } x=y=\frac\pi3
+S: Treat it as a quadratic in one cosine, e.g. in $\cos\frac{x+y}2$. || Its discriminant must be $\ge0$; this forces equality. || Read off the angles, then compute what is asked.
+E: Equality gives $x=y=\frac\pi3$, so $\sin x+\cos y=\frac{\sqrt3+1}2$.
+P: 28:31
+
+Q: If a height/distance problem uses two angles of elevation from two points
+R: "Angle of elevation $\alpha$ from A, $\beta$ from B, distance AB given", towers seen from points due north and due west, man seeing up to half the tower.
+F: h=\frac{d}{\cot\beta-\cot\alpha}=\frac{d\tan\alpha\tan\beta}{\tan\alpha-\tan\beta}
+S: Draw the figure with the tower vertical and the ground horizontal; name the foot of the tower. || In each right triangle write horizontal distance $=h\cot(\text{angle})$. || Use the given distance between points (same line: difference; perpendicular directions: Pythagoras). || Solve the equations for $h$ or the distance. || For "sees up to height $h$ at angle $2\alpha$", use $\tan$ of the double angle.
+E: Elevations $45^\circ$ and $30^\circ$ from points 10 apart on one line: $h(\sqrt3-1)=10$, so $h=5(\sqrt3+1)$.
+P: 28:2,20,21,29
+
+Q: If it involves reflections in a lake, two poles, or a balloon subtending an angle
+R: "Angle of depression of the image of the cloud", "two poles 15 m and 10 m, P is the intersection of BC and AD", "balloon of radius 16 m subtends $60^\circ$".
+F: \text{image is as far below the surface as the cloud is above};\ \ \text{crossing point height}=\frac{ab}{a+b};\ \ OC=\frac{r}{\sin(\theta/2)}
+S: Lake: if the cloud is $x$ above P and P is $h$ above the lake, the image is $x+2h$ below P. || Poles: the height of the crossing point does not depend on the distance between poles. || Balloon: the distance from the eye to the centre is $r\csc\frac\theta2$; then height $=$ that distance $\times\sin(\text{elevation})$.
+E: Lake: $x=d\tan30^\circ$, $x+400=d\tan60^\circ$ ⇒ $d=200\sqrt3$, $x=200$, $PC=400$ m.
+P: 28:27,28,37
+
+Q: If a sum of products of secants with equally spaced angles telescopes
+R: "$\sum_{m=1}^{9}\sec(\theta+(m-1)\frac\pi6)\sec(\theta+m\frac\pi6)=-\frac8{\sqrt3}$".
 F: \sec A\sec B=\frac{\tan B-\tan A}{\sin(B-A)}
+S: Write each term with the formula; $B-A$ is the constant step. || Sum: the tangents telescope to $\tan(\text{last})-\tan(\text{first})$. || Simplify and solve for $\theta$.
+E: Sum $=2\big(\tan(\theta+\frac{3\pi}2)-\tan\theta\big)=-2(\cot\theta+\tan\theta)=-\frac4{\sin2\theta}$ ⇒ $\sin2\theta=\frac{\sqrt3}2$.
 P: 28:18
 
-Q: If $\tan$ of four related angles, $\tan(x+100)=\tan(x+50)\tan x\tan(x-50)$
-F: \text{write as } \frac{\tan(x+100)}{\tan(x-50)}=\tan(x+50)\tan x,\ \text{use componendo–dividendo}
+Q: If tangents of related angles are linked ($\tan(x+100^\circ)=\tan(x+50^\circ)\tan x\tan(x-50^\circ)$)
+R: A product of tangents equal to another tangent, with angles in AP.
+F: \frac{\tan A}{\tan B}=\frac{\sin(A+B)+\sin(A-B)}{\sin(A+B)-\sin(A-B)}\ \ \text{(componendo–dividendo)}
+S: Divide to get a ratio of two tangents on each side: $\frac{\tan(x+100^\circ)}{\tan(x-50^\circ)}=\tan(x+50^\circ)\tan x$. || Convert both sides to sines and cosines and apply componendo–dividendo. || Simplify to a single equation like $\cos(\ldots)=0$ or $\sin(\ldots)=0$ and count solutions in the interval.
 P: 28:10
 
-Q: If roots of a quadratic with $\sin^4+\cos^4$ coefficients must be real
-F: \sin^4+\cos^4=1-\tfrac12\sin^22\theta,\ \ \sin^6+\cos^6=1-\tfrac34\sin^22\theta
+Q: If a quadratic has coefficients like $\sin^4\theta+\cos^4\theta$ and must have real roots
+R: "$(\sin^4\theta+\cos^4\theta)x^2+(\sin2\theta)x+(\sin^6\theta+\cos^6\theta)=0$ has real roots".
+F: \sin^4+\cos^4=1-\tfrac12\sin^22\theta,\quad\sin^6+\cos^6=1-\tfrac34\sin^22\theta
+S: Put $t=\sin^22\theta\in[0,1]$ and rewrite all coefficients in $t$. || Impose $D\ge0$; it becomes an inequality in $t$. || Intersect with $[0,1]$.
+E: $3t^2-12t+8\le0\Rightarrow t\in[2-\frac2{\sqrt3},1]$.
 P: 28:4
 
-Q: If a sum like $\cos\frac{2\pi}7+\cos\frac{4\pi}7+\cos\frac{6\pi}7$
-F: =-\tfrac12
-P: 28:32,34,33
+Q: If a sum like $\cos\frac{2\pi}7+\cos\frac{4\pi}7+\cos\frac{6\pi}7$ is asked
+R: Cosines of angles in AP.
+F: \sum_{k=0}^{n-1}\cos(\alpha+k\beta)=\frac{\sin\frac{n\beta}2}{\sin\frac\beta2}\cos\left(\alpha+\frac{(n-1)\beta}2\right)
+S: Identify the first angle and the common difference. || Apply the formula (or multiply by $2\sin\frac\beta2$ and telescope).
+E: $\cos\frac{2\pi}7+\cos\frac{4\pi}7+\cos\frac{6\pi}7=-\frac12$.
+P: 28:32
+
+Q: If interior angles of a polygon are in AP, or angles of a triangle appear in a condition
+R: "Interior angles in AP with common difference $6^\circ$; largest is $219^\circ$", "the line $x=y=z$ meets planes with $\sin A$, $\sin2A$…".
+F: \text{sum of interior angles}=(n-2)180^\circ;\quad A+B+C=\pi
+S: Write the sum of the AP of angles as $\frac n2[2a+(n-1)d]$ (or from the largest angle downwards). || Set it equal to $(n-2)180^\circ$; solve for $n$ and check every angle is less than $360^\circ$ and positive. || For triangles, use $A+B+C=\pi$ and identities like $\sin2A+\sin2B+\sin2C=4\sin A\sin B\sin C$.
+E: $(n-2)180=n(222-3n)$ ⇒ $n^2-14n-120=0$ ⇒ $n=20$.
+P: 28:34,33

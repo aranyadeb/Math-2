@@ -1,39 +1,76 @@
 @ area | Area Under Curves | 12 | Calculus
 
 ## If this type comes, solve like this
-Q: If the region is given as a set of inequalities $\{(x,y):\ldots\}$
-F: A=\int(\text{upper}-\text{lower})\,dx\ \ \text{or}\ \int(\text{right}-\text{left})\,dy
-N: 1) Sketch every boundary. 2) Find intersection points. 3) Decide vertical or horizontal strips (choose the one with a single formula on each side). 4) Split at kinks of $\min/\max$ or $|\ |$.
-P: 17:1,2,3,5,6,7,8,11,12,22,21,26
+Q: If the region lies between a parabola and lines (or a min/max of lines)
+R: "$\{(x,y):1+x^2\le y\le\min\{x+7,11-3x\}\}$", "$xy\le8$, $1\le y\le x^2$", "largest rectangle inscribed in $x\le y\le9-\frac{11}3x^2$".
+F: A=\int_a^b(\text{upper}-\text{lower})\,dx
+S: Sketch every boundary and shade the region the inequalities describe. || Find all intersection points (curve–curve and line–line). || Split the $x$-range wherever the upper or lower boundary changes. || Integrate upper minus lower on each piece and add. || If horizontal strips are simpler (curves given as $x=g(y)$), integrate in $y$.
+E: $1+x^2$ meets $x+7$ at $-2,3$ and $11-3x$ at $2,-5$; lines meet at $x=1$. $A=\int_{-2}^1(x+6-x^2)dx+\int_1^2(10-3x-x^2)dx=\frac{27}2+\frac{19}6=\frac{50}3$, so $3A=50$.
+H: Trap: missing the point where the "min" switches from one line to the other.
+P: 17:2,8,26
 
-Q: If two parabolas (or parabola and line) bound the region
-F: \text{area between } y^2=4ax \text{ and } x^2=4by:\ \tfrac{16ab}3;\ \ \text{parabola–chord}=\tfrac23\times\text{rectangle}
+Q: If the region involves moduli ($|x-5|\le y\le4\sqrt x$, $|2x-1|\le y\le|x^2-x|$, $|\cos x-\sin x|\le y\le\sin x$)
+R: Absolute values in the boundaries, or $y\le\pi-|x|$, or a function like $3-|x-\frac12|-|x+1|$.
+F: |g(x)|=g\ \text{or}\ -g\ \text{depending on the sign of } g
+S: Find where each modulus argument changes sign and split there. || Write each boundary without modulus on each piece. || Use symmetry (even functions: double the right half). || Integrate upper minus lower on each piece.
+E: $|x-5|\le y\le4\sqrt x$: intersections at $x=1$ and $x=25$; split at $x=5$.
+P: 17:5,6,7,22,12
+
+Q: If a circle and a parabola (or several parabolas) bound the region
+R: "$x^2+y^2\le21$, $y^2\le4x$, $x\ge1$", "$x-2y+4\ge0$, $x+2y^2\ge0$, $x+4y^2\le8$, $y\ge0$".
+F: \int_a^b\sqrt{r^2-x^2}dx=\left[\frac x2\sqrt{r^2-x^2}+\frac{r^2}2\sin^{-1}\frac xr\right]_a^b
+S: Find where the curves meet. || Decide whether vertical or horizontal strips are simpler (parabolas $x=ky^2$ favour $dy$). || Use the circle-segment formula for the circular part. || Add the pieces; double for symmetry about the x-axis.
+P: 17:1,3
+
+Q: If two parabolas (or a parabola and a chord) bound the region
+R: "$y=4x^2$ and $y=x^2+27$", "$y^2=ax$ and $x^2=ay$", "$PQ$ chord of $y=x^2$ with $S_1$, $S_2$", "line $y=\alpha$ halves the region $x^2\le y\le2x$".
+F: y^2=4ax,\ x^2=4by:\ A=\frac{16ab}3;\ \ \text{parabola and chord: } A=\frac23\times\text{(enclosing parallelogram)}
+S: Intersect the curves. || Integrate the difference. || For equal-area division by $y=\alpha$, integrate in $y$ from 0 to $\alpha$ and set it to half the total.
+E: $y=4x^2$, $y=x^2+27$ meet at $x=\pm3$: $A=\int_{-3}^3(27-3x^2)dx=108$.
 P: 17:4,9,15,16
 
-Q: If $|f(x)|$ and a horizontal line bound the region ($y=|x^2-9|$, $y=3$)
-F: \text{use symmetry; split where } |f|=\text{line}\ \text{and where } f=0
+Q: If $y=|f(x)|$ and a horizontal line bound the region
+R: "Area bounded by $y=|x^2-9|$ and $y=3$".
+F: \text{reflect the negative part upward, then use symmetry}
+S: Sketch $|f|$: the part below the axis is reflected up. || Find where $|f|=3$: here $x^2=6$ and $x^2=12$. || Integrate (upper − lower) on each piece, using symmetry about $x=0$.
 P: 17:10
 
-Q: If a line divides the area in a ratio
-F: \text{area above } y=\alpha=\text{half of total};\ \text{solve for } \alpha
-P: 17:9
-
 Q: If a tangent from an external point to a parabola bounds the region
-F: \text{find the contact point first (tangent condition), then integrate in } y
+R: "A line through $A(-2,0)$ touches $y^2=x-2$ at $B$; area bounded by the line, the parabola and the x-axis".
+F: \text{tangent to } y^2=x-2 \text{ at } (t^2+2,t):\ 2ty=x-2+t^2
+S: Write the tangent at a general point and put the external point in it to find the point of contact. || Integrate in $y$: (parabola $x$) − (line $x$) from $0$ to the contact $y$.
 P: 17:14
 
-Q: If a hyperbola or conic and its axes/chord bound the region
-F: \int\sqrt{x^2-a^2}\,dx=\tfrac x2\sqrt{x^2-a^2}-\tfrac{a^2}2\ln|x+\sqrt{x^2-a^2}|
+Q: If a hyperbola or other conic and a line/axis bound the region
+R: "Region above the parabola bounded by the transverse and conjugate axes of $16x^2-y^2+\ldots=0$", "$16x^2-9y^2=144$ and $8x-3y=24$".
+F: \int\sqrt{x^2-a^2}dx=\frac x2\sqrt{x^2-a^2}-\frac{a^2}2\ln|x+\sqrt{x^2-a^2}|
+S: Bring the conic to standard form (centre, axes). || Find intersections with the line. || Integrate with the standard $\sqrt{x^2-a^2}$ formula (logs appear).
+E: The line meets the hyperbola at $x=3$ and $x=5$.
 P: 17:13,23
 
-Q: If curves like $x(1+y^2)=1$, astroid, $4y^2=x^2(4-x)(x-2)$ appear
-F: \text{integrate w.r.t. } y\ (\tan^{-1})\ \text{or use symmetry/parametric form}
+Q: If unusual curves appear ($x(1+y^2)=1$, an astroid, $4y^2=x^2(4-x)(x-2)$)
+R: "Area between $x(1+y^2)=1$ and $y^2=2x$", "$x^{2/3}+y^{2/3}\le1$, $x+y\ge0$, $y\ge0$", "loop of $4y^2=x^2(4-x)(x-2)$".
+F: \text{astroid } x^{2/3}+y^{2/3}=a^{2/3}:\ A=\frac{3\pi a^2}8;\ \ \int\frac{dy}{1+y^2}=\tan^{-1}y
+S: Choose the variable that makes the curve a function ($x=\frac1{1+y^2}$ is a function of $y$). || Use symmetry (astroid symmetric about both axes and about $y=\pm x$). || For loops $y=\pm\frac x2\sqrt{(4-x)(x-2)}$, integrate between the roots and double.
+E: $\int_{-1}^1\left(\frac1{1+y^2}-\frac{y^2}2\right)dy=\frac\pi2-\frac13$.
 P: 17:17,18,19
 
-Q: If $[\,]$ appears inside the integrand of the area
-F: \text{split where the inside crosses integers}
+Q: If $[\ ]$ appears inside the integrand, or $\min\{\ldots,1+[x]\}$ bounds the region
+R: "$\int_0^1[-8x^2+6x-1]dx$", "area enclosed by $x+y=2$, the axes and $\min\{x^2+\frac34,1+[x]\}$".
+F: [g(x)]=k\ \text{where } k\le g(x)<k+1
+S: Find where $g(x)$ crosses each integer level. || On each sub-interval $[g]$ is constant; multiply by the length. || For min with a step function, compare the curve with each step separately.
+E: $[-8x^2+6x-1]$ is $-1$ on $[0,\frac14)$, $0$ on $[\frac14,\frac12]$, $-1$ on $(\frac12,\frac34]$, $-2$ then $-3$: total $\frac{\sqrt{17}-13}8$.
 P: 17:20,21
 
-Q: If a functional equation defines $f$ first
-F: f(x)+3f\left(\tfrac\pi2-x\right)=\sin x:\ \text{replace } x\to\tfrac\pi2-x,\ \text{solve two equations}
+Q: If a functional equation or an area condition defines the curve first
+R: "$f(x)+3f(\frac\pi2-x)=\sin x$; area bounded by $y=f(x)$…", "area $A_1$ is twice $A_2$ for a curve in a figure".
+F: \text{solve for } f \text{ first (substitute } x\to\frac\pi2-x\text{)}
+S: Substitute the transformed argument to get a second equation; solve for $f$. || Or differentiate the area relation to get a differential equation for the curve. || Then compute the asked area.
+E: $f(x)+3f(\frac\pi2-x)=\sin x$ and $f(\frac\pi2-x)+3f(x)=\cos x$ ⇒ $f(x)=\frac{3\cos x-\sin x}8$.
 P: 17:25,24
+
+Q: If the region is bounded by $\ln x$, $2^x$ or other transcendental curves
+R: "$\max\{0,\ln x\}\le y\le2^x$, $\frac12\le x\le2$".
+F: \int2^xdx=\frac{2^x}{\ln2},\ \ \int\ln x\,dx=x\ln x-x
+S: Split where $\ln x$ becomes positive ($x=1$). || Integrate $2^x-0$ on $[\frac12,1]$ and $2^x-\ln x$ on $[1,2]$.
+P: 17:11

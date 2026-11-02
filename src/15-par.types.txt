@@ -1,35 +1,100 @@
 @ par | Parabola | 11 | Coordinate Geometry
 
 ## If this type comes, solve like this
-Q: If a focal chord is involved (length, $SP\cdot SQ$, distance from vertex)
-F: t_1t_2=-1;\ \ \text{length}=a\left(t+\tfrac1t\right)^2=\frac{4a}{\sin^2\theta};\ \ \frac1{SP}+\frac1{SQ}=\frac1a
-N: Slope $m$ of focal chord: $m=\frac{2}{t_1+t_2}$. $SP=a(1+t^2)$.
-P: 20:4,16,33,34,35
+Q: If the length of a focal chord or its distance from the vertex is involved
+R: "Focal chord of $y^2=12x$ of length 15; distance from the origin $p$", "focal chord of length $l$ and slope $m$; $ld^2$", "focal chord of $y^2=36x$ of length 100".
+F: y^2=4ax:\ \text{focal chord at angle }\theta:\ L=4a\csc^2\theta,\ \ \text{distance from vertex}=a\sin\theta
+S: Let the chord make angle $\theta$ with the axis (slope $m=\tan\theta$). || Length $L=4a\csc^2\theta=\frac{4a(1+m^2)}{m^2}$; solve for $\sin^2\theta$ or $m$. || The perpendicular distance from the vertex to the chord is $a\sin\theta$. || Endpoints: parameters $t$ and $-\frac1t$ with $t-\frac1t=\frac2m$.
+E: $y^2=12x$ ($a=3$): $12\csc^2\theta=15\Rightarrow\sin^2\theta=\frac45$; $p^2=9\cdot\frac45$, $10p^2=72$.
+H: Note $ld^2=4a\csc^2\theta\cdot a^2\sin^2\theta=4a^3$ — independent of the slope.
+P: 20:33,34,4
 
-Q: If tangents from an external point / chord of contact / tangent condition
-F: y=mx+\frac am;\ \ \text{chord of contact } T=0
-P: 20:2,31,32,24
+Q: If focal distances $SP$, $SQ$ of a focal chord, or feet of perpendiculars on the directrix, are used
+R: "$(SP)(SQ)=\frac{147}4$; circle on $PQ$ as diameter", "$M,N$ feet of perpendiculars from $P,Q$ on the directrix".
+F: \frac1{SP}+\frac1{SQ}=\frac1a,\quad SP=a(1+t^2),\quad\text{circle on a focal chord as diameter touches the directrix}
+S: Write $SP=a+x_P$ (distance to directrix). || Use the harmonic relation $\frac1{SP}+\frac1{SQ}=\frac1a$, so $PQ=SP+SQ=\frac{SP\cdot SQ}a$. || $PM=SP$ and $QN=SQ$ (focus–directrix property); $\angle MSN=90^\circ$.
+E: $a=3$: $PQ=\frac{147/4}3=\frac{49}4$, so the circle has radius $\frac{49}8$.
+P: 20:16,35
 
-Q: If nearest point of the parabola to a point or a line
-F: \text{normal at } P \text{ passes through the point};\ \ \text{or tangent parallel to the line}
+Q: If a line cuts the parabola and a triangle with the focus (centroid, area) is given
+R: "$y=mx+c$ meets $y^2=8x$ at $B,C$; centroid of $ABC$ with focus $A$ is $(\frac73,\frac43)$".
+F: my^2-4ay+4ac=0\Rightarrow y_1+y_2=\frac{4a}m,\ y_1y_2=\frac{4ac}m
+S: Eliminate $x$: substitute $x=\frac{y-c}m$ into $y^2=4ax$. || Read $y_1+y_2$ and $y_1y_2$ (Vieta). || Centroid: $\frac{y_1+y_2+0}3$ and $\frac{x_1+x_2+a}3$ with $x_i=\frac{y_i-c}m$. || Solve for $m$ and $c$.
+E: $y_1+y_2=\frac8m=4\Rightarrow m=2$; $x_1+x_2=5\Rightarrow\frac{4-2c}2=5\Rightarrow c=-3$.
+P: 20:31,32
+
+Q: If tangents from an external point, or a tangent condition, are needed
+R: "Lines through $P(0,1)$ touching $9x^2+12x+18y-14=0$", "focus of $y^2=4x+16$ is the centre of a circle", "tangent at a point".
+F: y^2=4ax:\ y=mx+\frac am;\ \ x^2=4ay:\ y=mx-am^2;\ \ \text{tangent at }(at^2,2at):\ ty=x+at^2
+S: Complete the square to bring the parabola to standard form $(X)^2=4AY$; note the shift. || Write the tangent in slope form for the shifted parabola. || Put the external point in it: a quadratic in $m$ gives both tangents. || Use $m_1+m_2$, $m_1m_2$ for angles or the triangle asked.
+E: $y^2=4(x+4)$: vertex $(-4,0)$, $a=1$, focus $(-3,0)$.
+P: 20:2,24
+
+Q: If the point of the parabola nearest to a point or a line is asked
+R: "Point of $x=4y^2$ nearest to $(0,33)$", "shortest distance between $y=x$ and $y^2=x-2$", "min distance between a circle and $y=x^2$".
+F: \text{nearest to a line: tangent parallel to the line};\ \ \text{nearest to a point: normal passes through the point}
+S: For a line: set the slope of the tangent equal to the line's slope; find the point; distance from it to the line. || For a point: the normal at the nearest point passes through the given point (or minimise the squared distance). || For a circle: the normal of the parabola passes through the circle's centre; subtract the radius.
+E: $y^2=x-2$: $\frac{dy}{dx}=\frac1{2y}=1\Rightarrow(\frac94,\frac12)$; distance $\frac{7/4}{\sqrt2}=\frac7{4\sqrt2}$.
 P: 20:6,20,37
 
-Q: If a locus of midpoints / dividing points with a moving point on the parabola
-F: P=(at^2,2at)\ \Rightarrow\ (h,k)\ \text{in } t,\ \text{eliminate } t
+Q: If a locus of a midpoint or dividing point with a moving point on the parabola is asked
+R: "Midpoint of the focus and a point of $y^2=4ax$", "point dividing $OQ$ in $2:3$", "centroid of $OPA$ with $\angle OPA=90^\circ$", "right-angled triangle inscribed with right angle at $(4,8)$".
+F: P=(at^2,2at)\ \text{(parametric point)}
+S: Take the moving point as $(at^2,2at)$. || Write the required point $(h,k)$ in terms of $t$. || Eliminate $t$ and replace $(h,k)$ by $(x,y)$. || Read the vertex/focus/directrix of the new conic if asked.
+E: Mid-point of $(a,0)$ and $(at^2,2at)$: $k^2=a(2h-a)$, i.e. $y^2=2a(x-\frac a2)$, whose directrix is $x=0$.
 P: 20:1,3,12,29
 
-Q: If parabola from focus–directrix not parallel to axes, or vertex+directrix
-F: PS^2=\frac{(lx+my+n)^2}{l^2+m^2};\ \ \text{focus = reflection of the directrix foot across the vertex}
-P: 20:7,9,22,23,25,21,41
+Q: If the parabola is defined by a focus and a directrix that are not parallel to the axes (or two parabolas share a focus)
+R: "Vertex $(\frac32,3)$ and directrix $x+2y=0$", "axis $y=x$, vertex and focus at $\sqrt2$, $2\sqrt2$ from O", "two parabolas with the same focus $(4,3)$ and directrices the x- and y-axes".
+F: (x-\alpha)^2+(y-\beta)^2=\frac{(ax+by+c)^2}{a^2+b^2}
+S: Find the focus (vertex is the midpoint of the focus and the foot of the axis on the directrix). || Write $PS^2=$ (distance to directrix)$^2$. || Expand to get the general second-degree equation. || For two such parabolas, subtract the equations to get the line through their intersections.
+E: Same focus $(4,3)$: subtracting gives $x^2=y^2$; with $y=x$: $x^2-14x+25=0$, $AB^2=2\cdot96=192$.
+P: 20:7,9,25
 
-Q: If an inscribed triangle/trapezium with vertices on the parabola
-F: \text{use parameters } t_i;\ \ \text{area}=a^2|(t_1-t_2)(t_2-t_3)(t_3-t_1)|;\ \ \text{equilateral at vertex: side } 8\sqrt3a
-P: 20:5,15,30,38,39,40
+Q: If the vertex and focus are on an axis at given distances (latus rectum asked)
+R: "Vertex and focus on the positive x-axis at distances $R$ and $S$", "vertex at 2 and focus at 4 from the origin".
+F: a=|\text{focus}-\text{vertex}|,\quad\text{LR}=4a,\quad(y-k)^2=4a(x-h)
+S: $a$ is the distance between vertex and focus. || Write $(y-0)^2=4a(x-R)$ with the vertex at $(R,0)$. || Latus rectum $=4a$; test points by substitution.
+E: $a=S-R$, latus rectum $=4(S-R)$.
+P: 20:22,23
 
-Q: If a circle and parabola interact (touch at a point, chords, common tangent)
-F: \text{circle touching at } P:\ (x-x_1)^2+(y-y_1)^2+\lambda T=0
-P: 20:13,17,18,19,26,28,11
+Q: If the image of a parabola in a line is needed
+R: "Image of $x^2=4y$ in $x-y=1$ is $(y+a)^2=b(x-c)$", "mirror image of $y^2=4x$ in $x+y+4=0$ meets $y+5=0$".
+F: \text{in } x-y=k:\ (x,y)\to(y+k,\ x-k);\ \ \text{in } x+y=k:\ (x,y)\to(k-y,\ k-x)
+S: Write the image map for the mirror line (for slopes $\pm1$ it is a swap with shift). || If $(X,Y)$ is on the image, its mirror $(x,y)$ is on the original: express $x,y$ in $X,Y$ and substitute. || Compare with the required form.
+E: $x=Y+1$, $y=X-1$: $(Y+1)^2=4(X-1)$ ⇒ $a=1,b=4,c=1$.
+P: 20:21,41
 
-Q: If a chord's length by a line is asked
-F: \text{solve line with parabola, use } |x_1-x_2|\sqrt{1+m^2}
-P: 20:14,10,27,36,8
+Q: If a triangle on an arc of the parabola must have maximum area
+R: "$A(4,-4)$, $B(9,6)$ on $y^2=4x$; $C$ on the arc $AOB$ with maximum area of $\triangle ACB$".
+F: \text{maximum area}\iff\text{tangent at } C \parallel AB
+S: Find the slope of $AB$. || Find the point of the parabola where the tangent has that slope ($\frac{dy}{dx}=\frac{2a}y$). || Compute the area with the determinant formula.
+E: Slope of $AB=2$; $\frac2y=2\Rightarrow C(\frac14,1)$.
+P: 20:38,40
+
+Q: If an equilateral triangle, trapezium or triangle with special vertices is inscribed in the parabola
+R: "Equilateral $OAB$ in $y^2=4x$ with $O$ the vertex", "trapezium with sides parallel to the y-axis", "triangle with vertex at the vertex and two on the y-axis".
+F: \text{equilateral } OAB:\ A,B=(12a,\pm4\sqrt3a)
+S: Use symmetry: $A$ and $B$ are mirror images in the axis. || For an equilateral triangle at the vertex, $\frac{2at}{at^2}=\tan30^\circ$ gives $t=2\sqrt3$. || Sides parallel to the y-axis mean pairs of points with the same $x$. || Then compute the asked length/area/distance.
+E: $y^2=4x$: $A(12,4\sqrt3)$, $B(12,-4\sqrt3)$; circle on $AB$: centre $(12,0)$, radius $4\sqrt3$.
+P: 20:5,15,30,39
+
+Q: If a circle touches the parabola (at a given point, or touches it and given lines)
+R: "Smaller circle touching $y^2=4x$ at $(1,2)$ and the x-axis", "circle of minimum area touching $y=6-x^2$ and $y=\sqrt3|x|$", "circle through the vertex and focus touches another parabola".
+F: \text{centre lies on the normal at the point of contact}
+S: Find the normal at the point of contact. || Put the centre on that normal at distance $r$: $(1+\lambda,2-\lambda)$, $r=\sqrt2|\lambda|$. || Use the other tangency (e.g. distance to the x-axis $=r$). || Pick the smaller/required root.
+E: $|2-\lambda|=\sqrt2\lambda\Rightarrow r=4-2\sqrt2$; area $\pi(4-2\sqrt2)^2=8\pi(3-2\sqrt2)$.
+P: 20:19,17,18
+
+Q: If a circle and a parabola interact (circle through the axis intercepts, chords through a point, distances)
+R: "$y=x^2+px-3$ meets the axes at $P,Q,R$ and a circle with centre $(-1,-1)$ passes through them", "locus of the centre of a circle cutting chord $4a$ on the x-axis", "max distance from the vertex to a circle".
+F: (x-h)^2+(y-k)^2=r^2;\ \ \text{intercept on x-axis}=2\sqrt{r^2-k^2}
+S: Write the circle's conditions in terms of $h,k,r$. || Use the chord/intercept formulas or the points of the parabola. || Eliminate the parameters for loci; for distances use $d\pm r$.
+P: 20:26,28,11,13
+
+Q: If the length of a chord cut by a line, or a vertex condition, is asked
+R: "Length of the chord of $x^2=4y$ on $x-\sqrt2y+4\sqrt2=0$", "parabola $y=x^2+px+q$ through $(1,-1)$ with vertex nearest the x-axis".
+F: \text{chord}=|x_1-x_2|\sqrt{1+m^2},\ \ |x_1-x_2|=\frac{\sqrt D}{|a|};\ \ \text{vertex } \left(-\frac p2,\ q-\frac{p^2}4\right)
+S: Substitute the line into the parabola to get a quadratic in $x$. || $|x_1-x_2|=\frac{\sqrt D}{|a|}$, then multiply by $\sqrt{1+m^2}$. || For the vertex, write its height as a function of the parameter and minimise.
+E: $x^2-2\sqrt2x-16=0$: $|x_1-x_2|=6\sqrt2$, $m=\frac1{\sqrt2}$ ⇒ chord $6\sqrt2\cdot\sqrt{\frac32}=6\sqrt3$.
+P: 20:14,27,10,36,8

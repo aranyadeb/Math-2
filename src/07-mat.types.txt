@@ -1,52 +1,133 @@
 @ mat | Matrices | 12 | Algebra
 
 ## If this type comes, solve like this
-Q: If it involves $|\operatorname{adj}A|$, $\operatorname{adj}(\operatorname{adj}A)$, $|kA|$, $|A^n|$
-F: |\operatorname{adj}A|=|A|^{n-1},\ \ |\operatorname{adj}(\operatorname{adj}A)|=|A|^{(n-1)^2},\ \ \operatorname{adj}(\operatorname{adj}A)=|A|^{n-2}A
-N: Reduce everything to a power of $|A|$, take logs/equate exponents. For $3\times3$: $|\operatorname{adj}^3A|=|A|^8$.
+Q: If it asks $|\operatorname{adj}A|$, $|\operatorname{adj}(\operatorname{adj}A)|$, $|kA|$ or $|A^n|$ from a given determinant
+R: Nested adjoints, "$|\operatorname{adj}(\operatorname{adj}(\operatorname{adj}A))|=81$", "$\operatorname{Adj}(\operatorname{Adj}A)$ is given, find $|A|$", $B_n=\operatorname{adj}(B_{n-1})$.
+F: |\operatorname{adj}A|=|A|^{n-1},\ \operatorname{adj}(\operatorname{adj}A)=|A|^{n-2}A,\ |kA|=k^n|A|,\ |A^m|=|A|^m
+S: Note the order $n$ of the matrix. || Each adjoint raises the determinant to the power $n-1$: after $k$ adjoints the exponent is $(n-1)^k$. || If a matrix like $\operatorname{adj}(\operatorname{adj}A)$ is given, use $\operatorname{adj}(\operatorname{adj}A)=|A|^{n-2}A$, or take its determinant $=|A|^{(n-1)^2}$. || Solve for $|A|$ and substitute in what is asked.
+E: $\operatorname{Adj}(\operatorname{Adj}A)=14\begin{pmatrix}1&2&-1\\-1&1&2\\2&-1&1\end{pmatrix}$ has determinant $14^3\cdot14=14^4=|A|^4$, so $|A|=14$.
 H: Trap: $|kA|=k^n|A|$, not $k|A|$.
-P: 11:1,4,71,72,76,12
+P: 11:1,4,72
 
-Q: If a polynomial matrix equation is given and $A^n$ or $A^{-1}$ is asked
-F: \text{use the equation to reduce powers: } A^3=pA^2+qA+rI\ \Rightarrow\ A^5=\ldots
-N: Multiply the given identity by $A$ repeatedly and substitute back. For $A^{-1}$: multiply by $A^{-1}$ (Cayley–Hamilton: $A^2-(\operatorname{tr}A)A+|A|I=O$).
-P: 11:3,8,13,44,47,53,56,57,59
+Q: If adjoints/inverses appear inside an expression (simplify before computing)
+R: "$A(\operatorname{adj}A^{-1}+\operatorname{adj}B^{-1})^{-1}B$", "$|A-d\,\operatorname{adj}A|=0$", "$B=\operatorname{adj}A$ given, compute $X^TBX$".
+F: A\operatorname{adj}A=|A|I,\ \operatorname{adj}(A^{-1})=\frac{A}{|A|},\ (AB)^{-1}=B^{-1}A^{-1},\ \operatorname{adj}(AB)=\operatorname{adj}B\operatorname{adj}A
+S: Replace $\operatorname{adj}A$ by $|A|A^{-1}$ everywhere. || Use the reversal rules for inverses and adjoints of products. || Factor so that a product like $A^{-1}(\ldots)B^{-1}$ appears and invert it in one go. || For 2×2, $\operatorname{adj}\begin{pmatrix}a&b\\c&d\end{pmatrix}=\begin{pmatrix}d&-b\\-c&a\end{pmatrix}$.
+E: $\left[A\left(\frac A{|A|}+\frac B{|B|}\right)^{-1}B\right]^{-1}=B^{-1}\left(\frac A{|A|}+\frac B{|B|}\right)A^{-1}=\frac{B^{-1}}{|A|}+\frac{A^{-1}}{|B|}$.
+P: 11:71,76,12
 
-Q: If $A^n$ of a triangular/nilpotent/rotation matrix is asked
-F: (I+N)^n=I+nN+\binom n2N^2\ (N^3=O);\qquad R(\theta)^n=R(n\theta)
-N: Upper-triangular with 1s on the diagonal: write $A=I+N$. $\begin{pmatrix}\cos&i\sin\\i\sin&\cos\end{pmatrix}^n$ behaves like $e^{in\theta}$.
-P: 11:5,6,11,45,46,48,49,50,51,52,9,54,55
+Q: If a $2\times2$ matrix is given and $A^{-1}$, $A^n$ or a polynomial in $A$ is asked
+R: "$A^{-1}=\alpha A+\beta I$", "$|A-xI|=0$ has roots $-1,3$; trace of $A^2$", "$A^{m^2}+A^m=3I-A^{-6}$".
+F: \text{Cayley–Hamilton}:\ A^2-(\operatorname{tr}A)A+|A|I=O,\quad A^{-1}=\frac{(\operatorname{tr}A)I-A}{|A|}
+S: Compute $\operatorname{tr}A$ and $|A|$ (find the entries first if the matrix is only described). || Write $A^2=(\operatorname{tr}A)A-|A|I$. || Use it repeatedly to reduce higher powers, or divide by $A$ to get $A^{-1}$. || Eigenvalues $\lambda_1,\lambda_2$: $\operatorname{tr}A^k=\lambda_1^k+\lambda_2^k$.
+E: Symmetric $A$, $A\binom11=\binom37$, $|A|=1$: $A=\begin{pmatrix}1&2\\2&5\end{pmatrix}$, so $A^{-1}=6I-A$: $\alpha+\beta=5$.
+P: 11:8,13,44,57,59
 
-Q: If it uses symmetric/skew-symmetric properties
-F: A=P+Q,\ P=\frac{A+A^T}2,\ Q=\frac{A-A^T}2;\ \ (AB)^T=B^TA^T
-N: To decide symmetric/skew of a product: take its transpose and simplify using $A^T=A$, $B^T=-B$. $X^TAX=0\ \forall X$ ⇒ $A$ skew-symmetric.
-P: 11:7,18,19,22,17,26
+Q: If a $3\times3$ matrix satisfies a cubic (or recurrence) and a higher power is asked
+R: "$A^2(A-2I)-4(A-I)=O$; $A^5=\alpha A^2+\beta A+\gamma I$", "$A^n=A^{n-2}+A^2-I$; sum of entries of $A^{50}$", "$A^3=4A^2-A-21I$".
+F: A^3=pA^2+qA+rI\Rightarrow A^{k+1}=A\cdot A^k\ \text{and reduce}
+S: Write the cubic as $A^3=$ (lower powers). || Multiply by $A$ to get $A^4$, replace $A^3$ again; repeat until the needed power. || For recurrences like $A^n=A^{n-2}+A^2-I$, telescope: $A^{50}=A^2+24(A^2-I)$. || To find unknown entries ($a,b$), compare the characteristic polynomial with the given cubic: trace, sum of 2×2 principal minors, and determinant.
+E: $A^3=2A^2+4A-4I$ ⇒ $A^4=8A^2+4A-8I$ ⇒ $A^5=20A^2+24A-32I$; $\alpha+\beta+\gamma=12$.
+P: 11:3,47,53,56
 
-Q: If $A$ acting on given column vectors is known (find $A$ or $A$ times another vector)
-F: A[X_1\ X_2\ X_3]=[Y_1\ Y_2\ Y_3]\Rightarrow A=YX^{-1}
-N: Faster: write the target vector as a combination of the given $X_i$ and use linearity.
+Q: If $A^n$ is asked for an upper-triangular matrix with 1s on the diagonal ($A=I+N$)
+R: $\begin{pmatrix}1&a&a\\0&1&b\\0&0&1\end{pmatrix}^n$ given, $\prod\begin{pmatrix}1&k\\0&1\end{pmatrix}$, $\sum(\operatorname{adj}A)^k$ for $A=\begin{pmatrix}1&2\\0&1\end{pmatrix}$.
+F: (I+N)^n=I+nN+\binom n2N^2\quad(N^3=O,\ IN=NI)
+S: Write $A=I+N$ where $N$ is strictly upper triangular. || Compute $N^2$; $N^3=O$ for 3×3. || Expand with the binomial theorem (allowed since $I$ and $N$ commute). || Compare entries with the given matrix. || For products $\begin{pmatrix}1&a\\0&1\end{pmatrix}\begin{pmatrix}1&b\\0&1\end{pmatrix}=\begin{pmatrix}1&a+b\\0&1\end{pmatrix}$: just add the corners.
+E: $na=48$, $nb=96$, $na+\binom n2ab=2160$ ⇒ $n=12$, $a=4$, $b=8$; $n+a+b=24$.
+P: 11:5,11,46,51,52,45
+
+Q: If $A^2$ turns out to be a multiple of $I$ or of $A$ (so powers repeat)
+R: $A=\begin{pmatrix}0&-2\\2&0\end{pmatrix}$, $\sum M^{2k}$, $(A+I)^{11}$, "$A^{n(n+1)}=I$ for all $n$".
+F: A^2=kI\Rightarrow A^{2m}=k^mI,\ A^{2m+1}=k^mA;\qquad A^2=\lambda A\Rightarrow A^m=\lambda^{m-1}A
+S: Always compute $A^2$ first. || If $A^2=kI$, split the sum into even and odd powers and sum each GP of scalars. || If $A^2=\lambda A$ (idempotent-like), $(A+I)^n=I+\frac{(\lambda+1)^n-1}{\lambda}A$. || Then answer (trace, entries, determinant).
+E: $\begin{pmatrix}0&-2\\2&0\end{pmatrix}^2=-4I$, so $M=\sum_{k=1}^{10}(-4)^kI$ and $N=\sum(-4)^{k-1}A$.
+P: 11:48,49,50,9
+
+Q: If the matrix is a rotation (cos/sin entries) or has complex entries
+R: $\begin{pmatrix}\cos\theta&i\sin\theta\\i\sin\theta&\cos\theta\end{pmatrix}^5$, $f(x)f(y)=f(x+y)$, $Q=A^TBA$ with orthogonal $A$.
+F: R(\theta)^n=R(n\theta),\ R(\theta)^{-1}=R(-\theta),\ (A^TBA)^n=A^TB^nA\ \text{if } AA^T=I
+S: Recognise the rotation form. || Powers multiply the angle; inverse is the negative angle. || For $Q=A^TBA$ with $A$ orthogonal, $Q^n=A^TB^nA$, so $AQ^nA^T=B^n$. || Compute the small power of $B$ (often triangular).
+E: $\begin{pmatrix}\cos\theta&i\sin\theta\\i\sin\theta&\cos\theta\end{pmatrix}^n=\begin{pmatrix}\cos n\theta&i\sin n\theta\\i\sin n\theta&\cos n\theta\end{pmatrix}$.
+P: 11:6,54,55
+
+Q: If symmetric/skew-symmetric parts or properties are used
+R: "$A=P+Q$, $P$ symmetric, $Q$ skew-symmetric, $\det Q=9$", "$A^{13}B^{26}-B^{26}A^{13}$ is symmetric?", "$AA^T=I$; simplify".
+F: P=\frac{A+A^T}2,\ Q=\frac{A-A^T}2;\quad(AB)^T=B^TA^T;\ \text{odd power of skew is skew, even is symmetric}
+S: Split $A$ into $\frac{A+A^T}2+\frac{A-A^T}2$. || To test a combination, take its transpose and compare with itself (or its negative). || Use: $B$ skew ⇒ $B^{2k}$ symmetric, $B^{2k+1}$ skew; $XY-YX$ with $X,Y$ symmetric is skew. || A 3×3 skew-symmetric matrix has determinant 0.
+E: $A=\begin{pmatrix}2&3\\a&0\end{pmatrix}$: $\det Q=\frac{(3-a)^2}4=9\Rightarrow a=9,-3$; $\det P=-\frac{(3+a)^2}4=-36,0$. Answer $36$.
+P: 11:18,19,22,26
+
+Q: If the action of $A$ on some column vectors is given
+R: "$A\begin{pmatrix}1\\1\\1\end{pmatrix}=\ldots$, $A\begin{pmatrix}1\\2\\1\end{pmatrix}=\ldots$", "$AB=B$, $B\ne0$", "non-negative $A$ with $A\mathbf1=3\cdot\mathbf1$".
+F: AB=B,\ B\ne O\Rightarrow|A-I|=0;\quad A[X_1\ X_2\ X_3]=[Y_1\ Y_2\ Y_3]
+S: Put the given vectors as columns of $X$ and the results as columns of $Y$: $AX=Y$, so $A=YX^{-1}$. || Often you don't need $A$: write the asked vector as a combination of the given ones and use linearity. || $AB=\lambda B$ for non-zero $B$ means $\lambda$ is an eigenvalue: $|A-\lambda I|=0$.
+E: $AB=B$: $|A-I|=0\Rightarrow ad-bc-(a+d)+1=0\Rightarrow ad-bc=2020$.
 P: 11:7,21,37,41
 
-Q: If $AA^T=I$ (orthogonal) with entries $a,b,c$ cyclic
-F: a^2+b^2+c^2=1,\ ab+bc+ca=0\Rightarrow(a+b+c)^2=1
-N: Then $a^3+b^3+c^3-3abc=(a+b+c)(1-0)$.
+Q: If a cyclic matrix $\begin{pmatrix}a&b&c\\b&c&a\\c&a&b\end{pmatrix}$ satisfies $A^TA=I$ or $A^2=I$
+R: Entries $a,b,c$ in cyclic order and an orthogonality condition, with a question about $abc$ or $a^3+b^3+c^3$.
+F: a^2+b^2+c^2=1,\ ab+bc+ca=0,\ a^3+b^3+c^3-3abc=(a+b+c)(a^2+b^2+c^2-ab-bc-ca)
+S: Multiply $A^TA$: diagonal gives $a^2+b^2+c^2=1$, off-diagonal gives $ab+bc+ca=0$. || So $(a+b+c)^2=1$. || Use the identity for $a^3+b^3+c^3-3abc$. || Solve for $abc$ with the given value.
+E: $2-3abc=\pm1\Rightarrow abc=\frac13$ or $1$.
 P: 11:10,23
 
-Q: If it counts matrices with entries from a set satisfying a condition
-F: \text{symmetric } 3\times3:\ 6\ \text{free entries};\ \ \text{singular } 2\times2:\ ad=bc\ \text{casework}
+Q: If it counts matrices with entries from a set that satisfy a condition
+R: "Singular 2×2 matrices with entries from $\{2,3,6,9\}$", "symmetric matrices with entries from $S$", "invertible 0–1 matrices".
+F: \begin{vmatrix}a&b\\c&d\end{vmatrix}=0\iff ad=bc
+S: Translate the condition into equations on entries. || Group the possible products/values and count pairs that match. || For symmetric/skew: count only the independent entries (skew needs zeros on the diagonal — check if 0 is allowed).
+E: Products of ordered pairs from $\{2,3,6,9\}$ with multiplicities $1,2,2,4,1,2,1,2,1$; $\sum m^2=36$ singular matrices.
 P: 11:17,24,25,9
 
-Q: If it is a determinant of a matrix in $x$ or a matrix with factorials / $[x]$
-F: \text{row/column operations to create zeros; take common factors out}
-N: For $p!,(p+1)!,\ldots$ take $p!$, $(p+1)!$, $(p+2)!$ out of rows, then simplify.
-P: 11:2,14,15,16,60,61,62,63,64,65,66,67,68,69,73,74,75,39
+Q: If a determinant must be evaluated using properties (row operations, factoring)
+R: Rows with patterns like $a-b-c,2a,2a$, factorials $p!,(p+1)!,(p+2)!$, $(a+1)(a+2)$, AP entries.
+F: R_i\to R_i-R_j\ \text{keeps } |A|;\ \text{common factor of a row comes out};\ \text{two equal rows}\Rightarrow0
+S: Look for the operation that creates zeros or a common factor (add all rows when row sums are equal). || Take the common factors out. || Expand along the row/column with most zeros. || For AP entries, $R_1+R_3-2R_2$ often becomes a zero row.
+E: $\begin{vmatrix}(a+1)(a+2)&a+2&1\\(a+2)(a+3)&a+3&1\\(a+3)(a+4)&a+4&1\end{vmatrix}$: $R_3-R_2$, $R_2-R_1$ give $\begin{vmatrix}2(a+2)&1\\2(a+3)&1\end{vmatrix}=-2$.
+P: 11:14,15,16,60,65,66,67,63
+
+Q: If a determinant is a function $f(x)$ and its maximum, derivative or roots are asked
+R: "$f(x)=\begin{vmatrix}\ldots\end{vmatrix}$; max and min on $[\frac\pi6,\frac\pi3]$", "$2f'(10)-f'(5)+100=0$", determinant with $[x]$ equal to 192.
+F: \text{simplify the determinant to a simple expression first, then use calculus}
+S: Simplify with row/column operations (often $C_1+C_2$ creates a column of equal numbers). || Expand to a short expression in $x$. || Differentiate, or find max/min on the interval, or solve the equation. || For $[x]$ entries, put $[x]=n$ and solve for the integer $n$.
+E: $f(x)=a^3+2a^2x+ax^2$, $f'(x)=2a^2+2ax$; $2f'(10)-f'(5)+100=0\Rightarrow a^2+15a+50=0$, $a=-5,-10$; sum of squares $125$.
+P: 11:2,62,61,64
+
+Q: If the determinant of a product, similar matrix or $X^TAX$ is asked
+R: "$C=ABA^T$, $X=A^TC^2A$; $\det X$", "$|P^{-1}AP-2I|$", "$A'BA$ with $A=(1,1,1)^T$".
+F: |AB|=|A||B|,\ |A^T|=|A|,\ |P^{-1}AP-kI|=|A-kI|;\ \mathbf1^TB\mathbf1=\text{sum of all entries of } B
+S: Replace determinants of products by products of determinants. || $P^{-1}(A-kI)P$ has the same determinant as $A-kI$. || $X^TBX$ with $X$ of ones is the sum of all entries.
+E: $|A|=3$, $|B|=1$ ⇒ $|C|=9$, $|X|=3\cdot81\cdot3=729$.
+P: 11:74,75,39
+
+Q: If entries are logs of a GP, trig values with $\frac{2\pi}3$ steps, or roots of an equation
+R: "$\log a_r^{1}a_k^{2}$ with $a_i$ in GP", "$x\sin\theta=y\sin(\theta+\frac{2\pi}3)=z\sin(\theta+\frac{4\pi}3)$", "matrix with $\alpha^2,\alpha,1$ singular".
+F: a_i \text{ in GP}\Rightarrow\log a_i \text{ in AP}\Rightarrow\text{rows in AP}\Rightarrow|A|=0
+S: Convert logs of a GP into an AP. || Rows (or columns) in AP make the determinant zero ($R_1+R_3-2R_2=0$). || For $\sin\theta+\sin(\theta+\frac{2\pi}3)+\sin(\theta+\frac{4\pi}3)=0$, use it to relate $\frac1x+\frac1y+\frac1z=0$. || For singular conditions, expand and compare with the given equation.
+P: 11:68,69,73
 
 Q: If $B$ is defined by $B(I-A)=I+A$ or $B=(I+A)^{-1}$
-F: B=(I+A)(I-A)^{-1}
-N: For skew $A$, $B$ is orthogonal; use $\operatorname{tr}$ and $|B|=\frac{|I+A|}{|I-A|}$.
+R: "$A$ skew-symmetric, $B(I-A)=I+A$; trace of $B^TB$", "$B=(I+A)^{-1}$, $A+C=I$".
+F: A\ \text{skew}\Rightarrow B=(I+A)(I-A)^{-1}\ \text{is orthogonal}: B^TB=I
+S: Solve for $B$: $B=(I+A)(I-A)^{-1}$. || $(I+A)$ and $(I-A)$ commute, so $B^TB=(I-A)^{-1}{}^T\ldots=I$ when $A^T=-A$. || For $B=(I+A)^{-1}$ and $C=I-A$, compute $BC$ or $CB$ directly using $C=2I-(I+A)$: $CB=2B-I$.
+E: $B^TB=I_3$, so its trace is $3$.
 P: 11:30,31,58
 
-Q: If $AB=O$, $A^5=B^5$, $A^2+B=A^2B$ style abstract claims
-F: AB=O\ \text{with non-zero } A,B\Rightarrow|A|=|B|=0
-N: Manipulate: $A^3(A^2-B^2)=\ldots$; use invertibility to cancel.
-P: 11:32,38,42,27,43,20,28,29,33,34,35,36,40,70
+Q: If it is a true/false statement about abstract matrices ($AB=O$, $A^2+B=A^2B$, $A^5=B^5$)
+R: "Let $A,B$ be non-zero with $AB=O$; then…", "$A^2+B=A^2B$ ⇒ ?", "$P^T=aP+(a-1)I$".
+F: (A^2-I)(B-I)=I\Rightarrow A^2B=BA^2;\quad AB=O,\ A\ne O, B\ne O\Rightarrow|A|=|B|=0
+S: Rearrange to a product equal to $I$ (then the factors are inverses and commute) or to $O$. || If $AB=O$ with both non-zero, both are singular. || Transpose given relations and substitute back (e.g. $P^T=aP+(a-1)I$ ⇒ $P=-I$ type conclusions). || Check claims with a simple 2×2 example when unsure.
+P: 11:32,38,42,27,40
+
+Q: If a matrix equation or system must be solved for an unknown matrix or vector
+R: "$PA=B$ and $AQ=B$", "$A+2B=\ldots$, $2A-B=\ldots$", "$AX=B$ with $\operatorname{adj}A$ given", "$A^8X=\ldots$".
+F: X=A^{-1}B=\frac{\operatorname{adj}A\,B}{|A|},\quad|\operatorname{adj}A|=|A|^{n-1}
+S: Treat matrices like unknowns in linear equations (but keep the order of multiplication). || To solve $AX=B$, use $X=A^{-1}B$; get $|A|$ from $|\operatorname{adj}A|=|A|^2$ for 3×3. || If $A$ is singular, check consistency instead (the system has none or infinitely many solutions). || Trace is linear: $\operatorname{tr}(A)-\operatorname{tr}(B)$ from the linear combinations directly.
+E: $\operatorname{adj}A$ given with determinant $|A|^2$; then $X=\frac{\operatorname{adj}A\cdot B}{|A|}$ (both signs of $|A|$ give the same $|x+y+z|$).
+P: 11:43,29,33,34,35,36,70,28
+
+Q: If it asks which matrix can be obtained by one elementary row operation
+R: "Which of the following can NOT be obtained from $\begin{pmatrix}-1&2\\1&-1\end{pmatrix}$ by a single elementary row operation?"
+F: R_i\leftrightarrow R_j,\ R_i\to kR_i\ (k\ne0),\ R_i\to R_i+kR_j
+S: For each option, check whether only one row changed (or two rows swapped). || If one row changed, check whether it equals $k\times$ itself or itself $+k\times$ the other row.
+P: 11:20

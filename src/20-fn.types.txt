@@ -1,62 +1,178 @@
-@ fn | Sets, Relations & Functions | 11 | Calculus
+@ fn | Sets, Relations & Functions | 11 | Algebra
 
 ## If this type comes, solve like this
-Q: If a relation is defined on a small set and asks for the number of elements
-F: \text{list pairs systematically (fix } x,\ \text{count valid } y)
-N: Then for "minimum pairs to add to make it reflexive/symmetric/transitive/equivalence": add missing $(a,a)$, add reverses, then close under transitivity, in that order.
-P: 04:1,4,9,11,12,17,8
+Q: If a relation on a small set is described and the number of its elements (pairs) is asked
+R: "$xRy$ iff $2x+y\le2$ on $\{-2,\ldots,4\}$", "$(a,b)R(c,d)$ iff $2a+3b=3c+4d$", "$(x,y)R(z,w)$ iff $x\mid z$ and $y\le w$", "$R_1=\{(p,p^n)\}$".
+F: n(R)=\sum_{x}\#\{y:(x,y)\in R\}
+S: Fix the first element $x$ and list all $y$ that work. || Add the counts over $x$. || For relations on $A\times A$ with independent conditions on the two coordinates, multiply the two counts. || Read off minimal/maximal properties (domain, range) from the list.
+E: $x\mid z$ on $\{2,\ldots,6\}$: $3+2+1+1+1=8$ pairs; $y\le w$: $15$ pairs; total $8\times15=120$.
+P: 04:1,9,11,12,8
 
-Q: If it asks whether a relation is reflexive / symmetric / transitive / equivalence
-F: \text{test } (a,a),\ (a,b)\Rightarrow(b,a),\ (a,b),(b,c)\Rightarrow(a,c)
-N: For divisibility-type ($3x+\alpha y$ multiple of 7): reflexive gives $3+\alpha\equiv0$; then symmetry/transitivity follow. One counter-example is enough to say "not".
+Q: If the minimum number of pairs to add to make a relation reflexive/symmetric/transitive/equivalence is asked
+R: "Minimum elements to add to $\{(a,b),(b,c),(b,d)\}$ to make an equivalence relation", "make $R=\{(x,y):\ln(x+y)\le2\}$ transitive".
+F: \text{equivalence classes}: \text{an equivalence relation with classes } C_i \text{ has } \sum|C_i|^2 \text{ pairs}
+S: For an equivalence relation, find which elements must end up in the same class (linked by any chain). || Count $\sum|C_i|^2$ and subtract the pairs already present. || For transitivity, list all pairs $(a,c)$ forced by $(a,b),(b,c)$ that are missing; repeat until nothing new appears.
+E: $a\sim b\sim c$, $b\sim d$: one class of 4 elements → 16 pairs; add $16-3=13$.
+P: 04:4,17
+
+Q: If you must decide whether a relation is reflexive, symmetric, transitive or an equivalence
+R: "$\gcd(a,b)=1$, $2a\ne b$", "$3ad-7bc$ is even", "$A\triangle B=\emptyset$ on the power set", "$3x+\alpha y$ multiple of 7 is an equivalence iff…", "$1+ab>0$".
+F: \text{R: } (a,a)\in R\ \forall a;\ \ \text{S: } (a,b)\Rightarrow(b,a);\ \ \text{T: } (a,b),(b,c)\Rightarrow(a,c)
+S: Test reflexive with a general $a$ (and find a failing example). || Test symmetric by swapping. || For transitive, try small counterexamples (e.g. $\gcd(2,3)=\gcd(3,4)=1$ but $\gcd(2,4)=2$). || For parameter questions, impose reflexivity first; it usually fixes the parameter, then check the rest. || Count equivalence classes when asked (e.g. $\frac ab=\frac cd$ classes are fractions).
+E: $3x+\alpha x\equiv0\pmod7$ for all $x$ ⇒ $\alpha\equiv4\pmod7$; then $3x+4y\equiv0\iff x\equiv y$, an equivalence.
 P: 04:2,3,5,6,10,18
 
-Q: If it counts relations with properties (symmetric, reflexive and transitive, etc.)
-F: \text{symmetric: } 2^{\frac{n(n+1)}2};\ \text{reflexive: } 2^{n^2-n};\ \text{symmetric not reflexive: } 2^{\frac{n(n+1)}2}-2^{\frac{n(n-1)}2}
-P: 04:7,13,16,04:14,15,19
+Q: If the number of relations with given properties is counted
+R: "Symmetric relations on $\{1,2,3,4\}$ that are not reflexive", "reflexive and transitive but not symmetric, containing $(1,2)$, at most 6 elements".
+F: \text{relations on } n:\ 2^{n^2};\ \text{reflexive}: 2^{n^2-n};\ \text{symmetric}: 2^{\frac{n(n+1)}2};\ \text{both}: 2^{\frac{n(n-1)}2}
+S: Count the "free" pairs for the property and raise 2 to that power. || "Not reflexive" etc.: subtract from the total of the bigger class. || For small sets with several properties, list cases by hand (start with the forced pairs).
+E: Symmetric: $2^{10}=1024$; symmetric and reflexive: $2^6=64$; answer $960$.
+P: 04:13,7
 
-Q: If it is a three-set survey with "at least/at most" numbers
+Q: If it is about subsets of $A\times B$, inverse relations or relations defined by inequalities on integers
+R: "Subsets of $A\times B$ with 3 to 6 elements", "domain of $R^{-1}$ for $x^2+3y^2\le8$", "sequence $(a_1,a_2),(a_2,a_3),\ldots$ in $R$".
+F: n(A\times B)=n(A)n(B),\ \ \text{domain of } R^{-1}=\text{range of } R
+S: Find the size of $A\times B$ and sum $\binom{N}{k}$ over the allowed $k$. || For integer-point relations, list the points satisfying the inequality. || For chains, follow the rule step by step to the longest possible sequence.
+P: 04:16,14,15,19
+
+Q: If it is a survey with two or three sets (at least / at most / exactly)
+R: "220 students, at least 125 and at most 130 study Mathematics…", "25% read A, 20% read B, 8% both", "students numbered 1–140 opting courses by divisibility".
 F: n(A\cup B\cup C)=\sum n(A)-\sum n(A\cap B)+n(A\cap B\cap C)
-N: Draw the Venn diagram with variables in each region; use the totals to bound the asked region.
-P: 30:1,3,7,8,30:2,4,5,6,9
+S: Draw a Venn diagram and give a variable to each region. || Translate each statement into an equation or inequality on the regions. || "Exactly one" $=\sum n(A)-2\sum n(A\cap B)+3n(A\cap B\cap C)$. || For bounds, push the variables to their extremes.
+P: 30:1,3,7,8
 
-Q: If it asks the domain of a composite function
-F: \log:\ \text{arg}>0;\ \ \sin^{-1}/\cos^{-1}:\ |\text{arg}|\le1;\ \ \sqrt{\ }:\ \ge0;\ \ \text{den}\ne0
-N: Work from the outside in: e.g. $\log_3\log_5(7-\log_2(\cdot))$ needs $\log_5(\ldots)>0$ ⇒ $7-\log_2(\ldots)>1$.
+Q: If it uses set identities or counts subsets (power sets, Venn statements)
+R: "Subsets of $A$ are 56 more than those of $B$", "$\emptyset\ne A\cap B\subseteq C$; which is not true", "which Venn diagram fits the statement".
+F: n(P(A))=2^{n(A)};\ \ A\cup(B\cap C)=(A\cup B)\cap(A\cup C)
+S: Write $2^m-2^n=56$ and factor: $2^n(2^{m-n}-1)=8\cdot7$. || Test statements with a small example set or a Venn diagram.
+E: $n=3$, $m=6$.
+P: 30:2,4,5
+
+Q: If a set is defined by number-theory conditions, or a word problem reduces to sets/equations
+R: "$A=\{n:\gcd(n,45)=1\}$, $B$ even numbers up to 200; sum of $A\cap B$", "work done by two masons".
+F: \text{sum of multiples, inclusion–exclusion}
+S: Translate into "not divisible by 3 or 5" type conditions. || Sum with AP formulas and inclusion–exclusion. || For work problems set up rates and solve.
+P: 30:6,9
+
+Q: If the domain of a composite function (logs, inverse trig, roots) is asked
+R: "$\log_3\log_5(7-\log_2(x^2-10x+85))+\sin^{-1}|\frac{3x-7}{17-x}|$", "$\frac{\sqrt{x^2-25}}{4-x^2}+\log(x^2+2x-15)$", domain of $f\circ g$.
+F: \sqrt u: u\ge0;\ \log u: u>0;\ \sin^{-1}u,\cos^{-1}u: |u|\le1;\ \frac1u: u\ne0
+S: List the condition for each piece, from the outermost function inwards (for $\log_a\log_b(\ldots)$: inner log $>0$, i.e. argument $>1$). || Solve each inequality. || Intersect all conditions. || For $f\circ g$: $x$ in the domain of $g$ and $g(x)$ in the domain of $f$.
+E: $\frac1{\sqrt{10+3x-x^2}}+\frac1{\sqrt{x+|x|}}$: $(-2,5)\cap(0,\infty)=(0,5)$, so $(1+a)^2+b^2=26$.
 P: 10:1,2,6,15,20
 
-Q: If it asks the range of a rational function or trig expression
-F: y=\frac{\text{quad}}{\text{quad}}\Rightarrow D\ge0\ \text{in } x;\quad\text{trig: reduce to one function, use its range}
-P: 10:5,12,16,17,18,21,28,29,30,33,32
+Q: If the range of a rational function is asked
+R: "$f(x)=\frac{5-x}{x^2-3x+2}$ has range $(-\infty,\alpha]\cup[\beta,\infty)$", "$\frac{x^2+2x-15}{x^2-4x+9}$ is one-one/onto?", "$\frac{x^2}{1-x^2}$ surjective onto $A$".
+F: y=\frac{P(x)}{Q(x)}\Rightarrow yQ(x)-P(x)=0,\ \ D\ge0
+S: Put $y=f(x)$ and cross-multiply into a quadratic in $x$. || For real $x$, discriminant $\ge0$: an inequality in $y$. || Remove $y$-values that need excluded $x$, and treat the case where the $x^2$ coefficient vanishes. || The resulting set is the range (for surjectivity, the codomain must equal it).
+E: $yx^2+(1-3y)x+2y-5=0$: $D=y^2+14y+1\ge0$ ⇒ $\alpha+\beta=-14$, $\alpha\beta=1$, $\alpha^2+\beta^2=194$.
+P: 10:5,16,18
 
-Q: If it composes $f$ with itself ($f^n$) for a Möbius map
-F: f(x)=\frac{ax+b}{cx+d}\leftrightarrow\begin{pmatrix}a&b\\c&d\end{pmatrix},\ f^n\leftrightarrow M^n
-N: Compute matrix powers (or find a pattern after 2–3 steps).
+Q: If the range of a trigonometric / inverse-trigonometric / log-of-trig expression is asked
+R: "$\frac{\sin^4\theta+3\cos^2\theta}{\sin^4\theta+\cos^2\theta}$", "$2\cos^{-1}x+4\cot^{-1}x-3x^2-2x+10$", "$\log_{\sqrt5}(3+\cos(\ldots)+\ldots)$", "Sgn sums".
+F: \text{put } t=\sin^2\theta\in[0,1];\ \ a\sin x+b\cos x\in[-\sqrt{a^2+b^2},\sqrt{a^2+b^2}]
+S: Reduce to one variable $t$ with a known interval. || Study the function of $t$ (monotonic? use derivative or simple bounds). || For log/exp outside, apply it to the inner range (direction depends on the base). || For sign functions, check each quadrant separately.
+E: $\operatorname{Sgn}$ sum is $4,-2,0,-2$ in the four quadrants: range $\{4,0,-2\}$, sum $2$.
+P: 10:12,29,30,33,32
+
+Q: If the range of a sum of square roots, or of $[x]$-type compositions, is asked
+R: "$\sqrt{3-x}+\sqrt{2+x}$", "domain of $\frac{[x]}{1+x^2}$ is $[2,6)$; range", "range of $f\circ g$ with piecewise $f,g$".
+F: (\sqrt a+\sqrt b)^2=a+b+2\sqrt{ab}
+S: Square to get a constant plus $2\sqrt{\text{product}}$; the product is a downward parabola with a known max on the domain. || Min at an endpoint, max where the product is largest. || For piecewise compositions, find the range of the inner function on each piece, then apply the outer function.
+E: $5+2\sqrt{(3-x)(2+x)}\in[5,10]$ ⇒ range $[\sqrt5,\sqrt{10}]$.
+P: 10:28,17,21
+
+Q: If $f$ is composed with itself many times (Möbius map $\frac{ax+b}{cx+d}$)
+R: "$f^1(x)=\frac{3x+2}{2x+3}$, $f^n=f\circ f^{n-1}$; $f^5$".
+F: \frac{ax+b}{cx+d}\leftrightarrow\begin{pmatrix}a&b\\c&d\end{pmatrix},\ \ f^n\leftrightarrow M^n
+S: Write the coefficient matrix. || Raise it to the power (diagonalise or spot a pattern). || Read the composite function and simplify by the gcd.
+E: $\begin{pmatrix}3&2\\2&3\end{pmatrix}^n=\frac12\begin{pmatrix}5^n+1&5^n-1\\5^n-1&5^n+1\end{pmatrix}$; $f^5=\frac{1563x+1562}{1562x+1563}$, $a+b=3125$.
 P: 10:4
 
-Q: If it counts functions with conditions (one-one, onto, $f(a)\ne1$, increasing)
-F: \text{onto } m\to n:\ \sum(-1)^k\binom nk(n-k)^m;\ \text{strictly increasing}: {}^nC_m
-N: Handle a restriction by complement (onto with $f(a)=1$ removed), or case-split on the restricted element.
-P: 10:9,7,37,44,45,46,47,48,49,50,52,53,54,55,56,22
+Q: If onto functions or functions with value conditions are counted
+R: "Onto $f:\{a,b,c,d,e\}\to\{1,2,3,4\}$ with $f(a)\ne1$", "$f(1)+f(2)=f(3)$", "$f(x)\le(x-3)^2+1$", "$f(mn)=f(m)f(n)$", "onto $f:S\times S\to S$ with symmetry".
+F: \#\text{onto } (n\to r)=\sum_{k=0}^{r}(-1)^k\binom rk(r-k)^n
+S: Count all onto maps with inclusion–exclusion. || Use symmetry for a single-value restriction: each value is equally likely for $f(a)$. || For sum conditions, count pairs $(f(1),f(2))$ that make $f(3)$ valid; multiply by free choices. || For bounds, multiply the number of allowed values for each $x$.
+E: Onto maps $5\to4$: $240$; with $f(a)=1$: $\frac{240}4=60$; answer $180$.
+P: 10:9,47,55,56,22
 
-Q: If it asks one-one / onto / bijective
-F: \text{one-one: } f' \text{ of one sign or } f(a)=f(b)\Rightarrow a=b;\ \ \text{onto: range}=\text{codomain}
-P: 10:5,14,38,39,40,41,42,43,18
+Q: If one-one functions with extra conditions are counted
+R: "One-one $f:A\to B$ with $f(1)+f(3)=14$", "$2f(a)-f(b)+3f(c)+f(d)=0$", "$f(1)\ge3$, $f(3)\le4$, $f(2)+f(3)=5$", "one-one $f:S\to P(S)$ with $f(n)\subset f(m)$".
+F: \text{fix the constrained values first, then } {}^{m}P_{k} \text{ for the rest}
+S: List the allowed values (or pairs) for the constrained elements — distinct values only. || For each case, the remaining elements are mapped one-one into the remaining values: ${}^{m}P_{k}$. || Add over cases.
+E: Pairs with sum 14 from $B$: $(2,12),(12,2),(4,10),(10,4)$; rest $5\cdot4\cdot3=60$; total $240$.
+P: 10:48,49,53,44,45,46
 
-Q: If it is a functional equation
-F: f(x+y)=f(x)f(y)\Rightarrow f(x)=a^x;\ \ f(x+y)=f(x)+f(y)\Rightarrow f(x)=kx;\ \ f(x+y)+f(x-y)=2f(x)f(y)\Rightarrow\cos
-N: Substitute $y=0$, $y=x$, $x\to\frac1{1-x}$ cycles (three substitutions for $f(x)+f(\frac1{1-x})$ type).
-P: 10:24,25,27,57,58,59,60,26,3,11
+Q: If increasing functions, or bijections with an order condition, are counted
+R: "Strictly increasing $f:\{1..6\}\to\{1..9\}$ with $f(i)\ne i$", "bijections with $f(3)\ge f(9)\ge f(15)\ge\cdots$".
+F: \text{strictly increasing } A\to B:\ \binom{|B|}{|A|};\ \ \text{ordered block of } k:\ \binom nk(n-k)!
+S: An increasing function is just a choice of the image set. || With an order condition on $k$ elements, choose their $k$ values ($\binom nk$, order forced), then arrange the rest freely. || Subtract bad cases (like $f(i)=i$) by inclusion–exclusion if needed.
+E: 17 constrained odd numbers: $\binom{50}{17}\cdot33!=\frac{50!}{17!}$.
+P: 10:52,50
 
-Q: If it asks for a sum like $\sum f\left(\frac k n\right)$ with $f(x)+f(c-x)$ constant
-F: \text{pair } k \text{ with } n\cdot c-k
+Q: If functions $g$ with $g\circ f=f$ (or $f\circ g$ given) are counted, or $f$ is evaluated on a special set
+R: "$f(k)=k+1$ for odd $k$, $k$ for even; number of $g$ with $g\circ f=f$", "$f\circ g(n)$ given; find $g$", "$f$ on the prime factors of 2310".
+F: g\circ f=f\iff g(y)=y\ \text{for every } y \text{ in the range of } f
+S: Find the range of $f$. || $g$ is forced on the range; free elsewhere. || Count $|\text{codomain}|^{\#\text{free points}}$.
+E: Range $\{2,4,6,8,10\}$; $g$ is free on 5 points: $10^5$.
+P: 10:37,54,7
+
+Q: If one-one / onto / bijective must be decided
+R: "$f(n)=$ highest prime factor of $n$", "$\frac{2^x-2^{-x}}{2^x+2^{-x}}$ from $\mathbb R$ to $(-\infty,1)$", "$g\circ f$ with piecewise $f,g$", "$g(3n+1)=3n+2,\ldots$".
+F: \text{one-one}\iff f(a)=f(b)\Rightarrow a=b\ (\text{or strictly monotonic});\ \ \text{onto}\iff\text{range}=\text{codomain}
+S: Check monotonicity with the derivative or a pair of equal values. || Find the range and compare with the codomain. || For piecewise functions, check each piece and whether the pieces overlap in values.
+E: $\tanh$-type $\frac{2^x-2^{-x}}{2^x+2^{-x}}$ is increasing with range $(-1,1)\ne(-\infty,1)$: one-one, not onto.
+P: 10:14,38,39,40,41,42,43
+
+Q: If a functional equation of Cauchy type ($f(x+y)=f(x)+f(y)$ or $f(x)f(y)$) is given
+R: "$f(x+y)=f(x)f(y)$, $f(1)=3$, $\sum f(k)=3279$", "$f(x+y)=f(x)+f(y)$, $f(1)=\frac15$", "$f(x+y)=2f(x)f(y)$", "$f(x+y)=f(x)+2y^2+y+\alpha xy$".
+F: f(x+y)=f(x)+f(y)\Rightarrow f(n)=nf(1);\ \ f(x+y)=f(x)f(y)\Rightarrow f(n)=f(1)^n
+S: Recognise the type and write $f(n)$ in closed form. || For a modified type, put $y=0$, $x=0$, or $y=1$ to get a recurrence, then solve it. || Use the closed form in the sum and solve.
+E: $f(k)=3^k$: $\frac{3(3^n-1)}2=3279\Rightarrow3^n=2187$, $n=7$.
+P: 10:24,25,58,57
+
+Q: If a functional equation links $f(x)$ with $f$ of a transformed argument ($\frac1{1-x}$, $\frac1x$) or a cos-type rule
+R: "$f(x)+f(\frac1{1-x})=1+x$", "$f(x+y)+f(x-y)=2f(x)f(y)$", "$f(1)+2f(2)+\cdots+xf(x)=x(x+1)f(x)$", "$\log_2f(x)=\ldots\log_3(1+\frac{f(x)}{f(1/x)})$".
+F: x\to\frac1{1-x}\to\frac{x-1}x\to x\ \text{(cycle of 3)}
+S: Substitute the cycle values to get a system of equations. || Add/subtract to isolate $f(x)$. || For the cos-type rule $f=\cos(kx)$; for cumulative sums, subtract the equation at $x-1$ to get a recurrence.
+E: $x=2,-1,\frac12$: $f(2)+f(-1)=3$, $f(-1)+f(\frac12)=0$, $f(\frac12)+f(2)=\frac32$ ⇒ $f(2)=\frac94$.
+P: 10:27,59,60,26
+
+Q: If $f(g(x))$ is given and another composite value, or $g$ as the inverse of an odd polynomial, is asked
+R: "$4g(f(x))=3x^2-32x+72$ with $g(x)=3x^2+2x-3$", "$g(f(x))=x$ for $f(x)=\alpha x^5+\beta x^3+\gamma x$".
+F: g(f(x))=x\Rightarrow g=f^{-1};\ \ \text{odd increasing } f\Rightarrow f^{-1}\text{ odd}
+S: Put $u=f(x)$ and solve $g(u)=$ the given expression (a quadratic in $u$); choose the branch using a known value like $f(0)$. || For inverse questions, use symmetry (odd functions) and the fact that $f$ is strictly increasing.
+P: 10:3,11
+
+Q: If $\sum f\left(\frac kn\right)$ is asked where $f(x)+f(c-x)$ is constant
+R: "$f(x)=\frac{2^{x+2}+16}{2^{2x+1}+2^{x+4}+32}$; $8\sum_{k=1}^{59}f(\frac k{15})$".
+F: f(x)+f(c-x)=K\ \Rightarrow\ \sum\ \text{pairs up}
+S: Compute $f(x)+f(c-x)$ for the natural $c$ (here $c=4$). || Pair the terms $k$ and $60-k$. || Count the pairs and the middle term.
 P: 10:8
 
-Q: If it asks for an inverse function
-F: y=f(x)\Rightarrow\text{solve for } x;\ \ y=\frac{a^x-a^{-x}}{a^x+a^{-x}}\Rightarrow x=\frac1{2\ln a}\ln\frac{1+y}{1-y}
+Q: If the inverse of a function is asked
+R: "Inverse of $\frac{8^{2x}-8^{-2x}}{8^{2x}+8^{-2x}}$", "$f(x)=(x-1)^4+1$ on $[1,\infty)$: solutions of $f(x)=f^{-1}(x)$".
+F: y=\frac{a^{t}-a^{-t}}{a^{t}+a^{-t}}\Rightarrow t=\frac12\log_a\frac{1+y}{1-y};\quad f(x)=f^{-1}(x)\iff f(x)=x\ (f\text{ increasing})
+S: Put $y=f(x)$ and solve for $x$. || Swap letters. || For $f=f^{-1}$ with $f$ increasing, solve $f(x)=x$ instead.
+E: $8^{4x}=\frac{1+y}{1-y}\Rightarrow f^{-1}(x)=\frac14\log_8\frac{1+x}{1-x}$.
 P: 10:10,23
 
-Q: If it has $[x]$ or $\{x\}$ in an equation
-F: x=[x]+\{x\},\ \ 0\le\{x\}<1
-N: Put $[x]=n$, solve for $\{x\}$ and keep $0\le\{x\}<1$.
-P: 10:19,13,35,36,34,10:31,51,61,62,63,64,65,66
+Q: If an equation contains $[x]$ or $\{x\}$
+R: "$|2a-1|=3[a]+2\{a\}$", "$x^2-12x+[x]+31=0$", "$[x+3]+[x+4]\le3$", "$[-\frac13]+[-\frac13-\frac1{100}]+\cdots$".
+F: x=[x]+\{x\},\ \ 0\le\{x\}<1,\ \ [x+n]=[x]+n
+S: Write $x=n+f$ with $n$ integer and $0\le f<1$. || Substitute; the equation splits into an integer part and a fractional part (or gives $f$ in terms of $n$). || Impose $0\le f<1$ to get the allowed $n$. || For sums of $[\ ]$, find where the value jumps and count the terms in each block.
+E: $[x+3]+[x+4]\le3\Rightarrow2[x]+7\le3\Rightarrow[x]\le-2\Rightarrow x<-1$.
+P: 10:19,13,35,36,34
+
+Q: If the number of real roots must be found by graphs or monotonicity
+R: "$\log_{\frac12}|\sin x|=2-\log_{\frac12}|\cos x|$ in $[0,2\pi]$", "$x^7-7x-2=0$", "$x^2+3x+2=\min\{|x-3|,|x+2|\}$".
+F: \text{sign changes between critical points} \Rightarrow \text{roots}
+S: Simplify where possible (logs combine into $|\sin2x|=\ldots$). || For polynomials, find critical points and check the sign of $f$ at them. || For piecewise right sides, sketch both graphs and count intersections.
+E: $f'(x)=7x^6-7=0$ at $\pm1$: $f(-1)=4>0$, $f(1)=-8<0$ ⇒ 3 real roots.
+P: 10:61,62,63
+
+Q: If a power series or a determinant defines $f$ and a value is asked; or even/odd parts
+R: "$f(x)=\sum kx^k$; $2f(2)+f'(2)$", "$y=\frac12x^2+\frac23x^3+\cdots$; $e^{1+y}$", "determinant $f(x)$ with $a-2b+c=1$", "$a^x=f_1+f_2$ (even + odd)", range of $y=x\ln\frac25$-type relation.
+F: \sum_{k\ge1}\frac{x^k}k=-\ln(1-x);\ \ f_{\text{even}}=\frac{f(x)+f(-x)}2
+S: Recognise the series as a derivative or integral of a GP. || Simplify the determinant with row operations before differentiating. || Even part $\frac{a^x+a^{-x}}2$: then $f_1(x+y)+f_1(x-y)=2f_1(x)f_1(y)$.
+P: 10:64,65,66,51,31

@@ -1,24 +1,62 @@
 @ 3d | Three-Dimensional Geometry | 12 | Vectors & 3D
 
 ## If this type comes, solve like this
-Q: If the image of a point in a line (or the foot of perpendicular) is asked
-F: \text{general point } P=\vec a+\lambda\vec b;\ (P-Q)\cdot\vec b=0\Rightarrow\lambda;\ \ \text{image}=2P-Q
-P: 29:2,18,28,51,21
+Q: If the foot of the perpendicular (or the image) of a point in a line is asked
+R: "Image of $(1,0,7)$ in $\frac x1=\frac{y-1}2=\frac{z-2}3$", "foot of perpendicular from $(1,2,2)$ on $L$", "foot from $(\lambda,2,3)$ is $(1,\mu,2)$".
+F: Q=A+t\vec d,\quad(\vec P-\vec Q)\cdot\vec d=0,\quad\text{image}=2Q-P
+S: Write a general point of the line: $Q=(x_0+at,\ y_0+bt,\ z_0+ct)$. || $\vec{PQ}$ must be perpendicular to the direction $(a,b,c)$: dot product $=0$ gives $t$. || Substitute $t$ to get the foot $Q$. || Image $P'=2Q-P$. || If the foot is given, equate coordinates to find the unknowns.
+E: $\vec{PQ}=(t-1,1+2t,3t-5)$; dot with $(1,2,3)$: $14t-14=0$, $t=1$, $Q=(1,3,5)$, image $(1,6,3)$.
+P: 29:2,28,51
 
-Q: If the shortest distance between two lines (possibly one given as two planes)
-F: d=\frac{|(\vec a_2-\vec a_1)\cdot(\vec b_1\times\vec b_2)|}{|\vec b_1\times\vec b_2|}
-N: For a line given by two planes, direction $=\vec n_1\times\vec n_2$, point by putting one coordinate $=0$. If the distance is given, solve for the parameter.
-P: 29:3,4,10,74,75,30
+Q: If a distance is measured along a given direction, or a point at a given distance on a line is needed
+R: "Distance of $P(43,\alpha,\beta)$ from a line along direction ratios $3,-1,0$ is $13\sqrt{10}$", "line through $P$ parallel to $3\hat i+2\hat j+2\hat k$; $Q$ with given distance from $R$".
+F: \text{point on the line}=P+r\,\hat d\ \ (\hat d \text{ a unit vector})
+S: Write the point as $P+r\hat d$ (or $P+t\vec d$). || Impose the condition (lies on the other line, distance from $R$ given). || Solve for $t$; the distance is $|t|\,|\vec d|$.
+P: 29:18,21
 
-Q: If lines intersect / are coplanar / perpendicular
-F: \text{intersect}\iff(\vec a_2-\vec a_1)\cdot(\vec b_1\times\vec b_2)=0;\ \ \perp\iff\vec b_1\cdot\vec b_2=0
-N: To find the intersection point equate general points and solve two coordinates, check the third.
-P: 29:20,29,76,13,19
+Q: If the shortest distance between two skew lines is asked
+R: "$\frac{x-1}2=\frac{y-2}3=\frac{z-3}4$ and $\frac{x-\lambda}3=\frac{y-4}4=\frac{z-5}5$; SD $=\frac1{\sqrt6}$", "points on the line of shortest distance".
+F: SD=\frac{\left|(\vec a_2-\vec a_1)\cdot(\vec b_1\times\vec b_2)\right|}{|\vec b_1\times\vec b_2|};\ \ \text{parallel}: \frac{|(\vec a_2-\vec a_1)\times\vec b|}{|\vec b|}
+S: Read a point and direction from each line. || Compute $\vec b_1\times\vec b_2$. || Dot it with $\vec a_2-\vec a_1$ and divide by its magnitude. || For the line of SD, take general points on both lines and make $\vec{PQ}$ perpendicular to both directions.
+E: $\vec b_1\times\vec b_2=(-1,2,-1)$, $\vec a_2-\vec a_1=(\lambda-1,2,2)$: SD $=\frac{|3-\lambda|}{\sqrt6}=\frac1{\sqrt6}$ ⇒ $\lambda=2,4$.
+P: 29:4,74,75,30
 
-Q: If a line through a point makes equal angles with axes / is perpendicular to two lines
-F: \text{d.r.}\ (1,1,1);\ \ \perp\text{ to both: } \vec b_1\times\vec b_2
+Q: If one line is given as the intersection of two planes
+R: "SD between $\frac{x-1}0=\frac{y+1}{-1}=\frac z1$ and $x+y+z+1=0$, $2x-y+z+3=0$", "$l_2: 3x+2y+z-2=0=x-3y+2z-13$".
+F: \vec d=\vec n_1\times\vec n_2
+S: Direction of the line $=\vec n_1\times\vec n_2$. || A point on it: put $z=0$ (or another variable) and solve the two plane equations. || Now treat it like a normal line.
+E: $\vec n_1\times\vec n_2=(2,1,-3)$; with $z=0$: $(-\frac43,\frac13,0)$.
+P: 29:3
+
+Q: If two lines intersect at $R$ and further distances/areas with $R$ are asked
+R: "$L_1$ and $L_2$ intersect at $R$; $P$, $Q$ are points on them…".
+F: \text{solve } \vec a_1+\lambda\vec b_1=\vec a_2+\mu\vec b_2 \text{ (two coordinates), check the third}
+S: Equate general points; solve two coordinate equations for $\lambda,\mu$. || Check the third coordinate. || Get $R$ and continue with distances or areas.
+P: 29:10
+
+Q: If two lines must intersect (or be coplanar), and a parameter is found
+R: "The lines intersect; minimum of $8\alpha\beta$", "$l_1$ and $l_2$ (as planes) are coplanar", "a line with d.r. $2,1,2$ meets two lines at $P$ and $Q$".
+F: \text{intersect}\iff(\vec a_2-\vec a_1)\cdot(\vec b_1\times\vec b_2)=0\ \text{(and not parallel)}
+S: Rewrite each line in symmetric form (watch signs like $\frac{2-y}{-3}=\frac{y-2}3$). || Equate general points: solve two equations for the parameters, substitute in the third. || This gives the condition on the unknown(s). || Optimise if asked (e.g. a quadratic in $\alpha$).
+E: $t=s=-1$; third coordinate gives $\beta=\alpha-3$; $8\alpha\beta=8(\alpha^2-3\alpha)\ge-18$, magnitude $18$.
+P: 29:29,76,13
+
+Q: If lines are perpendicular or the angle between lines (or feet on two lines) is asked
+R: "$l_1\perp l_2$, then angle between $l_2$ and $l_3$", "feet $Q$, $R$ of perpendiculars from $P$ on $L_1$, $L_2$; area of $PQR$".
+F: \cos\theta=\frac{|a_1a_2+b_1b_2+c_1c_2|}{\sqrt{a_1^2+b_1^2+c_1^2}\sqrt{a_2^2+b_2^2+c_2^2}}
+S: Bring each line to the form $\frac{x-x_0}a=\frac{y-y_0}b=\frac{z-z_0}c$ (coefficient of $x,y,z$ must be $+1$). || Perpendicular: dot product of directions $=0$. || Angle: use the cosine formula. || For feet on two lines, use the foot method twice.
+P: 29:20,19
+
+Q: If a line makes equal angles with the axes, or is perpendicular to two given lines, or its angles have a relation
+R: "Line through $(-3,5,2)$ making equal angles with the axes", "line through the origin perpendicular to $l_1$ and $l_2$", "$\beta=\gamma=\frac\alpha2$".
+F: \text{equal angles: d.r. }(1,1,1);\ \ \perp\text{ to both}: \vec b_1\times\vec b_2;\ \ \cos^2\alpha+\cos^2\beta+\cos^2\gamma=1
+S: Get the direction: $(1,1,1)$, or the cross product of the two directions. || Write the line through the given point. || For angle relations, substitute into $\cos^2\alpha+\cos^2\beta+\cos^2\gamma=1$. || Then compute the asked distance or point.
+E: $\beta=\gamma=\frac\alpha2$: $\cos^2\alpha+1+\cos\alpha=1$ ⇒ $\cos\alpha=0$, so $\alpha=90^\circ$, $\beta=\gamma=45^\circ$.
 P: 29:6,7,38
 
-Q: If direction cosines satisfy two equations ($l+m-n=0$, quadratic)
-F: \text{eliminate one variable, solve the quadratic in a ratio, get two sets of d.c.}
+Q: If direction cosines satisfy a linear and a quadratic equation (two lines)
+R: "$4l+m-n=0$ and $2mn+10nl+3lm=0$; angle between the lines", "$l+m-n=0$, $3l^2+m^2+cn=0$ give parallel lines".
+F: \text{substitute } n \text{ from the linear equation; factor the quadratic in } l:m
+S: Express $n$ from the linear equation. || Substitute into the quadratic: a homogeneous quadratic in $l,m$. || Factor to get two ratios $l:m$, hence two direction ratios. || Angle by the cosine formula; "parallel lines" means the quadratic has equal roots ($D=0$).
+E: $40l^2+21lm+2m^2=0\Rightarrow(8l+m)(5l+2m)=0$: d.r. $(1,-8,-4)$ and $(2,-5,3)$; $\cos\theta=\frac{30}{9\sqrt{38}}$.
 P: 29:31,52

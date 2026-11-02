@@ -1,23 +1,55 @@
 @ hyp | Hyperbola | 11 | Coordinate Geometry
 
 ## If this type comes, solve like this
-Q: If foci, directrix, $e$, LR or focal distances are given
-F: b^2=a^2(e^2-1),\ \ \text{LR}=\frac{2b^2}a,\ \ |SP-S'P|=2a,\ \ SP\cdot S'P=e^2x^2-a^2
-N: For a vertical hyperbola (foci on $x=1$, etc.) swap roles of $x$ and $y$. Conjugate hyperbola: $\frac1{e_1^2}+\frac1{e_2^2}=1$.
-P: 22:1,2,5,6,8,9,13,14,16,17,21,22
+Q: If foci, directrix, a point, or $e$ is given and the hyperbola (LR, $e$, axes) must be found
+R: "Foci $(1,14)$, $(1,-12)$ and passes through $(1,6)$", "$x=1$ is a directrix of $kx^2-y^2=6$", "distance between foci 6 and between directrices $\frac83$", "passes through $(6,4\sqrt3)$ and $15(e^2+1)=34e$".
+F: b^2=a^2(e^2-1),\ \ \text{foci }(\pm ae,0),\ \ \text{directrices } x=\pm\frac ae,\ \ \text{LR}=\frac{2b^2}a
+S: Find the centre (midpoint of the foci) and the direction of the transverse axis. || Write $c=ae$ (half the distance between the foci). A given point lying on the transverse axis is a vertex, which gives $a$. || Otherwise use the defining property $|PS-PS'|=2a$, or equations from directrices ($\frac{2a}e$). || Get $b^2=c^2-a^2$ and then the LR.
+E: Centre $(1,1)$, $c=13$, vertex $(1,6)$ ⇒ $a=5$, $b^2=144$, LR $=\frac{288}5$.
+P: 22:1,2,5,9,16,17
 
-Q: If it shares foci/vertices with an ellipse
-F: \text{ellipse foci } (\pm ae,0)\ \text{with } a^2e^2=a^2-b^2;\ \ \text{hyperbola: } a^2e^2=a^2+b^2
-P: 22:3,4,7,10,11,18,19,20,26,15
+Q: If focal distances of a point, or the triangle formed by a point and the foci, are used
+R: "Product of focal distances of $P(4,2\sqrt3)$ is 32", "area of the triangle formed by $P$ and the foci is $2\sqrt{13}$", "chord $PQ\perp$ x-axis and $OPQ$ equilateral".
+F: SP=ex-a,\ S'P=ex+a\ (x>0),\ \ |S'P-SP|=2a,\ \ \text{area}=\tfrac12\cdot2ae\cdot|y|
+S: For a point $(x,y)$ on the right branch, $SP=ex-a$ and $S'P=ex+a$; product $e^2x^2-a^2$. || Area of $\triangle PSS'$ is $ae|y|$: gives $y$, then $x$ from the equation. || Equilateral $OPQ$ with $PQ$ vertical: $P=(x,\frac x{\sqrt3})$.
+E: $\frac{x^2}9-\frac{y^2}4=1$: $ae=\sqrt{13}$, area $\sqrt{13}|y|=2\sqrt{13}\Rightarrow y=2$, $x^2=18$.
+P: 22:6,22,23,24
 
-Q: If a line does not meet / touches the hyperbola
-F: c^2=a^2m^2-b^2\ \text{(tangent)};\ \text{no intersection: solve for } x,\ D<0
+Q: If a family of hyperbolas with a parameter is compared ($e$ rational, $e$ and LR of related hyperbolas)
+R: "$H_n:\frac{x^2}{1+n}-\frac{y^2}{3+n}=1$; smallest even $n$ with rational $e$", "$x^2-y^2\sec^2\theta=8$ and $x^2\sec^2\theta+y^2=16$", "sum of axes given and $e$ given".
+F: e^2=1+\frac{b^2}{a^2}
+S: Write $e^2$ (and the LR) in terms of the parameter. || Impose the condition (rational $e$ means $e^2$ is a perfect square of a rational). || For pairs of conics, compare $e$ and LR expressions and solve.
+P: 22:8,13,14,21
+
+Q: If the hyperbola shares foci or vertices with an ellipse
+R: "$\frac{x^2}{144}+\frac{y^2}{169}=1$ and $\frac{x^2}{16}-\frac{y^2}{\lambda^2}=-1$ have the same foci", "$e_1e_2=1$", "transverse axis $\sqrt2$, same foci as $3x^2+4y^2=12$".
+F: \text{ellipse}: c^2=a^2-b^2;\ \ \text{hyperbola}: c^2=a^2+b^2
+S: Find the foci of the given conic: $c$. || For the other conic use its own relation for $c$. || Use the extra condition ($e_1e_2=1$, length of an axis, ratio of eccentricities) to finish. || Conjugate form $\frac{x^2}{a^2}-\frac{y^2}{b^2}=-1$ has its transverse axis along y.
+E: Ellipse foci $(0,\pm5)$; hyperbola $\frac{y^2}{\lambda^2}-\frac{x^2}{16}=1$: $\lambda^2+16=25$, $\lambda^2=9$; $e=\frac53$, LR $=\frac{32}3$.
+P: 22:3,4,7,10,11,18,19,20,26
+
+Q: If the roots of an equation must be eccentricities of a hyperbola and an ellipse
+R: "$e_1,e_2$ distinct roots of $x^2-ax+2=0$ are eccentricities of hyperbolas / of an ellipse and a hyperbola".
+F: \text{ellipse}: 0<e<1;\ \ \text{hyperbola}: e>1
+S: Translate into root-location conditions: both roots $>1$, or one root in $(0,1)$ and one $>1$. || Use $D>0$, $f(1)$ sign and the vertex position (or $f(0)f(1)<0$, $f(1)<0$). || Solve for $a$.
+P: 22:15
+
+Q: If a line must not meet the hyperbola, touch it, or the nearest point is asked
+R: "$\alpha x+2y=1$ does not meet $x^2-9y^2=9$", "point of $3x^2-4y^2=36$ nearest to $3x+2y=1$", tangents combined with circles/parabolas.
+F: y=mx+c\ \text{tangent to } \frac{x^2}{a^2}-\frac{y^2}{b^2}=1\iff c^2=a^2m^2-b^2
+S: Substitute the line into the hyperbola: a quadratic in $x$. || No intersection: $D<0$ (and leading coefficient $\ne0$; if it is 0 the line is parallel to an asymptote and meets once). || Nearest point to a line: the tangent there is parallel to the line; use $c^2=a^2m^2-b^2$ and the point of contact $\left(-\frac{a^2m}c,-\frac{b^2}c\right)$.
+E: $(4-9\alpha^2)x^2+18\alpha x-45=0$ has $D<0$ iff $\alpha^2>\frac59$.
 P: 22:25,27,31,32,33
 
-Q: If rectangular hyperbola $xy=c^2$ points/chords
-F: (ct,\tfrac ct);\ \text{chord midpoint } (h,k)\Rightarrow\text{chord } \tfrac xh+\tfrac yk=2
+Q: If points are on a rectangular hyperbola $xy=c^2$ (or $x^2y^2=1$)
+R: "$P,Q$ on $xy=12$ with midpoint $(\frac12,-\frac12)$; area of $OPQ$", "square with vertices and side mid-points on $x^2y^2=1$".
+F: P=\left(ct,\frac ct\right),\ \ \text{chord with midpoint }(h,k):\ \frac xh+\frac yk=2
+S: Use the parametric point $(ct,\frac ct)$. || For a chord with known midpoint, use $\frac xh+\frac yk=2$ (or $t_1+t_2$, $\frac1{t_1}+\frac1{t_2}$ from the midpoint). || Solve for the points and compute the area.
 P: 22:28,29
 
-Q: If locus of a point of intersection / centroid
-F: \text{eliminate the parameter: } \sec^2-\tan^2=1\ \text{or } k\cdot\tfrac1k
-P: 22:12,30,23,24
+Q: If a locus turns out to be a hyperbola (intersection of a line pair with a parameter, centroid with the foci)
+R: "Locus of the intersection of $\sqrt3kx+ky-4\sqrt3=0$ and $\sqrt3x-y-4\sqrt3k=0$", "centroid of $P$ and the two foci of $16x^2-9y^2+\ldots=0$".
+F: \text{eliminate the parameter (multiply the two equations)}
+S: Solve each equation for the parameter and equate, or multiply to cancel it. || Simplify to the standard form and read $e$. || For centroids: $x=3h-(\text{sum of other }x)$, substitute into the conic.
+E: $(\sqrt3x+y)(\sqrt3x-y)=48\Rightarrow\frac{x^2}{16}-\frac{y^2}{48}=1$, $e=2$.
+P: 22:12,30
