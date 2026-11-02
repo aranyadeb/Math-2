@@ -315,6 +315,9 @@ body.fonly .ri,body.fonly .rrow{padding:10px 14px!important}
 .studym .mode .t{font-size:22px}
 @media print{.fob,.opench{display:none!important}}
 @media (max-width:700px){.rrow .ra .katex,.recap .rf .katex{white-space:normal}.rgrid>.ri,.rlist>.rrow{width:100%}}
+.recap .rsec{display:block;font-size:13px;font-weight:700;letter-spacing:.02em;color:#c9ced6;margin-bottom:4px}
+.recap .ri.rfirst{border-left:3px solid #6b7380!important}
+.recap h3{margin-top:26px}
 </style>
 </head>
 <body>
@@ -363,7 +366,7 @@ const ELEMENTS=MATHS.map(m=>m[0]),ENAMES=MATHS.map(m=>m[1]),MAXL=MATHS.length;
 const INTERVAL=[0,0,1,3,7,16]; // days per Leitner box
 const DAY=864e5;
 let DB=[], BYID={}, S, cur=null;
-const DSHA='3985011c51382bfb7e5879533c9c152616db3cd5';
+const DSHA='7a5652b8ad3584e27fe1426442f5ee0721d1c0f9';
 
 /* ---------- storage ---------- */
 const KEY='maths100.v1';
@@ -622,7 +625,7 @@ function studyView(){if(!S.chap.length)return home();showBack();cur=null;rd=null
 function recapView(k){applyF();if(k===undefined)k=S.kind||"";RK=k;showBack();cur=null;rd=null;const notes=!!S.recapNotes;window.scrollTo(0,0);
   const chs=CHAPTERS.filter(c=>S.chap.includes(c.k));
   const body=chs.map(ch=>{const cards=DB.filter(c=>c.ch===ch.k&&(k!=='t'||c.pyq)&&(k!=='f'||!c.pyq));const groups=[];cards.forEach(c=>{let g=groups.find(x=>x.si===c.si);if(!g)groups.push(g={si:c.si,t:c.stitle,cs:[]});g.cs.push(c)});
-    return `<h3 style="--c:${ch.color}">${esc(ch.name)} <span style="font-size:13px;color:var(--muted);font-weight:400">Class ${ch.cls}</span></h3>`+groups.map(g=>`<div class="rg"><h4>${chem(g.t)}</h4><div class="rgrid">${g.cs.map(c=>`<div class="ri"><div class="rp">${chem(c.q)}${S.cards[c.id]?.t?' · <b style="color:var(--bad)">difficult</b>':''}</div><div class="rf">${kx('\\displaystyle '+c.f,false)}</div>${c.pyq&&c.spot?`<div class="rn"><b>Spot:</b> ${chem(c.spot)}</div>`:''}${c.pyq&&c.steps?`<ol class="rn steps">${c.steps.split('||').map(x=>`<li>${chem(x.trim())}</li>`).join('')}</ol>`:''}${(notes||c.pyq)&&c.note?`<div class="rn">${chem(c.note)}</div>`:''}${c.pyq?`<div class="rn"><b>${esc(c.pyq)}</b></div>`:''}</div>`).join('')}</div></div>`).join('')}).join('');
+    return `<h3 style="--c:${ch.color}">${esc(ch.name)} <span style="font-size:13px;color:var(--muted);font-weight:400">Class ${ch.cls}</span></h3>`+`<div class="rgrid">`+groups.map(g=>`${g.cs.map((c,ci)=>`<div class="ri${ci===0?" rfirst":""}"><div class="rp">${ci===0?`<span class="rsec">${chem(g.t)}</span>`:""}${chem(c.q)}${S.cards[c.id]?.t?' · <b style="color:var(--bad)">difficult</b>':''}</div><div class="rf">${kx('\\displaystyle '+c.f,false)}</div>${c.pyq&&c.spot?`<div class="rn"><b>Spot:</b> ${chem(c.spot)}</div>`:''}${c.pyq&&c.steps?`<ol class="rn steps">${c.steps.split('||').map(x=>`<li>${chem(x.trim())}</li>`).join('')}</ol>`:''}${(notes||c.pyq)&&c.note?`<div class="rn">${chem(c.note)}</div>`:''}${c.pyq?`<div class="rn"><b>${esc(c.pyq)}</b></div>`:''}</div>`).join('')}`).join('')+`</div>`}).join('');
   document.getElementById('app').innerHTML=`<div><div class="playbar recapbar"><button class="iconbtn" id="rcHome">${FROMSTUDY?"Back to chapters":"Home"}</button><span style="font-weight:700">${chs.length} chapter${chs.length===1?'':'s'} · ${DB.filter(c=>S.chap.includes(c.ch)&&(k!=='t'||c.pyq)&&(k!=='f'||!c.pyq)).length} ${k==='t'?'question types':'formulas'}</span>
     <label class="toggle" style="margin-left:auto"><input type="checkbox" id="rcNotes" ${notes?'checked':''}> Show conditions</label>${fobtn()}<button class="iconbtn" id="rcPrint">Print / save PDF</button></div><div class="recap">${body}</div></div>`;
   document.getElementById('rcHome').onclick=()=>FROMSTUDY?studyView():home();document.getElementById('rcPrint').onclick=()=>print();
