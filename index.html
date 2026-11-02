@@ -299,6 +299,22 @@ canvas#fx{position:fixed;inset:0;pointer-events:none;z-index:7}
 }
 @media (pointer:coarse){.keys{display:none}}
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+
+/* variable-width boxes: each box is as wide as its formula needs */
+.rgrid,.rlist{display:flex!important;flex-direction:row!important;flex-wrap:wrap!important;gap:14px!important;align-items:stretch}
+.rgrid>.ri,.rlist>.rrow{flex:1 1 auto;width:min-content;min-width:min(100%,15em);max-width:none;box-sizing:border-box}
+.rrow .ra,.recap .rf{overflow:visible!important;max-width:none!important}
+.rrow .ra .katex,.recap .rf .katex{white-space:nowrap}
+.play.wide,.recap{overflow:visible}
+body.fonly .ri>:not(.rf),body.fonly .rrow>:not(.ra),body.fonly .rcard>:not(.a):not(.rnav){display:none!important}
+body.fonly .ri,body.fonly .rrow{padding:10px 14px!important}
+.fob[aria-pressed="true"]{background:var(--ink);color:var(--bench)}
+.opench{position:sticky;bottom:14px;z-index:6;display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin:18px 0 6px;padding:12px 14px;background:#16191e;border:1px solid #2c3037;border-radius:14px;box-shadow:0 6px 24px rgba(0,0,0,.45)}
+.opench .btn{font-size:19px}.opench span{color:var(--muted);font-size:16px}
+.study .sttl{font-weight:700;font-size:17px;line-height:1.3}
+.studym .mode .t{font-size:22px}
+@media print{.fob,.opench{display:none!important}}
+@media (max-width:700px){.rrow .ra .katex,.recap .rf .katex{white-space:normal}.rgrid>.ri,.rlist>.rrow{width:100%}}
 </style>
 </head>
 <body>
@@ -347,7 +363,7 @@ const ELEMENTS=MATHS.map(m=>m[0]),ENAMES=MATHS.map(m=>m[1]),MAXL=MATHS.length;
 const INTERVAL=[0,0,1,3,7,16]; // days per Leitner box
 const DAY=864e5;
 let DB=[], BYID={}, S, cur=null;
-const DSHA='90b5fe7a298c3f76edaf0a721098cc1f1b1873a3';
+const DSHA='3985011c51382bfb7e5879533c9c152616db3cd5';
 
 /* ---------- storage ---------- */
 const KEY='maths100.v1';
@@ -366,6 +382,7 @@ function plain(s){return String(s).replace(/\$[^$]*\$/g,'…').replace(/[_^{}]/g
 /* ---------- data ---------- */
 async function getJSON(p){const srcs=[p,'https://cdn.jsdelivr.net/gh/aranyadeb/Math-2@'+DSHA+'/'+p,'https://raw.githubusercontent.com/aranyadeb/Math-2/'+DSHA+'/'+p];
   for(const u of srcs){try{const j=await fetch(u);if(j.ok)return await j.json()}catch(e){}}throw new Error('missing '+p)}
+function applyF(){try{document.body.classList.toggle('fonly',!!(S&&S.fonly))}catch(e){}}
 async function boot(){
   try{
     const idx=await getJSON('data/index.json');
@@ -438,7 +455,7 @@ function gainXP(n,anchor){const before=level();S.xp+=n;save();topbar();if(anchor
  const after=level();if(after>before){beep('win');confetti(140);toast('Level up! You are now '+ENAMES[after-1])}}
 
 /* ---------- home ---------- */
-function home(){hideBack();
+function home(){hideBack();FROMSTUDY=false;applyF();
   cur=null;topbar();const L=level(),lo=xpFor(L),hi=xpFor(Math.min(MAXL,L+1));
   const p=pool(),tough=toughIds().filter(id=>inSel(BYID[id].ch)).length;
   const due=p.filter(c=>isDue(c.id)).length,fresh=p.filter(c=>isNew(c.id)).length,mast=DB.filter(c=>isMastered(c.id)).length;
@@ -466,7 +483,7 @@ function home(){hideBack();
   </div>
   <h2 class="sec">Pick your chapters</h2><p class="hint" style="margin-top:-6px">The small number on each tile is how many formula cards it has.</p>
   ${chapHtml}<div class="unit" style="--c:var(--ink)">Everything<button data-unit="*">${CHAPTERS.every(c=>S.chap.includes(c.k))?'Clear all':'Select all 30'}</button></div>
-  ${S.chap.length?'':'<p class="hint">Tap one or more chapters to choose what to practise.</p>'}
+  ${S.chap.length?`<div class="opench"><button class="btn primary" id="openCh">Open ${S.chap.length===1?esc(chapterOf(S.chap[0]).name):S.chap.length+' chapters'} →</button><span>Flashcards, short notes or question types</span></div>`:'<p class="hint">Tap one or more chapters, then open them to read flashcards, short notes or question types.</p>'}
   <div class="secpick">${S.chap.length===1?`<label for="secSel">Part:</label><select id="secSel">${secOpts}</select>`:S.chap.length?`<span style="color:var(--muted)">Select a single chapter to drill one part of it.</span>`:''}</div>
   <h2 class="sec">What to include</h2>
   <div class="counts" role="group" aria-label="Card kinds">${[['','All cards'],['f','Formulas only'],['t','Question types (solve like this)']].map(([k,t])=>`<button class="cnt" data-kind="${k}" aria-pressed="${(S.kind||'')===k}">${t}</button>`).join('')}</div>
@@ -494,6 +511,7 @@ function home(){hideBack();
   const co=document.getElementById('cntOwn');co.onchange=()=>{const v=Math.round(+co.value);if(v>0){S.round=Math.min(v,DB.length);save();home()}};
   const ss=document.getElementById('secSel');if(ss)ss.onchange=()=>{S.sec=ss.value;save();home()};
   document.querySelectorAll('.mode').forEach(b=>b.onclick=()=>start(b.dataset.mode));
+  const oc=document.getElementById('openCh');if(oc)oc.onclick=studyView;
 }
 
 /* ---------- sessions ---------- */
@@ -574,18 +592,44 @@ function goHome(){if(cur&&cur.tick)clearInterval(cur.tick);cur=null;rd=null;home
 addEventListener('popstate',()=>goHome());
 document.addEventListener('click',e=>{if(e.target&&e.target.id==='backBtn'){try{if(history.state&&history.state.v){history.back();return}}catch(x){}goHome()}});
 
+/* study: inside the chosen chapters */
+function fobtn(){return `<button class="iconbtn fob" aria-pressed="${!!S.fonly}" title="Hide all text and show formulas only">${S.fonly?'Show all text':'Formulas only'}</button>`}
+document.addEventListener('click',e=>{const b=e.target&&e.target.closest&&e.target.closest('.fob');if(!b)return;S.fonly=!S.fonly;save();document.body.classList.toggle('fonly',S.fonly);
+  document.querySelectorAll('.fob').forEach(x=>{x.setAttribute('aria-pressed',S.fonly);x.textContent=S.fonly?'Show all text':'Formulas only'})});
+function studyView(){if(!S.chap.length)return home();showBack();cur=null;rd=null;FROMSTUDY=true;window.scrollTo(0,0);
+  document.body.classList.toggle('fonly',!!S.fonly);
+  const chs=CHAPTERS.filter(c=>S.chap.includes(c.k)),F=DB.filter(c=>S.chap.includes(c.ch)&&!c.pyq),T=DB.filter(c=>S.chap.includes(c.ch)&&c.pyq);
+  const open=(cards)=>{if(!cards.length)return toast('Nothing here yet');rd={cards,i:0,from:0,list:false,pile:'study'};markDay(true);readView()};
+  document.getElementById('app').innerHTML=`<div class="study">
+  <div class="playbar"><button class="iconbtn" id="stHome">Change chapters</button><span class="sttl">${chs.map(c=>esc(c.name)).join(' · ')}</span></div>
+  <h2 class="sec">What do you want to see?</h2>
+  <div class="modes studym">
+    <button class="mode read" data-st="cards"><span class="t">Detailed revision flashcards</span><span class="d">One formula at a time with its conditions, derivation, graph and memory hook.</span><span class="n">${F.length} cards</span></button>
+    <button class="mode recapm" data-st="notes"><span class="t">Short notes</span><span class="d">Every formula of these chapters on one page, in boxes. Switch to formulas only for a fast scan.</span><span class="n">${F.length} formulas</span></button>
+    <button class="mode" data-st="types"><span class="t">Question types</span><span class="d">If this type comes, solve like this: how to spot it, the steps, a worked example and the trap.</span><span class="n">${T.length} types</span></button>
+    <button class="mode" data-st="tnotes"><span class="t">Question types on one page</span><span class="d">All the types of these chapters in boxes, with the steps to solve each.</span><span class="n">${T.length} types</span></button>
+  </div>
+  <h2 class="sec">Then test yourself</h2>
+  <div class="modes">
+    <button class="mode" data-st="play"><span class="t">Play a round</span><span class="d">See only the name, recall the formula, then check.</span><span class="n">${roundN()} cards</span></button>
+    <button class="mode" data-st="sprint"><span class="t">60-second sprint</span><span class="d">How many can you recall in one minute?</span><span class="n">Best: ${S.best}</span></button>
+  </div></div>`;
+  document.getElementById('stHome').onclick=()=>{FROMSTUDY=false;home();window.scrollTo(0,0)};
+  document.querySelectorAll('[data-st]').forEach(b=>b.onclick=()=>{const m=b.dataset.st;
+    if(m==='cards')open(F);else if(m==='types')open(T);else if(m==='notes')recapView('f');else if(m==='tnotes')recapView('t');else start(m)})}
+
 /* quick recap */
-function recapView(){showBack();cur=null;rd=null;const notes=!!S.recapNotes;window.scrollTo(0,0);
+function recapView(k){applyF();if(k===undefined)k=S.kind||"";RK=k;showBack();cur=null;rd=null;const notes=!!S.recapNotes;window.scrollTo(0,0);
   const chs=CHAPTERS.filter(c=>S.chap.includes(c.k));
-  const body=chs.map(ch=>{const cards=DB.filter(c=>c.ch===ch.k&&(S.kind!=='t'||c.pyq)&&(S.kind!=='f'||!c.pyq));const groups=[];cards.forEach(c=>{let g=groups.find(x=>x.si===c.si);if(!g)groups.push(g={si:c.si,t:c.stitle,cs:[]});g.cs.push(c)});
+  const body=chs.map(ch=>{const cards=DB.filter(c=>c.ch===ch.k&&(k!=='t'||c.pyq)&&(k!=='f'||!c.pyq));const groups=[];cards.forEach(c=>{let g=groups.find(x=>x.si===c.si);if(!g)groups.push(g={si:c.si,t:c.stitle,cs:[]});g.cs.push(c)});
     return `<h3 style="--c:${ch.color}">${esc(ch.name)} <span style="font-size:13px;color:var(--muted);font-weight:400">Class ${ch.cls}</span></h3>`+groups.map(g=>`<div class="rg"><h4>${chem(g.t)}</h4><div class="rgrid">${g.cs.map(c=>`<div class="ri"><div class="rp">${chem(c.q)}${S.cards[c.id]?.t?' · <b style="color:var(--bad)">difficult</b>':''}</div><div class="rf">${kx('\\displaystyle '+c.f,false)}</div>${c.pyq&&c.spot?`<div class="rn"><b>Spot:</b> ${chem(c.spot)}</div>`:''}${c.pyq&&c.steps?`<ol class="rn steps">${c.steps.split('||').map(x=>`<li>${chem(x.trim())}</li>`).join('')}</ol>`:''}${(notes||c.pyq)&&c.note?`<div class="rn">${chem(c.note)}</div>`:''}${c.pyq?`<div class="rn"><b>${esc(c.pyq)}</b></div>`:''}</div>`).join('')}</div></div>`).join('')}).join('');
-  document.getElementById('app').innerHTML=`<div><div class="playbar recapbar"><button class="iconbtn" id="rcHome">Home</button><span style="font-weight:700">${chs.length} chapter${chs.length===1?'':'s'} · ${DB.filter(c=>S.chap.includes(c.ch)).length} formulas</span>
-    <label class="toggle" style="margin-left:auto"><input type="checkbox" id="rcNotes" ${notes?'checked':''}> Show conditions</label><button class="iconbtn" id="rcPrint">Print / save PDF</button></div><div class="recap">${body}</div></div>`;
-  document.getElementById('rcHome').onclick=home;document.getElementById('rcPrint').onclick=()=>print();
-  document.getElementById('rcNotes').onchange=e=>{S.recapNotes=e.target.checked;save();recapView()}}
+  document.getElementById('app').innerHTML=`<div><div class="playbar recapbar"><button class="iconbtn" id="rcHome">${FROMSTUDY?"Back to chapters":"Home"}</button><span style="font-weight:700">${chs.length} chapter${chs.length===1?'':'s'} · ${DB.filter(c=>S.chap.includes(c.ch)&&(k!=='t'||c.pyq)&&(k!=='f'||!c.pyq)).length} ${k==='t'?'question types':'formulas'}</span>
+    <label class="toggle" style="margin-left:auto"><input type="checkbox" id="rcNotes" ${notes?'checked':''}> Show conditions</label>${fobtn()}<button class="iconbtn" id="rcPrint">Print / save PDF</button></div><div class="recap">${body}</div></div>`;
+  document.getElementById('rcHome').onclick=()=>FROMSTUDY?studyView():home();document.getElementById('rcPrint').onclick=()=>print();
+  document.getElementById('rcNotes').onchange=e=>{S.recapNotes=e.target.checked;save();recapView(RK)}}
 
 /* reader */
-let rd=null;
+let rd=null,RK='',FROMSTUDY=false;
 function selKey(){return S.chap.slice().sort().join(',')+'|'+S.sec}
 function readPos(){return (S.readPos||{})[selKey()]||0}
 function startRead(list,pile){let cards,from=0;
@@ -593,12 +637,12 @@ function startRead(list,pile){let cards,from=0;
     cards=p.slice(from,from+n);if(cards.length<n)cards.push(...p.slice(0,Math.min(from,n-cards.length)))}
   if(!cards.length)return;rd={cards,i:0,from,list:!!S.readList,pile:pile||''};markDay(true);readView()}
 function readTop(){return `<div class="playbar"><button class="iconbtn" id="rquit">Stop</button><div class="prog"><i style="width:${rd.list?100:100*(rd.i+1)/rd.cards.length}%"></i></div><span class="count">${rd.list?rd.cards.length+' cards':(rd.i+1)+'/'+rd.cards.length}</span>
-  <div class="rview" role="group" aria-label="View"><button data-v="0" aria-pressed="${!rd.list}">Cards</button><button data-v="1" aria-pressed="${rd.list}">List</button></div></div>`}
-function readBind(){document.getElementById('rquit').onclick=()=>{rd=null;home()};
+  ${fobtn()}<div class="rview" role="group" aria-label="View"><button data-v="0" aria-pressed="${!rd.list}">Cards</button><button data-v="1" aria-pressed="${rd.list}">List</button></div></div>`}
+function readBind(){document.getElementById('rquit').onclick=()=>{const st=rd&&rd.pile==='study';rd=null;st?studyView():home()};
   document.querySelectorAll('.rview button').forEach(b=>b.onclick=()=>{rd.list=b.dataset.v==='1';S.readList=rd.list;save();readView()})}
 function tBtn(){return ''}
 function tBind(){bindMarks(rd&&!rd.list?(id=>setTimeout(()=>{if(rd&&!rd.list&&rd.cards[rd.i]?.id===id)readStep(1)},250)):null)}
-function readView(){showBack();cur=null;if(rd&&rd.cards[rd.i])setFlame(rd.cards[rd.i].ch);const app=document.getElementById('app');window.scrollTo(0,0);
+function readView(){applyF();showBack();cur=null;if(rd&&rd.cards[rd.i])setFlame(rd.cards[rd.i].ch);const app=document.getElementById('app');window.scrollTo(0,0);
   if(rd.list){app.innerHTML=`<div class="play wide">${readTop()}<div class="rlist">${rd.cards.map((c,k)=>`<div class="rrow">${marksHtml(c,true)}<div><span class="n">${k+1}.</span><span class="rq">${chem(c.q)}</span></div><div class="ra">${chem(c.a)}</div><div class="rh">${c.note?chem(c.note)+' · ':''}${c.hook?'Hook: '+chem(c.hook)+' · ':''}${esc(chapterOf(c.ch).name)}</div></div>`).join('')}</div>
     <div class="rdone"><button class="btn primary" id="rprac">Practise these ${rd.cards.length} now</button>${rd.pile?'':`<button class="btn" id="rmore">Read the next ${roundN()}</button>`}</div></div>`;
     readBind();tBind();doneBind();return}
@@ -614,7 +658,7 @@ function readDone(){savePos();
   document.getElementById('app').innerHTML=`<div class="play"><div class="summary" style="text-align:left"><h2 class="sec" style="margin-top:0">You read ${rd.cards.length} cards.</h2>
   <p>Now test yourself on the same cards: you'll see only the question and judge whether you know it.</p>
   <div class="rdone"><button class="btn primary" id="rprac">Practise these ${rd.cards.filter(c=>rd.pile==='e'||!isEasy(c.id)).length} now</button>${rd.pile?'':`<button class="btn" id="rmore">Read the next ${roundN()}</button>`}<button class="btn" id="rhome">Home</button></div></div></div>`;
-  doneBind();document.getElementById('rhome').onclick=()=>{rd=null;home()};document.getElementById('rprac').focus()}
+  doneBind();document.getElementById('rhome').onclick=()=>{const st=rd&&rd.pile==='study';rd=null;st?studyView():home()};document.getElementById('rprac').focus()}
 function doneBind(){document.getElementById('rprac').onclick=()=>{if(rd.list)savePos();const pile=rd.pile;const cs=rd.cards.filter(c=>pile==='e'||!isEasy(c.id));rd=null;
     if(!cs.length){toast('All of these are marked very easy');return home()}newSession('play',S.shuffle?shuffle(cs):cs,pile==='t',pile==='e')};
   const m=document.getElementById('rmore');if(m)m.onclick=()=>{if(rd.list)savePos();startRead()}}
